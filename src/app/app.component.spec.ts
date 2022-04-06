@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'stpl-web'`, () => {
+  it(`should have as title 'eAuction'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('stpl-web');
+    expect(app.title).toEqual('eAuction');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('stpl-web app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('eAuction app is running!');
   });
 });
