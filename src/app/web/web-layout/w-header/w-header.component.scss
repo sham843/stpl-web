@@ -1,0 +1,27 @@
+.navbar .navbar-brand img{
+    width: 150px;
+}
+.navbar{
+    font-size: 0.9rem;
+}
+.navbar .nav-link{
+    color: #454545;
+    padding:8px 25px;
+    border-radius: 20px;
+}
+.navbar .nav-link:hover{
+    background-color: #eee;
+    color: #000;
+}
+.navbar .dropdown-menu{
+    padding: 10px;
+    font-size: 0.9rem;
+    border: none;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1);
+    border-radius: 10px;
+}
+.navbar .dropdown-menu .dropdown-item{
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: #454545;
+}

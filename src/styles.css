@@ -1,3 +1,15 @@
 body{
     font-family: 'Inter', sans-serif;
 }
+:root{
+    --main-color:rgb(0, 48, 130);
+    --blue-color:rgb(26, 117, 206);
+}
+.text-main{
+    color: var(--main-color);
+}
+.bg-main,
+.btn-main{
+    background-color: var(--main-color);
+    color: #fff;
+}
