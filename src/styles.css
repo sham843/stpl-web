@@ -9,7 +9,7 @@ body{
     color: var(--main-color);
 }
 .bg-main,
-.btn-main{
+.btn-main,.btn-main:hover{
     background-color: var(--main-color);
     color: #fff;
 }

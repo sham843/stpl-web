@@ -1,0 +1,57 @@
+#ProductBannerCarousel .carousel-item img,
+#ProductBannerCarousel .carousel-inner,
+#ProductBannerCarousel .carousel-item {
+    border-radius: 20px;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+}
+
+#product-info {
+    position: absolute;
+    bottom: -100px;
+    right: -80px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    z-index: 10;
+    padding: 40px;
+    border: none;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    #product-info {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+}
+#carouselExampleCaptions .carousel-inner .carousel-item img{
+    width: 30px;
+    display:block;
+}
+#carouselExampleCaptions .carousel-inner .carousel-item h4{
+    font-weight: 600;
+    margin-bottom:10px;
+}
+#carouselExampleCaptions .carousel-inner .carousel-item p{
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+#carouselExampleCaptions .carousel-inner .carousel-item a{
+    font-size:0.85rem;
+}
+.carousel-icons{
+    width: 90px;
+    position: absolute;
+    top: 120px;
+}
+.carousel-icons button{
+    background: #eee;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #111;
+}
