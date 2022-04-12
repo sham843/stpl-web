@@ -20,13 +20,7 @@
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
-@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-    #product-info {
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-        background-color: rgba(255, 255, 255, 0.5);
-    }
-}
+
 #carouselExampleCaptions .carousel-inner .carousel-item img{
     width: 30px;
     display:block;
@@ -54,4 +48,36 @@
     height: 40px;
     border-radius: 50%;
     color: #111;
+}
+#aboutus h3{
+    font-weight: 900;
+    margin-bottom: 15px;
+}
+#aboutus p{
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.7rem;
+}
+#aboutus a{
+    font-size: 0.9rem;
+    padding: 8px 20px;
+}
+.sec-head{
+    margin-bottom: 20px;
+}
+.sec-head h3{
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+.sec-head p{
+    font-size:0.85rem;
+    color: #888;
+    margin-bottom: 10px;
+}
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    #product-info {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.5);
+    }
 }
