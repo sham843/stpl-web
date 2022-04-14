@@ -184,6 +184,7 @@
       transform: translateX(0.125em);
     }
   }
+#testimonials,
 #products{
     background-color:#111827;
 }
@@ -270,22 +271,36 @@
     justify-content: center;
     align-content: center;
     flex-wrap: nowrap;
-    background-color: rgba(255,255,255, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
     display: flex;
     width: 29%;
-    border-radius:15px;
+    border-radius: 15px;
 }
 #Blogcarousel .carousel-indicators .list-group{
     width: 100%;
     margin-right: 39px;
-    border-radius: 15px;
     margin-left: 12px;
+    margin-block: 15px;
+    border-radius:0;
+    display: flow-root;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow: scroll;
+}
+#Blogcarousel .carousel-indicators .list-group::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
 }
 #Blogcarousel .carousel-indicators .list-group .list-group-item{
     padding:10px;
+    border:0;
+    background-color:transparent;
+    border-bottom: solid 1px #e5e7eb;
+    border-left: solid 3px transparent;
 }
 #Blogcarousel .carousel-indicators .list-group .active{
-    background-color: rgba(0,0,0,0.8);
+    border-left: solid 3px var(--main-color);
+    color:#000;
 }
 #Blogcarousel .carousel-indicators [data-bs-target]{
     width: 100%;
@@ -298,4 +313,55 @@
 #Blogcarousel .carousel-item{
     border-radius: 15px;
     height:600px
+}
+#Blogcarousel #blog-list .blogger-pic{
+  width:50px;
+  border-radius:50%;
+}
+#Blogcarousel #blog-list .blog-title{
+  font-weight:500;
+  font-size:0.95rem;
+  line-height: 1.45rem;
+}
+#Blogcarousel #blog-list .blogger-name,
+#Blogcarousel #blog-list .blog-date{
+  margin:0;
+}
+#Blogcarousel #blog-list .blogger-name{
+  font-size:0.85rem;
+  font-weight:600;
+}
+#Blogcarousel #blog-list .blog-date{
+  font-size:0.75rem;
+  color:#555;
+}
+#Blogcarousel .carousel-caption {
+  right: 0%; 
+  left: 0%; 
+  padding: 1rem; 
+  text-align: left; 
+  background: linear-gradient(360deg, rgb(0 0 0) 0%, rgb(255 255 255 / 0%) 100%);
+  bottom:0;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+#Blogcarousel .carousel-caption .caption-title{
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+#Blogcarousel .carousel-caption .caption-pic{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+}
+#Blogcarousel .carousel-caption .caption-name,
+#Blogcarousel .carousel-caption .caption-date{
+  margin-bottom: 0;
+}
+#Blogcarousel .carousel-caption .caption-name{
+  font-size:0.95rem;
+  font-weight:600;
+}
+#Blogcarousel .carousel-caption .caption-date{
+  font-size:0.75rem
 }
