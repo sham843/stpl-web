@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: '',component: WebLayoutComponent,  loadChildren: () => import('./web/web-layout/web-layout.module').then(m => m.WebLayoutModule) },
   
   
+  
 ];
 
 @NgModule({
