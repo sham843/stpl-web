@@ -1,0 +1,259 @@
+
+.blogHead .blogTitle {
+    font-size: 36px;
+    margin: 0;
+    position: relative;
+    padding-left: 34px;
+}
+.blogHead .blogTitle .left_bar {
+    position: absolute;
+    height: 40px;
+    width: 4px;
+    left: 0;
+    top: 4px;
+    background-color: #ff6d5a;
+}
+.blogImgO {
+    display: block;
+}
+.blogImgO a.post_thumb {
+    height: 140px;
+    width: 200px;
+    margin-right: 25px;
+    -webkit-box-flex: 0;
+    -ms-flex: none;
+    flex: none;
+}
+.blogImgO a.post_thumb {
+    width: 100%;
+    height: 400px;
+    border-radius: 5px;
+}
+.blogImgO a.post_thumb:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+    left: 0;
+    top: 0;
+    background-color: currentColor;
+    opacity: 0;
+    z-index: 1;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+.blogImgO a.post_thumb {
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+.blogImgO a.post_thumb:hover:before {
+    opacity: 0.6;
+}
+.blogImgO a.post_thumb:hover .cs-link-icon{
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+.blogImgO a.post_thumb .cs-link-icon {
+    height: 84px;
+    width: 84px;
+    font-size: 22px;
+}
+.blogImgO a.post_thumb .post_thumb_in {
+    height: 100%;
+    width: 100%;
+    -webkit-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.blogImgO a.post_thumb .post_thumb_in.post1 {
+    background-image: url(../../../assets/images/blog/blog5.png);
+}
+.blogImgO a.post_thumb .post_thumb_in.post2 {
+    background-image: url(../../../assets/images/blog/blog2.png)!important;
+}
+.blogImgO a.post_thumb .post_thumb_in.post3 {
+    background-image: url(../../../assets/images/blog/blog3.png);
+}
+.blogImgO a.post_thumb .post_thumb_in.post4 {
+    background-image: url(../../../assets/images/blog/blog4.png);
+}
+.blogImgO a.post_thumb .post_thumb_in.post5 {
+    background-image: url(../../../assets/images/blog/blog1.png);
+}
+.blogImgO a.post_thumb .cs-link-icon {
+    height: 84px;
+    width: 84px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 22px;
+    border: 1px solid #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%) rotate(-60deg) scale(0.8);
+    transform: translate(-50%, -50%) rotate(-60deg) scale(0.8);
+    z-index: 2;
+    opacity: 0;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.blogImgO a.post_thumb:hover .cs-link-icon {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+    background-color: #0a58ca;
+}
+.blogImgO a.post_thumb:hover .post_thumb_in, 
+.blogImgO a.post_thumb:hover .post_thumb_in {
+    -webkit-transform: scale(1.12);
+    transform: scale(1.12);
+}
+.cs-center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.blogImgO .post_right {
+    margin-top: 25px;
+}
+.post_right .post_label  {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    font-size: 14px;
+}
+.post_right .post_label {
+    margin-bottom: 20px;
+}
+.post_right .post_label ul.categories {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-right: 25px;
+    font-weight: 500;
+}
+.post_label ul.categories a {
+    display: inline-block;
+    border-radius: 5px;
+    padding: 5px 15px;
+    background-color: rgba(255, 109, 90, 0.1);
+    color: #ff6d5a;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.post_light_color {
+    color: rgba(44, 41, 76, 0.5);
+}
+
+.post_label ul.categories a:hover
+{
+    background-color: #4b4489;
+    color: #fff;
+}
+.post_right .post_title {
+    font-size: 28px;
+    line-height: 1.3em;
+    margin: 0;
+    color: #2c294c;
+    text-decoration: none;
+}
+.post_right .post_title a {
+    text-decoration: none;
+}
+
+
+.post_wrap .blogImgO {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 25px;
+}
+.post_wrap .blogImgO .post_right{
+    margin-top: 5px;
+}
+.blogImgO a.post_thumb.post_thumb_sm {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    height: 112px;
+    width: 150px;
+    border-radius: 5px;
+    margin-right: 25px;
+    -webkit-box-flex: 0;
+    -ms-flex: none;
+    flex: none;
+}
+.cs-post_thumb.post_thumb_sm .cs-link-icon {
+    height: 50px;
+    width: 50px;
+    font-size: 14px;
+}
+.post_wrap .cs-post_title {
+    font-size: 20px;
+   
+    margin: 0;
+}
+.post_wrap .cs-post_title a{
+    font-size: 20px;
+    
+    margin: 0;
+    color: #2c294c;
+    text-decoration: none;
+}
+.post_wrap .post_right .post_label {
+    margin-bottom: 10px;
+}
+.post_wrap .post_thumb.post_thumb_sm:hover .cs-link-icon, 
+.post_wrap .post_thumb.post_thumb_sm:hover .cs-link-icon {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+.post_wrap .post_thumb.post_thumb_sm .cs-link-icon, 
+.post_wrap .post_thumb.post_thumb_sm .cs-link-icon {
+    height: 84px;
+    width: 84px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 22px;
+    border: 1px solid #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%) rotate(-60deg) scale(0.8);
+    transform: translate(-50%, -50%) rotate(-60deg) scale(0.8);
+    z-index: 2;
+    opacity: 0;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.post_wrap .post_thumb.post_thumb_sm .cs-link-icon {
+    height: 50px;
+    width: 50px;
+    font-size: 16px;
+}
