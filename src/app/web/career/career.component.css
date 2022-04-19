@@ -1,9 +1,0 @@
-#job-postings{
-    margin-bottom: 5rem;
-}
-#job-postings .card{
-    border: solid 3px #fff;
-}
-#job-postings .card:hover{
-    border: solid 3px var(--blue-color);
-}

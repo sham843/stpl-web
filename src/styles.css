@@ -1,7 +1,7 @@
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
+    background-color: #f3f4f6;
 }
-
 :root {
     --main-color: rgb(0, 48, 130);
     --blue-color: rgb(26, 117, 206);
@@ -10,69 +10,29 @@ body {
 .text-main {
     color: var(--main-color);
 }
-
 .bg-main,
 .btn-main,
 .btn-main:hover {
     background-color: var(--main-color);
     color: #fff;
 }
-.page-heading{
-    margin-bottom: 2rem;
-}
-.page-heading,
-.page-heading .card-img {
-    height: 300px;
-    border-radius: 0;
-    display: block;
+.btn-outline-main{
+    border: solid 1px var(--main-color);
+    color: var(--main-color);
+    background-color:transparent;
 }
 
-.page-heading .card-img-overlay {
-    position: absolute;
-    bottom: 0;
-    background: rgb(0, 0, 0);
-    background: rgba(0, 0, 0, 0.7);
+.text-blue{
+    color: var(--blue-color);
+}
+.bg-blue,
+.btn-blue,
+.btn-blue:hover {
+    background-color: var(--blue-color);
     color: #fff;
-    width: 100%;
-    transition: .5s ease;
-    color: white;
-    font-size: 20px;
-    padding: 20px;
-    text-align: center;
-    height: 100%;
 }
-
-.page-heading .card {
-    border: none;
-    border-radius: 0;
-}
-.page-heading .card .card-title{
-    text-transform: uppercase;
-    font-weight: 900;
-    margin-bottom: 0;
-    letter-spacing: 1px;
-}
-.page-heading .card .breadcrumb{
-    font-size: 0.95rem;
-    background-color: black;
-    padding:10px 20px;
-    border-radius: 5px;
-    margin: 0;
-}
-.page-heading .card .breadcrumb a{
-    color: #fff;
-    text-decoration: none;
-}
-.page-heading .card .breadcrumb .active{
-    color: #aaa;
-}
-.sub-heading{
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 1.6rem;
-    margin-bottom: 2rem;
-    color: #555;
-    letter-spacing: 1px;
-    border-left: solid 5px var(--blue-color);
-    padding-left: 10px;
+.btn-outline-blue{
+    border: solid 1px var(--blue-color);
+    color: var(--blue-color);
+    background-color:transparent;
 }
