@@ -1,27 +1,37 @@
 .navbar .navbar-brand img{
-    width: 170px;
+    width: 150px;
 }
 .navbar{
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    padding-block: 10px;
+    background-color: #f3f4f6;
+    transition-duration: 0.6s;
 }
 .navbar .nav-link{
-    color: #454545;
-    padding:8px 25px;
-    border-radius: 20px;
+    padding:10px 20px;
+    font-weight: 500;
 }
-.navbar .nav-link:hover{
-    background-color: #eee;
+.navbar .nav-link:hover,
+.navbar .nav-link.active{
     color: #000;
 }
 .navbar .dropdown-menu{
-    padding: 10px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     border: none;
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1);
-    border-radius: 10px;
+    padding: 10px;
 }
 .navbar .dropdown-menu .dropdown-item{
-    padding: 10px 15px;
-    border-radius: 5px;
-    color: #454545;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+.navbar-scroll {
+	background: #ffffff;
+	padding-block: 5px;
+	box-shadow: 1px 1px 9px 0px #cfc8c8;
+	transition-duration: 0.6s;
+}
+.nav-dropdown-scroll {
+	background: #e7eaea;
+	// box-shadow: 0px 10px 9px rgba(0, 0, 0, 0.4);
+    transition-duration: 0.6s;
 }
