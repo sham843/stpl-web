@@ -1,0 +1,51 @@
+#banner .small-heading{
+    background-color:var(--main-light-color);
+    color: var(--main-color);
+    width: fit-content;
+    font-size: 0.85rem;
+    padding:6px 15px;
+    border-radius: 5px;
+}
+#banner h1{
+    font-size: 3.4rem;
+    font-weight: 600;
+    line-height: 4.55rem;
+    font-family: 'Fira Sans', sans-serif;
+}
+#banner .small-text{
+    color: #aaa;
+    margin-block:1rem;
+}
+#banner .play-button{
+    width: 60px;
+    height: 60px;
+    line-height: 47px;
+    font-size: 1.5rem;
+    border-radius: 50%;
+}
+#Bannercarousel,
+#Bannercarousel .carousel-inner,
+#Bannercarousel .carousel-item,
+#Bannercarousel img{
+    width: 370px !important;
+    height: 420px;
+    position: relative;
+}
+#Bannercarousel .carousel-control-next,
+#Bannercarousel .carousel-control-prev{
+    position:absolute;
+    width: 60px;
+    height: 60px;
+    background-color: var(--blue-color);
+    opacity: 1;
+    border: solid 13px #f3f4f6;
+    padding: 8px;
+}
+#Bannercarousel .carousel-control-prev{
+    bottom: 0 !important;
+    top:unset !important;
+    left:-26px;
+}
+#Bannercarousel .carousel-control-next{
+    right:-26px;
+}

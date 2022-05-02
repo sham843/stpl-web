@@ -4,7 +4,9 @@ body {
 }
 :root {
     --main-color: rgb(0, 48, 130);
+    --main-light-color:rgba(0, 48, 130, 0.15);
     --blue-color: rgb(26, 117, 206);
+    --blue-light-color: rgba(26, 117, 206,0.25);
 }
 
 .text-main {
@@ -14,7 +16,7 @@ body {
 .btn-main,
 .btn-main:hover {
     background-color: var(--main-color);
-    color: #fff;
+    /* color: #fff; */
 }
 .btn-outline-main{
     border: solid 1px var(--main-color);
@@ -35,4 +37,9 @@ body {
     border: solid 1px var(--blue-color);
     color: var(--blue-color);
     background-color:transparent;
+}
+.btn-outline-blue:hover{
+    border: solid 1px var(--blue-color);
+    color: #fff;
+    background-color:var(--blue-color);
 }
