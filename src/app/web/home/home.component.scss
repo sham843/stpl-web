@@ -106,3 +106,30 @@
     color: #eee;
     transition:all 0.6s ease-in-out;
 }
+#whychoose .card{
+    border: none;
+    border-radius: 0;
+}
+#whychoose .card i{
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 1.3rem;
+}
+#whychoose .card h5{
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+#whychoose .card .sub-text{
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #888;
+}
+#whychoose .small-image img{
+    width: 250px;
+    position: absolute;
+    bottom: 7px;
+    border-top: solid 20px #fff;
+    border-right: solid 20px #fff;
+}
