@@ -23,6 +23,9 @@ body {
     color: var(--main-color);
     background-color:transparent;
 }
+.bg-main-light{
+    background-color: var(--main-light-color);
+}
 
 .text-blue{
     color: var(--blue-color);
@@ -42,4 +45,7 @@ body {
     border: solid 1px var(--blue-color);
     color: #fff;
     background-color:var(--blue-color);
+}
+.bg-blue-light{
+    background-color: var(--blue-light-color);
 }
