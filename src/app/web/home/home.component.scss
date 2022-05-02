@@ -1,3 +1,6 @@
+#banner{
+    padding-block: 3rem;
+}
 #banner .small-heading{
     background-color:var(--main-light-color);
     color: var(--main-color);
@@ -48,4 +51,15 @@
 }
 #Bannercarousel .carousel-control-next{
     right:-26px;
+}
+.section-heading p{
+    color: var(--blue-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+.section-heading h3{
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    line-height: 2.5rem;
 }
