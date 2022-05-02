@@ -1,6 +1,7 @@
 #banner,
 #whychoose,
 #testimonials,
+#subscribeus,
 #services{
     padding-block: 3rem;
 }
@@ -208,4 +209,31 @@
     transition: none;
     opacity: unset;
     text-decoration: none;
+}
+#subscribeus .card{
+    background-color: var(--blue-color);
+    border-radius: 0;
+}
+#subscribeus{
+    background-image:url('../../../assets/images/subscribeus.jpg');
+    height: 400px;
+    background-size: cover;
+    object-fit: cover;
+}
+#subscribeus .input-group{
+    padding: 10px;
+    border: solid 1px rgba(0,0,0,0.125);
+    background-color: #fff;
+}
+#subscribeus .input-group .form-control{
+    border: none;
+    box-shadow: none !important;
+    padding: 10px;
+    font-size: 0.9rem;
+}
+#subscribeus .input-group .btn{
+    border: none;
+    box-shadow: none !important;
+    border-radius: 0;
+    font-size: 0.9rem;
 }
