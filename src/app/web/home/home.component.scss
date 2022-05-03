@@ -179,6 +179,7 @@
     font-style: normal;
     font-size: 1rem;
     margin-top: 0.5rem;
+    font-weight: 600;
 }
 @media(max-width:767px){
     #testimonial #image-caption{
@@ -211,7 +212,7 @@
     text-decoration: none;
 }
 #subscribeus .card{
-    background-color: var(--blue-color);
+    background-color: rgba(255,255,255,0.6);
     border-radius: 0;
 }
 #subscribeus{
