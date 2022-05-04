@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-web-layout',
@@ -6,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./web-layout.component.scss']
 })
 export class WebLayoutComponent implements OnInit {
-
-  constructor() { }
+  hideHeader: boolean = true;
+  hideFooter: boolean = true;
+  constructor(private router: Router) {
+    if (this.router.url == '/discover-us') {
+      this.hideHeader = false;
+      this.hideFooter = false;
+    }
+   }
 
   ngOnInit(): void {
   }
