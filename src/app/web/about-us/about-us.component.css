@@ -10,10 +10,18 @@ header{
     width: 150px;
 }
 .navbar{
-    background-color: rgba(255, 255, 255, 0.25);
+    /* background-color: rgba(255, 255, 255, 0.25); */
+    border-block: solid 1px #333;
 }
 .navbar .navbar-nav .nav-link{
     color: white;
     font-size: 0.85rem;
     padding-inline: 20px;
+}
+.navbar .dropdown-menu{
+    font-size: 0.85rem;
+    padding: 0 !important;
+}
+.navbar .dropdown-menu .dropdown-item{
+    padding: 10px 20px !important;
 }
