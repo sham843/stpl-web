@@ -1,27 +1,17 @@
-header{
-    background:linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://preview.colorlib.com/theme/transcend/images/hero-bg.jpg');
-    height: 100vh;
-    background-size: cover;
-    color: white;
-    background-blend-mode:hard-light;
-    padding-block: 2rem;
+#how-we-work .card{
+    border: none;
+    border-radius: 0;
+    text-align: center;
 }
-.navbar .navbar-brand img{
-    width: 150px;
+#how-we-work .card-body{
+    padding:20px 30px;
 }
-.navbar{
-    /* background-color: rgba(255, 255, 255, 0.25); */
-    border-block: solid 1px #333;
+#how-we-work .card img{
+    width: 60px;
+    margin:0 auto;
+    margin-bottom: 1rem;
 }
-.navbar .navbar-nav .nav-link{
-    color: white;
-    font-size: 0.85rem;
-    padding-inline: 20px;
-}
-.navbar .dropdown-menu{
-    font-size: 0.85rem;
-    padding: 0 !important;
-}
-.navbar .dropdown-menu .dropdown-item{
-    padding: 10px 20px !important;
+#how-we-work .card h5{
+    font-size: 1rem;
+    margin: 0;
 }

@@ -49,3 +49,44 @@ body {
 .bg-blue-light{
     background-color: var(--blue-light-color);
 }
+
+.page-heading .card{
+    border-radius: 0%;
+    border: none;    
+}
+.page-heading .card-img-overlay {
+    background: linear-gradient(45deg, #000000f2, rgb(0 0 0 / 52%));
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.page-heading img{
+    height: 200px;
+    object-fit: cover;
+}
+.page-heading h3{
+    font-family: 'Fira Sans', sans-serif;
+}
+.page-heading .breadcrumb{
+    margin:0;
+    float: right;
+    background-color: #000;
+    padding: 10px 20px;
+    font-size: 0.85rem;
+}
+.page-heading .breadcrumb a{
+    color: var(--blue-color);
+    text-decoration: none;
+}
+.page-heading .breadcrumb .active{
+    color: #fff;
+}
+#main-content{
+    padding-block: 2rem;
+}
+#main-content .list,
+#main-content p{
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6rem;
+}
