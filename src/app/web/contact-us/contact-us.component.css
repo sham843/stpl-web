@@ -1,0 +1,40 @@
+.mapouter {
+    position: relative;
+    text-align: right;
+    height: 500px;
+    width: 100%;
+}
+.gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    height: 500px;
+    width: 100%;
+}
+#contactus h3{
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+#contactus .contact{
+    margin-top: 1rem;
+    font-size: 0.95rem;
+}
+#contactus .contact a{
+    color: #000;
+    text-decoration: none;
+}
+#contactus i{
+    background-color: #eee;
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+    text-align: center;
+    color: var(--blue-color);
+}
+#contactus .form-control{
+    box-shadow: none;
+    border-radius: 0;
+    padding: 15px 20px;
+    font-size: 0.85rem;
+}

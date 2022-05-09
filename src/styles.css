@@ -16,7 +16,7 @@ body {
 .btn-main,
 .btn-main:hover {
     background-color: var(--main-color);
-    /* color: #fff; */
+    color: #fff;
 }
 .btn-outline-main{
     border: solid 1px var(--main-color);
