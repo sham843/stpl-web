@@ -1,0 +1,34 @@
+#job-listing .card{
+    border-radius: 10px;
+    border: none;
+}
+
+#job-listing .card-body{
+    padding: 20px;
+}
+#job-listing .job-icon{
+    margin-right:15px;
+}
+#job-listing .job-icon i{
+    background-color:#eee;
+    color: var(--blue-color);
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    border-radius: 10px;
+}
+#job-listing .job-title a{
+    color: var(--blue-color);
+    text-decoration: none;
+    font-size:1.1rem;
+    font-weight: 600;
+}
+#job-listing .job-title a:hover{
+    color: var(--main-color);
+}
+#job-listing .details{
+    font-size: 0.85rem;
+    color: #777;
+}
