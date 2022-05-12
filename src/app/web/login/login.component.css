@@ -1,0 +1,37 @@
+#login{
+    background-image:linear-gradient(to right, rgba(0, 0, 0, 0.8) , rgba(0, 0, 0, 0.8)), url('../../../assets/images/shaurya-bg.png');
+    height: 100vh;
+    background-size: cover;
+    color: #fff;
+}
+#login .shaurya-logo{
+    width: 170px;
+}
+#login .home-link{
+    color: #fff;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+#login-box{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+}
+#login-box .input-group .form-control,
+#login-box .input-group .input-group-text{
+    background-color:transparent;
+    color: #fff;
+    border:0;
+    box-shadow: none;
+    font-size: 0.85rem;
+}
+#login-box .input-group {
+    background-color:rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    padding: 10px;
+}
+#login-box .btn {
+    height:52px;
+    box-shadow: none;
+}

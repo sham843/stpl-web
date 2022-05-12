@@ -10,7 +10,7 @@ export class WebLayoutComponent implements OnInit {
   hideHeader: boolean = true;
   hideFooter: boolean = true;
   constructor(private router: Router) {
-    if (this.router.url == '/discover-us') {
+    if (this.router.url == '/login') {
       this.hideHeader = false;
       this.hideFooter = false;
     }
