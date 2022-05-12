@@ -10,7 +10,7 @@ body {
 }
 
 .text-main {
-    color: var(--main-color);
+    color: var(--main-color) !important;
 }
 .bg-main,
 .btn-main,
@@ -26,9 +26,8 @@ body {
 .bg-main-light{
     background-color: var(--main-light-color);
 }
-
 .text-blue{
-    color: var(--blue-color);
+    color: var(--blue-color) !important;
 }
 .bg-blue,
 .btn-blue,
