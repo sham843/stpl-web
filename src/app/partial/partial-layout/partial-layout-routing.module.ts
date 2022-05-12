@@ -6,6 +6,7 @@ const routes: Routes = [
   {
     path: 'dashboard', loadChildren: () => import('../../partial/dashboard/dashboard.module').then(m => m.DashboardModule),
   },
+  { path: 'post-job', loadChildren: () => import('../../partial/post-job/post-job.module').then(m => m.PostJobModule) },
 ];
 
 @NgModule({
