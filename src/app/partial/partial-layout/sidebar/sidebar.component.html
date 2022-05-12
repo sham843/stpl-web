@@ -5,10 +5,10 @@
 
     <ul class="list-unstyled components">
         <p>Navigation</p>
-        <li class="active">
+        <li routerLinkActive="active">
             <a routerLink="dashboard"><i class="fa-solid fa-house"></i>Dashboard</a>
         </li>
-        <li>
+        <li routerLinkActive="active">
             <a href="#masterSubmenu" routerLinkActive="active" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                 <i class="fa-solid fa-anchor"></i>Master
             </a>
@@ -27,12 +27,12 @@
                 </li>
             </ul>
         </li>
-        <li>
-            <a routerLink="#" routerLinkActive="active">
+        <li routerLinkActive="active">
+            <a routerLink="../post-job">
                 <i class="fa-solid fa-briefcase"></i>Post Job
             </a>
         </li>
-        <li>
+        <li routerLinkActive="active">
             <a href="#applcationsSubmenu" routerLinkActive="active" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                 <i class="fa-solid fa-user-tie"></i>Job Applications
             </a>
