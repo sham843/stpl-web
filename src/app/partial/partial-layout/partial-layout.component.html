@@ -1,0 +1,30 @@
+<div class="wrapper" class="page-wrapper">
+  
+  <div id="content">
+      <div class="main-content">
+            <main class="page-content">
+                <app-sidebar></app-sidebar>
+                <header>
+                    <app-navbar></app-navbar>
+                </header>
+                  <!-- <div class="row">
+                      <div class="form-group col-md-12">
+                          <a routerLink="#" class="btn btn-outline-secondary mr-1 mb-1" (click)="toggleSidebar()">Toggle Sidebar</a>
+                          <a routerLink="#" class="btn btn-secondary" (click)="toggleBackgroundImage()">Toggle Background Image</a>
+                      </div>
+                  </div> -->
+                  <div class="middleSection">
+                      <div class="container-fluid">
+                        <router-outlet></router-outlet>
+                      </div>
+                  </div>
+                    
+                    <footer>
+                        <app-footer></app-footer>
+                      </footer>
+              
+            </main>
+      </div>
+  </div>
+  
+</div>

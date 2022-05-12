@@ -1,0 +1,55 @@
+header .logo{
+    width: 200px;
+}
+#rightMenus .nav-item {
+    line-height: 28px;
+}
+#rightMenus .username {
+    color: var(--blue-color);
+}
+#rightMenus .dropdown-toggle {
+    padding: 0;
+}
+#rightMenus .avatar {
+    width: 30px;
+}
+#rightMenus .navbar-nav .dropdown-menu {
+    position: absolute;
+    font-size: .85rem;
+    padding: 0;
+    overflow: hidden;
+    right: 0;
+    left:unset;
+}
+#rightMenus .nav-item {
+    line-height: auto;
+}
+#rightMenus .dropdown .dropdown-item {
+    line-height: 25px;
+}
+#rightMenus .dropdown .dropdown-item.active,  
+#rightMenus .dropdown .dropdown-item:active {
+    color: #fff;
+    background-color: var(--main-dark-color);
+}
+
+#rightMenus .balance {
+    box-shadow: 0px 0px 6px #00000029;
+    border: 0.5px solid #FFB968;
+    border-radius: 6px;
+    margin-left: 10px;
+    font-size: .8rem;
+}
+#rightMenus .balance img {
+    width: 30px;
+    padding-right: 5px;
+    margin-right: 5px;
+}
+#rightMenus .balance .bal-amount {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-right: 5px;
+}
+#rightMenus .balance .link-account {
+    font-size: 0.75rem;
+}
