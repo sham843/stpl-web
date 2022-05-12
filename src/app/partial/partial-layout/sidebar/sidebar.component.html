@@ -1,1 +1,58 @@
-<p>Sidebar</p>
+<nav id="sidebar">
+    <div class="sidebar-header">
+        <h5 class="mb-0">Shaurya Admin</h5>
+    </div>
+
+    <ul class="list-unstyled components">
+        <p>Navigation</p>
+        <li class="active">
+            <a routerLink="dashboard"><i class="fa-solid fa-house"></i>Dashboard</a>
+        </li>
+        <li>
+            <a href="#masterSubmenu" routerLinkActive="active" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <i class="fa-solid fa-anchor"></i>Master
+            </a>
+            <ul class="collapse list-unstyled" id="masterSubmenu">
+                <li>
+                    <a routerLink="#">Industries</a>
+                </li>
+                <li>
+                    <a routerLink="#">Services</a>
+                </li>
+                <li>
+                    <a routerLink="#">Projects</a>
+                </li>
+                <li>
+                    <a routerLink="#">Solutions</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a routerLink="#" routerLinkActive="active">
+                <i class="fa-solid fa-briefcase"></i>Post Job
+            </a>
+        </li>
+        <li>
+            <a href="#applcationsSubmenu" routerLinkActive="active" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <i class="fa-solid fa-user-tie"></i>Job Applications
+            </a>
+            <ul class="collapse list-unstyled" id="applcationsSubmenu">
+                <li>
+                    <a routerLink="#">View Applications</a>
+                </li>
+                <!-- <li>
+                    <a routerLink="#">Page 2</a>
+                </li>
+                <li>
+                    <a routerLink="#">Page 3</a>
+                </li> -->
+            </ul>
+        </li>
+        <!-- <li>
+            <a routerLink="#" routerLinkActive="active">Portfolio</a>
+        </li>
+        <li>
+            <a routerLink="#" routerLinkActive="active">Contact</a>
+        </li> -->
+    </ul>
+</nav>
