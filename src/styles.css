@@ -110,7 +110,7 @@ ngx-file-drag-drop .placeholder
 .form-container .form-check-label,
 .form-container .form-control,
 .form-container .btn{
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     box-shadow: none !important;
 }
 .form-container .form-label{
@@ -119,13 +119,13 @@ ngx-file-drag-drop .placeholder
     margin-bottom: 0px;
 }
 .form-container .ngx-select__item{
-    font-size: 0.85rem;
+    font-size: 0.8rem;
 }
 .form-container .ngx-select__item_active{
     background-color:var(--main-color) !important;
 }
 .form-container .input-group-text{
-    font-size: 0.85rem;
+    font-size: 0.8rem;
 }
 .form-container .form-height{
     max-height: 100px;

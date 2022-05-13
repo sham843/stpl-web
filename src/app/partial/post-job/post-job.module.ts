@@ -4,7 +4,9 @@ import { CommonModule } from '@angular/common';
 import { PostJobRoutingModule } from './post-job-routing.module';
 import { PostJobComponent } from './post-job.component';
 import { NgxSelectModule } from 'ngx-select-ex';
-import { FormControl } from '@angular/forms';
+import { HttpClientModule} from '@angular/common/http';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+
 @NgModule({
   declarations: [
     PostJobComponent
@@ -12,7 +14,9 @@ import { FormControl } from '@angular/forms';
   imports: [
     CommonModule,
     PostJobRoutingModule,
-    NgxSelectModule
+    NgxSelectModule,
+    HttpClientModule, 
+    AngularEditorModule
   ]
 })
 export class PostJobModule { }
