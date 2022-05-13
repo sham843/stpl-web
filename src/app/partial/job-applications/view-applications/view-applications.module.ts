@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ViewApplicationsRoutingModule } from './view-applications-routing.module';
 import { ViewApplicationsComponent } from './view-applications.component';
+import { NgxSelectModule } from 'ngx-select-ex';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ViewApplicationsComponent } from './view-applications.component';
   ],
   imports: [
     CommonModule,
-    ViewApplicationsRoutingModule
+    ViewApplicationsRoutingModule,
+    NgxSelectModule
   ]
 })
 export class ViewApplicationsModule { }

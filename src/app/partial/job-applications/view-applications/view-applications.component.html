@@ -1,1 +1,49 @@
-<p>view-applications works!</p>
+<div class="card plain-card">
+    <div class="card-header">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-sm-4">View Recent Applications</div>
+            <div class="col-sm-3 form-container">
+                <ngx-select [items]="items" placeholder="Select Job Category"></ngx-select>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table dashboard-table">
+            <thead>
+                <tr>
+                    <th>Sr. No.</th>
+                    <th>Applied On</th>
+                    <th>Job Title</th>
+                    <th>Applicant Full Name</th>
+                    <th>Email ID</th>
+                    <th>Contact No.</th>
+                    <th>Download CV</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>12-02-2022</td>
+                    <td>Graphics Designer</td>
+                    <td>Anil Ramesh Jadhav</td>
+                    <td>anil.jadhav@gmail.com</td>
+                    <td>9876543210</td>
+                    <td>
+                        <button type="button" class="btn btn-sm bg-primary bg-opacity-10 text-primary">
+                            <i class="fa-solid fa-download"></i>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn bg-success bg-opacity-10 text-success me-2" title="Accept Application">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                        <button type="button" class="btn bg-danger bg-opacity-10 text-danger" title="Reject Application">
+                            <i class="fa-solid fa-ban"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-applications.component.css']
 })
 export class ViewApplicationsComponent implements OnInit {
-
+  public items: string[] = ['Amsterdam', 'Antwerp', 'Athens', 'Barcelona',
+  'Berlin', 'Birmingham', 'Bradford', 'Bremen', 'Brussels', 'Bucharest',
+  'Budapest', 'Cologne', 'Copenhagen', 'Dortmund', 'Dresden', 'Dublin',
+  'Düsseldorf', 'Essen', 'Frankfurt'];
   constructor() { }
 
   ngOnInit(): void {
