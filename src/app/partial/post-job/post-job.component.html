@@ -1,5 +1,13 @@
 <div class="card plain-card">
-    <div class="card-header">Post New Job</div>
+    <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>Post New Job</div>
+            <button class="btn bg-primary bg-opacity-10 text-primary btn-sm" data-bs-toggle="modal"
+                data-bs-target="#AddNewJobModal">
+                <i class="fa-solid fa-plus me-2"></i> Add New Job
+            </button>
+        </div>
+    </div>
     <div class="card-body">
         <table class="table dashboard-table">
             <thead>
@@ -11,7 +19,7 @@
                     <th>Post Ends On</th>
                     <th>Experience</th>
                     <th>View</th>
-                    <th>Status</th>
+                    <th>Change Status</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -29,7 +37,9 @@
                         </button>
                     </td>
                     <td>
-                        Active
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        </div>
                     </td>
                     <td>
                         <button type="button" class="btn bg-info bg-opacity-10 text-info me-2">
@@ -42,5 +52,153 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+</div>
+
+
+<!-- Modal for post new job -->
+<div class="modal fade" id="AddNewJobModal" tabindex="-1" aria-labelledby="AddNewJobModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content border-0">
+            <div class="modal-header bg-main text-white">
+                <p class="modal-title mb-0" id="AddNewJobModalLabel">Add New Job</p>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-container">
+                    <div class="row">
+                        <div class="col-sm-6 border-end">
+                            <div class="mb-3">
+                                <label class="form-label">Job Title</label>
+                                <input type="text" class="form-control" placeholder="Job Title">
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-6">
+                                    <label class="form-label">Job Category</label>
+                                    <ngx-select [items]="items" placeholder="Select Job Category"></ngx-select>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label">Job Location</label>
+                                    <ngx-select [items]="items" placeholder="Select Job Location"></ngx-select>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-6">
+                                    <label class="form-label">Post End Date</label>
+                                    <input type="date" class="form-control" placeholder="Job Title">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label">Experience</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="From">
+                                        <input type="text" class="form-control" placeholder="To">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-6">
+                                    <label class="form-label">Select Skillset</label>
+                                    <div class="card">
+                                        <div class="card-header bg-transparent py-1"><input type="text"
+                                                class="border-0 form-control form-control-sm" placeholder="Search">
+                                        </div>
+                                        <div class="card-body py-2 form-height">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    React JS
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckChecked" checked>
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    jQuery
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Bootstrap
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckChecked">
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    CSS3
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label">Select Qualification</label>
+                                    <div class="card">
+                                        <div class="card-header bg-transparent py-1"><input type="text"
+                                                class="border-0 form-control form-control-sm" placeholder="Search">
+                                        </div>
+                                        <div class="card-body py-2 form-height">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    BCA
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckChecked" checked>
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    BCS
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    BE (IT/CS)
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckChecked">
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    MCA
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label class="form-label">Joining Duration</label>
+                                    <ngx-select [items]="items" placeholder="Select Joining Duration"></ngx-select>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label">Employment Type</label>
+                                    <ngx-select [items]="items" placeholder="Select Employment Type"></ngx-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label class="form-label">Job Description</label>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Roles & Responsibilities</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
     </div>
 </div>
