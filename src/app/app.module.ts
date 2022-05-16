@@ -5,10 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { AccessDeniedComponent } from './errors/access-denied/access-denied.component';
+import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.component';
+import { ServerErrorComponent } from './errors/server-error/server-error.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AccessDeniedComponent,
+    PageNotFoundComponent,
+    ServerErrorComponent
   ],
   imports: [
     BrowserModule,

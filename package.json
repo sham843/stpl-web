@@ -21,6 +21,7 @@
     "@kolkov/angular-editor": "^2.0.0",
     "ngx-file-drag-drop": "^5.1.3",
     "ngx-select-ex": "^6.1.1",
+    "ngx-spinner": "^13.1.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
