@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { JobDetailsRoutingModule } from './job-details-routing.module';
 import { JobDetailsComponent } from './job-details.component';
-import { NgxFileDragDropModule } from 'ngx-file-drag-drop';
+// import { NgxFileDragDropModule } from 'ngx-file-drag-drop';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ import { NgxFileDragDropModule } from 'ngx-file-drag-drop';
   imports: [
     CommonModule,
     JobDetailsRoutingModule,
-    NgxFileDragDropModule
+    // NgxFileDragDropModule
   ]
 })
 export class JobDetailsModule { }
