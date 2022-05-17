@@ -6,6 +6,7 @@ import { NgxSelectModule } from 'ngx-select-ex';
 import { HttpClientModule} from '@angular/common/http';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AngularEditorModule,
     FormsModule, 
     ReactiveFormsModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule
   ]
 })
 export class PostJobModule { }

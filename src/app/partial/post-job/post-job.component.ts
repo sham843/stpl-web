@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/core/services/api.service';
 import { CommonService } from 'src/app/core/services/common.service';
 import { ErrorsService } from 'src/app/core/services/errors.service';
-
+import { DateTimeAdapter } from 'ng-pick-datetime';
 
 @Component({
   selector: 'app-post-job',
@@ -53,7 +53,9 @@ export class PostJobComponent implements OnInit {
     private toastrService: ToastrService,
     private errorSerivce:ErrorsService,
     private fb: FormBuilder,
-  ) { }
+    public dateTimeAdapter: DateTimeAdapter<any>) {
+      { dateTimeAdapter.setLocale('en-IN'); }
+    }
 
   ngOnInit(){
     this.defaultForm();
@@ -88,7 +90,7 @@ export class PostJobComponent implements OnInit {
       next: (res: any) => {
         if (res.statusCode === "200") {
           this.jobPostArray = res.responseData;
-           this.toastrService.success(res.statusMessage);
+          //  this.toastrService.success(res.statusMessage);
         } else {
           this.jobPostArray = [];
           this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);

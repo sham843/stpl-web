@@ -1,4 +1,5 @@
 @import '~ngx-toastr/toastr';
+@import "~ng-pick-datetime/assets/style/picker.min.css";
 
 body {
     font-family: 'Inter', sans-serif;
@@ -170,4 +171,7 @@ ngx-file-drag-drop .placeholder
 .modal .btn-close{
     filter: invert(1);
     box-shadow: none !important;
+}
+.cdk-overlay-container{
+    z-index: 9999 !important;
 }
