@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/core/services/api.service';
 import { CommonService } from 'src/app/core/services/common.service';
 import { ErrorsService } from 'src/app/core/services/errors.service';
 import { DateTimeAdapter } from 'ng-pick-datetime';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-post-job',
@@ -19,33 +19,20 @@ export class PostJobComponent implements OnInit {
   'Berlin', 'Birmingham', 'Bradford', 'Bremen', 'Brussels', 'Bucharest',
   'Budapest', 'Cologne', 'Copenhagen', 'Dortmund', 'Dresden', 'Dublin',
   'Düsseldorf', 'Essen', 'Frankfurt'];
-  editorConfig: AngularEditorConfig = {
-    editable: true,
-    spellcheck: true,
-    height: '10rem',
-    minHeight: '5rem',
-    placeholder: 'Enter text here...',
-    translate: 'no',
-    defaultParagraphSeparator: 'p',
-    toolbarHiddenButtons: [
-      ['bold', 'fontName', 'heading', 'fontSize','subscript','superscript','justifyLeft',
-      'justifyCenter',
-      'justifyRight',
-      'justifyFull',
-      'indent',
-      'outdent','heading',
-      'fontName','customClasses',
-      'link',
-      'unlink',
-      'insertImage',
-      'insertVideo',
-      'insertHorizontalRule','textColor',
-      'backgroundColor',]
-    ],
-  };
 
+  editorConfig = this.commonService.editorConfig;
   PostJobForm! :FormGroup | any ;
   jobPostArray:any;
+  pageNumber: number = 1; 
+  pagesize: number = 10;
+  totalRows: any;
+  submitted = false;
+  allCategoryArray: any;
+  jobLocationArray: any;
+  durationArray: any;
+  employementArray: any;
+  deletePostId:any;
+  highlightedRow!: number;
 
   constructor(
     private commonService: CommonService,
@@ -53,6 +40,7 @@ export class PostJobComponent implements OnInit {
     private toastrService: ToastrService,
     private errorSerivce:ErrorsService,
     private fb: FormBuilder,
+    private spinner :NgxSpinnerService,
     public dateTimeAdapter: DateTimeAdapter<any>) {
       { dateTimeAdapter.setLocale('en-IN'); }
     }
@@ -66,32 +54,103 @@ export class PostJobComponent implements OnInit {
 
   defaultForm() {
     this.PostJobForm = this.fb.group({
-      jobTitle: [''],
-      jobDescription: [''],
-      jobCategory: [''],
-      jobLocation: [''],
-      jobPostDate: [''],
-      jobPostEndDate: [''],
-      experienceFromYr: [0],
-      experienceToYr: [0],
-      role_Responsbility: [''],
-      joiningPeriod: [''],
-      employmentType: [''],
+      jobTitle: ['',Validators.required],
+      jobDescription: ['',Validators.required],
+      jobCategory: ['',Validators.required],
+      jobLocation: ['',Validators.required],
+      jobPostEndDate: ['',Validators.required],
+      experienceFromYr: ['' ,Validators.required],
+      experienceToYr: ['' ,Validators.required],
+      role_Responsbility: ['',Validators.required],
+      joiningPeriod: ['',Validators.required],
+      employmentType: ['',Validators.required],
     })
   }
 
   clearForm(){
+    this.submitted = false;
     this.defaultForm();
   }
 
-  getJobPost() {
-    this.apiService.setHttp('get', "JobPost/GetById?Id=1", false, false, false, 'stplUrl');
+  addNewData(){
+    this.getAllCategory();
+    this.getAllJobLocation();
+    this.getAllDuration();
+    this.getAllEmployement();
+  }
+
+  getAllCategory() {
+    this.apiService.setHttp('get', "Master/GetAllCategory", false, false, false, 'stplUrl');
     this.apiService.getHttp().subscribe({
       next: (res: any) => {
         if (res.statusCode === "200") {
-          this.jobPostArray = res.responseData;
-          //  this.toastrService.success(res.statusMessage);
+          this.allCategoryArray = res.responseData;
         } else {
+          this.allCategoryArray = [];
+          this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
+        }
+      },
+       error: ((error: any) => { this.errorSerivce.handelError(error.status) })
+    });
+  }
+
+  getAllJobLocation() {
+    this.apiService.setHttp('get', "Master/GetAllJobLocation", false, false, false, 'stplUrl');
+    this.apiService.getHttp().subscribe({
+      next: (res: any) => {
+        if (res.statusCode === "200") {
+          this.jobLocationArray = res.responseData;
+        } else {
+          this.jobLocationArray = [];
+          this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
+        }
+      },
+       error: ((error: any) => { this.errorSerivce.handelError(error.status) })
+    });
+  }
+
+  getAllDuration() {
+    this.apiService.setHttp('get', "Master/GetAllDuration", false, false, false, 'stplUrl');
+    this.apiService.getHttp().subscribe({
+      next: (res: any) => {
+        if (res.statusCode === "200") {
+          this.durationArray = res.responseData;
+        } else {
+          this.durationArray = [];
+          this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
+        }
+      },
+       error: ((error: any) => { this.errorSerivce.handelError(error.status) })
+    });
+  }
+
+  getAllEmployement() {
+    this.apiService.setHttp('get', "Master/GetAllEmployement", false, false, false, 'stplUrl');
+    this.apiService.getHttp().subscribe({
+      next: (res: any) => {
+        if (res.statusCode === "200") {
+          this.employementArray = res.responseData;
+        } else {
+          this.employementArray = [];
+          this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
+        }
+      },
+       error: ((error: any) => { this.errorSerivce.handelError(error.status) })
+    });
+  }
+
+  getJobPost() {
+    this.spinner.show();
+    let obj = "pageno=" + this.pageNumber + "&pagesize=" + this.pagesize ;
+    this.apiService.setHttp('get', "JobPost/GetAll?" + obj, false, false, false, 'stplUrl');
+    this.apiService.getHttp().subscribe({
+      next: (res: any) => {
+        if (res.statusCode === "200") {
+          this.spinner.hide();
+          this.jobPostArray = res.responseData.responseData1;
+          this.totalRows = res.responseData.responseData2.totalPages * this.pagesize;
+        } else {
+          this.spinner.hide();
           this.jobPostArray = [];
           this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
         }
@@ -100,7 +159,13 @@ export class PostJobComponent implements OnInit {
     });
   }
 
+  onClickPagintion(pageNo: any) {
+    this.pageNumber = pageNo;
+    this.getJobPost();
+  }
+
   onSubmit() {
+    this.submitted = true;
     if (this.PostJobForm.invalid) {
       return;
     } else {
@@ -143,6 +208,7 @@ export class PostJobComponent implements OnInit {
       this.apiService.getHttp().subscribe((res: any) => {
         if (res.statusCode == "200") {
           this.toastrService.success(res.statusMessage);
+          this.submitted = false;
           this.defaultForm();
         } else {
           this.toastrService.error(res.statusMessage);
@@ -152,6 +218,25 @@ export class PostJobComponent implements OnInit {
       });
       this.clearForm();
     }
+  }
+
+  deleteConformation(id:any){
+   this.deletePostId = id;
+  }
+
+  deleteJobPost(){
+   let obj = { "id": parseInt(this.deletePostId) }
+    this.apiService.setHttp('DELETE', "JobPost/DeleteJobPost", false, JSON.stringify(obj), false, 'stplUrl');
+    this.apiService.getHttp().subscribe({
+        next: (res: any) => {
+          if (res.statusCode === "200") {
+            this.toastrService.success(res.statusMessage);
+          } else {
+            this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
+          }
+        },
+         error: ((error: any) => { this.errorSerivce.handelError(error.status) })
+      });
   }
 
 }

@@ -7,6 +7,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     FormsModule, 
     ReactiveFormsModule,
     OwlDateTimeModule,
-    OwlNativeDateTimeModule
+    OwlNativeDateTimeModule,
+    NgxPaginationModule
   ]
 })
 export class PostJobModule { }

@@ -16,7 +16,7 @@ import { ToastrModule } from 'ngx-toastr';
     AppComponent,
     AccessDeniedComponent,
     PageNotFoundComponent,
-    ServerErrorComponent
+    ServerErrorComponent,
   ],
   imports: [
     BrowserModule,
