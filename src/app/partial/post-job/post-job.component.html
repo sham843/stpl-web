@@ -55,6 +55,7 @@
 <div class="modal fade" id="AddNewJobModal" tabindex="-1" aria-labelledby="AddNewJobModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content border-0">
+            <form [formGroup]="PostJobForm">
             <div class="modal-header bg-main text-white">
                 <p class="modal-title mb-0" id="AddNewJobModalLabel">Add New Job</p>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -65,16 +66,16 @@
                         <div class="col-sm-6 border-end">
                             <div class="mb-3">
                                 <label class="form-label">Job Title</label>
-                                <input type="text" class="form-control" placeholder="Job Title">
+                                <input type="text" class="form-control" formControlName="jobTitle" placeholder="Job Title">
                             </div>
                             <div class="row mb-3">
                                 <div class="col-sm-6">
                                     <label class="form-label">Job Category</label>
-                                    <ngx-select [items]="items" placeholder="Select Job Category"></ngx-select>
+                                    <ngx-select [items]="items" formControlName="jobCategory" placeholder="Select Job Category"></ngx-select>
                                 </div>
                                 <div class="col-sm-6">
                                     <label class="form-label">Job Location</label>
-                                    <ngx-select [items]="items" placeholder="Select Job Location"></ngx-select>
+                                    <ngx-select [items]="items" formControlName="jobLocation" placeholder="Select Job Location"></ngx-select>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -197,9 +198,10 @@
             <div class="modal-footer">
                 <div class="d-flex justify-content-between w-100">
                     <button type="button" class="btn bg-secondary bg-opacity-10 text-dark btn-sm" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-main btn-sm">Add New Job</button>
+                    <button type="button" class="btn btn-main btn-sm" (click)="onSubmit()">Add New Job</button>
                 </div>
             </div>
+        </form>
         </div>
     </div>
 </div>

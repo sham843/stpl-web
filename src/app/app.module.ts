@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AccessDeniedComponent } from './errors/access-denied/access-denied.component';
 import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
+import { TitleCasePipe } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -21,8 +23,14 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      closeButton: true,
+      progressBar:true,
+      preventDuplicates: true,
+    }),
   ],
-  providers: [],
+  providers: [TitleCasePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

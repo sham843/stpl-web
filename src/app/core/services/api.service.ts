@@ -7,15 +7,8 @@ import { TitleCasePipe } from '@angular/common';
 })
 export class ApiService {
 
-  stateId = 1 // default sel state id
-  modalSize = ['320px', '400px', '700px', '1024px']; // modal size
-  UserLoginDetails: any;
-  userObj: any;
-  tokanExpiredFlag: boolean = false;
-
   getBaseurl(url: string) {
     switch (url) {
-
       case 'stplUrl': return 'http://webapi.shauryatechnosoft.com/stpl/'; break;
       default: return ''; break;
     }
