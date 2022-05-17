@@ -14,16 +14,16 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 
 export class PostJobComponent implements OnInit {
-  
+
   public items: string[] = ['Amsterdam', 'Antwerp', 'Athens', 'Barcelona',
-  'Berlin', 'Birmingham', 'Bradford', 'Bremen', 'Brussels', 'Bucharest',
-  'Budapest', 'Cologne', 'Copenhagen', 'Dortmund', 'Dresden', 'Dublin',
-  'Düsseldorf', 'Essen', 'Frankfurt'];
+    'Berlin', 'Birmingham', 'Bradford', 'Bremen', 'Brussels', 'Bucharest',
+    'Budapest', 'Cologne', 'Copenhagen', 'Dortmund', 'Dresden', 'Dublin',
+    'Düsseldorf', 'Essen', 'Frankfurt'];
 
   editorConfig = this.commonService.editorConfig;
-  PostJobForm! :FormGroup | any ;
-  jobPostArray:any;
-  pageNumber: number = 1; 
+  PostJobForm!: FormGroup | any;
+  jobPostArray: any;
+  pageNumber: number = 1;
   pagesize: number = 10;
   totalRows: any;
   submitted = false;
@@ -31,21 +31,22 @@ export class PostJobComponent implements OnInit {
   jobLocationArray: any;
   durationArray: any;
   employementArray: any;
-  deletePostId:any;
+  deletePostId: any;
   highlightedRow!: number;
+  btnText = 'Add New Job';
 
   constructor(
     private commonService: CommonService,
     public apiService: ApiService,
     private toastrService: ToastrService,
-    private errorSerivce:ErrorsService,
+    private errorSerivce: ErrorsService,
     private fb: FormBuilder,
-    private spinner :NgxSpinnerService,
+    private spinner: NgxSpinnerService,
     public dateTimeAdapter: DateTimeAdapter<any>) {
-      { dateTimeAdapter.setLocale('en-IN'); }
-    }
+    { dateTimeAdapter.setLocale('en-IN'); }
+  }
 
-  ngOnInit(){
+  ngOnInit() {
     this.defaultForm();
     this.getJobPost();
   }
@@ -54,25 +55,27 @@ export class PostJobComponent implements OnInit {
 
   defaultForm() {
     this.PostJobForm = this.fb.group({
-      jobTitle: ['',Validators.required],
-      jobDescription: ['',Validators.required],
-      jobCategory: ['',Validators.required],
-      jobLocation: ['',Validators.required],
-      jobPostEndDate: ['',Validators.required],
-      experienceFromYr: ['' ,Validators.required],
-      experienceToYr: ['' ,Validators.required],
-      role_Responsbility: ['',Validators.required],
-      joiningPeriod: ['',Validators.required],
-      employmentType: ['',Validators.required],
+      Id: [0],
+      jobTitle: ['', [Validators.required, Validators.maxLength(100), Validators.pattern('^[^\\s0-9\\[\\[`&._@#%*!+"\'\/\\]\\]{}][a-zA-Z-(),.0-9\\s]+$')]],
+      jobDescription: ['', Validators.required],
+      jobCategory: ['', Validators.required],
+      jobLocation: ['', Validators.required],
+      jobPostEndDate: ['', Validators.required],
+      experienceFromYr: ['', Validators.required],
+      experienceToYr: ['', Validators.required],
+      role_Responsbility: ['', Validators.required],
+      joiningPeriod: ['', Validators.required],
+      employmentType: ['', Validators.required],
     })
   }
 
-  clearForm(){
+  clearForm() {
     this.submitted = false;
     this.defaultForm();
+    this.btnText = 'Add New Job';
   }
 
-  addNewData(){
+  addNewData() {
     this.getAllCategory();
     this.getAllJobLocation();
     this.getAllDuration();
@@ -90,7 +93,7 @@ export class PostJobComponent implements OnInit {
           this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
         }
       },
-       error: ((error: any) => { this.errorSerivce.handelError(error.status) })
+      error: ((error: any) => { this.errorSerivce.handelError(error.status) })
     });
   }
 
@@ -105,7 +108,7 @@ export class PostJobComponent implements OnInit {
           this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
         }
       },
-       error: ((error: any) => { this.errorSerivce.handelError(error.status) })
+      error: ((error: any) => { this.errorSerivce.handelError(error.status) })
     });
   }
 
@@ -120,7 +123,7 @@ export class PostJobComponent implements OnInit {
           this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
         }
       },
-       error: ((error: any) => { this.errorSerivce.handelError(error.status) })
+      error: ((error: any) => { this.errorSerivce.handelError(error.status) })
     });
   }
 
@@ -135,13 +138,13 @@ export class PostJobComponent implements OnInit {
           this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
         }
       },
-       error: ((error: any) => { this.errorSerivce.handelError(error.status) })
+      error: ((error: any) => { this.errorSerivce.handelError(error.status) })
     });
   }
 
   getJobPost() {
     this.spinner.show();
-    let obj = "pageno=" + this.pageNumber + "&pagesize=" + this.pagesize ;
+    let obj = "pageno=" + this.pageNumber + "&pagesize=" + this.pagesize;
     this.apiService.setHttp('get', "JobPost/GetAll?" + obj, false, false, false, 'stplUrl');
     this.apiService.getHttp().subscribe({
       next: (res: any) => {
@@ -155,7 +158,7 @@ export class PostJobComponent implements OnInit {
           this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
         }
       },
-       error: ((error: any) => { this.errorSerivce.handelError(error.status) })
+      error: ((error: any) => { this.errorSerivce.handelError(error.status) })
     });
   }
 
@@ -164,11 +167,19 @@ export class PostJobComponent implements OnInit {
     this.getJobPost();
   }
 
+  changeStatus(event: any) {
+    console.log(event.target.checked)
+  }
+
   onSubmit() {
+    let formData = this.PostJobForm.value;
     this.submitted = true;
     if (this.PostJobForm.invalid) {
       return;
     } else {
+
+      let id: any;
+      formData.Id ? id = formData.Id : id = 0;
 
       let obj = {
         "createdBy": 0,
@@ -176,19 +187,19 @@ export class PostJobComponent implements OnInit {
         "createdDate": new Date(),
         "modifiedDate": new Date(),
         "isDeleted": true,
-        "id": 0,
-        "jobTitle": "string",
-        "jobDescription": "string",
-        "jobCategory": "string",
-        "jobLocation": "string",
-        "jobPostDate": "2022-05-16T10:10:35.589Z",
-        "jobPostEndDate": "2022-05-16T10:10:35.589Z",
-        "experienceFromYr": 0,
-        "experienceToYr": 0,
+        "id": id,
+        "jobTitle": formData.jobTitle,
+        "jobDescription": formData.jobDescription,
+        "jobCategory": formData.jobCategory,
+        "jobLocation": formData.jobLocation,
+        "jobPostDate": new Date(),
+        "jobPostEndDate": formData.jobPostEndDate,
+        "experienceFromYr": formData.experienceFromYr,
+        "experienceToYr": formData.experienceToYr,
         "qualificationId": 0,
-        "role_Responsbility": "string",
-        "joiningPeriod": "string",
-        "employmentType": "string",
+        "role_Responsbility": formData.jobTitle,
+        "joiningPeriod": formData.joiningPeriod,
+        "employmentType": formData.employmentType,
         "isActive": true,
         "skillModels": [
           {
@@ -198,7 +209,7 @@ export class PostJobComponent implements OnInit {
             "modifiedDate": new Date(),
             "isDeleted": true,
             "id": 0,
-            "skillName": "string",
+            "skillName": "Bootstrap",
             "jobPostId": 0
           }
         ]
@@ -209,7 +220,9 @@ export class PostJobComponent implements OnInit {
         if (res.statusCode == "200") {
           this.toastrService.success(res.statusMessage);
           this.submitted = false;
+          this.btnText = 'Add New Job';
           this.defaultForm();
+          this.getJobPost();
         } else {
           this.toastrService.error(res.statusMessage);
         }
@@ -220,23 +233,42 @@ export class PostJobComponent implements OnInit {
     }
   }
 
-  deleteConformation(id:any){
-   this.deletePostId = id;
+  updateJobPost(obj:any){
+    this.addNewData();
+    this.btnText = 'Update New Job';
+    this.PostJobForm.patchValue({
+      Id: obj.id,
+      jobTitle: obj.jobTitle,
+      jobDescription: obj.jobDescription ,
+      jobCategory: obj.jobCategory ,
+      jobLocation: obj.jobLocation ,
+      jobPostEndDate: obj.jobPostEndDate ,
+      experienceFromYr: obj.experienceFromYr ,
+      experienceToYr: obj.experienceToYr ,
+      role_Responsbility: obj.role_Responsbility ,
+      joiningPeriod: obj.joiningPeriod ,
+      employmentType: obj.employmentType ,
+    })
   }
 
-  deleteJobPost(){
-   let obj = { "id": parseInt(this.deletePostId) }
+  deleteConformation(id: any) {
+    this.deletePostId = id;
+  }
+
+  deleteJobPost() {
+    let obj = { "id": parseInt(this.deletePostId) }
     this.apiService.setHttp('DELETE', "JobPost/DeleteJobPost", false, JSON.stringify(obj), false, 'stplUrl');
     this.apiService.getHttp().subscribe({
-        next: (res: any) => {
-          if (res.statusCode === "200") {
-            this.toastrService.success(res.statusMessage);
-          } else {
-            this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
-          }
-        },
-         error: ((error: any) => { this.errorSerivce.handelError(error.status) })
-      });
+      next: (res: any) => {
+        if (res.statusCode === "200") {
+          this.toastrService.success(res.statusMessage);
+          this.getJobPost();
+        } else {
+          this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
+        }
+      },
+      error: ((error: any) => { this.errorSerivce.handelError(error.status) })
+    });
   }
 
 }
