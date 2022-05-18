@@ -67,7 +67,7 @@
         <div class="modal-content border-0">
             <div class="modal-header bg-main text-white">
                 <p class="modal-title mb-0" id="AddNewJobModalLabel">Add New Job</p>
-                <button type="button" class="btn-close" (click)="clearForm()" data-bs-dismiss="modal"
+                <button type="button" class="btn-close" #addNewJobModel (click)="clearForm()" data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>
             <form [formGroup]="PostJobForm">

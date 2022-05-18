@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/core/services/api.service';
@@ -33,6 +33,7 @@ export class PostJobComponent implements OnInit {
   employementArray: any;
   deletePostId: any;
   highlightedRow!: number;
+  @ViewChild('addNewJobModel') addNewJobModel:any; 
   btnText = 'Add New Job';
 
   constructor(
@@ -219,9 +220,8 @@ export class PostJobComponent implements OnInit {
       this.apiService.getHttp().subscribe((res: any) => {
         if (res.statusCode == "200") {
           this.toastrService.success(res.statusMessage);
-          this.submitted = false;
-          this.btnText = 'Add New Job';
-          this.defaultForm();
+          this.clearForm();
+          this.addNewJobModel.nativeElement.click();
           this.getJobPost();
         } else {
           this.toastrService.error(res.statusMessage);
