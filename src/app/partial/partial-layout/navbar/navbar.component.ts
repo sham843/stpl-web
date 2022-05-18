@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
@@ -8,8 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  constructor() {}
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+  ) {}
+
   ngOnInit(): void {}
 
+  logOut() {
+    localStorage.clear();
+    this.router.navigate(['../home'], { relativeTo: this.route });
+  }
   
 }

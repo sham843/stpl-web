@@ -10,29 +10,36 @@
         </div>
         <div class="row justify-content-center mt-5">
             <div class="col-sm-4" id="login-box">
+                <form [formGroup]="loginForm">
                 <i class="fa-regular fa-circle-user fa-3x mb-4"></i>
 
                 <div class="mb-3">
                     <div class="input-group">
                         <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
-                        <input type="text" class="form-control" placeholder="Username" />
+                        <input type="text" class="form-control" formControlName="UserName"
+                        placeholder="UserName" autocomplete="off"
+                        [ngClass]="{ 'is-invalid': submitted && f.UserName.errors }">
+                    <div *ngIf="submitted && f.UserName.errors" class="invalid-feedback">
+                        <div class="text-danger" *ngIf="f.UserName.errors?.required">User Name is required.</div>
+                    </div>
                     </div>
                 </div>
                 <div class="mb-3">
                     <div class="input-group">
                         <span class="input-group-text"><i class="fa-solid fa-key"></i></span>
-                        <input type="password" class="form-control" placeholder="Password" />
+                        <input autocomplete="off" [type]="show_button ? 'text' : 'password'" class="form-control" placeholder="Password"
+                         formControlName="Password" [ngClass]="{ 'is-invalid': submitted && f.Password.errors }">
+                        <button type="button" class="btn btn-light bg-transparent" (click)="showPassword()">
+                            <i class="eye-icon-pos" [class]="show_eye ? 'fa fa-eye' : 'fa fa-eye-slash'"> </i>
+                        </button>
+                        <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+                            <div class="text-danger" *ngIf="f.Password.errors.required">Password is required.</div>
+                        </div>
                     </div>
                 </div>
-                <div class="mb-3 text-start">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          Remeber Me
-                        </label>
-                      </div>
-                </div>
-                <button class="btn btn-main rounded rounded-pill w-100" type="button">LOGIN</button>
+
+                <button class="btn btn-main rounded rounded-pill w-100" (click)="loginFormSubmit()" type="submit">LOGIN</button>
+            </form>
             </div>
         </div>
     </div>

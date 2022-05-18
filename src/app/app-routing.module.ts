@@ -11,8 +11,8 @@ const routes: Routes = [
   { path: '', component: WebLayoutComponent,  loadChildren: () => import('./web/web-layout/web-layout.module').then(m => m.WebLayoutModule) },
   {
     path: '',
-    // canActivate: [AuthGuard],
-    // canActivateChild: [AuthorizationGuard],
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthorizationGuard],
     component: PartialLayoutComponent,
     loadChildren: () => import('./partial/partial-layout/partial-layout.module').then(m => m.PartialLayoutModule)
   },
