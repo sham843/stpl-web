@@ -22,38 +22,33 @@ export class LocalstorageService {
 
   loggedInUserName() {
     let data = JSON.parse(localStorage['user']);
-    return data.responseData['userName'];
-  }
-
-  getSelLanguage() {
-    let getLanguage = localStorage.getItem('lang');
-    return getLanguage;
+    return data['userName'];
   }
 
   userId() {
     let userId = this.getLoggedInLocalstorageData();
-    return userId.responseData.id;
+    return userId.id;
   }
 
   profilePath() {
     let userId = this.getLoggedInLocalstorageData();
-    let profilePath = userId.responseData.profilePath =="" || userId.responseData.profilePath == null || userId.responseData.profilePath == undefined  ? 'assets/images/user.png' : userId.responseData.profilePath;
+    let profilePath = userId.profilePath =="" || userId.profilePath == null || userId.profilePath == undefined  ? 'assets/images/user.png' : userId.profilePath;
     return profilePath;
   }
 
   userTypeId() {
     let userTypeId = this.getLoggedInLocalstorageData();
-    return userTypeId.responseData.userTypeId;
+    return userTypeId.userTypeId;
   }
 
   subUserTypeId() {
     let userTypeId = this.getLoggedInLocalstorageData();
-    return userTypeId.responseData.subUserTypeId;
+    return userTypeId.subUserTypeId;
   }
 
   getAllPageName() {
     let getAllPageName = this.getLoggedInLocalstorageData();
-    return getAllPageName.responseData1.pageUrls;
+    return getAllPageName.pageUrls;
   }
 
   redirectToDashborad() {
