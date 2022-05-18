@@ -31,6 +31,10 @@
     border-radius: 40px;
     padding: 10px;
 }
+#login-box .input-group .btn{
+    height: 32.4px;
+    color: #fff;
+}
 #login-box .btn {
     height:52px;
     box-shadow: none;
