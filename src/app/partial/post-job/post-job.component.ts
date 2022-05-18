@@ -198,7 +198,7 @@ export class PostJobComponent implements OnInit {
         "experienceFromYr": formData.experienceFromYr,
         "experienceToYr": formData.experienceToYr,
         "qualificationId": 0,
-        "role_Responsbility": formData.jobTitle,
+        "role_Responsbility": formData.role_Responsbility,
         "joiningPeriod": formData.joiningPeriod,
         "employmentType": formData.employmentType,
         "isActive": true,
