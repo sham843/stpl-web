@@ -32,7 +32,7 @@ export class PostJobComponent implements OnInit {
   durationArray: any;
   employementArray: any;
   deletePostId: any;
-  highlightedRow!: number;
+  HighlightRow!: number;
   @ViewChild('addNewJobModel') addNewJobModel:any; 
   btnText = 'Add New Job';
 
@@ -235,6 +235,7 @@ export class PostJobComponent implements OnInit {
 
   updateJobPost(obj:any){
     this.addNewData();
+    this.HighlightRow = obj.id;
     this.btnText = 'Update New Job';
     this.PostJobForm.patchValue({
       Id: obj.id,
@@ -252,6 +253,7 @@ export class PostJobComponent implements OnInit {
   }
 
   deleteConformation(id: any) {
+    this.HighlightRow = id;
     this.deletePostId = id;
   }
 

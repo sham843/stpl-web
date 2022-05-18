@@ -24,7 +24,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let jobPost of jobPostArray | paginate: {itemsPerPage: pagesize, 
-                currentPage: pageNumber, totalItems:totalRows}; let i = index; ">
+                currentPage: pageNumber, totalItems:totalRows}; let i = index " [class.active]="jobPost.id == HighlightRow">
                     <td>{{((pageNumber + 1) * 10 + i + 1)-20}}</td>
                     <td>{{jobPost.jobPostDate | date: 'dd/MM/yyyy'}}</td>
                     <td>{{jobPost.jobTitle}}</td>
