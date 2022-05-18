@@ -229,3 +229,7 @@ ngx-select.ng-untouched.ng-invalid.is-invalid .ngx-select__toggle {
     border-bottom-right-radius: 5px;
 }
 
+tr.active {
+    background: #f5f5f5;
+}
+
