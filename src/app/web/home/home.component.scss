@@ -1,240 +1,267 @@
-#banner,
-#whychoose,
-#testimonials,
-#subscribeus,
-#services{
-    padding-block: 3rem;
+// #banner,
+// #whychoose,
+// #testimonials,
+// #subscribeus,
+// #services{
+//     padding-block: 3rem;
+// }
+// #banner .small-heading{
+//     background-color:var(--main-light-color);
+//     color: var(--main-color);
+//     width: fit-content;
+//     font-size: 0.85rem;
+//     padding:6px 15px;
+//     border-radius: 5px;
+// }
+// #banner h1{
+//     font-size: 3.4rem;
+//     font-weight: 600;
+//     line-height: 4.55rem;
+//     font-family: 'Fira Sans', sans-serif;
+// }
+// #banner .small-text{
+//     color: #aaa;
+//     margin-block:1rem;
+// }
+// #banner .play-button{
+//     width: 60px;
+//     height: 60px;
+//     line-height: 47px;
+//     font-size: 1.5rem;
+//     border-radius: 50%;
+// }
+// #Bannercarousel,
+// #Bannercarousel .carousel-inner,
+// #Bannercarousel .carousel-item,
+// #Bannercarousel img{
+//     width: 370px !important;
+//     height: 420px;
+//     position: relative;
+// }
+// #Bannercarousel .carousel-control-next,
+// #Bannercarousel .carousel-control-prev{
+//     position:absolute;
+//     width: 60px;
+//     height: 60px;
+//     background-color: var(--blue-color);
+//     opacity: 1;
+//     border: solid 13px #f3f4f6;
+//     padding: 8px;
+// }
+// #Bannercarousel .carousel-control-prev{
+//     bottom: 0 !important;
+//     top:unset !important;
+//     left:-26px;
+// }
+// #Bannercarousel .carousel-control-next{
+//     right:-26px;
+// }
+// .section-heading .section-small-head{
+//     color: var(--blue-color);
+//     margin-bottom: 0.5rem;
+//     font-weight: 600;
+// }
+// .section-heading h3{
+//     font-family: 'Fira Sans', sans-serif;
+//     font-weight: 600;
+//     margin-bottom: 1rem;
+//     line-height: 2.5rem;
+// }
+// #services .card{
+//     border: none;
+//     border-radius: 0;
+//     transition:all 0.6s ease-in-out;
+// }
+// #services .card-body{
+//     padding: 30px;
+// }
+// #services i{
+//     width: 80px;
+//     height: 80px;
+//     margin-bottom: 20px;
+//     text-align: center;
+//     line-height: 80px;
+//     font-size: 1.7rem;
+// }
+// #services h4{
+//     font-size: 1.15rem;
+//     font-family: 'Fira Sans', sans-serif;
+//     font-weight: 600;
+// }
+// #services p{
+//     font-size: 0.85rem;
+//     color: #999;
+//     line-height: 1.4rem;
+//     margin-bottom: 0;
+// }
+// #services .card:hover{
+//     background-color: var(--blue-color);
+//     color: #fff;
+//     transition:all 0.6s ease-in-out;
+// }
+// #services .card:hover i{
+//     background-color: #fff !important;
+//     color: var(--blue-color) !important;
+//     transition:all 0.6s ease-in-out;
+// }
+// #services .card:hover p{
+//     color: #eee;
+//     transition:all 0.6s ease-in-out;
+// }
+// #whychoose .card{
+//     border: none;
+//     border-radius: 0;
+// }
+// #whychoose .card i{
+//     width: 60px;
+//     height: 60px;
+//     text-align: center;
+//     line-height: 60px;
+//     font-size: 1.3rem;
+// }
+// #whychoose .card h5{
+//     font-size: 1.05rem;
+//     font-weight: 500;
+// }
+// #whychoose .card .sub-text{
+//     font-size: 0.85rem;
+//     font-weight: 500;
+//     color: #888;
+// }
+// #whychoose .small-image img{
+//     width: 250px;
+//     position: absolute;
+//     bottom: 7px;
+//     border-top: solid 20px #fff;
+//     border-right: solid 20px #fff;
+// }
+
+// #testimonial{
+//     background: linear-gradient(112deg, #ffffff 50%, #eee 50%);
+//     max-width: 100%;
+//     margin: auto;
+// }
+// #testimonial .carousel-caption {
+//     position: initial;
+//     z-index: 10;
+//     padding: 5rem 8rem;
+//     color: #333;
+//     text-align: center;
+//     font-size: 1rem;
+//     line-height: 2rem;
+// }
+// @media(max-width:767px){
+//     #testimonial .carousel-caption {
+//         position: initial;
+//         z-index: 10;
+//         padding: 3rem 2rem;
+//         color: #333;
+//         text-align: center;
+//         font-size: 0.7rem;
+//         font-style: italic;
+//         font-weight: bold;
+//         line-height: 1.5rem;
+//     }
+// }
+// #testimonial .carousel-caption img{
+//     width: 6rem;
+//     border-radius: 5rem;
+//     margin-top: 2rem;
+// }
+// @media(max-width:767px){
+//     #testimonial .carousel-caption img{
+//         width: 4rem;
+//         border-radius: 4rem;
+//         margin-top: 1rem;
+//     }
+// }
+// #testimonial #image-caption{
+//     font-style: normal;
+//     font-size: 1rem;
+//     margin-top: 0.5rem;
+//     font-weight: 600;
+// }
+// @media(max-width:767px){
+//     #testimonial #image-caption{
+//         font-style: normal;
+//         font-size: 0.6rem;
+//         margin-top: 0.5rem;
+//     }
+// }
+// #testimonial i{
+//     background-color: var(--blue-light-color);
+//     padding: 1.4rem;
+//     color: var(--blue-color);
+//     text-decoration: none;
+// }
+// @media(max-width:767px){
+//     #testimonial i{
+//         padding: 0.8rem;
+//     }
+// }
+// #testimonial .carousel-control-prev{
+//     justify-content: flex-start;
+// }
+
+// #testimonial .carousel-control-next {
+//     justify-content: flex-end;
+// }
+// #testimonial .carousel-control-prev,.carousel-control-next{
+//     transition: none;
+//     opacity: unset;
+//     text-decoration: none;
+// }
+// #subscribeus .card{
+//     background-color: rgba(255,255,255,0.6);
+//     border-radius: 0;
+// }
+// #subscribeus{
+//     background-image:url('../../../assets/images/subscribeus.jpg');
+//     height: 400px;
+//     background-size: cover;
+//     object-fit: cover;
+// }
+// #subscribeus .input-group{
+//     padding: 10px;
+//     border: solid 1px rgba(0,0,0,0.125);
+//     background-color: #fff;
+// }
+// #subscribeus .input-group .form-control{
+//     border: none;
+//     box-shadow: none !important;
+//     padding: 10px;
+//     font-size: 0.9rem;
+// }
+// #subscribeus .input-group .btn{
+//     border: none;
+//     box-shadow: none !important;
+//     border-radius: 0;
+//     font-size: 0.9rem;
+// }
+section{
+    height: 100vh;
 }
-#banner .small-heading{
-    background-color:var(--main-light-color);
-    color: var(--main-color);
-    width: fit-content;
-    font-size: 0.85rem;
-    padding:6px 15px;
-    border-radius: 5px;
-}
-#banner h1{
-    font-size: 3.4rem;
-    font-weight: 600;
-    line-height: 4.55rem;
-    font-family: 'Fira Sans', sans-serif;
-}
-#banner .small-text{
-    color: #aaa;
-    margin-block:1rem;
-}
-#banner .play-button{
-    width: 60px;
-    height: 60px;
-    line-height: 47px;
-    font-size: 1.5rem;
-    border-radius: 50%;
-}
-#Bannercarousel,
-#Bannercarousel .carousel-inner,
-#Bannercarousel .carousel-item,
-#Bannercarousel img{
-    width: 370px !important;
-    height: 420px;
-    position: relative;
-}
-#Bannercarousel .carousel-control-next,
-#Bannercarousel .carousel-control-prev{
-    position:absolute;
-    width: 60px;
-    height: 60px;
-    background-color: var(--blue-color);
-    opacity: 1;
-    border: solid 13px #f3f4f6;
-    padding: 8px;
-}
-#Bannercarousel .carousel-control-prev{
-    bottom: 0 !important;
-    top:unset !important;
-    left:-26px;
-}
-#Bannercarousel .carousel-control-next{
-    right:-26px;
-}
-.section-heading .section-small-head{
-    color: var(--blue-color);
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-}
-.section-heading h3{
-    font-family: 'Fira Sans', sans-serif;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    line-height: 2.5rem;
-}
-#services .card{
-    border: none;
-    border-radius: 0;
-    transition:all 0.6s ease-in-out;
-}
-#services .card-body{
-    padding: 30px;
-}
-#services i{
-    width: 80px;
-    height: 80px;
-    margin-bottom: 20px;
-    text-align: center;
-    line-height: 80px;
-    font-size: 1.7rem;
-}
-#services h4{
-    font-size: 1.15rem;
-    font-family: 'Fira Sans', sans-serif;
-    font-weight: 600;
-}
-#services p{
-    font-size: 0.85rem;
-    color: #999;
-    line-height: 1.4rem;
-    margin-bottom: 0;
-}
-#services .card:hover{
-    background-color: var(--blue-color);
+#banner{
+    background-color: var(--main-color);
     color: #fff;
-    transition:all 0.6s ease-in-out;
-}
-#services .card:hover i{
-    background-color: #fff !important;
-    color: var(--blue-color) !important;
-    transition:all 0.6s ease-in-out;
-}
-#services .card:hover p{
-    color: #eee;
-    transition:all 0.6s ease-in-out;
-}
-#whychoose .card{
-    border: none;
-    border-radius: 0;
-}
-#whychoose .card i{
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    line-height: 60px;
-    font-size: 1.3rem;
-}
-#whychoose .card h5{
-    font-size: 1.05rem;
-    font-weight: 500;
-}
-#whychoose .card .sub-text{
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: #888;
-}
-#whychoose .small-image img{
-    width: 250px;
-    position: absolute;
-    bottom: 7px;
-    border-top: solid 20px #fff;
-    border-right: solid 20px #fff;
 }
 
-#testimonial{
-    background: linear-gradient(112deg, #ffffff 50%, #eee 50%);
-    max-width: 100%;
-    margin: auto;
+#banner #banner1{
+    background:linear-gradient(to right, rgba(0, 0, 0, 0.5) , rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/free-photo/ai-nuclear-energy-background-future-innovation-disruptive-technology_53876-129783.jpg');
 }
-#testimonial .carousel-caption {
-    position: initial;
-    z-index: 10;
-    padding: 5rem 8rem;
-    color: #333;
-    text-align: center;
-    font-size: 1rem;
-    line-height: 2rem;
+#banner #banner2{
+    background:linear-gradient(to right, rgba(0, 0, 0, 0.5) , rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/free-photo/robot-handshake-human-background-futuristic-digital-age_53876-129770.jpg');
 }
-@media(max-width:767px){
-    #testimonial .carousel-caption {
-        position: initial;
-        z-index: 10;
-        padding: 3rem 2rem;
-        color: #333;
-        text-align: center;
-        font-size: 0.7rem;
-        font-style: italic;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
+#banner #banner3{
+    background:linear-gradient(to right, rgba(0, 0, 0, 0.5) , rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/free-photo/man-using-digital-tablet-psd-mockup-smart-technology_53876-110815.jpg');
 }
-#testimonial .carousel-caption img{
-    width: 6rem;
-    border-radius: 5rem;
-    margin-top: 2rem;
-}
-@media(max-width:767px){
-    #testimonial .carousel-caption img{
-        width: 4rem;
-        border-radius: 4rem;
-        margin-top: 1rem;
-    }
-}
-#testimonial #image-caption{
-    font-style: normal;
-    font-size: 1rem;
-    margin-top: 0.5rem;
-    font-weight: 600;
-}
-@media(max-width:767px){
-    #testimonial #image-caption{
-        font-style: normal;
-        font-size: 0.6rem;
-        margin-top: 0.5rem;
-    }
-}
-#testimonial i{
-    background-color: var(--blue-light-color);
-    padding: 1.4rem;
-    color: var(--blue-color);
-    text-decoration: none;
-}
-@media(max-width:767px){
-    #testimonial i{
-        padding: 0.8rem;
-    }
-}
-#testimonial .carousel-control-prev{
-    justify-content: flex-start;
-}
-
-#testimonial .carousel-control-next {
-    justify-content: flex-end;
-}
-#testimonial .carousel-control-prev,.carousel-control-next{
-    transition: none;
-    opacity: unset;
-    text-decoration: none;
-}
-#subscribeus .card{
-    background-color: rgba(255,255,255,0.6);
-    border-radius: 0;
-}
-#subscribeus{
-    background-image:url('../../../assets/images/subscribeus.jpg');
-    height: 400px;
+#banner #banner1,
+#banner #banner2,
+#banner #banner3{
+    height: 100vh;
     background-size: cover;
-    object-fit: cover;
 }
-#subscribeus .input-group{
-    padding: 10px;
-    border: solid 1px rgba(0,0,0,0.125);
-    background-color: #fff;
-}
-#subscribeus .input-group .form-control{
-    border: none;
-    box-shadow: none !important;
-    padding: 10px;
-    font-size: 0.9rem;
-}
-#subscribeus .input-group .btn{
-    border: none;
-    box-shadow: none !important;
-    border-radius: 0;
-    font-size: 0.9rem;
+#banner .carousel-caption{
+    top:30%;
+    bottom:0 !important;
 }
