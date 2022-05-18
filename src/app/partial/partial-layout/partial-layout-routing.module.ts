@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'view-applications', loadChildren: () => import('../../partial/job-applications/view-applications/view-applications.module').then(m => m.ViewApplicationsModule) },
   { path: 'approved-rejected-applications', loadChildren: () => import('../../partial/job-applications/approved-rejected-applications/approved-rejected-applications.module').then(m => m.ApprovedRejectedApplicationsModule) },
   { path: 'access-denied', component: AccessDeniedComponent, data: { title: 'Access Denied' } },
-
+  { path: 'user-profile', loadChildren: () => import('../../partial/user-profile/user-profile.module').then(m => m.UserProfileModule) },
 ];
 
 @NgModule({

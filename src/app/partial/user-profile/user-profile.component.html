@@ -1,0 +1,129 @@
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card plain-card">
+            <div class="card-header">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-sm-6">User Profile</div>
+                    <div class="col-sm-6 form-container text-end">
+                        <button type="button" class="btn btn-sm bg-primary bg-opacity-10 text-primary"
+                            title="Edit Profile">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="photo-container mb-3">
+                    <a class="update-photo btn bg-danger bg-opacity-10 text-danger">
+                        <i class="fas fa-times"></i>
+                    </a>
+                    <a class="update-photo btn bg-success bg-opacity-10 text-success">
+                        <i class="fas fa-camera"></i>
+                    </a>
+                    <input type="file" class="d-none" #fileInput>
+                    <img src="assets/images/user-default.jpg" class="img-fluid img-thumbnail profile-photo">
+                </div>
+                <div class="form-container">
+                    <div class="row mb-3">
+                        <div class="col-sm-6">
+                            <label class="form-label">First Name</label>
+                            <input class="form-control" type="text" placeholder="First Name" />
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-label">Last Name</label>
+                            <input class="form-control" type="text" placeholder="Last Name" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-6">
+                            <label class="form-label">Email ID</label>
+                            <input class="form-control" type="text" placeholder="Email ID" />
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-label">Contact No.</label>
+                            <input class="form-control" type="text" placeholder="Contact No." />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-6">
+                            <label class="form-label">Role</label>
+                            <select class="form-select">
+                                <option value="">Select Role</option>
+                                <option>Admin</option>
+                                <option>HR</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-label">User Name</label>
+                            <input class="form-control" type="text" placeholder="User Name" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <button type="button" class="btn bg-dark bg-opacity-10 text-dark">Cancel</button>
+                        </div>
+                        <div class="col-sm-6 text-end">
+                            <button type="button" class="btn btn-main">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card plain-card">
+            <div class="card-header">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-sm-6">Change Password</div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="form-container">
+                    <div class="row mb-3">
+                        <div class="col-sm-7">
+                            <div class="mb-3">
+                                <label class="form-label">Old Password</label>
+                                <div class="input-group">
+                                    <input class="form-control" type="passwor" placeholder="Enter Old Password" />
+                                    <button class="btn btn-light border">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">New Password</label>
+                                <div class="input-group">
+                                    <input class="form-control" type="passwor" placeholder="Enter New Password" />
+                                    <button class="btn btn-light border">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Retype Password</label>
+                                <div class="input-group">
+                                    <input class="form-control" type="passwor" placeholder="Retype Password" />
+                                    <button class="btn btn-light border">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <button type="button" class="btn bg-dark bg-opacity-10 text-dark">Cancel</button>
+                                </div>
+                                <div class="col-sm-auto text-end">
+                                    <button type="button" class="btn btn-main">Change Password</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <!-- validations -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
