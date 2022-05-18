@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.co
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { TitleCasePipe } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ToastrModule } from 'ngx-toastr';
       progressBar:true,
       preventDuplicates: true,
     }),
+    NgxSpinnerModule,
   ],
   providers: [TitleCasePipe],
   bootstrap: [AppComponent]
