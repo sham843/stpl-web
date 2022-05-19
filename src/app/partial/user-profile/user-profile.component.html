@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-7">
         <div class="card plain-card">
             <div class="card-header">
                 <div class="row justify-content-between align-items-center">
@@ -119,7 +119,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-5">
         <div class="card plain-card">
             <div class="card-header">
                 <div class="row justify-content-between align-items-center">
@@ -129,7 +129,7 @@
             <div class="card-body">
                 <div class="form-container">
                     <div class="row mb-3">
-                        <div class="col-sm-7">
+                        <div class="col-sm-12">
                             <form [formGroup]="changePassForm">
                                 <div class="mb-3">
                                     <label class="form-label">Old Password</label>
@@ -137,7 +137,12 @@
                                         <input class="form-control" [type]="oldPassword ? 'password' : 'text'" formControlName="oldPassword"
                                             placeholder="Enter Old Password"
                                             [ngClass]="{ 'is-invalid': submittedCp && cp.oldPassword.errors }">
-                                        <div *ngIf="submittedCp && cp.oldPassword.errors" class="invalid-feedback">
+                                        
+                                            <button class="btn btn-light border" (click)="oldPassword = !oldPassword">
+                                                <i class="fa-solid fa-eye" *ngIf="oldPassword"> </i>
+                                                <i class="fa-solid fa-eye-slash" *ngIf="!oldPassword"> </i>
+                                            </button>
+                                            <div *ngIf="submittedCp && cp.oldPassword.errors" class="invalid-feedback">
                                             <div class="text-danger" *ngIf="cp.oldPassword.errors?.required">Please
                                                 enter old Password</div>
                                             <div class="text-danger"
@@ -146,10 +151,7 @@
                                                 must contain 8 or more characters that are of at least one number, and
                                                 one special characters, and one uppercase and lowercase letter.</div>
                                         </div>
-                                        <button class="btn btn-light border" (click)="oldPassword = !oldPassword">
-                                            <i class="fa-solid fa-eye" *ngIf="oldPassword"> </i>
-                                            <i class="fa-solid fa-eye-slash" *ngIf="!oldPassword"> </i>
-                                        </button>
+                                        
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -158,7 +160,11 @@
                                         <input class="form-control" [type]="newPassword ? 'password' : 'text'" formControlName="newPassword"
                                             placeholder="Enter New Password"
                                             [ngClass]="{ 'is-invalid': submittedCp && cp.newPassword.errors }">
-                                        <div *ngIf="submittedCp && cp.newPassword.errors" class="invalid-feedback">
+                                            <button class="btn btn-light border" (click)="newPassword = !newPassword"> 
+                                                <i class="fa-solid fa-eye" *ngIf="newPassword"> </i>
+                                                <i class="fa-solid fa-eye-slash" *ngIf="!newPassword"> </i>
+                                            </button>
+                                            <div *ngIf="submittedCp && cp.newPassword.errors" class="invalid-feedback">
                                             <div class="text-danger" *ngIf="cp.newPassword.errors?.required">Please enter
                                                 new Password</div>
                                             <div class="text-danger"
@@ -168,10 +174,7 @@
                                                 one special characters, and one uppercase and lowercase letter.</div>
                                         </div>
 
-                                        <button class="btn btn-light border" (click)="newPassword = !newPassword"> 
-                                            <i class="fa-solid fa-eye" *ngIf="newPassword"> </i>
-                                            <i class="fa-solid fa-eye-slash" *ngIf="!newPassword"> </i>
-                                        </button>
+                                        
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -180,7 +183,10 @@
                                         <input class="form-control" [type]="confirmPassword ? 'password' : 'text'" formControlName="ConfirmPassword"
                                             placeholder="Retype Password"
                                             [ngClass]="{ 'is-invalid': submittedCp && cp.ConfirmPassword.errors }">
-
+                                            <button class="btn btn-light border" (click)="confirmPassword = !confirmPassword">
+                                                <i class="fa-solid fa-eye" *ngIf="confirmPassword"> </i>
+                                                <i class="fa-solid fa-eye-slash" *ngIf="!confirmPassword"> </i>
+                                            </button>
                                         <div *ngIf="submittedCp && cp.ConfirmPassword.errors" class="invalid-feedback">
                                             <div class="text-danger" *ngIf="cp.ConfirmPassword.errors?.required">
                                                 Please enter new Password </div>
@@ -196,10 +202,7 @@
                                         <div class="text-danger" *ngIf="cp.ConfirmPassword.errors?.Matched">
                                             Old password and new password are same please enter new password different
                                         </div>
-                                        <button class="btn btn-light border" (click)="confirmPassword = !confirmPassword">
-                                            <i class="fa-solid fa-eye" *ngIf="confirmPassword"> </i>
-                                            <i class="fa-solid fa-eye-slash" *ngIf="!confirmPassword"> </i>
-                                        </button>
+                                        
                                     </div>
                                 </div>
                                 <div class="row">

@@ -28,3 +28,6 @@
         pointer-events: none;
         opacity: .6;
     }
+        .input-group .form-control.is-invalid+button.btn-light {
+            margin-left: 0;
+        }

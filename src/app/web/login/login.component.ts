@@ -59,7 +59,9 @@ export class LoginComponent implements OnInit {
           if (res.statusCode === "200") {
             this.spinner.hide();
             sessionStorage.setItem('loggedIn', 'true');
-            localStorage.setItem('user', JSON.stringify(res.responseData));
+            let resData = res.responseData;
+            delete resData.password;     //remove password Field userdetails 
+            localStorage.setItem('user', JSON.stringify(resData));
             this.toastrService.success('login successfully');
             this.submitted = false;
             this.router.navigate(['../dashboard'], { relativeTo: this.route });
