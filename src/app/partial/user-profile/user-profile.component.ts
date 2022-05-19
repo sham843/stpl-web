@@ -22,6 +22,9 @@ export class UserProfileComponent implements OnInit {
 
   changePassForm!:FormGroup | any;
   submittedCp = false;
+  oldPassword: boolean = true;
+  newPassword: boolean = true;
+  confirmPassword: boolean = true;
 
   constructor(
     private localStorage: LocalstorageService,
@@ -48,7 +51,7 @@ export class UserProfileComponent implements OnInit {
       lastName: ['', [Validators.required ,Validators.pattern(/^\S*$/)]],
       email: ['',[Validators.required,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       mobileNo: ['',[Validators.required, Validators.pattern('[6-9]\\d{9}')]],
-      userName: ['',[Validators.required,Validators.pattern('^[a-zA-Z0-9](_(?!(\.|_))|\.(?!(_|\.))|[a-zA-Z0-9]){6,18}[a-zA-Z0-9]$')]],
+      userName: ['',[Validators.required,Validators.pattern('^[a-zA-Z0-9](_(?!(\.|_))|\.(?!(_|\.))|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$')]],
       designation: ['',Validators.required],
     })
   }
@@ -172,6 +175,7 @@ export class UserProfileComponent implements OnInit {
 
   clearChangePassForm() {
    this.changePasswordForm();
+   this.submittedCp = false;
   }
 
 
