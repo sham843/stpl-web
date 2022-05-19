@@ -23,3 +23,8 @@
     width: 150px;
     object-position: center;
     }
+
+    .disabled-contenct {
+        pointer-events: none;
+        opacity: .6;
+    }

@@ -56,4 +56,9 @@ export class LocalstorageService {
     let redirectToDashboard = logInUserType[0].pageURL;
     return redirectToDashboard;
   }
+
+  userMobileNo() {
+    let mobileNumber = this.getLoggedInLocalstorageData();
+    return mobileNumber.mobileNo;
+  }
 }

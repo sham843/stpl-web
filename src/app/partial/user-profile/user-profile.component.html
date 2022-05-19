@@ -6,12 +6,14 @@
                     <div class="col-sm-6">User Profile</div>
                     <div class="col-sm-6 form-container text-end">
                         <button type="button" class="btn btn-sm bg-primary bg-opacity-10 text-primary"
-                            title="Edit Profile">
+                            title="Edit Profile" (click)="disableDiv = false">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </button>
                     </div>
                 </div>
             </div>
+    <div [class.disabled-contenct]="disableDiv">
+         <form [formGroup]="userProfileForm">
             <div class="card-body">
                 <div class="photo-container mb-3">
                     <a class="update-photo btn bg-danger bg-opacity-10 text-danger">
@@ -21,53 +23,92 @@
                         <i class="fas fa-camera"></i>
                     </a>
                     <input type="file" class="d-none" #fileInput>
-                    <img src="assets/images/user-default.jpg" class="img-fluid img-thumbnail profile-photo">
+                    <img src="../../../assets/images/user.png" class="img-fluid img-thumbnail profile-photo">
                 </div>
                 <div class="form-container">
                     <div class="row mb-3">
                         <div class="col-sm-6">
                             <label class="form-label">First Name</label>
-                            <input class="form-control" type="text" placeholder="First Name" />
+                            <input class="form-control" formControlName="firstName" type="text" placeholder="First Name" 
+                            [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+                            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                <div class="text-danger" *ngIf="f.firstName.errors?.required">First Name is
+                                    required.</div>
+                                <div class="text-danger" *ngIf="f.firstName.errors?.pattern">Please enter
+                                    Valid First Name</div>
+                            </div>
                         </div>
                         <div class="col-sm-6">
                             <label class="form-label">Last Name</label>
-                            <input class="form-control" type="text" placeholder="Last Name" />
+                            <input class="form-control" formControlName="lastName" type="text" placeholder="Last Name" 
+                            [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+                            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                <div class="text-danger" *ngIf="f.lastName.errors?.required">Last Name is
+                                    required.</div>
+                                <div class="text-danger" *ngIf="f.lastName.errors?.pattern">Please enter
+                                    Valid Last Name</div>
+                            </div>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-sm-6">
                             <label class="form-label">Email ID</label>
-                            <input class="form-control" type="text" placeholder="Email ID" />
+                            <input class="form-control" formControlName="email" type="text" placeholder="Email ID" 
+                            [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                <div class="text-danger" *ngIf="f.email.errors?.required">Email ID is
+                                    required.</div>
+                                <div class="text-danger" *ngIf="f.email.errors?.pattern">Please enter
+                                    Valid Email ID.</div>
+                            </div>
                         </div>
                         <div class="col-sm-6">
                             <label class="form-label">Contact No.</label>
-                            <input class="form-control" type="text" placeholder="Contact No." />
+                            <input class="form-control" formControlName="mobileNo" type="text" placeholder="Contact No." 
+                            [ngClass]="{ 'is-invalid': submitted && f.mobileNo.errors }">
+                            <div *ngIf="submitted && f.mobileNo.errors" class="invalid-feedback">
+                                <div class="text-danger" *ngIf="f.mobileNo.errors?.required">Contact No. is
+                                    required.</div>
+                                <div class="text-danger" *ngIf="f.mobileNo.errors?.pattern">Please enter
+                                    Valid Contact No..</div>
+                            </div>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-sm-6">
-                            <label class="form-label">Role</label>
-                            <select class="form-select">
-                                <option value="">Select Role</option>
-                                <option>Admin</option>
-                                <option>HR</option>
-                            </select>
+                            <label class="form-label required-field">Role</label>
+                            <ngx-select [allowClear]="true" [items]="roleArray" formControlName="designation" placeholder="Select Job Category"
+                                optionValueField="name" optionTextField="name"
+                                [ngClass]="{ 'is-invalid': submitted && f.designation.errors }">
+                            </ngx-select>
+                            <div *ngIf="submitted && f.designation.errors" class="invalid-feedback">
+                                <span class="text-danger" *ngIf="f.designation.errors?.required">Role is required.</span>
+                            </div>
                         </div>
                         <div class="col-sm-6">
                             <label class="form-label">User Name</label>
-                            <input class="form-control" type="text" placeholder="User Name" />
+                            <input class="form-control" formControlName="userName" type="text" placeholder="User Name"
+                            [ngClass]="{ 'is-invalid': submitted && f.userName.errors }">
+                            <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+                                <div class="text-danger" *ngIf="f.userName.errors?.required">User Name is
+                                    required.</div>
+                                <div class="text-danger" *ngIf="f.userName.errors?.pattern">Please enter
+                                    Valid User Name</div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
-                            <button type="button" class="btn bg-dark bg-opacity-10 text-dark">Cancel</button>
+                            <button type="button" class="btn bg-dark bg-opacity-10 text-dark" (click)="clearProfileForm()">Cancel</button>
                         </div>
                         <div class="col-sm-6 text-end">
-                            <button type="button" class="btn btn-main">Submit</button>
+                            <button type="button" class="btn btn-main" (click)="updateProfileData()">Update</button>
                         </div>
                     </div>
                 </div>
             </div>
+        </form>
+    </div>
         </div>
     </div>
     <div class="col-sm-6">
@@ -81,10 +122,17 @@
                 <div class="form-container">
                     <div class="row mb-3">
                         <div class="col-sm-7">
+                            <form [formGroup]="changePassForm">
                             <div class="mb-3">
                                 <label class="form-label">Old Password</label>
                                 <div class="input-group">
-                                    <input class="form-control" type="passwor" placeholder="Enter Old Password" />
+                                    <input class="form-control" type="passwor" formControlName="oldPassword" placeholder="Enter Old Password" 
+                                    [ngClass]="{ 'is-invalid': submitted && f.oldPassword.errors }">
+                                    <div *ngIf="submittedCp && cp.oldPassword.errors" class="invalid-feedback">
+                                        <div class="text-danger" *ngIf="cp.oldPassword.errors?.required">Old Password is required.</div>
+                                        <div class="text-danger" *ngIf="cp.oldPassword.errors?.pattern">Please enter
+                                            Valid Old Password</div>
+                                    </div>
                                     <button class="btn btn-light border">
                                         <i class="fa-solid fa-eye"></i>
                                     </button>
@@ -93,7 +141,7 @@
                             <div class="mb-3">
                                 <label class="form-label">New Password</label>
                                 <div class="input-group">
-                                    <input class="form-control" type="passwor" placeholder="Enter New Password" />
+                                    <input class="form-control" type="passwor" formControlName="newPassword" placeholder="Enter New Password" />
                                     <button class="btn btn-light border">
                                         <i class="fa-solid fa-eye"></i>
                                     </button>
@@ -102,7 +150,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Retype Password</label>
                                 <div class="input-group">
-                                    <input class="form-control" type="passwor" placeholder="Retype Password" />
+                                    <input class="form-control" type="passwor" formControlName="ConfirmPassword" placeholder="Retype Password" />
                                     <button class="btn btn-light border">
                                         <i class="fa-solid fa-eye"></i>
                                     </button>
@@ -110,12 +158,13 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm">
-                                    <button type="button" class="btn bg-dark bg-opacity-10 text-dark">Cancel</button>
+                                    <button type="button" class="btn bg-dark bg-opacity-10 text-dark" (click)="clearChangePassForm()">Cancel</button>
                                 </div>
                                 <div class="col-sm-auto text-end">
-                                    <button type="button" class="btn btn-main">Change Password</button>
+                                    <button type="submit" class="btn btn-main" (click)="changePassword()">Change Password</button>
                                 </div>
                             </div>
+                        </form>
                         </div>
                         <div class="col-sm-5">
                             <!-- validations -->

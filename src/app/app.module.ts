@@ -11,6 +11,7 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
 import { TitleCasePipe } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxSelectModule } from 'ngx-select-ex';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
       preventDuplicates: true,
     }),
     NgxSpinnerModule,
+    NgxSelectModule,
   ],
   providers: [TitleCasePipe],
   bootstrap: [AppComponent]
