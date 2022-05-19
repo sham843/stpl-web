@@ -4,16 +4,17 @@
 .navbar{
     font-size: 0.85rem;
     padding-block: 10px;
-    background-color: #f3f4f6;
+    // background-color: #f3f4f6;
     transition-duration: 0.6s;
 }
 .navbar .nav-link{
     padding:10px 20px;
     font-weight: 500;
+    color: #aaa;
 }
 .navbar .nav-link:hover,
 .navbar .nav-link.active{
-    color: #000;
+    color: #fff;
 }
 .navbar .dropdown-menu{
     font-size: 0.85rem;
@@ -25,13 +26,13 @@
     border-radius: 4px;
 }
 .navbar-scroll {
-	background: #ffffff;
+	background: var(--main-color);
 	padding-block: 5px;
 	// box-shadow: 1px 1px 9px 0px #cfc8c8;
 	transition-duration: 0.6s;
 }
 .nav-dropdown-scroll {
-	background: #e7eaea;
+	background: var(--main-color);
 	// box-shadow: 0px 10px 9px rgba(0, 0, 0, 0.4);
     transition-duration: 0.6s;
 }
