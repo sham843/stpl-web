@@ -154,81 +154,56 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-6">
-                                        <label class="form-label">Select Skillset</label>
-                                        <div class="card">
-                                            <div class="card-header bg-transparent py-1"><input type="text"
-                                                    class="border-0 form-control form-control-sm" placeholder="Search">
+                                        <label for="txtSearchAssembly" class="form-label required-field">Select Qualification</label>
+                                        <div class="card border shadow-none">
+                                            <div class="card-header border-bottom p-0 py-1">
+                                                <input type="text" formControlName="qualificationId" [(ngModel)]="searchQualificationData"
+                                                    placeholder="Search Qualification" class="form-control form-control-sm border-0"
+                                                    [ngClass]="{ 'is-invalid': submitted && f.qualificationId.errors}">
                                             </div>
-                                            <div class="card-body py-2 form-height">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="flexCheckDefault">
+                                            <div class="card-body py-2 form-height ChekBox"
+                                                *ngIf="( qualificationArray | filter:searchQualificationData ) as qualificationResult">
+                                                <div class="form-check" *ngFor="let qualificationObj of qualificationResult">
+                                                    <input class="form-check-input" type="checkbox" [checked]="qualificationObj.checked" 
+                                                    (change)="onCheckChangeQualification($event, qualificationObj.id)">
                                                     <label class="form-check-label" for="flexCheckDefault">
-                                                        React JS
+                                                        {{qualificationObj.qualificationName}}
                                                     </label>
                                                 </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="flexCheckChecked" checked>
-                                                    <label class="form-check-label" for="flexCheckChecked">
-                                                        jQuery
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="flexCheckDefault">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Bootstrap
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="flexCheckChecked">
-                                                    <label class="form-check-label" for="flexCheckChecked">
-                                                        CSS3
-                                                    </label>
+                                                <div *ngIf="qualificationResult.length === 0">
+                                                    <div class="alert alert-danger text-center py-2">No Data Found..!</div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="col-sm-6">
-                                        <label class="form-label">Select Qualification</label>
-                                        <div class="card">
-                                            <div class="card-header bg-transparent py-1"><input type="text"
-                                                    class="border-0 form-control form-control-sm" placeholder="Search">
+                                        <label for="txtSearchAssembly" class="form-label required-field">Select SkillSet</label>
+                                        <div class="card border shadow-none">
+                                            <div class="card-header border-bottom p-0 py-1">
+                                                <input type="text" formControlName="skillId" [(ngModel)]="searchSkillSetData"
+                                                    placeholder="Search SkillSet" class="form-control form-control-sm border-0"
+                                                    [ngClass]="{ 'is-invalid': submitted && f.skillId.errors}">
                                             </div>
-                                            <div class="card-body py-2 form-height">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="flexCheckDefault">
+                                            <div class="card-body py-2 form-height ChekBox"
+                                                *ngIf="( skillSetArray | filter:searchSkillSetData ) as skillSetResult">
+                                                <div class="form-check" *ngFor="let skillSetObj of skillSetResult">
+                                                    <input class="form-check-input" type="checkbox" [checked]="skillSetObj.checked" 
+                                                    (change)="onCheckChangeSkillSet($event, skillSetObj.id)">
                                                     <label class="form-check-label" for="flexCheckDefault">
-                                                        BCA
+                                                        {{skillSetObj.skillName}}
                                                     </label>
                                                 </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="flexCheckChecked" checked>
-                                                    <label class="form-check-label" for="flexCheckChecked">
-                                                        BCS
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="flexCheckDefault">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        BE (IT/CS)
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="flexCheckChecked">
-                                                    <label class="form-check-label" for="flexCheckChecked">
-                                                        MCA
-                                                    </label>
+                                                <div *ngIf="skillSetResult.length === 0">
+                                                    <div class="alert alert-danger text-center py-2">No Data Found..!</div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div *ngIf="submitted && f.skillId.errors" class="invalid-feedback">
+                                            <div *ngIf="f.skillId.errors.required">SkillSet is required</div>
+                                        </div>
                                     </div>
+
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">

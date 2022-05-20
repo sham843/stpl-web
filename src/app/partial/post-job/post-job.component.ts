@@ -36,6 +36,12 @@ export class PostJobComponent implements OnInit {
   @ViewChild('addNewJobModel') addNewJobModel:any; 
   btnText = 'Add New Job';
   Max = new Date();
+  qualificationArray: any;
+  searchQualificationData = '';
+  skillSetArray: any;
+  searchSkillSetData = '';
+  skillModelArray: any = [];
+  qualiModelArray: any = [];
 
   constructor(
     private commonService: CommonService,
@@ -68,6 +74,8 @@ export class PostJobComponent implements OnInit {
       role_Responsbility: ['', Validators.required],
       joiningPeriod: ['', Validators.required],
       employmentType: ['', Validators.required],
+      qualificationId : ['', Validators.required],
+      skillId : ['', Validators.required],
     })
   }
 
@@ -82,6 +90,8 @@ export class PostJobComponent implements OnInit {
     this.getAllJobLocation();
     this.getAllDuration();
     this.getAllEmployement();
+    this.getAllQualification();
+    this.getAllSkillSet();
   }
 
   getAllCategory() {
@@ -137,6 +147,36 @@ export class PostJobComponent implements OnInit {
           this.employementArray = res.responseData;
         } else {
           this.employementArray = [];
+          this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
+        }
+      },
+      error: ((error: any) => { this.errorSerivce.handelError(error.status) })
+    });
+  }
+
+  getAllSkillSet() {
+    this.apiService.setHttp('get', "Master/GetAllSkills", false, false, false, 'stplUrl');
+    this.apiService.getHttp().subscribe({
+      next: (res: any) => {
+        if (res.statusCode === "200") {
+          this.skillSetArray = res.responseData;
+        } else {
+          this.skillSetArray = [];
+          this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
+        }
+      },
+      error: ((error: any) => { this.errorSerivce.handelError(error.status) })
+    });
+  }
+
+  getAllQualification() {
+    this.apiService.setHttp('get', "Qualification/GetAllQualification", false, false, false, 'stplUrl');
+    this.apiService.getHttp().subscribe({
+      next: (res: any) => {
+        if (res.statusCode === "200") {
+          this.qualificationArray = res.responseData;
+        } else {
+          this.qualificationArray = [];
           this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
         }
       },
@@ -203,18 +243,8 @@ export class PostJobComponent implements OnInit {
         "joiningPeriod": formData.joiningPeriod,
         "employmentType": formData.employmentType,
         "isActive": true,
-        "skillModels": [
-          {
-            "createdBy": 0,
-            "modifiedBy": 0,
-            "createdDate": new Date(),
-            "modifiedDate": new Date(),
-            "isDeleted": true,
-            "id": 0,
-            "skillName": "Bootstrap",
-            "jobPostId": 0
-          }
-        ]
+        "skillModels": this.skillModelArray,
+        "qualifications": this.qualiModelArray,
       }
 
       this.apiService.setHttp('POST', 'JobPost/AddJobPost', false, JSON.stringify(obj), false, 'stplUrl');
@@ -272,6 +302,18 @@ export class PostJobComponent implements OnInit {
       },
       error: ((error: any) => { this.errorSerivce.handelError(error.status) })
     });
+  }
+  
+  onCheckChangeQualification(event: any, qualificationId:any) {
+    // event.target.checked
+
+    this.qualiModelArray
+   
+  }
+
+  onCheckChangeSkillSet(event: any, skillSetId:any) {
+    // event.target.checked   skillModelArray: any = [];
+   
   }
 
 }
