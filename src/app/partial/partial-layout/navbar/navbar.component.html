@@ -1,11 +1,21 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-0">
     <div class="container-fluid">
 
-        <button type="button" id="sidebarCollapse" class="btn btn-light btn-sm shadow-none">
+        <button type="button" id="sidebarCollapse" (click)="onToggleMenu()" class="btn btn-light btn-sm shadow-none">
             <i class="fas fa-align-left"></i>
             <span></span>
         </button>
-        <span class="ms-3 small text-secondary">Dashboard</span>
+        <span class="ms-3 small text-secondary">
+            <nav aria-label="breadcrumb" class="">
+                <ol class="breadcrumb mb-0 mt-1">
+                  <li class="breadcrumb-item active" *ngFor="let breadcrumb of this.breadcrumbs[0]?.label; let last = last"
+                    [ngClass]="{ 'active' : last }">
+                    <a>{{breadcrumb.title}}</a>
+                  </li>
+                </ol>
+              </nav>
+        </span>
+
         <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">

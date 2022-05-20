@@ -35,6 +35,7 @@ export class PostJobComponent implements OnInit {
   HighlightRow!: number;
   @ViewChild('addNewJobModel') addNewJobModel:any; 
   btnText = 'Add New Job';
+  Max = new Date();
 
   constructor(
     private commonService: CommonService,

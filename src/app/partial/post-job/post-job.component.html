@@ -120,7 +120,7 @@
                                         <label class="form-label required-field">Post End Date</label>
                                         <div class="input-group">
                                             <input class="form-control form-control-sm" [owlDateTimeTrigger]="dt1"
-                                                placeholder="Date Time" [owlDateTime]="dt1"
+                                                placeholder="Date Time" [min]="Max" [owlDateTime]="dt1"
                                                 formControlName="jobPostEndDate"
                                                 [ngClass]="{ 'is-invalid': submitted && f.jobPostEndDate.errors }">
                                             <owl-date-time #dt1 [pickerType]="'calendar'"></owl-date-time>

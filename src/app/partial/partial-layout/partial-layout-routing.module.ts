@@ -6,12 +6,28 @@ const routes: Routes = [
   // for bidder routing implements
   {
     path: 'dashboard', loadChildren: () => import('../../partial/dashboard/dashboard.module').then(m => m.DashboardModule),
+    data: { breadcrumb: [{ title: 'Dashboard', active: true }] }
   },
-  { path: 'post-job', loadChildren: () => import('../../partial/post-job/post-job.module').then(m => m.PostJobModule) },
-  { path: 'view-applications', loadChildren: () => import('../../partial/job-applications/view-applications/view-applications.module').then(m => m.ViewApplicationsModule) },
-  { path: 'approved-rejected-applications', loadChildren: () => import('../../partial/job-applications/approved-rejected-applications/approved-rejected-applications.module').then(m => m.ApprovedRejectedApplicationsModule) },
+  {
+    path: 'post-job', loadChildren: () => import('../../partial/post-job/post-job.module').then(m => m.PostJobModule),
+    data: { breadcrumb: [{ title: 'Post Job', active: true }] }
+  },
+
+  {
+    path: 'view-applications', loadChildren: () => import('../../partial/job-applications/view-applications/view-applications.module').then(m => m.ViewApplicationsModule),
+    data: { breadcrumb: [{ title: 'Job Application', active: true }, { title: 'View Application', active: true }] }
+  },
+  {
+    path: 'approved-rejected-applications', loadChildren: () => import('../../partial/job-applications/approved-rejected-applications/approved-rejected-applications.module').then(m => m.ApprovedRejectedApplicationsModule),
+    data: { breadcrumb: [{ title: 'Job Application', active: true }, { title: 'Approved-Rejected', active: true }] }
+  },
+  {
+    path: 'user-profile', loadChildren: () => import('../../partial/user-profile/user-profile.module').then(m => m.UserProfileModule),
+    data: { breadcrumb: [{ title: 'User-Profile', active: true }] }
+  },
+
   { path: 'access-denied', component: AccessDeniedComponent, data: { title: 'Access Denied' } },
-  { path: 'user-profile', loadChildren: () => import('../../partial/user-profile/user-profile.module').then(m => m.UserProfileModule) },
+
 ];
 
 @NgModule({
