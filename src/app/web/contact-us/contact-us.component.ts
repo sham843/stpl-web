@@ -38,7 +38,7 @@ export class ContactUsComponent implements OnInit {
       fullName: ['',[Validators.required,Validators.pattern('^[^\\s0-9\\[\\[`&._@#%*!+"\'\/\\]\\]{}][a-zA-Z.\\s]+$')]],
       emailId: ['',[Validators.required,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       contactNo: ['',[Validators.required, Validators.pattern('[6-9]\\d{9}')]],
-      subject: ['',[Validators.required, Validators.pattern(/^[^\s]+(\s+[^\s]+)*$/)]],
+      subject: ['',[Validators.required, Validators.pattern('^[^\\s0-9\\[\\[`&._@#%*!+"\'\/\\]\\]{}][a-zA-Z.\\s]+$')]],
       message: [''],
     })
   }
