@@ -25,7 +25,11 @@ const routes: Routes = [
     path: 'user-profile', loadChildren: () => import('../../partial/user-profile/user-profile.module').then(m => m.UserProfileModule),
     data: { breadcrumb: [{ title: 'User-Profile', active: true }] }
   },
-
+  { 
+    path: 'page-masters', loadChildren: () => import('../../partial/page-masters/page-masters.module').then(m => m.PageMastersModule),
+    data: { breadcrumb: [{ title: 'Page Master', active: true}]}
+  },
+  
   { path: 'access-denied', component: AccessDeniedComponent, data: { title: 'Access Denied' } },
 
 ];
