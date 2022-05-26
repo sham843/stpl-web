@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
@@ -25,6 +25,13 @@ export class UserProfileComponent implements OnInit {
   oldPassword: boolean = true;
   newPassword: boolean = true;
   confirmPassword: boolean = true;
+
+  profilePhotoChange: any;
+  @ViewChild('fileInput') fileInput!: ElementRef;
+  selectedFile: any;
+  ImgUrl: any;
+  getImgExt: any;
+  imgName: any;
 
   constructor(
     private localStorage: LocalstorageService,
@@ -178,6 +185,42 @@ export class UserProfileComponent implements OnInit {
    this.changePasswordForm();
    this.submittedCp = false;
   }
+
+  readUrl(event: any) {
+    debugger
+    let selResult = event.target.value.split('.');
+    this.getImgExt = selResult.pop();
+    this.getImgExt.toLowerCase();
+    if (this.getImgExt == "png" || this.getImgExt == "jpg" || this.getImgExt == "jpeg") {
+      this.selectedFile = <File>event.target.files[0];
+      if (event.target.files && event.target.files[0]) {
+        var reader = new FileReader();
+        reader.onload = (event: any) => {
+          this.ImgUrl = event.target.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+        this.imgName = event.target.files[0].name;
+      }
+    }
+    else {
+      this.toastrService.error("Profile image allowed only jpg or png format");
+    }
+  }
+
+
+  choosePhoto() {
+    this.profilePhotoChange = 1;
+    let clickPhoto: any = document.getElementById('my_file')
+    clickPhoto.click();
+  }
+
+  removePhoto() {
+    this.selectedFile = "";
+    this.fileInput.nativeElement.value = '';
+    this.profilePhotoChange = 2;
+    this.ImgUrl = null;
+  }
+
 
 
 

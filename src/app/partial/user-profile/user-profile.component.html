@@ -15,14 +15,27 @@
             <div [class.disabled-contenct]="disableDiv">
                 <form [formGroup]="userProfileForm">
                     <div class="card-body">
+                        <!-- <div class="col-sm-3">                                                
+                            <div class="position-relative">
+                                <a class="update-photo" (click)="choosePhoto()">
+                                    <i class="fas fa-camera"></i>
+                                </a>
+                                <a class="update-photo" *ngIf="ImgUrl" [class.disable-close-btn]="disabledEditForm" (click)="removePhoto();">
+                                    <i class="fas fa-times"></i>
+                                </a>
+                                <input type="file" id="my_file" #myInput class="d-none" (change)="readUrl($event)" #fileInput>
+                                <img src="assets/images/dashboard-images/ncp-default.png" *ngIf="!ImgUrl" class="img-fluid img-thumbnail profile-photo">
+                                <img *ngIf="ImgUrl" src="{{ImgUrl}}" class="img-fluid img-thumbnail profile-photo">
+                            </div>
+                        </div> -->
                         <div class="photo-container mb-3">
-                            <a class="update-photo btn bg-danger bg-opacity-10 text-danger">
+                            <a class="update-photo btn bg-danger bg-opacity-10 text-danger" (click)="removePhoto();">
                                 <i class="fas fa-times"></i>
                             </a>
-                            <a class="update-photo btn bg-success bg-opacity-10 text-success">
+                            <a class="update-photo btn bg-success bg-opacity-10 text-success" (click)="choosePhoto()">
                                 <i class="fas fa-camera"></i>
                             </a>
-                            <input type="file" class="d-none" #fileInput>
+                            <input type="file" class="d-none" id="my_file" (change)="readUrl($event)" #fileInput>
                             <img src="../../../assets/images/user.png" class="img-fluid img-thumbnail profile-photo">
                         </div>
                         <div class="form-container">
