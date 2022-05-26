@@ -1,1 +1,99 @@
-<p>page-masters works!</p>
+<div class="row g-2">
+    <div class="col-sm-6">
+        <div class="card plain-card">
+            <div class="card-header">
+                Manage Pages
+            </div>
+            <div class="card-body">
+                <div class="form-container">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <label class="form-label">Page Name</label>
+                            <input type="text" class="form-control" placeholder="Page Name">
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-label">Page Category</label>
+                            <select class="form-select">
+                                <option value="">Select Category</option>
+                                <option value="Industries">Industries</option>
+                                <option value="Services">Services</option>
+                                <option value="Projects">Projects</option>
+                                <option value="Solutions">Solutions</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">About</label>
+                        <angular-editor [placeholder]="'Enter About here...'" >
+                        </angular-editor>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Upload Images</label>
+                        <input type="file" multiple="multiple" class="form-control">
+                        <div class="d-flex">
+                            <div class="uploaded-images">
+                                <img src="https://img.freepik.com/free-photo/male-worker-with-bulldozer-sand-quarry_1303-28092.jpg?w=996&t=st=1652249233~exp=1652249833~hmac=b16bf534cf0d2e842f149857aa9378cf463f0fc13cb9a02e8a45aef944edb700">
+                                <button class="btn bg-danger bg-opacity-10 text-danger">
+                                    <i class="fa-regular fa-trash-can"></i>
+                                </button>
+                            </div>
+                            <div class="uploaded-images">
+                                <img src="https://img.freepik.com/free-photo/male-worker-with-bulldozer-sand-quarry_1303-28092.jpg?w=996&t=st=1652249233~exp=1652249833~hmac=b16bf534cf0d2e842f149857aa9378cf463f0fc13cb9a02e8a45aef944edb700">
+                                <button class="btn bg-danger bg-opacity-10 text-danger">
+                                    <i class="fa-regular fa-trash-can"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Features</label>
+                        <angular-editor [placeholder]="'Enter Features here...'" >
+                        </angular-editor>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-light text-main">Cancel</button>
+                        </div>
+                        <div class="col-sm-6 text-end">
+                            <button type="button" class="btn btn-main">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card plain-card">
+            <div class="card-header">
+                View Pages
+            </div>
+            <div class="card-body">
+                <table class="table dashboard-table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Page Name</th>
+                            <th>Page Category</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Graphics Designer</td>
+                            <td>Anil Ramesh Jadhav</td>
+                            <td>
+                                <button type="button" class="btn bg-primary bg-opacity-10 text-primary me-2" title="Edit Page">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                </button>
+                                <button type="button" class="btn bg-danger bg-opacity-10 text-danger" title="Delete Page">
+                                    <i class="fa-regular fa-trash-can"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
