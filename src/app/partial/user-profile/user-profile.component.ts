@@ -109,10 +109,11 @@ export class UserProfileComponent implements OnInit {
         "mobileNo": formData.mobileNo,
         "userName": formData.userName,
         "email": formData.email,
+        "profilePath": "string",
         "password": formData.password
       }
 
-      this.apiService.setHttp('POST', 'userdetails', false, JSON.stringify(obj), false, 'stplUrl');
+      this.apiService.setHttp('PUT', 'userdetails', false, JSON.stringify(obj), false, 'stplUrl');
       this.apiService.getHttp().subscribe((res: any) => {
         if (res.statusCode == "200") {
           this.toastrService.success(res.statusMessage);

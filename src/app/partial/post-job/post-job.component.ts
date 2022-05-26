@@ -170,7 +170,7 @@ export class PostJobComponent implements OnInit {
   }
 
   getAllQualification() {
-    this.apiService.setHttp('get', "Qualification/GetAllQualification", false, false, false, 'stplUrl');
+    this.apiService.setHttp('get', "Master/GetAllQualification", false, false, false, 'stplUrl');
     this.apiService.getHttp().subscribe({
       next: (res: any) => {
         if (res.statusCode === "200") {
@@ -246,8 +246,9 @@ export class PostJobComponent implements OnInit {
         "skillModels": this.skillModelArray,
         "qualifications": this.qualiModelArray,
       }
-
-      this.apiService.setHttp('POST', 'JobPost/AddJobPost', false, JSON.stringify(obj), false, 'stplUrl');
+      let urlType;
+      id == 0 ? urlType = 'POST' : urlType = 'PUT'
+      this.apiService.setHttp(urlType, 'JobPost/AddJobPost', false, JSON.stringify(obj), false, 'stplUrl');
       this.apiService.getHttp().subscribe((res: any) => {
         if (res.statusCode == "200") {
           this.toastrService.success(res.statusMessage);
@@ -265,6 +266,8 @@ export class PostJobComponent implements OnInit {
   }
 
   updateJobPost(obj:any){
+    let expFromYr = obj?.experience.split('-')[0];
+    let expToYr = obj?.experience.split('-')[1];
     this.addNewData();
     this.HighlightRow = obj.id;
     this.btnText = 'Update New Job';
@@ -275,8 +278,8 @@ export class PostJobComponent implements OnInit {
       jobCategory: obj.jobCategory ,
       jobLocation: obj.jobLocation ,
       jobPostEndDate: obj.jobPostEndDate ,
-      experienceFromYr: obj.experienceFromYr ,
-      experienceToYr: obj.experienceToYr ,
+      experienceFromYr: expFromYr,
+      experienceToYr: expToYr ,
       role_Responsbility: obj.role_Responsbility ,
       joiningPeriod: obj.joiningPeriod ,
       employmentType: obj.employmentType ,
