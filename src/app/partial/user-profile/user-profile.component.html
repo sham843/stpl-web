@@ -36,7 +36,10 @@
                                 <i class="fas fa-camera"></i>
                             </a>
                             <input type="file" class="d-none" id="my_file" (change)="readUrl($event)" #fileInput>
-                            <img src="../../../assets/images/user.png" class="img-fluid img-thumbnail profile-photo">
+                            <img src="{{ImgUrl}}" *ngIf="ImgUrl" class="img-fluid img-thumbnail profile-photo">
+                            <img src="../../../assets/images/user.png" *ngIf="!ImgUrl" class="img-fluid img-thumbnail profile-photo">
+
+
                         </div>
                         <div class="form-container">
                             <div class="row mb-3">
