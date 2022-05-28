@@ -4,8 +4,16 @@
             <div class="col-sm-6">Accepted / Rejected Applications</div>
             <div class="col-sm-6 form-container">
                 <div class="row gx-2 justify-content-end align-items-center">
-                    <div class="col-sm">
-                        <input type="text" class="form-control" placeholder="Seach">
+                    <div class="col-sm input-group">
+                        <input type="text" class="form-control" placeholder="Seach" [formControl]="searchText"
+                        (keyup)="onKeyUpFilter()">
+                        <button type="button" *ngIf="searchText.value" class="btn btn-light border btn-sm"
+                        (click)="clearFilter()">
+                        <i class="fas fa-times"></i>
+                      </button>
+                      <button type="button" *ngIf="!searchText.value" class="btn btn-sm border btn-light">
+                        <i class="fas fa-search"></i>
+                      </button>
                     </div>
                     <div class="col-sm-auto">
                         <div class="form-check form-check-inline">
@@ -16,11 +24,6 @@
                             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Rejected">
                             <label class="form-check-label" for="inlineRadio2">Rejected</label>
                           </div>
-                    </div>
-                    <div class="col-sm-auto">
-                        <button type="button" class="btn btn-sm btn-main">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
                     </div>
                 </div>
             </div>

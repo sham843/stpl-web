@@ -5,6 +5,9 @@ import { CommonService } from 'src/app/core/services/common.service';
 import { ErrorsService } from 'src/app/core/services/errors.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { LocalstorageService } from 'src/app/core/services/localstorage.service';
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-approved-rejected-applications',
@@ -18,6 +21,8 @@ export class ApprovedRejectedApplicationsComponent implements OnInit {
   totalRows: any;
   pageNumber: number = 1;
   pagesize: number = 10;
+  subject: Subject<any> = new Subject();
+  searchText = new FormControl('');
 
   constructor(
     private commonService: CommonService,
@@ -29,11 +34,12 @@ export class ApprovedRejectedApplicationsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAppliedMember();
+    this.searchFilters('false');
   }
 
   getAppliedMember() {
     this.spinner.show();
-    let obj = 'pageno=' + this.pageNumber +'&pagesize=' + this.pagesize +'&textSearch=' + ''   ;
+    let obj = 'pageno=' + this.pageNumber +'&pagesize=' + this.pagesize +'&textSearch=' + this.searchText.value ;
     this.apiService.setHttp('get', "member/AppliedMember/GetAll?" + obj, false, false, false, 'stplweb');
     this.apiService.getHttp().subscribe({
       next: (res: any) => {
@@ -44,7 +50,8 @@ export class ApprovedRejectedApplicationsComponent implements OnInit {
         } else {
           this.AppliedMemberArray = [];
           this.spinner.hide();
-          this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
+          this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : '';
+          // this.toastrService.error(res.statusMessage)
         }
       },
       error: ((error: any) => { this.errorSerivce.handelError(error.status),this.spinner.hide(); })
@@ -55,5 +62,24 @@ export class ApprovedRejectedApplicationsComponent implements OnInit {
     this.pageNumber = pageNo;
     this.getAppliedMember();
   }
+
+  onKeyUpFilter() {
+    this.subject.next();
+  }
+  
+  searchFilters(flag: any) {
+    this.subject
+      .pipe(debounceTime(700))
+      .subscribe(() => {
+        this.searchText.value;
+        this.pageNumber = 1;
+        this.getAppliedMember();
+      });
+  }
+
+  clearFilter() {
+      this.searchText.setValue('');
+      this.getAppliedMember();
+    }
 
 }
