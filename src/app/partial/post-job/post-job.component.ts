@@ -226,8 +226,8 @@ export class PostJobComponent implements OnInit {
       formData.Id ? id = formData.Id : id = 0;
 
       let obj = {
-        "createdBy": 0,
-        "modifiedBy": 0,
+        "createdBy": this.localStorage.userId(),
+        "modifiedBy": this.localStorage.userId(),
         "createdDate": new Date(),
         "modifiedDate": new Date(),
         "isDeleted": true,
@@ -305,6 +305,7 @@ export class PostJobComponent implements OnInit {
         if (res.statusCode === "200") {
           this.toastrService.success(res.statusMessage);
           this.getJobPost();
+          this.clearForm();
         } else {
           this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
         }
