@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 import { ApprovedRejectedApplicationsRoutingModule } from './approved-rejected-applications-routing.module';
 import { ApprovedRejectedApplicationsComponent } from './approved-rejected-applications.component';
 
@@ -11,7 +11,8 @@ import { ApprovedRejectedApplicationsComponent } from './approved-rejected-appli
   ],
   imports: [
     CommonModule,
-    ApprovedRejectedApplicationsRoutingModule
+    ApprovedRejectedApplicationsRoutingModule,
+    NgxPaginationModule
   ]
 })
 export class ApprovedRejectedApplicationsModule { }

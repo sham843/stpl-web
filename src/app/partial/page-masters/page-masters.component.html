@@ -22,10 +22,19 @@
                             </select>
                         </div>
                     </div>
+       
                     <div class="mb-2">
                         <label class="form-label">About</label>
-                        <angular-editor [placeholder]="'Enter About here...'" >
+                        <angular-editor [placeholder]="'Enter About here...'"
+                            [config]="editorConfig"
+                           > 
+                             <!-- [ngClass]="{ 'is-invalid': submitted && f.jobDescription.errors }" -->
                         </angular-editor>
+                        <!-- <div *ngIf="submitted && f.jobDescription.errors" class="invalid-feedback">
+                            <span class="text-danger" *ngIf="f.jobDescription.errors?.required">Job
+                                Description is
+                                required.</span>
+                        </div> -->
                     </div>
                     <div class="mb-2">
                         <label class="form-label">Upload Images</label>
@@ -47,8 +56,16 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Features</label>
-                        <angular-editor [placeholder]="'Enter Features here...'" >
+                            <angular-editor [placeholder]="'Enter Features here...'"
+                            [config]="editorConfig"
+                           > 
+                             <!-- [ngClass]="{ 'is-invalid': submitted && f.jobDescription.errors }" -->
                         </angular-editor>
+                        <!-- <div *ngIf="submitted && f.jobDescription.errors" class="invalid-feedback">
+                            <span class="text-danger" *ngIf="f.jobDescription.errors?.required">Job
+                                Description is
+                                required.</span>
+                        </div> -->
                     </div>
                     <div class="row">
                         <div class="col-sm-6">

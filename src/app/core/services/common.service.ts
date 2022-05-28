@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 @Injectable({
@@ -32,6 +33,8 @@ export class CommonService {
   };
 
   constructor(
+    private router: Router,
+    private route: ActivatedRoute,
   ) { }
 
   checkDataType(val: any) {
@@ -42,6 +45,10 @@ export class CommonService {
       value = true;
     }
     return value;
+  }
+
+  routerLinkRedirect(path: any) {
+    this.router.navigate([path], { relativeTo: this.route })
   }
 
 }

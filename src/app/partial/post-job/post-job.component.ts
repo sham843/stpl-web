@@ -6,6 +6,7 @@ import { CommonService } from 'src/app/core/services/common.service';
 import { ErrorsService } from 'src/app/core/services/errors.service';
 import { DateTimeAdapter } from 'ng-pick-datetime';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { LocalstorageService } from 'src/app/core/services/localstorage.service';
 
 @Component({
   selector: 'app-post-job',
@@ -50,6 +51,7 @@ export class PostJobComponent implements OnInit {
     private errorSerivce: ErrorsService,
     private fb: FormBuilder,
     private spinner: NgxSpinnerService,
+    private localStorage:LocalstorageService,
     public dateTimeAdapter: DateTimeAdapter<any>) {
     { dateTimeAdapter.setLocale('en-IN'); }
   }
@@ -292,8 +294,12 @@ export class PostJobComponent implements OnInit {
   }
 
   deleteJobPost() {
-    let obj = { "id": parseInt(this.deletePostId) }
-    this.apiService.setHttp('DELETE', "JobPost/DeleteJobPost", false, JSON.stringify(obj), false, 'stplUrl');
+    let obj = {
+      "id": parseInt(this.deletePostId),
+      "modifiedBy": this.localStorage.userId(),
+      "modifiedDate": new Date()
+    }
+    this.apiService.setHttp('DELETE', "JobPost", false, JSON.stringify(obj), false, 'stplUrl');
     this.apiService.getHttp().subscribe({
       next: (res: any) => {
         if (res.statusCode === "200") {

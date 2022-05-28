@@ -11,8 +11,8 @@
                     <div class="col-sm-6 text-end">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a routerLink="../home">Home</a></li>
-                                <li class="breadcrumb-item"><a routerLink="../career">Career</a></li>
+                                <li class="breadcrumb-item"><a routerLink="../../home">Home</a></li>
+                                <li class="breadcrumb-item"><a routerLink="../../career">Career</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Job Description</li>
                             </ol>
                         </nav>
@@ -28,53 +28,33 @@
         <div class="col-sm-8">
             <h4>Graphics Designer</h4>
             <div class="card">
-                <div class="card-header">About Company</div>
+                <div class="card-header">Job Title</div>
                 <div class="card-body">
-                    <p>Shaurya Technosoft Pvt. Ltd. is a Pune (India) based company. It is one of the fastest growing
-                        software company. We build software and provide advance technology services to our customers
-                        that add values to their business. We cater to the technology requirements of the Dairy
-                        Industry, Manufacturing Industry, Defense Sector, e-Governance, Mining Sector, Vehicle Tracking
-                        and Agricultural Sector. The other domains include Election Management, Inventory Management and
-                        Animal Husbandry. Shaurya Technosoft also undertakes offshore projects of software development.
-                    </p>
+                    <p>{{jobPostGetByIdArray?.jobTitle}}</p>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">Job Description</div>
                 <div class="card-body">
-                    <p>Shaurya Technosoft Pvt. Ltd. is a Pune (India) based company. It is one of the fastest growing
-                        software company. We build software and provide advance technology services to our customers
-                        that add values to their business. We cater to the technology requirements of the Dairy
-                        Industry, Manufacturing Industry, Defense Sector, e-Governance, Mining Sector, Vehicle Tracking
-                        and Agricultural Sector. The other domains include Election Management, Inventory Management and
-                        Animal Husbandry. Shaurya Technosoft also undertakes offshore projects of software development.
-                    </p>
+                    <p>{{jobPostGetByIdArray?.jobDescription}}</p>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">Educational Qualification</div>
                 <div class="card-body">
-                    <p>
-                        BE/BCA/MCA
-                    </p>
+                    <p>{{jobPostGetByIdArray?.qualifications}}</p>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">Required Skill Set</div>
                 <div class="card-body">
-                    <p>
-                        Solid JavaScript knowledge and familiarity with modern frameworks such as React, jQuery,
-                        Bootstrap, CSS3, LESS, and HTML5
-                    </p>
+                    <p>{{jobPostGetByIdArray?.skillModels}}</p>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">Roles & Responsibility</div>
                 <div class="card-body">
-                    <p>
-                        Solid JavaScript knowledge and familiarity with modern frameworks such as React, jQuery,
-                        Bootstrap, CSS3, LESS, and HTML5
-                    </p>
+                    <p>{{jobPostGetByIdArray?.role_Responsbility}}</p>
                 </div>
             </div>
         </div>
@@ -131,9 +111,10 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
+            <form [formGroup]="applayJobForm">
             <div class="modal-header bg-main">
                 <p class="modal-title mb-0" id="exampleModalLabel">Apply Now</p>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="clearForm()"></button>
             </div>
             <div class="modal-body">
                 <div class="row mb-3">
@@ -143,18 +124,46 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="First Name*">
+                        <input type="text" class="form-control" placeholder="First Name" formControlName="firstName"
+                        [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+                        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                            <div class="text-danger" *ngIf="f.firstName.errors?.required">First Name is
+                                required.</div>
+                            <div class="text-danger" *ngIf="f.firstName.errors?.pattern">Please enter
+                                Valid First Name.</div>
+                        </div>
                     </div>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="Last Name*">
+                        <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName"
+                        [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+                        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                            <div class="text-danger" *ngIf="f.lastName.errors?.required">Last Name is
+                                required.</div>
+                            <div class="text-danger" *ngIf="f.lastName.errors?.pattern">Please enter
+                                Valid Last Name.</div>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <input type="email" class="form-control" placeholder="Email ID*">
+                        <input type="email" class="form-control" placeholder="Email ID" formControlName="emailId"
+                        [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }">
+                        <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
+                            <div class="text-danger" *ngIf="f.emailId.errors?.required">Email ID is
+                                required.</div>
+                            <div class="text-danger" *ngIf="f.emailId.errors?.pattern">Please enter
+                                Valid Email ID.</div>
+                        </div>
                     </div>
                     <div class="col-sm-6">
-                        <input type="tel" class="form-control" placeholder="Contact No*">
+                        <input type="tel" class="form-control" placeholder="Contact No" formControlName="contactNo"
+                        [ngClass]="{ 'is-invalid': submitted && f.contactNo.errors }">
+                        <div *ngIf="submitted && f.contactNo.errors" class="invalid-feedback">
+                            <div class="text-danger" *ngIf="f.contactNo.errors?.required">Contact No is
+                                required.</div>
+                            <div class="text-danger" *ngIf="f.contactNo.errors?.pattern">Please enter
+                                Valid Contact No.</div>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -166,10 +175,10 @@
                 </div>
             </div>
             <div class="modal-footer d-flex justify-content-between">
-                <button type="button" class="btn bg-secondary bg-opacity-25 btn-sm rounded-0 px-3 py-2"
-                    data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-main btn-sm rounded-0 px-3 py-2">Submit</button>
+                <button type="button" class="btn bg-secondary bg-opacity-25 btn-sm rounded-0 px-3 py-2" (click)="clearForm()">Clear</button>
+                <button type="submit" class="btn btn-main btn-sm rounded-0 px-3 py-2" (click)="submitApplayJobForm()">Submit</button>
             </div>
+        </form>
         </div>
     </div>
 </div>

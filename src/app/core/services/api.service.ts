@@ -10,7 +10,7 @@ export class ApiService {
   getBaseurl(url: string) {
     switch (url) {
       case 'stplUrl': return 'http://webapi.shauryatechnosoft.com/stpl/'; break;
-      case 'fileUpload': return 'http://webapi.shauryatechnosoft.com/'; break;
+      case 'stplweb': return 'http://webapi.shauryatechnosoft.com/'; break;
       default: return ''; break;
     }
   }
