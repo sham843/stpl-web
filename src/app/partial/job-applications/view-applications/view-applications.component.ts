@@ -22,7 +22,9 @@ export class ViewApplicationsComponent implements OnInit {
   pagesize: number = 10;
   subject: Subject<any> = new Subject();
   searchText = new FormControl('');
+  jobTitleDrop = new FormControl('');
   items:any;
+  allJobTitleArray:any;
 
   constructor(
     private commonService: CommonService,
@@ -33,7 +35,23 @@ export class ViewApplicationsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getViewApplication();
+    this.getAllJobTitle();
     this.searchFilters('false');
+  }
+
+  getAllJobTitle() {
+    this.apiService.setHttp('get', "Master/GetAllJobTitle", false, false, false, 'stplUrl');
+    this.apiService.getHttp().subscribe({
+      next: (res: any) => {
+        if (res.statusCode === "200") {
+          this.allJobTitleArray = res.responseData;
+        } else {
+          this.allJobTitleArray = [];
+          this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
+        }
+      },
+      error: ((error: any) => { this.errorSerivce.handelError(error.status) })
+    });
   }
 
   getViewApplication() {
@@ -76,8 +94,12 @@ export class ViewApplicationsComponent implements OnInit {
       });
   }
 
-  clearFilter() {
+  clearFilter(flag:any) {
+    if(flag == 'search'){
       this.searchText.setValue('');
+    }else{
+      this.jobTitleDrop.setValue('');
+    }
       this.getViewApplication();
     }
 

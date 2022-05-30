@@ -34,8 +34,9 @@ export class PostJobComponent implements OnInit {
   employementArray: any;
   deletePostId: any;
   HighlightRow!: number;
-  @ViewChild('addNewJobModel') addNewJobModel:any; 
+  @ViewChild('addNewJobModel') addNewJobModel: any;
   btnText = 'Add New Job';
+  headingText = 'Add New Job';
   Max = new Date();
   qualificationArray: any;
   searchQualificationData = '';
@@ -43,6 +44,8 @@ export class PostJobComponent implements OnInit {
   searchSkillSetData = '';
   skillModelArray: any = [];
   qualiModelArray: any = [];
+  checkedSkillSetflag: boolean = true;
+  checkedQualiflag: boolean = true;
 
   constructor(
     private commonService: CommonService,
@@ -51,7 +54,7 @@ export class PostJobComponent implements OnInit {
     private errorSerivce: ErrorsService,
     private fb: FormBuilder,
     private spinner: NgxSpinnerService,
-    private localStorage:LocalstorageService,
+    private localStorage: LocalstorageService,
     public dateTimeAdapter: DateTimeAdapter<any>) {
     { dateTimeAdapter.setLocale('en-IN'); }
   }
@@ -76,8 +79,8 @@ export class PostJobComponent implements OnInit {
       role_Responsbility: ['', Validators.required],
       joiningPeriod: ['', Validators.required],
       employmentType: ['', Validators.required],
-      qualificationId : ['', Validators.required],
-      skillId : ['', Validators.required],
+      qualificationId: [''],
+      skillId: [''],
     })
   }
 
@@ -85,6 +88,13 @@ export class PostJobComponent implements OnInit {
     this.submitted = false;
     this.defaultForm();
     this.btnText = 'Add New Job';
+    this.headingText = 'Add New Job';
+    this.qualiModelArray = [];
+    this.skillModelArray = [];
+    this.searchQualificationData = '';
+    this.searchSkillSetData = '';
+    this.getAllSkillSet();
+    this.getAllQualification();
   }
 
   addNewData() {
@@ -92,8 +102,10 @@ export class PostJobComponent implements OnInit {
     this.getAllJobLocation();
     this.getAllDuration();
     this.getAllEmployement();
-    this.getAllQualification();
-    this.getAllSkillSet();
+    if(this.btnText != 'Update New Job'){
+      this.getAllSkillSet();
+      this.getAllQualification();
+    }
   }
 
   getAllCategory() {
@@ -162,6 +174,14 @@ export class PostJobComponent implements OnInit {
       next: (res: any) => {
         if (res.statusCode === "200") {
           this.skillSetArray = res.responseData;
+          if(this.btnText == 'Update New Job'){
+             let getSkillSetId:any =  this.skillModelArray.map((ele:any)=>{ return ele.skillId;})
+              getSkillSetId.map((ele:any)=>{
+                this.skillSetArray.map((ele1:any)=>{
+                  ele1.id == ele ? ele1['checked'] = true : '';
+              })
+            })
+          }
         } else {
           this.skillSetArray = [];
           this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
@@ -177,6 +197,14 @@ export class PostJobComponent implements OnInit {
       next: (res: any) => {
         if (res.statusCode === "200") {
           this.qualificationArray = res.responseData;
+          if(this.btnText == 'Update New Job'){
+            let getOrganizationId:any =  this.qualiModelArray.map((ele:any)=>{ return ele.qualificationId;})
+            getOrganizationId.map((ele:any)=>{
+               this.qualificationArray.map((ele1:any)=>{
+                 ele1.id == ele ? ele1['checked'] = true : '';
+             })
+           })
+         }
         } else {
           this.qualificationArray = [];
           this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
@@ -211,20 +239,17 @@ export class PostJobComponent implements OnInit {
     this.getJobPost();
   }
 
-  changeStatus(event: any) {
-    console.log(event.target.checked)
-  }
-
   onSubmit() {
+    console.log(this.skillModelArray)
     let formData = this.PostJobForm.value;
     this.submitted = true;
     if (this.PostJobForm.invalid) {
       return;
+    } else if (this.skillModelArray.length == 0 || this.qualiModelArray.length == 0) {
+      this.toastrService.error('Qualification & SkillSet Both Field Is Required');
     } else {
-
       let id: any;
       formData.Id ? id = formData.Id : id = 0;
-
       let obj = {
         "createdBy": this.localStorage.userId(),
         "modifiedBy": this.localStorage.userId(),
@@ -240,7 +265,6 @@ export class PostJobComponent implements OnInit {
         "jobPostEndDate": formData.jobPostEndDate,
         "experienceFromYr": formData.experienceFromYr,
         "experienceToYr": formData.experienceToYr,
-        "qualificationId": 0,
         "role_Responsbility": formData.role_Responsbility,
         "joiningPeriod": formData.joiningPeriod,
         "employmentType": formData.employmentType,
@@ -248,9 +272,10 @@ export class PostJobComponent implements OnInit {
         "skillModels": this.skillModelArray,
         "qualifications": this.qualiModelArray,
       }
+
       let urlType;
       id == 0 ? urlType = 'POST' : urlType = 'PUT'
-      this.apiService.setHttp(urlType, 'JobPost/AddJobPost', false, JSON.stringify(obj), false, 'stplUrl');
+      this.apiService.setHttp(urlType, 'JobPost', false, JSON.stringify(obj), false, 'stplUrl');
       this.apiService.getHttp().subscribe((res: any) => {
         if (res.statusCode == "200") {
           this.toastrService.success(res.statusMessage);
@@ -267,25 +292,31 @@ export class PostJobComponent implements OnInit {
     }
   }
 
-  updateJobPost(obj:any){
+  updateJobPost(obj: any) {
+    this.btnText = 'Update New Job';
+    this.headingText = 'Update Job';
     let expFromYr = obj?.experience.split('-')[0];
     let expToYr = obj?.experience.split('-')[1];
     this.addNewData();
     this.HighlightRow = obj.id;
-    this.btnText = 'Update New Job';
+    
     this.PostJobForm.patchValue({
       Id: obj.id,
       jobTitle: obj.jobTitle,
-      jobDescription: obj.jobDescription ,
-      jobCategory: obj.jobCategory ,
-      jobLocation: obj.jobLocation ,
-      jobPostEndDate: obj.jobPostEndDate ,
+      jobDescription: obj.jobDescription,
+      jobCategory: obj.jobCategory,
+      jobLocation: obj.jobLocation,
+      jobPostEndDate: obj.jobPostEndDate,
       experienceFromYr: expFromYr,
-      experienceToYr: expToYr ,
-      role_Responsbility: obj.role_Responsbility ,
-      joiningPeriod: obj.joiningPeriod ,
-      employmentType: obj.employmentType ,
+      experienceToYr: expToYr,
+      role_Responsbility: obj.role_Responsbility,
+      joiningPeriod: obj.joiningPeriod,
+      employmentType: obj.employmentType,
     })
+    this.getAllSkillSet();
+    this.getAllQualification();
+    this.skillModelArray = obj.skillModels;
+    this.qualiModelArray = obj.qualifications;
   }
 
   deleteConformation(id: any) {
@@ -313,17 +344,93 @@ export class PostJobComponent implements OnInit {
       error: ((error: any) => { this.errorSerivce.handelError(error.status) })
     });
   }
-  
-  onCheckChangeQualification(event: any, qualificationId:any) {
-    // event.target.checked
 
-    this.qualiModelArray
-   
+  //.......................................  SkillSet CheckBox Code Start Here .................................//
+
+  onCheckChangeSkillSet(event: any, skillSetId: any) {
+    let obj = {
+      "skillId": skillSetId,
+      "jobPostId": 0,
+      "isDeleted": true
+    }
+    if (event.target.checked == true) {
+      this.checkUniqueSkillSet(obj, skillSetId);
+    } else { //delete record when event False
+      this.skillModelArray.splice(this.skillModelArray.findIndex((ele: any) => ele.skillId === skillSetId), 1);
+    }
   }
 
-  onCheckChangeSkillSet(event: any, skillSetId:any) {
-    // event.target.checked   skillModelArray: any = [];
-   
+  checkUniqueSkillSet(obj: any, skillSetId: any) { //Check Unique Data then Insert or Update
+    this.checkedSkillSetflag = true;
+    if (this.skillModelArray.length <= 0) {
+      obj['checked'] = true;
+      this.skillModelArray.push(obj);
+      this.checkedSkillSetflag = false;
+    } else {
+      this.skillModelArray.map((ele: any, index: any) => {
+        if (ele.skillId == skillSetId) {
+          this.skillModelArray[index] = obj;
+          this.checkedSkillSetflag = false;
+        }
+      })
+    }
+    this.checkedSkillSetflag && this.skillModelArray.length >= 1 ? this.skillModelArray.push(obj) : '';
   }
+
+  //.......................................  SkillSet CheckBox Code End Here .................................//
+
+  //.......................................  Qualification CheckBox Code Start Here .................................//
+
+  onCheckChangeQualification(event: any, qualifiId: any) {
+    let obj = {
+      "qualificationId": qualifiId,
+      "jobPostId": 0,
+      "isDeleted": true
+    }
+
+    if (event.target.checked == true) {
+      this.checkUniqueQuali(obj, qualifiId);
+    } else { //delete record when event False
+      this.qualiModelArray.splice(this.qualiModelArray.findIndex((ele: any) => ele.qualificationId === qualifiId), 1);
+    }
+  }
+
+  checkUniqueQuali(obj: any, qualifiId: any) { //Check Unique Data then Insert or Update
+    this.checkedQualiflag = true;
+    if (this.qualiModelArray.length <= 0) {
+      this.qualiModelArray.push(obj);
+      this.checkedQualiflag = false;
+    } else {
+      this.qualiModelArray.map((ele: any, index: any) => {
+        if (ele.qualificationId == qualifiId) {
+          this.qualiModelArray[index] = obj;
+          this.checkedQualiflag = false;
+        }
+      })
+    }
+    this.checkedQualiflag && this.qualiModelArray.length >= 1 ? this.qualiModelArray.push(obj) : '';
+  }
+
+  //.......................................  Qualification CheckBox Code End Here .................................//
+
+  //..................................Change Status Code Stare Here ......................................//
+
+  updateActiveApplication(ObjData:any,event:any) {
+    // let obj = 'Id=' + ObjData.id + '&JobPostId=' + ObjData.id + '&IsActive=' + event.target.checked
+    // this.apiService.setHttp('PUT', "member/AppliedMember/UpdateActiveApplication?"+obj, false, false, false, 'stplweb');
+    // this.apiService.getHttp().subscribe({
+    //   next: (res: any) => {
+    //     if (res.statusCode === "200") {
+    //       this.toastrService.success(res.statusMessage);
+    //       this.getJobPost();
+    //     } else {
+    //       this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
+    //     }
+    //   },
+    //   error: ((error: any) => { this.errorSerivce.handelError(error.status) })
+    // });
+  }
+
+   //..................................Change Status Code End Here ......................................//
 
 }

@@ -33,7 +33,7 @@
                     <td>{{jobPost.experienceFromYr}}-{{jobPost.experienceToYr}}</td>
                     <td>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" (change)="changeStatus($event)"
+                            <input class="form-check-input" type="checkbox" (change)="updateActiveApplication(jobPost,$event)"
                                 [checked]="jobPost?.isActive" id="flexSwitchCheckDefault">
                         </div>
                     </td>
@@ -66,7 +66,7 @@
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content border-0">
             <div class="modal-header bg-main text-white">
-                <p class="modal-title mb-0" id="AddNewJobModalLabel">Add New Job</p>
+                <p class="modal-title mb-0" id="AddNewJobModalLabel">{{headingText}}</p>
                 <button type="button" class="btn-close" #addNewJobModel (click)="clearForm()" data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>
@@ -158,8 +158,7 @@
                                         <div class="card border shadow-none">
                                             <div class="card-header border-bottom p-0 py-1">
                                                 <input type="text" formControlName="qualificationId" [(ngModel)]="searchQualificationData"
-                                                    placeholder="Search Qualification" class="form-control form-control-sm border-0"
-                                                    [ngClass]="{ 'is-invalid': submitted && f.qualificationId.errors}">
+                                                    placeholder="Search Qualification" class="form-control form-control-sm border-0">
                                             </div>
                                             <div class="card-body py-2 form-height ChekBox"
                                                 *ngIf="( qualificationArray | filter:searchQualificationData ) as qualificationResult">
@@ -182,8 +181,7 @@
                                         <div class="card border shadow-none">
                                             <div class="card-header border-bottom p-0 py-1">
                                                 <input type="text" formControlName="skillId" [(ngModel)]="searchSkillSetData"
-                                                    placeholder="Search SkillSet" class="form-control form-control-sm border-0"
-                                                    [ngClass]="{ 'is-invalid': submitted && f.skillId.errors}">
+                                                    placeholder="Search SkillSet" class="form-control form-control-sm border-0">
                                             </div>
                                             <div class="card-body py-2 form-height ChekBox"
                                                 *ngIf="( skillSetArray | filter:searchSkillSetData ) as skillSetResult">
@@ -198,9 +196,6 @@
                                                     <div class="alert alert-danger text-center py-2">No Data Found..!</div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div *ngIf="submitted && f.skillId.errors" class="invalid-feedback">
-                                            <div *ngIf="f.skillId.errors.required">SkillSet is required</div>
                                         </div>
                                     </div>
 

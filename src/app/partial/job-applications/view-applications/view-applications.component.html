@@ -8,7 +8,7 @@
                         <input type="text" class="form-control" placeholder="Seach" [formControl]="searchText"
                         (keyup)="onKeyUpFilter()">
                         <button type="button" *ngIf="searchText.value" class="btn btn-light border btn-sm"
-                        (click)="clearFilter()">
+                        (click)="clearFilter('search')">
                         <i class="fas fa-times"></i>
                       </button>
                       <button type="button" *ngIf="!searchText.value" class="btn btn-sm border btn-light">
@@ -16,7 +16,10 @@
                       </button>
                     </div>
                     <div class="col-sm-4">
-                        <ngx-select [items]="items" placeholder="Select Job Title"></ngx-select>
+                        <ngx-select [allowClear]="true" [items]="allJobTitleArray" (remove)="clearFilter('jobTitle')"
+                       (select)="getViewApplication()" [formControl]="jobTitleDrop" placeholder="Select Job Title"
+                        optionValueField="jobTitle" optionTextField="jobTitle">
+                    </ngx-select>
                     </div>
                 </div>
             </div>
