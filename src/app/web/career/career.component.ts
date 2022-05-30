@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from 'src/app/core/services/common.service';
 
 @Component({
   selector: 'app-career',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CareerComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private commonService: CommonService,
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  navigatePage(jobPost:any){
+     this.commonService.routerLinkRedirect('../job-details/' + jobPost);
   }
 
 }

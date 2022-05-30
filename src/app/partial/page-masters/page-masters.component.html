@@ -6,26 +6,42 @@
             </div>
             <div class="card-body">
                 <div class="form-container">
+                    <form [formGroup]="pageMasterForm">
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <label class="form-label">Page Name</label>
-                            <input type="text" class="form-control" placeholder="Page Name">
+                            <input type="text" class="form-control" placeholder="Page Name" formControlName="pageName"
+                            [ngClass]="{ 'is-invalid': submitted && f.pageName.errors }">
+                            <div *ngIf="submitted && f.pageName.errors" class="invalid-feedback">
+                                <div class="text-danger" *ngIf="f.pageName.errors?.required">Page Name is
+                                    required.</div>
+                                <div class="text-danger" *ngIf="f.pageName.errors?.pattern">Please enter
+                                    Valid Page Name.</div>
+                            </div>
                         </div>
                         <div class="col-sm-6">
                             <label class="form-label">Page Category</label>
-                            <select class="form-select">
-                                <option value="">Select Category</option>
-                                <option value="Industries">Industries</option>
-                                <option value="Services">Services</option>
-                                <option value="Projects">Projects</option>
-                                <option value="Solutions">Solutions</option>
-                            </select>
+                            <ngx-select [allowClear]="true" [items]="pageCategoryArray"
+                            formControlName="pageCategoryId" placeholder="Select Category"
+                            optionValueField="id" optionTextField="categoryName"
+                            [ngClass]="{ 'is-invalid': submitted && f.pageCategoryId.errors }">
+                        </ngx-select>
+                        <div *ngIf="submitted && f.pageCategoryId.errors" class="invalid-feedback">
+                            <span class="text-danger" *ngIf="f.pageCategoryId.errors?.required">
+                                Page Category is required.</span>
+                        </div>
                         </div>
                     </div>
+       
                     <div class="mb-2">
                         <label class="form-label">About</label>
-                        <angular-editor [placeholder]="'Enter About here...'" >
+                        <angular-editor [placeholder]="'Enter About here...'" [config]="editorConfig"
+                        formControlName="about" [ngClass]="{ 'is-invalid': submitted && f.about.errors }"> 
                         </angular-editor>
+                        <div *ngIf="submitted && f.about.errors" class="invalid-feedback">
+                            <span class="text-danger" *ngIf="f.about.errors?.required">
+                                About is required.</span>
+                        </div>
                     </div>
                     <div class="mb-2">
                         <label class="form-label">Upload Images</label>
@@ -47,17 +63,23 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Features</label>
-                        <angular-editor [placeholder]="'Enter Features here...'" >
+                            <angular-editor [placeholder]="'Enter Features here...'" [config]="editorConfig"
+                           formControlName="features" [ngClass]="{ 'is-invalid': submitted && f.features.errors }"> 
                         </angular-editor>
+                        <div *ngIf="submitted && f.features.errors" class="invalid-feedback">
+                            <span class="text-danger" *ngIf="f.features.errors?.required">
+                                Features is required.</span>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
-                            <button type="button" class="btn btn-light text-main">Cancel</button>
+                            <button type="button" class="btn btn-light text-main" (click)="clearForm()">Cancel</button>
                         </div>
                         <div class="col-sm-6 text-end">
-                            <button type="button" class="btn btn-main">Submit</button>
+                            <button type="submit" class="btn btn-main" (click)="onSubmit()">{{btnText}}</button>
                         </div>
                     </div>
+                </form>
                 </div>
             </div>
         </div>
@@ -78,21 +100,51 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Graphics Designer</td>
-                            <td>Anil Ramesh Jadhav</td>
+                        <tr *ngFor="let pageMaster of pageMasterGetAllArray | paginate: {itemsPerPage: pagesize, 
+                            currentPage: pageNumber, totalItems:totalRows}; let i = index " [class.active]="pageMaster.id == HighlightRow">
+                            <td>{{((pageNumber + 1) * 10 + i + 1)-20}}</td>
+                            <td>{{pageMaster?.pageName}}</td>
+                            <td>{{pageMaster?.pageCategoryId}}</td>
                             <td>
-                                <button type="button" class="btn bg-primary bg-opacity-10 text-primary me-2" title="Edit Page">
+                                <button type="button" class="btn bg-primary bg-opacity-10 text-primary me-2" title="Edit Page"(click)="updatePageMaster(pageMaster)">
                                     <i class="fa-regular fa-pen-to-square"></i>
                                 </button>
-                                <button type="button" class="btn bg-danger bg-opacity-10 text-danger" title="Delete Page">
+                                <button type="button" class="btn bg-danger bg-opacity-10 text-danger" title="Delete Page"
+                                data-bs-toggle="modal" (click)="deleteConformation(pageMaster.id)" data-bs-target="#deleteModel">
                                     <i class="fa-regular fa-trash-can"></i>
                                 </button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
+                <div class="mt-2 text-end" *ngIf="pageMasterGetAllArray?.length == 0">
+                    <div class="alert alert-danger text-center py-2">No Data Found..!
+                    </div>
+                </div>
+                <pagination-controls *ngIf="pageMasterGetAllArray?.length != 0" previousLabel="" nextLabel=""
+                    (pageChange)="onClickPagintion($event)">
+                </pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete modal pop up -->
+<div class="modal fade" id="deleteModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="ProgramStatusModal1Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-transparent border-bottom-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center pb-5">
+                <h3 class="my-3">Are You Sure?</h3>
+                <p class="mb-4">Do you really want to This process can not be undone.</p>
+                <button class="btn btn-secondary me-2" data-bs-dismiss="modal" type="button" data-bs-dismiss="modal"
+                    aria-label="Close">Cancel</button>
+                <button class="btn btn-danger" type="button" data-bs-dismiss="modal" aria-label="Close" type="button"
+                    data-bs-dismiss="modal" aria-label="Close" (click)="deletePageMaster()">I'm
+                    Sure</button>
             </div>
         </div>
     </div>
