@@ -36,11 +36,95 @@
 .navbar .navbar-brand img{
     width: 150px;
 }
-.navbar .navbar-nav .nav-link{
-    background-color: rgba(255, 255, 255, 0.178);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    line-height: 36px;
+.main-nav {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    padding: 3rem;
+  }
+  .main-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    top: 170px;
+    transition: all 0.3s ease-in-out;
+  }
+  .main-nav ul li {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  .main-nav ul li a {
+    display: block;
+    font-size: 2em;
+    text-decoration: none;
+    padding: 10px 0;
     text-align: center;
-}
+    color: #fff;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  .main-nav ul li a:hover {
+    color: var(--blue-color);
+  }
+  
+  .toggle-btn {
+    display: block;
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+  }
+  .toggle-btn .bar {
+    width: 30px;
+    height: 2px;
+    margin: 7px auto;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3);
+  }
+  .toggle-btn .bar:nth-child(2) {
+    width: 20px;
+  }
+  
+  #toggle:checked ~ nav {
+    opacity: 1;
+    visibility: visible;
+  }
+  #toggle:checked ~ nav ul {
+    top: 70px;
+  }
+  #toggle:checked ~ nav ul li {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  #toggle:checked ~ nav ul li:nth-child(1) {
+    transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.1s;
+  }
+  #toggle:checked ~ nav ul li:nth-child(2) {
+    transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.2s;
+  }
+  #toggle:checked ~ nav ul li:nth-child(3) {
+    transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.3s;
+  }
+  #toggle:checked ~ nav ul li:nth-child(4) {
+    transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.4s;
+  }
+  #toggle:checked + label.toggle-btn .bar {
+    background-color: var(--blue-color);
+  }
+  #toggle:checked + label.toggle-btn .bar:nth-child(2) {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  #toggle:checked + label.toggle-btn .bar:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+  }
+  #toggle:checked + label.toggle-btn .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
