@@ -416,19 +416,19 @@ export class PostJobComponent implements OnInit {
   //..................................Change Status Code Stare Here ......................................//
 
   updateActiveApplication(ObjData:any,event:any) {
-    // let obj = 'Id=' + ObjData.id + '&JobPostId=' + ObjData.id + '&IsActive=' + event.target.checked
-    // this.apiService.setHttp('PUT', "member/AppliedMember/UpdateActiveApplication?"+obj, false, false, false, 'stplweb');
-    // this.apiService.getHttp().subscribe({
-    //   next: (res: any) => {
-    //     if (res.statusCode === "200") {
-    //       this.toastrService.success(res.statusMessage);
-    //       this.getJobPost();
-    //     } else {
-    //       this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
-    //     }
-    //   },
-    //   error: ((error: any) => { this.errorSerivce.handelError(error.status) })
-    // });
+    let obj = 'Id=' + ObjData.id + '&IsActive=' + event.target.checked
+    this.apiService.setHttp('PUT', "JobPost/UpdateActiveJobPost?"+obj, false, false, false, 'stplUrl');
+    this.apiService.getHttp().subscribe({
+      next: (res: any) => {
+        if (res.statusCode === "200") {
+          this.toastrService.success(res.statusMessage);
+          this.getJobPost();
+        } else {
+          this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
+        }
+      },
+      error: ((error: any) => { this.errorSerivce.handelError(error.status) })
+    });
   }
 
    //..................................Change Status Code End Here ......................................//

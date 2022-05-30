@@ -25,7 +25,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
     NgxPaginationModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+
   ]
 })
 export class PostJobModule { }

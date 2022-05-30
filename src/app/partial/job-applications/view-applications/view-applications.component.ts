@@ -103,4 +103,20 @@ export class ViewApplicationsComponent implements OnInit {
       this.getViewApplication();
     }
 
+    updateActiveApplication(ObjData:any,flag:any) {
+      let obj = 'Id=' + ObjData.id + '&JobPostId=' + ObjData.id + '&IsActive=' + flag
+      this.apiService.setHttp('PUT', "member/AppliedMember/UpdateActiveApplication?"+obj, false, false, false, 'stplweb');
+      this.apiService.getHttp().subscribe({
+        next: (res: any) => {
+          if (res.statusCode === "200") {
+            this.toastrService.success(res.statusMessage);
+            this.getViewApplication();
+          } else {
+            this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
+          }
+        },
+        error: ((error: any) => { this.errorSerivce.handelError(error.status) })
+      });
+    }
+
 }

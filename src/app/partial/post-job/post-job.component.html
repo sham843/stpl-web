@@ -30,7 +30,7 @@
                     <td>{{jobPost.jobTitle}}</td>
                     <td>{{jobPost.jobCategory}}</td>
                     <td>{{jobPost.jobPostEndDate | date: 'dd/MM/yyyy'}}</td>
-                    <td>{{jobPost.experienceFromYr}}-{{jobPost.experienceToYr}}</td>
+                    <td>{{jobPost?.experience.split('-')[0]}}-{{jobPost?.experience.split('-')[1]}}</td>
                     <td>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" (change)="updateActiveApplication(jobPost,$event)"
@@ -62,7 +62,7 @@
 
 
 <!-- Modal for post new job -->
-<div class="modal fade" id="AddNewJobModal" tabindex="-1" aria-labelledby="AddNewJobModalLabel" aria-hidden="true">
+<div class="modal fade" id="AddNewJobModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="AddNewJobModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content border-0">
             <div class="modal-header bg-main text-white">
