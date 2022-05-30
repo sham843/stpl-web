@@ -238,30 +238,95 @@
 //     border-radius: 0;
 //     font-size: 0.9rem;
 // }
-section{
+.cd-section{
     height: 100vh;
 }
-#banner{
-    background-color: var(--main-color);
+.banner1{
+    background:linear-gradient(to right, rgba(0,0,0,0.75), rgba(0,0,0,0.15)), url('../../../assets/images/home-banner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-block: 10rem;
     color: #fff;
 }
-
-#banner #banner1{
-    background:linear-gradient(to right, rgba(0, 0, 0, 0.5) , rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/free-photo/ai-nuclear-energy-background-future-innovation-disruptive-technology_53876-129783.jpg');
+.banner2{
+    background:linear-gradient(to right, rgba(202, 87, 34, 0.856), rgba(202, 87, 34, 0.856)), url('../../../assets/images/banner2-bg.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    color: #fff;
+    background-size: contain;
+    padding-block: 10rem;
 }
-#banner #banner2{
-    background:linear-gradient(to right, rgba(0, 0, 0, 0.5) , rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/free-photo/robot-handshake-human-background-futuristic-digital-age_53876-129770.jpg');
+.banner3{
+    background:url('../../../assets/images/banner3-bg.png'), linear-gradient(to right, #143762, #143762);
+    background-repeat: no-repeat;
+    background-position: right;
+    color: #fff;
+    background-size: contain;
 }
-#banner #banner3{
-    background:linear-gradient(to right, rgba(0, 0, 0, 0.5) , rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/free-photo/man-using-digital-tablet-psd-mockup-smart-technology_53876-110815.jpg');
+.banner4{
+    background:url('../../../assets/images/banner4-bg.png'), linear-gradient(to right, #0193B2, #0193B2);
+    background-repeat: no-repeat;
+    background-position: right;
+    color: #fff;
+    background-size: contain;
+    padding-block: 10rem;
 }
-#banner #banner1,
-#banner #banner2,
-#banner #banner3{
-    height: 100vh;
-    background-size: cover;
+.banner4 h6,
+.banner3 h6,
+.banner2 h6,
+.banner1 h6{
+    color: #3ABCFF;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing:1px;
+    font-weight: 600;
 }
-#banner .carousel-caption{
-    top:30%;
-    bottom:0 !important;
+.banner4 h1,
+.banner3 h1,
+.banner2 h1,
+.banner1 h1{
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1.2rem;
+}
+.banner4 p,
+.banner3 p,
+.banner2 p,
+.banner1 p{
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+}
+.banner3 .left-content{
+    padding:10rem 7.4rem;
+}
+.btn-readmore{
+    color: #fff;
+    border: solid 1px #fff;
+    background-color: transparent;
+    background: linear-gradient(to left, transparent 50%, #fff 50%);
+    background-size: 200% 100%;
+    background-position:right bottom;
+    transition:all 1s ease;
+    padding: 15px 35px;
+    border-radius: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing:1px
+}
+.btn-readmore:hover {
+    background-position:left bottom;
+    color: var(--main-color)
+}
+.floating { 
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-top: 5px;
+}
+ 
+@keyframes floating {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 15px); }
+    100%   { transform: translate(0, -0px); }   
 }
