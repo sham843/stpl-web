@@ -249,12 +249,30 @@
     color: #fff;
 }
 .banner2{
-    background:url('../../../assets/images/banner2-bg.png'), linear-gradient(to right, #143762, #143762);
+    background:linear-gradient(to right, rgba(202, 87, 34, 0.856), rgba(202, 87, 34, 0.856)), url('../../../assets/images/banner2-bg.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    color: #fff;
+    background-size: contain;
+    padding-block: 10rem;
+}
+.banner3{
+    background:url('../../../assets/images/banner3-bg.png'), linear-gradient(to right, #143762, #143762);
     background-repeat: no-repeat;
     background-position: right;
     color: #fff;
     background-size: contain;
 }
+.banner4{
+    background:url('../../../assets/images/banner4-bg.png'), linear-gradient(to right, #0193B2, #0193B2);
+    background-repeat: no-repeat;
+    background-position: right;
+    color: #fff;
+    background-size: contain;
+    padding-block: 10rem;
+}
+.banner4 h6,
+.banner3 h6,
 .banner2 h6,
 .banner1 h6{
     color: #3ABCFF;
@@ -263,18 +281,22 @@
     letter-spacing:1px;
     font-weight: 600;
 }
+.banner4 h1,
+.banner3 h1,
 .banner2 h1,
 .banner1 h1{
     font-size: 3.5rem;
     font-weight: 900;
     margin-bottom: 1.2rem;
 }
+.banner4 p,
+.banner3 p,
 .banner2 p,
 .banner1 p{
     font-size: 1rem;
     margin-bottom: 1.2rem;
 }
-.banner2 .left-content{
+.banner3 .left-content{
     padding:10rem 7.4rem;
 }
 .btn-readmore{
@@ -294,4 +316,17 @@
 .btn-readmore:hover {
     background-position:left bottom;
     color: var(--main-color)
+}
+.floating { 
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-top: 5px;
+}
+ 
+@keyframes floating {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 15px); }
+    100%   { transform: translate(0, -0px); }   
 }
