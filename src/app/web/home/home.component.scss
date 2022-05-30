@@ -248,6 +248,14 @@
     padding-block: 10rem;
     color: #fff;
 }
+.banner2{
+    background:url('../../../assets/images/banner2-bg.png'), linear-gradient(to right, #143762, #143762);
+    background-repeat: no-repeat;
+    background-position: right;
+    color: #fff;
+    background-size: contain;
+}
+.banner2 h6,
 .banner1 h6{
     color: #3ABCFF;
     margin-bottom: 1.2rem;
@@ -255,14 +263,19 @@
     letter-spacing:1px;
     font-weight: 600;
 }
+.banner2 h1,
 .banner1 h1{
     font-size: 3.5rem;
     font-weight: 900;
     margin-bottom: 1.2rem;
 }
+.banner2 p,
 .banner1 p{
     font-size: 1rem;
     margin-bottom: 1.2rem;
+}
+.banner2 .left-content{
+    padding:10rem 7.4rem;
 }
 .btn-readmore{
     color: #fff;
