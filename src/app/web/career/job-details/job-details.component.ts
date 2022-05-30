@@ -72,8 +72,7 @@ export class JobDetailsComponent implements OnInit {
       return;
     } else {
       let fullName = formData.firstName.trim().concat(" ", formData.lastName.trim());
-      alert(fullName)
-      return
+  
       let obj =  {
         "createdBy": this.localStorage.userId(),
         "modifiedBy": this.localStorage.userId(),
