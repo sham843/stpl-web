@@ -7,6 +7,7 @@ import { ErrorsService } from 'src/app/core/services/errors.service';
 import { DateTimeAdapter } from 'ng-pick-datetime';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { LocalstorageService } from 'src/app/core/services/localstorage.service';
+import { FileUploadService } from 'src/app/core/services/file-upload.service';
 
 @Component({
   selector: 'app-page-masters',
@@ -26,6 +27,8 @@ export class PageMastersComponent implements OnInit {
   pageMasterGetAllArray:any;
   HighlightRow!: number;
   deleteMasterId:any;
+  pageMasterImagArray:any[] = [];
+  checkedDataflag: boolean = true;
 
   constructor(
     private commonService: CommonService,
@@ -34,7 +37,9 @@ export class PageMastersComponent implements OnInit {
     private errorSerivce: ErrorsService,
     private fb: FormBuilder,
     private spinner: NgxSpinnerService,
-    private localStorage:LocalstorageService,) {
+    private localStorage:LocalstorageService,
+    private fileUploadService:FileUploadService,
+    ) {
   }
 
   ngOnInit() {
@@ -60,6 +65,7 @@ export class PageMastersComponent implements OnInit {
     this.submitted = false;
     this.defaultForm();
     this.btnText = 'Submit';
+    this.pageMasterImagArray = [];
   }
 
   getPageCategory() {
@@ -123,7 +129,7 @@ export class PageMastersComponent implements OnInit {
         "pageCategoryId": formData.pageCategoryId,
         "about": formData.about,
         "features": formData.features,
-        "imagePath": "string"
+        "pageMasters": this.pageMasterImagArray
       }
       let urlType;
       id == 0 ? urlType = 'POST' : urlType = 'PUT'
@@ -144,6 +150,7 @@ export class PageMastersComponent implements OnInit {
   }
 
   updatePageMaster(obj:any){
+    this.pageMasterImagArray = obj.imagePath;
     this.HighlightRow = obj.id;
     this.btnText = 'Update';
     this.pageMasterForm.patchValue({
@@ -152,7 +159,7 @@ export class PageMastersComponent implements OnInit {
       pageCategoryId: obj.pageCategoryId ,
       about: obj.about ,
       features: obj.features ,
-      imagePath: obj.imagePath
+      imagePath: this.pageMasterImagArray
     })
   }
 
@@ -180,6 +187,46 @@ export class PageMastersComponent implements OnInit {
       },
       error: ((error: any) => { this.errorSerivce.handelError(error.status) })
     });
+  }
+
+  imageUpload(event: any) {
+    let documentUrlUploaed:any;
+    let documentUrl: any = this.fileUploadService.uploadDocuments(event, "MasterImages", "png,jpg", 5, 5000);
+    documentUrl.subscribe({
+      next: (ele: any) => {
+        documentUrlUploaed = ele.responseData;
+        if (documentUrlUploaed != null) {
+        let obj = {
+          "pageId": 0,
+          "imagePath": documentUrlUploaed,
+          "isDeleted": true
+        }
+        this.checkUniqueData(obj,documentUrlUploaed);
+        console.log(this.pageMasterImagArray)
+      }
+      },
+    })
+  }
+
+  checkUniqueData(obj: any,urlPath:any) { //Check Unique Data then Insert or Update
+    this.checkedDataflag = true;
+    if (this.pageMasterImagArray.length <= 0) {
+      this.pageMasterImagArray.push(obj);
+      this.checkedDataflag = false;
+    } else {
+      this.pageMasterImagArray.map((ele: any, index: any) => {
+        if (ele.imagePath == urlPath) {
+          this.pageMasterImagArray[index] = obj;
+          this.checkedDataflag = false;
+        }
+      })
+    }
+    this.checkedDataflag && this.pageMasterImagArray.length >= 1 ? this.pageMasterImagArray.push(obj) : '';
+  }
+
+  deleteImage(imgPath:any){
+    this.pageMasterImagArray.splice(this.pageMasterImagArray.findIndex(a => a.imagePath === imgPath), 1);
+    console.log(this.pageMasterImagArray)
   }
 
 }

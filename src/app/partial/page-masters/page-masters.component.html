@@ -45,17 +45,11 @@
                     </div>
                     <div class="mb-2">
                         <label class="form-label">Upload Images</label>
-                        <input type="file" multiple="multiple" class="form-control">
+                        <input type="file" multiple="multiple" formControlName="imagePath" (change)="imageUpload($event)" class="form-control">
                         <div class="d-flex">
-                            <div class="uploaded-images">
-                                <img src="https://img.freepik.com/free-photo/male-worker-with-bulldozer-sand-quarry_1303-28092.jpg?w=996&t=st=1652249233~exp=1652249833~hmac=b16bf534cf0d2e842f149857aa9378cf463f0fc13cb9a02e8a45aef944edb700">
-                                <button class="btn bg-danger bg-opacity-10 text-danger">
-                                    <i class="fa-regular fa-trash-can"></i>
-                                </button>
-                            </div>
-                            <div class="uploaded-images">
-                                <img src="https://img.freepik.com/free-photo/male-worker-with-bulldozer-sand-quarry_1303-28092.jpg?w=996&t=st=1652249233~exp=1652249833~hmac=b16bf534cf0d2e842f149857aa9378cf463f0fc13cb9a02e8a45aef944edb700">
-                                <button class="btn bg-danger bg-opacity-10 text-danger">
+                            <div class="uploaded-images" *ngFor="let pageMasterImg of pageMasterImagArray">
+                                <img [src]="pageMasterImg?.imagePath">
+                                <button class="btn bg-danger bg-opacity-10 text-danger" (click)="deleteImage(pageMasterImg)">
                                     <i class="fa-regular fa-trash-can"></i>
                                 </button>
                             </div>
