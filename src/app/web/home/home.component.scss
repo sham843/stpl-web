@@ -238,30 +238,47 @@
 //     border-radius: 0;
 //     font-size: 0.9rem;
 // }
-section{
+.cd-section{
     height: 100vh;
 }
-#banner{
-    background-color: var(--main-color);
+.banner1{
+    background:linear-gradient(to right, rgba(0,0,0,0.75), rgba(0,0,0,0.15)), url('../../../assets/images/home-banner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-block: 10rem;
     color: #fff;
 }
-
-#banner #banner1{
-    background:linear-gradient(to right, rgba(0, 0, 0, 0.5) , rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/free-photo/ai-nuclear-energy-background-future-innovation-disruptive-technology_53876-129783.jpg');
+.banner1 h6{
+    color: #3ABCFF;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing:1px;
+    font-weight: 600;
 }
-#banner #banner2{
-    background:linear-gradient(to right, rgba(0, 0, 0, 0.5) , rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/free-photo/robot-handshake-human-background-futuristic-digital-age_53876-129770.jpg');
+.banner1 h1{
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1.2rem;
 }
-#banner #banner3{
-    background:linear-gradient(to right, rgba(0, 0, 0, 0.5) , rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/free-photo/man-using-digital-tablet-psd-mockup-smart-technology_53876-110815.jpg');
+.banner1 p{
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
 }
-#banner #banner1,
-#banner #banner2,
-#banner #banner3{
-    height: 100vh;
-    background-size: cover;
+.btn-readmore{
+    color: #fff;
+    border: solid 1px #fff;
+    background-color: transparent;
+    background: linear-gradient(to left, transparent 50%, #fff 50%);
+    background-size: 200% 100%;
+    background-position:right bottom;
+    transition:all 1s ease;
+    padding: 15px 35px;
+    border-radius: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing:1px
 }
-#banner .carousel-caption{
-    top:30%;
-    bottom:0 !important;
+.btn-readmore:hover {
+    background-position:left bottom;
+    color: var(--main-color)
 }
