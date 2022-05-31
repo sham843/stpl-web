@@ -280,7 +280,7 @@ export class PostJobComponent implements OnInit {
       this.apiService.getHttp().subscribe((res: any) => {
         if (res.statusCode == "200") {
           this.toastrService.success(res.statusMessage);
-          this.clearForm();
+          // this.clearForm();
           this.addNewJobModel.nativeElement.click();
           this.getJobPost();
         } else {
@@ -289,7 +289,6 @@ export class PostJobComponent implements OnInit {
       }, (error: any) => {
         this.errorSerivce.handelError(error.status);
       });
-      this.clearForm();
     }
   }
 
