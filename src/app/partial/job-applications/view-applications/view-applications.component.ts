@@ -40,7 +40,7 @@ export class ViewApplicationsComponent implements OnInit {
   }
 
   getAllJobTitle() {
-    this.apiService.setHttp('get', "Master/GetAllJobTitle", false, false, false, 'stplUrl');
+    this.apiService.setHttp('get', "Master/GetAllJobTitles", false, false, false, 'stplUrl');
     this.apiService.getHttp().subscribe({
       next: (res: any) => {
         if (res.statusCode === "200") {
