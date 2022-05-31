@@ -10,6 +10,12 @@ body {
     --main-light-color:rgba(0, 48, 130, 0.15);
     --blue-color: rgb(26, 117, 206);
     --blue-light-color: rgba(26, 117, 206,0.25);
+    --color-primary: #18181A;
+  --color-secondary: #75757C;
+  --color-dark: #364C62;
+  --color-light: #F5F5F5;
+  --td: 150ms;
+  --te: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .text-main {
