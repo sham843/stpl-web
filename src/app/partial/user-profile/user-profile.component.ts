@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/core/services/api.service';
 import { CommonService } from 'src/app/core/services/common.service';
 import { ErrorsService } from 'src/app/core/services/errors.service';
+import { FileUploadService } from 'src/app/core/services/file-upload.service';
 import { LocalstorageService } from 'src/app/core/services/localstorage.service';
 
 @Component({
@@ -26,12 +27,12 @@ export class UserProfileComponent implements OnInit {
   newPassword: boolean = true;
   confirmPassword: boolean = true;
 
-  profilePhotoChange: any;
   @ViewChild('fileInput') fileInput!: ElementRef;
   selectedFile: any;
-  ImgUrl: any;
   getImgExt: any;
   imgName: any;
+  file: any;
+  ImgUrl: any = 'assets/images/user.png';
 
   constructor(
     private localStorage: LocalstorageService,
@@ -41,6 +42,7 @@ export class UserProfileComponent implements OnInit {
     private errorSerivce: ErrorsService,
     private fb: FormBuilder,
     private spinner:NgxSpinnerService,
+    private fileUploadService:FileUploadService,
   ) { }
 
   ngOnInit(): void {
@@ -60,6 +62,7 @@ export class UserProfileComponent implements OnInit {
       mobileNo: ['',[Validators.required, Validators.pattern('[6-9]\\d{9}')]],
       userName: ['',[Validators.required,Validators.pattern('^[a-zA-Z0-9](_(?!(\.|_))|\.(?!(_|\.))|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$')]],
       designation: ['',Validators.required],
+      profilePath: ['']
     })
   }
 
@@ -70,6 +73,8 @@ export class UserProfileComponent implements OnInit {
         if (res.statusCode === "200") {
           this.userDetailsArray = res.responseData;
           this.patchProfileData(this.userDetailsArray);
+          let imagePath = res.responseData?.profilePath;
+          imagePath ? (this.ImgUrl = imagePath) : (this.ImgUrl ='assets/images/user.png');
         } else {
           this.userDetailsArray = [];
           this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
@@ -116,7 +121,7 @@ export class UserProfileComponent implements OnInit {
         "mobileNo": formData.mobileNo,
         "userName": formData.userName,
         "email": formData.email,
-        "profilePath": "string",
+        "profilePath": formData.profilePath,
         "password": formData.password
       }
 
@@ -186,12 +191,12 @@ export class UserProfileComponent implements OnInit {
    this.submittedCp = false;
   }
 
-  readUrl(event: any) {
-    debugger
-    let selResult = event.target.value.split('.');
-    this.getImgExt = selResult.pop();
-    this.getImgExt.toLowerCase();
-    if (this.getImgExt == "png" || this.getImgExt == "jpg" || this.getImgExt == "jpeg") {
+  documentUpload(event: any) {
+    this.file = event;
+    let selResult: any = event.target.value.split('.');
+    let getImgExt = selResult.pop();
+    getImgExt.toLowerCase();
+    if (getImgExt == "png" || getImgExt == "jpg" || getImgExt == "jpeg") {
       this.selectedFile = <File>event.target.files[0];
       if (event.target.files && event.target.files[0]) {
         var reader = new FileReader();
@@ -199,7 +204,7 @@ export class UserProfileComponent implements OnInit {
           this.ImgUrl = event.target.result;
         }
         reader.readAsDataURL(event.target.files[0]);
-        this.imgName = event.target.files[0].name;
+        this.ImgUrl = event.target.files[0].name;
       }
     }
     else {
@@ -207,21 +212,35 @@ export class UserProfileComponent implements OnInit {
     }
   }
 
+  addProfileData() {
+    if (this.userProfileForm.invalid) {
+      return
+    }
+    this.file ? this.fileUploaded() : this.updateProfileData();
+  }
+
+  fileUploaded() {
+    let documentUrl: any = this.fileUploadService.uploadDocuments(this.file, "Profile", "png,jpg,jpeg,pdf", 5, 5000);
+    documentUrl.subscribe((ele: any) => {
+      if (ele.statusCode == '200') {
+        this.userProfileForm.controls['profilePath'].setValue(ele.responseData);
+        this.updateProfileData();
+      } else {
+        this.toastrService.error('Profile img is not uploaded')
+        this.updateProfileData();
+      }
+    })
+  }
 
   choosePhoto() {
-    this.profilePhotoChange = 1;
     let clickPhoto: any = document.getElementById('my_file')
     clickPhoto.click();
   }
 
   removePhoto() {
-    this.selectedFile = "";
+    // localStorage.setItem('imgUrl', '');
+    this.file = "";
+    this.ImgUrl = 'assets/images/user.png';
     this.fileInput.nativeElement.value = '';
-    this.profilePhotoChange = 2;
-    this.ImgUrl = null;
   }
-
-
-
-
 }
