@@ -71,7 +71,7 @@
                                 <div class="col-sm-6">
                                     <label class="form-label">Contact No.</label>
                                     <input class="form-control" formControlName="mobileNo" type="text"
-                                        placeholder="Contact No."
+                                        placeholder="Contact No." maxlength="10"
                                         [ngClass]="{ 'is-invalid': submitted && f.mobileNo.errors }">
                                     <div *ngIf="submitted && f.mobileNo.errors" class="invalid-feedback">
                                         <div class="text-danger" *ngIf="f.mobileNo.errors?.required">Contact No. is

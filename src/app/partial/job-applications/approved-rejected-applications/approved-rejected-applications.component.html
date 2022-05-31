@@ -8,14 +8,14 @@
                         <input type="text" class="form-control" placeholder="Seach" [formControl]="searchText"
                         (keyup)="onKeyUpFilter()">
                         <button type="button" *ngIf="searchText.value" class="btn btn-light border btn-sm"
-                        (click)="clearFilter()">
+                        (click)="clearFilter('search')">
                         <i class="fas fa-times"></i>
                       </button>
                       <button type="button" *ngIf="!searchText.value" class="btn btn-sm border btn-light">
                         <i class="fas fa-search"></i>
                       </button>
                     </div>
-                    <div class="col-sm-auto">
+                    <!-- <div class="col-sm-auto">
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Approved">
                             <label class="form-check-label" for="inlineRadio1">Approved</label>
@@ -24,6 +24,12 @@
                             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Rejected">
                             <label class="form-check-label" for="inlineRadio2">Rejected</label>
                           </div>
+                    </div> -->
+                    <div class="col-sm-5">
+                        <ngx-select [allowClear]="true" [items]="statusArray" (remove)="clearFilter('status')"
+                       (select)="getAppliedMember()" [formControl]="isApproved" placeholder="Select Status"
+                        optionValueField="id" optionTextField="name">
+                    </ngx-select>
                     </div>
                 </div>
             </div>
@@ -55,7 +61,9 @@
                     <td>{{appliedMember?.contactNo}}</td>
                     <td>
                         <button type="button" class="btn btn-sm bg-primary bg-opacity-10 text-primary">
-                            <i class="fa-solid fa-download"></i>
+                            <a href={{appliedMember?.resumePath}} target="_blank">
+                                <i class="fa-solid fa-download"></i>
+                             </a>
                         </button>
                     </td>
                     <td>

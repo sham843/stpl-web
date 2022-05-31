@@ -213,9 +213,6 @@ export class UserProfileComponent implements OnInit {
   }
 
   addProfileData() {
-    if (this.userProfileForm.invalid) {
-      return
-    }
     this.file ? this.fileUploaded() : this.updateProfileData();
   }
 
