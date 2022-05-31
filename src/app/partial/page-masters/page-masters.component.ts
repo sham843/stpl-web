@@ -67,6 +67,7 @@ export class PageMastersComponent implements OnInit {
     this.defaultForm();
     this.btnText = 'Submit';
     this.pageMasterImagArray = [];
+    this.HighlightRow = 0;
   }
 
   getPageCategory() {

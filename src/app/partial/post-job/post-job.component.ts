@@ -95,6 +95,7 @@ export class PostJobComponent implements OnInit {
     this.searchSkillSetData = '';
     this.getAllSkillSet();
     this.getAllQualification();
+    this.HighlightRow = 0;
   }
 
   addNewData() {
