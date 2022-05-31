@@ -23,6 +23,8 @@ export class ApprovedRejectedApplicationsComponent implements OnInit {
   pagesize: number = 10;
   subject: Subject<any> = new Subject();
   searchText = new FormControl('');
+  isApproved = new FormControl('');
+  statusArray = [{id:3,name:'All'},{id:1,name:'Approved'},{id:2,name:'Rejected'}]
 
   constructor(
     private commonService: CommonService,
@@ -39,7 +41,9 @@ export class ApprovedRejectedApplicationsComponent implements OnInit {
 
   getAppliedMember() {
     this.spinner.show();
-    let obj = 'pageno=' + this.pageNumber +'&pagesize=' + this.pagesize +'&textSearch=' + this.searchText.value ;
+    let isApprove;
+    this.commonService.checkDataType(this.isApproved.value) == true ? isApprove = this.isApproved.value : isApprove = 3 ;
+    let obj = 'pageno=' + this.pageNumber +'&pagesize=' + this.pagesize + '&IsApproved=' + isApprove +'&textSearch=' + this.searchText.value ;
     this.apiService.setHttp('get', "member/AppliedMember/GetAll?" + obj, false, false, false, 'stplweb');
     this.apiService.getHttp().subscribe({
       next: (res: any) => {
@@ -77,8 +81,12 @@ export class ApprovedRejectedApplicationsComponent implements OnInit {
       });
   }
 
-  clearFilter() {
+  clearFilter(flag:any) {
+    if(flag == 'search'){
       this.searchText.setValue('');
+    }else{
+      this.isApproved.setValue('');
+    }
       this.getAppliedMember();
     }
 
