@@ -75,9 +75,13 @@
                         </h6>
                     </td>
                     <td>
-                        <button type="button" class="btn bg-danger bg-opacity-10 text-danger" title="Reject Application">
+                        <!-- <button type="button" class="btn bg-danger bg-opacity-10 text-danger" title="Reject Application">
                             <i class="fa-solid fa-ban"></i>
-                        </button>
+                        </button> -->
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" (change)="updateActiveApplication(appliedMember,$event)"
+                                [checked]="appliedMember?.isActive" id="flexSwitchCheckDefault">
+                        </div>
                     </td>
                 </tr>
             </tbody>

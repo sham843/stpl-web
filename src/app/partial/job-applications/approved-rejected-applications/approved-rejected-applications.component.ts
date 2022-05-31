@@ -90,4 +90,25 @@ export class ApprovedRejectedApplicationsComponent implements OnInit {
       this.getAppliedMember();
     }
 
+     //..................................Action Status Code Stare Here ......................................//
+
+  updateActiveApplication(ObjData:any,event:any) {
+    return
+    let obj = 'Id=' + ObjData.id + '&IsActive=' + event.target.checked
+    this.apiService.setHttp('PUT', "JobPost/UpdateActiveJobPost?"+obj, false, false, false, 'stplUrl');
+    this.apiService.getHttp().subscribe({
+      next: (res: any) => {
+        if (res.statusCode === "200") {
+          this.toastrService.success(res.statusMessage);
+          this.getAppliedMember();
+        } else {
+          this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
+        }
+      },
+      error: ((error: any) => { this.errorSerivce.handelError(error.status) })
+    });
+  }
+
+   //..................................Action Status Code End Here ......................................//
+
 }
