@@ -45,11 +45,11 @@
                     </div>
                     <div class="mb-2">
                         <label class="form-label">Upload Images</label>
-                        <input type="file" multiple="multiple" formControlName="imagePath" (change)="imageUpload($event)" class="form-control">
+                        <input type="file" multiple="multiple" formControlName="imagePath" (change)="imageUpload($event)" class="form-control" #fileInput >
                         <div class="d-flex">
-                            <div class="uploaded-images" *ngFor="let pageMasterImg of pageMasterImagArray">
+                            <div class="uploaded-images" *ngFor="let pageMasterImg of pageMasterImagArray;let i=index">
                                 <img [src]="pageMasterImg?.imagePath">
-                                <button class="btn bg-danger bg-opacity-10 text-danger" (click)="deleteImage(pageMasterImg)">
+                                <button class="btn bg-danger bg-opacity-10 text-danger" (click)="deleteImage(i)">
                                     <i class="fa-regular fa-trash-can"></i>
                                 </button>
                             </div>
@@ -98,7 +98,7 @@
                             currentPage: pageNumber, totalItems:totalRows}; let i = index " [class.active]="pageMaster.id == HighlightRow">
                             <td>{{((pageNumber + 1) * 10 + i + 1)-20}}</td>
                             <td>{{pageMaster?.pageName}}</td>
-                            <td>{{pageMaster?.pageCategoryId}}</td>
+                            <td>{{pageMaster?.categoryName}}</td>
                             <td>
                                 <button type="button" class="btn bg-primary bg-opacity-10 text-primary me-2" title="Edit Page"(click)="updatePageMaster(pageMaster)">
                                     <i class="fa-regular fa-pen-to-square"></i>

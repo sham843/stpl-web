@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/core/services/api.service';
@@ -29,6 +29,7 @@ export class PageMastersComponent implements OnInit {
   deleteMasterId:any;
   pageMasterImagArray:any[] = [];
   checkedDataflag: boolean = true;
+  @ViewChild('fileInput') fileInput!: ElementRef;
 
   constructor(
     private commonService: CommonService,
@@ -113,7 +114,9 @@ export class PageMastersComponent implements OnInit {
     this.submitted = true;
     if (this.pageMasterForm.invalid) {
       return;
-    } else {
+    }else if (this.commonService.checkDataType(this.pageMasterImagArray) == false) {
+      this.toastrService.error('Please Select Upload Image Field');
+    } else { 
 
       let id: any;
       formData.Id ? id = formData.Id : id = 0;
@@ -150,7 +153,7 @@ export class PageMastersComponent implements OnInit {
   }
 
   updatePageMaster(obj:any){
-    this.pageMasterImagArray = obj.imagePath;
+    this.pageMasterImagArray = obj?.pageMasters;
     this.HighlightRow = obj.id;
     this.btnText = 'Update';
     this.pageMasterForm.patchValue({
@@ -159,7 +162,7 @@ export class PageMastersComponent implements OnInit {
       pageCategoryId: obj.pageCategoryId ,
       about: obj.about ,
       features: obj.features ,
-      imagePath: this.pageMasterImagArray
+      // imagePath: this.pageMasterImagArray
     })
   }
 
@@ -191,7 +194,7 @@ export class PageMastersComponent implements OnInit {
 
   imageUpload(event: any) {
     let documentUrlUploaed:any;
-    let documentUrl: any = this.fileUploadService.uploadDocuments(event, "MasterImages", "png,jpg", 5, 5000);
+    let documentUrl: any = this.fileUploadService.uploadDocuments(event, "MasterImages", "png,jpg,jpeg,pdf", 5, 5000);
     documentUrl.subscribe({
       next: (ele: any) => {
         documentUrlUploaed = ele.responseData;
@@ -224,9 +227,9 @@ export class PageMastersComponent implements OnInit {
     this.checkedDataflag && this.pageMasterImagArray.length >= 1 ? this.pageMasterImagArray.push(obj) : '';
   }
 
-  deleteImage(imgPath:any){
-    this.pageMasterImagArray.splice(this.pageMasterImagArray.findIndex(a => a.imagePath === imgPath), 1);
-    console.log(this.pageMasterImagArray)
+  deleteImage(index:any){
+    this.pageMasterImagArray.splice(index, 1);
+    this.fileInput.nativeElement.value = '';
   }
 
 }

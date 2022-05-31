@@ -13,34 +13,21 @@
                 </div>
             </div>
             <div [class.disabled-contenct]="disableDiv">
-                <form [formGroup]="userProfileForm">
+                <form [formGroup]="userProfileForm" (ngSubmit)="addProfileData()" enctype="multipart/form-data">
                     <div class="card-body">
-                        <!-- <div class="col-sm-3">                                                
-                            <div class="position-relative">
-                                <a class="update-photo" (click)="choosePhoto()">
-                                    <i class="fas fa-camera"></i>
-                                </a>
-                                <a class="update-photo" *ngIf="ImgUrl" [class.disable-close-btn]="disabledEditForm" (click)="removePhoto();">
-                                    <i class="fas fa-times"></i>
-                                </a>
-                                <input type="file" id="my_file" #myInput class="d-none" (change)="readUrl($event)" #fileInput>
-                                <img src="assets/images/dashboard-images/ncp-default.png" *ngIf="!ImgUrl" class="img-fluid img-thumbnail profile-photo">
-                                <img *ngIf="ImgUrl" src="{{ImgUrl}}" class="img-fluid img-thumbnail profile-photo">
-                            </div>
-                        </div> -->
+
                         <div class="photo-container mb-3">
-                            <a class="update-photo btn bg-danger bg-opacity-10 text-danger" (click)="removePhoto();">
+                            <a class="update-photo btn bg-danger bg-opacity-10 text-danger" *ngIf="ImgUrl != 'assets/images/user.png'" (click)="removePhoto();">
                                 <i class="fas fa-times"></i>
                             </a>
-                            <a class="update-photo btn bg-success bg-opacity-10 text-success" (click)="choosePhoto()">
+                            <a class="update-photo btn bg-success bg-opacity-10 text-success" *ngIf="ImgUrl == 'assets/images/user.png'" (click)="choosePhoto()">
                                 <i class="fas fa-camera"></i>
                             </a>
-                            <input type="file" class="d-none" id="my_file" (change)="readUrl($event)" #fileInput>
+                            <input type="file" class="d-none" id="my_file" (change)="documentUpload($event)" #fileInput>
                             <img src="{{ImgUrl}}" *ngIf="ImgUrl" class="img-fluid img-thumbnail profile-photo">
-                            <img src="../../../assets/images/user.png" *ngIf="!ImgUrl" class="img-fluid img-thumbnail profile-photo">
-
-
+                            <img src="{{ImgUrl}}" *ngIf="!ImgUrl" class="img-fluid img-thumbnail profile-photo">
                         </div>
+
                         <div class="form-container">
                             <div class="row mb-3">
                                 <div class="col-sm-6">
@@ -125,8 +112,7 @@
                                         (click)="clearProfileForm()">Cancel</button>
                                 </div>
                                 <div class="col-sm-6 text-end">
-                                    <button type="button" class="btn btn-main"
-                                        (click)="updateProfileData()">Update</button>
+                                    <button type="submit" class="btn btn-main">Update</button>
                                 </div>
                             </div>
                         </div>
