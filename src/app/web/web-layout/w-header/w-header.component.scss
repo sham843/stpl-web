@@ -42,10 +42,12 @@
 }
 [id=main-navigation-toggle] ~ label {
   cursor: pointer;
-  position: fixed;
-  right: 1rem;
-  top: 1rem;
   z-index: 100;
+  padding: 10px;
+  border-radius: 5px;
+}
+[id=main-navigation-toggle] ~ label:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 [id=main-navigation-toggle] ~ label span {
   display: block;
@@ -56,7 +58,7 @@
   width: 2rem;
 }
 [id=main-navigation-toggle] ~ label span::before, [id=main-navigation-toggle] ~ label span::after {
-  background-color: var(--color-dark);
+  background-color: #fff;
   bottom: 0;
   content: "";
   height: 4px;
@@ -88,10 +90,14 @@
 [id=main-navigation-toggle]:checked ~ .nav-main {
   left: 0;
   transition: transform 0s;
+  top: 0;
 }
 [id=main-navigation-toggle]:checked ~ .nav-main::before, [id=main-navigation-toggle]:checked ~ .nav-main::after {
   transform: translateX(0);
   transition-delay: 0s;
+}
+[id=main-navigation-toggle]:checked ~ label {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 [id=main-navigation-toggle]:checked ~ .nav-main::after {
   transition-delay: calc(var(--td) / 2);
@@ -128,8 +134,7 @@
   z-index: 1;
 }
 .menu > .menu__item {
-  font-family: var(--font-family-secondary);
-  font-size: 10vmin;
+  font-size: 5vmin;
 }
 
 .submenu {
@@ -138,13 +143,13 @@
   position: absolute;
   transform: translateY(-10%);
   top: 100%;
-  width: 100%;
+  width: 200%;
   visibility: hidden;
   z-index: 2;
 }
 .submenu .menu__item {
   font-family: var(--font-family-primary);
-  font-size: 3.5vmin;
+  font-size: 3vmin;
   width: 100%;
 }
 .submenu .menu__link {
@@ -175,11 +180,11 @@
 }
 
 .menu__link {
-  color: var(--color-dark);
+  color: var(--blue-color);
   display: inline-block;
   font-weight: normal;
   overflow: hidden;
-  padding: 0.5rem 1rem 0.125rem;
+  // padding: 0.5rem 1rem 0.125rem;
   position: relative;
   text-decoration: none;
   transition: color var(--td) var(--te), opacity var(--td) var(--te), transform var(--td) var(--te);
