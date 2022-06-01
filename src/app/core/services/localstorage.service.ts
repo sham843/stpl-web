@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -61,4 +62,28 @@ export class LocalstorageService {
     let mobileNumber = this.getLoggedInLocalstorageData();
     return mobileNumber.mobileNo;
   }
+
+  getFullName_ProfilePhoto() {
+    let localStorage = this.getLoggedInLocalstorageData();
+    let obj = { 'fullName': localStorage.fullName, 'profilePath': localStorage.profilePath }
+    return obj;
+}
+
+ // set full name in edit profile page 
+ private setName = new BehaviorSubject('');
+ getNameOnChange = this.setName.asObservable();
+
+ sendFullName(fullName: string) {
+     this.setName.next(fullName);
+ }
+
+ //img url path
+ private imgUrlPath = new BehaviorSubject('');
+ imageChange = this.imgUrlPath.asObservable();
+
+ //change url header
+ pathchange(imagePath: string) {
+     this.imgUrlPath.next(imagePath)
+ }
+
 }

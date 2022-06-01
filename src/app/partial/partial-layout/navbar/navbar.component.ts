@@ -14,6 +14,9 @@ import { LocalstorageService } from 'src/app/core/services/localstorage.service'
 export class NavbarComponent implements OnInit {
 
   breadcrumbs: any;
+  nameImgObj: any;
+  fullName:any;
+  pic:any;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,7 +27,26 @@ export class NavbarComponent implements OnInit {
     this.addBreadcrumbs();
    }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.nameImgObj = this.localstorageService.getFullName_ProfilePhoto();
+    this.pic = this.nameImgObj.profilePath;
+    this.fullName = this.nameImgObj.fullName;
+    this.localstorageService.imageChange.subscribe((imagePath:any) => {
+     if (!!imagePath) {
+       this.pic = imagePath;
+     } else {
+       this.pic = this.nameImgObj.profilePath;
+     }
+   });
+
+   this.localstorageService.getNameOnChange.subscribe(message => {
+    if (message) {
+      this.fullName = message
+    } else {
+      this.fullName = this.nameImgObj.fullName;
+    }
+  });
+  }
 
   addBreadcrumbs() {
     this.router.events.pipe(filter((event:any) => event instanceof NavigationEnd)).pipe(map(() => this.activatedRoute))
