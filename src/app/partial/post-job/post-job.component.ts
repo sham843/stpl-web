@@ -269,7 +269,7 @@ export class PostJobComponent implements OnInit {
         "role_Responsbility": formData.role_Responsbility,
         "joiningPeriod": formData.joiningPeriod,
         "employmentType": formData.employmentType,
-        "isActive": true,
+        "isActive": false,
         "skillModels": this.skillModelArray,
         "qualifications": this.qualiModelArray,
       }
@@ -280,7 +280,7 @@ export class PostJobComponent implements OnInit {
       this.apiService.getHttp().subscribe((res: any) => {
         if (res.statusCode == "200") {
           this.toastrService.success(res.statusMessage);
-          this.clearForm();
+          // this.clearForm();
           this.addNewJobModel.nativeElement.click();
           this.getJobPost();
         } else {
@@ -289,7 +289,6 @@ export class PostJobComponent implements OnInit {
       }, (error: any) => {
         this.errorSerivce.handelError(error.status);
       });
-      this.clearForm();
     }
   }
 
@@ -417,8 +416,11 @@ export class PostJobComponent implements OnInit {
   //..................................Change Status Code Stare Here ......................................//
 
   updateActiveApplication(ObjData:any,event:any) {
-    let obj = 'Id=' + ObjData.id + '&IsActive=' + event.target.checked
-    this.apiService.setHttp('PUT', "JobPost/UpdateActiveJobPost?"+obj, false, false, false, 'stplUrl');
+    let obj = {
+      "id": ObjData.id,
+      "isActive": event.target.checked
+    }
+    this.apiService.setHttp('PUT', "JobPost/UpdateActiveJobPost", false, JSON.stringify(obj), false, 'stplUrl');
     this.apiService.getHttp().subscribe({
       next: (res: any) => {
         if (res.statusCode === "200") {
