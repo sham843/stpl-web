@@ -67,6 +67,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   getUserDetails() {
+    debugger
     this.apiService.setHttp('get', "userdetails/GetById?" + 'Id=' + this.localStorage.userId(), false, false, false, 'stplUrl');
     this.apiService.getHttp().subscribe({
       next: (res: any) => {
@@ -139,6 +140,7 @@ export class UserProfileComponent implements OnInit {
       this.apiService.getHttp().subscribe((res: any) => {
         if (res.statusCode == "200") {
            //set username in session storage Start
+           debugger
            this.localStorage.sendFullName(fullName);
            let loginObj: any = localStorage.getItem('user');
            loginObj = JSON.parse(loginObj);

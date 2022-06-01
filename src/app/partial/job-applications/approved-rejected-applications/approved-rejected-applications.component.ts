@@ -44,7 +44,7 @@ export class ApprovedRejectedApplicationsComponent implements OnInit {
     let isApprove;
     this.commonService.checkDataType(this.isApproved.value) == true ? isApprove = this.isApproved.value : isApprove = 3 ;
     let obj = 'pageno=' + this.pageNumber +'&pagesize=' + this.pagesize + '&IsApproved=' + isApprove +'&textSearch=' + this.searchText.value ;
-    this.apiService.setHttp('get', "member/AppliedMember/GetAll?" + obj, false, false, false, 'stplweb');
+    this.apiService.setHttp('get', "AppliedMember/GetAll?" + obj, false, false, false, 'stplUrl');
     this.apiService.getHttp().subscribe({
       next: (res: any) => {
         if (res.statusCode === "200") {
@@ -92,10 +92,15 @@ export class ApprovedRejectedApplicationsComponent implements OnInit {
 
      //..................................Action Status Code Stare Here ......................................//
 
+
   updateActiveApplication(ObjData:any,event:any) {
-    return
-    let obj = 'Id=' + ObjData.id + '&IsActive=' + event.target.checked
-    this.apiService.setHttp('PUT', "JobPost/UpdateActiveJobPost?"+obj, false, false, false, 'stplUrl');
+    let isApproved;
+    event.target.checked == true ? isApproved = 1 : isApproved = 2;
+    let obj = {
+      "id": ObjData.id,
+      "isApproved": isApproved
+    }
+    this.apiService.setHttp('PUT', "AppliedMember/UpdateApprovedStatus", false, JSON.stringify(obj), false, 'stplUrl');
     this.apiService.getHttp().subscribe({
       next: (res: any) => {
         if (res.statusCode === "200") {
