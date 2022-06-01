@@ -44,7 +44,7 @@
                                 <i class="fa-solid fa-location-dot"></i> {{activePost?.jobLocation}}
                             </div>
                             <div class="me-5">
-                                <i class="fa-regular fa-clock"></i> {{activePost?.jobPostEndDate}}
+                                <i class="fa-regular fa-clock"></i> {{activePost?.jobPostEndDate | date : 'dd/mm/yyyy'}}
                             </div>
                             <div>
                                 <i class="fa-solid fa-business-time"></i> {{activePost?.employmentType}}
