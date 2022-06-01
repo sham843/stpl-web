@@ -99,6 +99,7 @@ export class UserProfileComponent implements OnInit {
 
   clearProfileForm(){
    this.patchProfileData(this.userDetailsArray);
+   this.ImgUrl;
   }
 
   updateProfileData() {
