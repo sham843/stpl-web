@@ -99,7 +99,8 @@ export class UserProfileComponent implements OnInit {
 
   clearProfileForm(){
    this.patchProfileData(this.userDetailsArray);
-   this.ImgUrl;
+   let imagePath = this.userDetailsArray?.profilePath;
+   imagePath ? (this.ImgUrl = imagePath) : (this.ImgUrl ='assets/images/user.png');
   }
 
   updateProfileData() {
