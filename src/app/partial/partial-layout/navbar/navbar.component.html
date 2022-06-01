@@ -27,8 +27,9 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
-                        Jason Clerk
+                        <!-- <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"> -->
+                        <img src="{{pic == '' || pic == null ? 'assets/images/user.png' : pic}}"> 
+                        {{fullName}}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><span class="dropdown-header">Administrator</span></li>

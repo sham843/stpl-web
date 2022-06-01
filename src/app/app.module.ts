@@ -12,6 +12,7 @@ import { TitleCasePipe } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgxSelectModule } from 'ngx-select-ex';
+// import { TooltipModule } from './partial/directive/tooltip.module';
 
 @NgModule({
   declarations: [

@@ -32,7 +32,7 @@ export class UserProfileComponent implements OnInit {
   getImgExt: any;
   imgName: any;
   file: any;
-  ImgUrl: any = 'assets/images/user.png';
+  ImgUrl: any;
 
   constructor(
     private localStorage: LocalstorageService,
@@ -67,6 +67,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   getUserDetails() {
+    debugger
     this.apiService.setHttp('get', "userdetails/GetById?" + 'Id=' + this.localStorage.userId(), false, false, false, 'stplUrl');
     this.apiService.getHttp().subscribe({
       next: (res: any) => {
@@ -85,6 +86,14 @@ export class UserProfileComponent implements OnInit {
   }
 
   patchProfileData(resData:any){
+    // for img upload start
+    let loginObj: any = localStorage.getItem('user');
+    loginObj = JSON.parse(loginObj);
+    loginObj.profilePath = resData?.profilePath;
+    localStorage.setItem('user', JSON.stringify(loginObj));
+    this.localStorage.pathchange(this.ImgUrl);
+    // localStorage.setItem('imgUrl', this.ImgUrl);
+    // for img upload End
     let fullName = resData.fullName.split(' ');
     this.userProfileForm.patchValue({
       UserId: this.localStorage.userId(),
@@ -99,6 +108,8 @@ export class UserProfileComponent implements OnInit {
 
   clearProfileForm(){
    this.patchProfileData(this.userDetailsArray);
+   let imagePath = this.userDetailsArray?.profilePath;
+   imagePath ? (this.ImgUrl = imagePath) : (this.ImgUrl ='assets/images/user.png');
   }
 
   updateProfileData() {
@@ -128,6 +139,14 @@ export class UserProfileComponent implements OnInit {
       this.apiService.setHttp('PUT', 'userdetails', false, JSON.stringify(obj), false, 'stplUrl');
       this.apiService.getHttp().subscribe((res: any) => {
         if (res.statusCode == "200") {
+           //set username in session storage Start
+           debugger
+           this.localStorage.sendFullName(fullName);
+           let loginObj: any = localStorage.getItem('user');
+           loginObj = JSON.parse(loginObj);
+           loginObj.fullName = fullName;
+           localStorage.setItem('user', JSON.stringify(loginObj));
+           //set username in session storage End
           this.toastrService.success(res.statusMessage);
           this.getUserDetails();
           this.submitted = false;
