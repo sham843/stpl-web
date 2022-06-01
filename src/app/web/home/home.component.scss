@@ -485,3 +485,10 @@
     background-color: #fff;
     color: #33ABD9;
 }
+#HomeBannerCarousel .carousel-control-next, 
+#HomeBannerCarousel .carousel-control-prev{
+    top: 40%;
+    height: 60px;
+    width: 60px;
+    background-color:rgba(255,255, 255, 0.25);
+}
