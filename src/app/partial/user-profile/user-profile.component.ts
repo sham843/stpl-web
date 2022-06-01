@@ -67,15 +67,14 @@ export class UserProfileComponent implements OnInit {
   }
 
   getUserDetails() {
-    debugger
     this.apiService.setHttp('get', "userdetails/GetById?" + 'Id=' + this.localStorage.userId(), false, false, false, 'stplUrl');
     this.apiService.getHttp().subscribe({
       next: (res: any) => {
         if (res.statusCode === "200") {
           this.userDetailsArray = res.responseData;
-          this.patchProfileData(this.userDetailsArray);
           let imagePath = res.responseData?.profilePath;
           imagePath ? (this.ImgUrl = imagePath) : (this.ImgUrl ='assets/images/user.png');
+          this.patchProfileData(this.userDetailsArray);
         } else {
           this.userDetailsArray = [];
           this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
@@ -107,9 +106,10 @@ export class UserProfileComponent implements OnInit {
   }
 
   clearProfileForm(){
-   this.patchProfileData(this.userDetailsArray);
-   let imagePath = this.userDetailsArray?.profilePath;
-   imagePath ? (this.ImgUrl = imagePath) : (this.ImgUrl ='assets/images/user.png');
+  //  this.patchProfileData(this.userDetailsArray);
+  //  let imagePath = this.userDetailsArray?.profilePath;
+  //  imagePath ? (this.ImgUrl = imagePath) : (this.ImgUrl ='assets/images/user.png');
+  this.getUserDetails();
   }
 
   updateProfileData() {
