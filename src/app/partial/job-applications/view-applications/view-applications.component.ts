@@ -57,7 +57,7 @@ export class ViewApplicationsComponent implements OnInit {
   getViewApplication() {
     this.spinner.show();
     let obj = 'pageno=' + this.pageNumber +'&pagesize=' + this.pagesize +'&textSearch=' + this.searchText.value ;
-    this.apiService.setHttp('get', "member/AppliedMember/ViewApplication?" + obj, false, false, false, 'stplweb');
+    this.apiService.setHttp('get', "AppliedMember/ViewApplication?" + obj, false, false, false, 'stplUrl');
     this.apiService.getHttp().subscribe({
       next: (res: any) => {
         if (res.statusCode === "200") {
@@ -104,8 +104,12 @@ export class ViewApplicationsComponent implements OnInit {
     }
 
     updateActiveApplication(ObjData:any,flag:any) {
-      let obj = 'Id=' + ObjData.id + '&JobPostId=' + ObjData.id + '&IsActive=' + flag
-      this.apiService.setHttp('PUT', "member/AppliedMember/UpdateActiveApplication?"+obj, false, false, false, 'stplweb');
+      let obj = {
+        "id": ObjData.id,
+        "jobPostId": ObjData.id,
+        "isApproved": flag
+      }
+      this.apiService.setHttp('PUT', "member/AppliedMember/UpdateActiveJobPost", false, JSON.stringify(obj), false, 'stplweb');
       this.apiService.getHttp().subscribe({
         next: (res: any) => {
           if (res.statusCode === "200") {
