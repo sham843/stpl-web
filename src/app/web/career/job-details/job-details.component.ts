@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/core/services/api.service';
@@ -21,6 +21,7 @@ export class JobDetailsComponent implements OnInit {
   submitted = false;
 
   applayJobForm!:FormGroup | any;
+  @ViewChild('fileInput') fileInput!: ElementRef;
 
   constructor(
     private commonService: CommonService,
@@ -62,6 +63,7 @@ export class JobDetailsComponent implements OnInit {
       lastName: ['', [Validators.required, Validators.pattern('^[^\\s0-9\\[\\[`&._@#%*!+,|"\-\'\/\\]\\]{}][a-zA-Z]+$')]],
       contactNo: ['',[Validators.required, Validators.pattern('[6-9]\\d{9}')]],
       emailId: ['',[Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]],
+      profilePath: ['']
     })
   }
 
@@ -81,18 +83,18 @@ export class JobDetailsComponent implements OnInit {
         "isDeleted": true,
         "id": 0,
         "jobPostId": 0,
+        "jobTitle": this.jobPostGetByIdArray?.jobTitle,
         "firstName": formData.firstName,
         "lastName": formData.lastName,
         "fullName": fullName,
         "emailId": formData.emailId,
         "contactNo": formData.contactNo,
         "gender": 0,
-        "resumeName": "string",
         "resumePath": "string",
-        "resumeType": "string"
+        "isApproved": 0
       }
-    
-      this.apiService.setHttp('POST', 'member/AppliedMember', false, JSON.stringify(obj), false, 'stplweb');
+
+      this.apiService.setHttp('POST', 'AppliedMember', false, JSON.stringify(obj), false, 'stplUrl');
       this.apiService.getHttp().subscribe((res: any) => {
         if (res.statusCode == "200") {
           this.toastrService.success(res.statusMessage);
@@ -110,6 +112,8 @@ export class JobDetailsComponent implements OnInit {
   clearForm() {
     this.submitted = false;
     this.defaultApplayJobForm();
+    this.fileInput.nativeElement.value = '';
   }
+
 
 }
