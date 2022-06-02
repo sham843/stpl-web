@@ -123,7 +123,7 @@ export class PageMastersComponent implements OnInit {
     this.submitted = true;
     this.homeValueSubmitted = true;
     if (this.commonService.checkDataType(this.homePageImgPath) == false) {
-      this.homeValueSubmitted = true;
+      // this.homeValueSubmitted = true;
       return
     } 
     if (this.pageMasterForm.invalid) {
@@ -265,7 +265,7 @@ export class PageMastersComponent implements OnInit {
 
   deleteHomePageImg(){
     this.homePageImgPath = '';
-    this.pageMasterForm.controls['homeImagePath'].setValue('');
+    // this.pageMasterForm.controls['homeImagePath'].setValue('');
     this.homeImgFileInput.nativeElement.value = '';
   }
 
