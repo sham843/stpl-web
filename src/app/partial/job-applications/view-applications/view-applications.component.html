@@ -50,7 +50,7 @@
                     <td>{{viewAppli?.contactNo}}</td>
                     <td>
                         <button type="button" class="btn btn-sm bg-primary bg-opacity-10 text-primary">
-                            <a href={{viewAppli?.resumePath}} target="_blank">
+                            <a target="_blank" [href]="viewAppli?.resumePath">
                                 <i class="fa-solid fa-download"></i>
                              </a>
                         </button>

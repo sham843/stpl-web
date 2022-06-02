@@ -61,8 +61,8 @@
                     <td>{{appliedMember?.contactNo}}</td>
                     <td>
                         <button type="button" class="btn btn-sm bg-primary bg-opacity-10 text-primary">
-                            <a href={{appliedMember?.resumePath}} target="_blank">
-                                <i class="fa-solid fa-download"></i>
+                            <a target="_blank" [href]="appliedMember?.resumePath">
+                                <i class="fa-solid fa-download"></i> 
                              </a>
                         </button>
                     </td>
