@@ -32,6 +32,37 @@
                         </div>
                         </div>
                     </div>
+
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <label class="form-label">Home Page Image</label>
+                            <input type="file" formControlName="homeImagePath" (change)="homePageImgUpload($event)" class="form-control"
+                             #homeImgFileInput>
+                             <div *ngIf="homeValueSubmitted && !homePageImgPath">
+                                <span class="text-danger">Home Page Image is required.</span>
+                            </div>
+                            <div class="d-flex" *ngIf="homePageImgPath">
+                                <div class="uploaded-images">
+                                    <img [src]="homePageImgPath">
+                                    <button class="btn bg-danger bg-opacity-10 text-danger" (click)="deleteHomePageImg()">
+                                        <i class="fa-regular fa-trash-can"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-label">Home Box BG Color</label>
+                            <div class="input-group">
+                                <input type="text" readonly formControlName="colorValue" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f.colorValue.errors }">
+                                <input type="color" formControlName="colorCode" (change)="selectColor()" class="form-control py-2">
+                                <div *ngIf="submitted && f.colorValue.errors" class="invalid-feedback">
+                                    <span class="text-danger" *ngIf="f.colorValue.errors?.required">
+                                        Home Box BG Color is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
        
                     <div class="mb-2">
                         <label class="form-label">About</label>

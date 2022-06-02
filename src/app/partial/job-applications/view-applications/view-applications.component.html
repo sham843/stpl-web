@@ -50,7 +50,7 @@
                     <td>{{viewAppli?.contactNo}}</td>
                     <td>
                         <button type="button" class="btn btn-sm bg-primary bg-opacity-10 text-primary">
-                            <a href={{viewAppli?.resumePath}} target="_blank">
+                            <a target="_blank" [href]="viewAppli?.resumePath">
                                 <i class="fa-solid fa-download"></i>
                              </a>
                         </button>
@@ -72,7 +72,7 @@
             <div class="alert alert-danger text-center py-2">No Data Found..!
             </div>
         </div>
-        <pagination-controls *ngIf="viewApplicationArray?.length != 0" previousLabel="" nextLabel=""
+        <pagination-controls *ngIf="viewApplicationArray?.length > 10" previousLabel="" nextLabel=""
             (pageChange)="onClickPagintion($event)">
         </pagination-controls>
     </div>

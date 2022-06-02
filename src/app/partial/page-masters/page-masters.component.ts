@@ -30,6 +30,9 @@ export class PageMastersComponent implements OnInit {
   pageMasterImagArray:any[] = [];
   checkedDataflag: boolean = true;
   @ViewChild('fileInput') fileInput!: ElementRef;
+  homePageImgPath:any
+  @ViewChild('homeImgFileInput') homeImgFileInput!: ElementRef;
+  homeValueSubmitted = false;
 
   constructor(
     private commonService: CommonService,
@@ -59,6 +62,9 @@ export class PageMastersComponent implements OnInit {
       about: ['', Validators.required],
       features: ['', Validators.required],
       imagePath: [''],
+      colorCode: [''],
+      colorValue: ['',Validators.required],
+      homeImagePath:[''],
     })
   }
 
@@ -68,6 +74,8 @@ export class PageMastersComponent implements OnInit {
     this.btnText = 'Submit';
     this.pageMasterImagArray = [];
     this.HighlightRow = 0;
+    this.homePageImgPath = '';
+    this.homeValueSubmitted = false;
   }
 
   getPageCategory() {
@@ -113,6 +121,11 @@ export class PageMastersComponent implements OnInit {
   onSubmit() {
     let formData = this.pageMasterForm.value;
     this.submitted = true;
+    this.homeValueSubmitted = true;
+    if (this.commonService.checkDataType(this.homePageImgPath) == false) {
+      // this.homeValueSubmitted = true;
+      return
+    } 
     if (this.pageMasterForm.invalid) {
       return;
     }else if (this.commonService.checkDataType(this.pageMasterImagArray) == false) {
@@ -133,7 +146,9 @@ export class PageMastersComponent implements OnInit {
         "pageCategoryId": formData.pageCategoryId,
         "about": formData.about,
         "features": formData.features,
-        "pageMasters": this.pageMasterImagArray
+        "pageMasters": this.pageMasterImagArray,
+        "color": formData.colorValue,
+        "homeImagePath": this.homePageImgPath,
       }
       let urlType;
       id == 0 ? urlType = 'POST' : urlType = 'PUT'
@@ -155,6 +170,7 @@ export class PageMastersComponent implements OnInit {
 
   updatePageMaster(obj:any){
     this.pageMasterImagArray = obj?.pageMasters;
+    this.homePageImgPath = obj.homeImagePath;
     this.HighlightRow = obj.id;
     this.btnText = 'Update';
     this.pageMasterForm.patchValue({
@@ -163,7 +179,7 @@ export class PageMastersComponent implements OnInit {
       pageCategoryId: obj.pageCategoryId ,
       about: obj.about ,
       features: obj.features ,
-      // imagePath: this.pageMasterImagArray
+      colorValue:obj.color,
     })
   }
 
@@ -193,7 +209,7 @@ export class PageMastersComponent implements OnInit {
     });
   }
 
-  imageUpload(event: any) {
+  imageUpload(event: any) { //multiple Image Upload
     let documentUrlUploaed:any;
     let documentUrl: any = this.fileUploadService.uploadDocuments(event, "MasterImages", "png,jpg,jpeg,pdf", 5, 5000);
     documentUrl.subscribe({
@@ -231,6 +247,26 @@ export class PageMastersComponent implements OnInit {
   deleteImage(index:any){
     this.pageMasterImagArray.splice(index, 1);
     this.fileInput.nativeElement.value = '';
+  }
+
+  selectColor(){
+    this.pageMasterForm.controls['colorValue'].setValue(this.pageMasterForm.value.colorCode);
+  }
+
+  homePageImgUpload(event: any) { //Single Image Upload
+    let documentUrl: any = this.fileUploadService.uploadDocuments(event, "MasterImages", "png,jpg,jpeg,pdf", 5, 5000);
+    documentUrl.subscribe({
+      next: (ele: any) => {
+        this.homePageImgPath = ele.responseData;
+        // this.pageMasterForm.value.homeImagePath = this.homePageImgPath;
+      },
+    })
+  }
+
+  deleteHomePageImg(){
+    this.homePageImgPath = '';
+    // this.pageMasterForm.controls['homeImagePath'].setValue('');
+    this.homeImgFileInput.nativeElement.value = '';
   }
 
 }

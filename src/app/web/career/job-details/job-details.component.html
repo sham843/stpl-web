@@ -36,25 +36,29 @@
             <div class="card">
                 <div class="card-header">Job Description</div>
                 <div class="card-body">
-                    <p>{{jobPostGetByIdArray?.jobDescription}}</p>
+                    <p innerHtml="{{jobPostGetByIdArray?.jobDescription}}"></p>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">Educational Qualification</div>
                 <div class="card-body">
-                    <p>{{jobPostGetByIdArray?.qualifications}}</p>
+                    <ul *ngFor="let qualifi of jobPostGetByIdArray?.qualifications">
+                        <li> {{qualifi?.qualificationName}}</li>
+                    </ul>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">Required Skill Set</div>
                 <div class="card-body">
-                    <p>{{jobPostGetByIdArray?.skillModels}}</p>
+                    <ul *ngFor="let qualifi of jobPostGetByIdArray?.skillModels">
+                        <li> {{qualifi?.skillName}}</li>
+                    </ul>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">Roles & Responsibility</div>
                 <div class="card-body">
-                    <p>{{jobPostGetByIdArray?.role_Responsbility}}</p>
+                    <p innerHtml="{{jobPostGetByIdArray?.role_Responsbility}}"></p>
                 </div>
             </div>
         </div>
@@ -114,12 +118,12 @@
             <form [formGroup]="applayJobForm">
             <div class="modal-header bg-main">
                 <p class="modal-title mb-0" id="exampleModalLabel">Apply Now</p>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="clearForm()"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #jobDetailModel (click)="clearForm()"></button>
             </div>
             <div class="modal-body">
                 <div class="row mb-3">
                     <div class="col-sm-12">
-                        <input type="text" readonly class="form-control" placeholder="Graphics Designer">
+                        <input type="text" readonly class="form-control" placeholder="{{jobPostGetByIdArray?.jobTitle}}">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -157,7 +161,7 @@
                     </div>
                     <div class="col-sm-6">
                         <input type="tel" class="form-control" placeholder="Contact No" formControlName="contactNo"
-                        [ngClass]="{ 'is-invalid': submitted && f.contactNo.errors }">
+                       maxlength="10" [ngClass]="{ 'is-invalid': submitted && f.contactNo.errors }">
                         <div *ngIf="submitted && f.contactNo.errors" class="invalid-feedback">
                             <div class="text-danger" *ngIf="f.contactNo.errors?.required">Contact No is
                                 required.</div>
@@ -167,10 +171,16 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-12 mt-4">
-                        <!-- <ngx-file-drag-drop></ngx-file-drag-drop> -->
+                    <!-- <div class="col-sm-12 mt-4">
                         <label class="form-label">Upload Your Resume :</label>
                         <input type="file" class="file-input">
+                    </div> -->
+                    <div class="col-sm-6 mt-4">
+                        <label class="form-label">Upload Your Resume</label>
+                        <input type="file" (change)="resumeUpload($event)" class="form-control" #fileInput>
+                        <div *ngIf="resumeSubmit && !resumePath">
+                            <div class="text-danger">Contact No is required.</div>
+                        </div>
                     </div>
                 </div>
             </div>

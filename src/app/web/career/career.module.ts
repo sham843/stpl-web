@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 import { CareerRoutingModule } from './career-routing.module';
 import { CareerComponent } from './career.component';
 
@@ -11,7 +11,8 @@ import { CareerComponent } from './career.component';
   ],
   imports: [
     CommonModule,
-    CareerRoutingModule
+    CareerRoutingModule,
+    NgxPaginationModule
   ]
 })
 export class CareerModule { }
