@@ -246,7 +246,9 @@
     background: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.15)), url('../../../assets/images/home-banner.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    padding-top: 7rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     color: #fff;
 }
 

@@ -4,16 +4,16 @@
             class="card-img" alt="...">
         <div class="card-img-overlay">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-sm-6">
-                        <h3>Software Development</h3>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3>Services</h3>
                     </div>
-                    <div class="col-sm-6 text-end">
+                    <div class="col-sm-12">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a routerLink="../home">Home</a></li>
-                                <li class="breadcrumb-item"><a>Services</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Software Development</li>
+                                <li class="breadcrumb-item active">Services</li>
+                                <!-- <li class="breadcrumb-item active" aria-current="page">Software Development</li> -->
                             </ol>
                         </nav>
                     </div>
@@ -25,31 +25,23 @@
 
 <div class="container py-2">
     <div class="row" id="main-content">
-        <div class="col-sm-12">
-            <h3 class="mb-4">Software Development</h3>
+        <div class="col-sm-4">
+            <div class="list-group">
+                <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
+                    The current button
+                </button>
+                <button type="button" class="list-group-item list-group-item-action">A second item</button>
+                <button type="button" class="list-group-item list-group-item-action">A third button item</button>
+                <button type="button" class="list-group-item list-group-item-action">A fourth button item</button>
+                <button type="button" class="list-group-item list-group-item-action">A disabled button item</button>
+            </div>
         </div>
-        
-        <div class="col-sm-6">
-            <h6 class="fw-bold mb-3">About</h6>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.
-            </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam hendrerit enim in suscipit sodales.
-                Maecenas tristique ex vitae nisl faucibus, ac hendrerit dui molestie. Nulla a tempus dui. Sed commodo,
-                augue vel dignissim dictum, odio est convallis nisi, sed facilisis nunc est eu neque.</p>
-            <p>Pellentesque posuere nulla eget nibh dapibus viverra. Cras maximus vehicula pulvinar. Praesent pretium
-                malesuada ante, quis commodo dolor scelerisque at. Sed ut nulla et justo volutpat tincidunt. Phasellus
-                nec eros eget mauris tincidunt tempor eu mattis turpis. Proin ac mauris diam.</p>
-        </div>
-        <div class="col-sm-6">
-            <div id="ProductsImagescarousel" class="carousel slide" data-bs-ride="carousel">
+
+        <div class="col-sm-8">
+            <div id="ProductsImagescarousel" class="carousel slide mb-4" data-bs-ride="carousel">
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#ProductsImagescarousel" data-bs-slide-to="0"
-                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#ProductsImagescarousel" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#ProductsImagescarousel" data-bs-slide-to="1"
                         aria-label="Slide 2"></button>
                     <button type="button" data-bs-target="#ProductsImagescarousel" data-bs-slide-to="2"
@@ -70,22 +62,39 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-12">
+            <h6 class="fw-bold mb-3">About</h6>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+            </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam hendrerit enim in suscipit sodales.
+                Maecenas tristique ex vitae nisl faucibus, ac hendrerit dui molestie. Nulla a tempus dui. Sed commodo,
+                augue vel dignissim dictum, odio est convallis nisi, sed facilisis nunc est eu neque.</p>
+            <p>Pellentesque posuere nulla eget nibh dapibus viverra. Cras maximus vehicula pulvinar. Praesent pretium
+                malesuada ante, quis commodo dolor scelerisque at. Sed ut nulla et justo volutpat tincidunt. Phasellus
+                nec eros eget mauris tincidunt tempor eu mattis turpis. Proin ac mauris diam.</p>
             <div class="card card-body border-0 rounded-0 p-4 mb-4">
                 <h6 class="fw-bold mb-3">What We Offer!</h6>
                 <ul class="list mb-0">
                     <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                    <li>Aliquam hendrerit enim in suscipit sodales. Maecenas tristique ex vitae nisl faucibus, ac hendrerit dui molestie.</li>
-                    <li>Nulla a tempus dui. Sed commodo, augue vel dignissim dictum, odio est convallis nisi, sed facilisis nunc est eu neque. </li>
-                    <li>Pellentesque posuere nulla eget nibh dapibus viverra. Cras maximus vehicula pulvinar. Praesent pretium malesuada ante, quis commodo dolor scelerisque at. </li>
-                    <li>Sed ut nulla et justo volutpat tincidunt. Phasellus nec eros eget mauris tincidunt tempor eu mattis turpis. Proin ac mauris diam.</li>
-                    <li>Cras ac turpis ac nunc molestie facilisis. Ut ac leo nunc. Curabitur at dui mollis, pellentesque nibh ac, malesuada ante. Etiam non odio in nibh imperdiet convallis.</li>
-                    <li>Nullam risus mi, sodales nec elit non, aliquet vulputate massa. Pellentesque orci libero, auctor eu vestibulum vitae, bibendum in nisl. Integer euismod tellus eu tincidunt lacinia. Fusce id ipsum ut erat rhoncus dapibus.</li>
+                    <li>Aliquam hendrerit enim in suscipit sodales. Maecenas tristique ex vitae nisl faucibus, ac
+                        hendrerit dui molestie.</li>
+                    <li>Nulla a tempus dui. Sed commodo, augue vel dignissim dictum, odio est convallis nisi, sed
+                        facilisis nunc est eu neque. </li>
+                    <li>Pellentesque posuere nulla eget nibh dapibus viverra. Cras maximus vehicula pulvinar. Praesent
+                        pretium malesuada ante, quis commodo dolor scelerisque at. </li>
+                    <li>Sed ut nulla et justo volutpat tincidunt. Phasellus nec eros eget mauris tincidunt tempor eu
+                        mattis turpis. Proin ac mauris diam.</li>
+                    <li>Cras ac turpis ac nunc molestie facilisis. Ut ac leo nunc. Curabitur at dui mollis, pellentesque
+                        nibh ac, malesuada ante. Etiam non odio in nibh imperdiet convallis.</li>
+                    <li>Nullam risus mi, sodales nec elit non, aliquet vulputate massa. Pellentesque orci libero, auctor
+                        eu vestibulum vitae, bibendum in nisl. Integer euismod tellus eu tincidunt lacinia. Fusce id
+                        ipsum ut erat rhoncus dapibus.</li>
                 </ul>
             </div>
-        </div>
-        <div class="text-center">
             <a class="btn btn-main rounded-0 py-3 px-5" routerLink="#l">
                 Reach Us
             </a>
