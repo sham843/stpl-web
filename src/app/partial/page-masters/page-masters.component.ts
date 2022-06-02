@@ -59,6 +59,8 @@ export class PageMastersComponent implements OnInit {
       about: ['', Validators.required],
       features: ['', Validators.required],
       imagePath: [''],
+      colorCode: ['',Validators.required],
+      colorValue: [''],
     })
   }
 
@@ -133,7 +135,8 @@ export class PageMastersComponent implements OnInit {
         "pageCategoryId": formData.pageCategoryId,
         "about": formData.about,
         "features": formData.features,
-        "pageMasters": this.pageMasterImagArray
+        "pageMasters": this.pageMasterImagArray,
+        // "colorValue":formData.colorValue,
       }
       let urlType;
       id == 0 ? urlType = 'POST' : urlType = 'PUT'
@@ -231,6 +234,10 @@ export class PageMastersComponent implements OnInit {
   deleteImage(index:any){
     this.pageMasterImagArray.splice(index, 1);
     this.fileInput.nativeElement.value = '';
+  }
+
+  selectColor(){
+    this.pageMasterForm.controls['colorValue'].setValue(this.pageMasterForm.value.colorCode);
   }
 
 }

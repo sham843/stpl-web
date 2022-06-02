@@ -41,8 +41,13 @@
                         <div class="col-sm-6">
                             <label class="form-label">Home Box BG Color</label>
                             <div class="input-group">
-                                <input type="text" class="form-control">
-                                <input type="color" class="form-control py-2">
+                                <input type="text" readonly formControlName="colorValue" class="form-control">
+                                <input type="color" formControlName="colorCode" (change)="selectColor()" class="form-control py-2"
+                                [ngClass]="{ 'is-invalid': submitted && f.colorCode.errors }">
+                                <div *ngIf="submitted && f.colorCode.errors" class="invalid-feedback">
+                                    <span class="text-danger" *ngIf="f.colorCode.errors?.required">
+                                        Home Box BG Color is required.</span>
+                                </div>
                             </div>
                         </div>
                     </div>
