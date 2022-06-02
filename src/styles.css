@@ -69,19 +69,20 @@ body {
     flex-direction: column;
 }
 .page-heading img{
-    height: 60vmin;
+    height: 50vmin;
     object-fit: cover;
 }
 .page-heading h3{
     font-family: 'Fira Sans', sans-serif;
-    font-size: 3rem;
+    font-size: 7vmin;
     margin-bottom: 1rem;
-    border-left: solid 10px var(--blue-color);
+    border-left: solid 8px var(--blue-color);
     padding-left: 1rem;
+    font-weight: 900;
 }
 .page-heading .breadcrumb{
     margin:0;
-    font-size: 0.85rem;
+    font-size: 1rem;
 }
 .page-heading .breadcrumb a{
     color: var(--blue-color);
