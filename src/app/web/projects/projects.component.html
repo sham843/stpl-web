@@ -28,6 +28,17 @@
         <div class="col-sm-12">
             <h3 class="mb-4">Rail Suraksha App</h3>
         </div>
+
+        <ul class="breadcrumb" *ngFor="let pageCategory of pageCategoryArray">
+            <li routerLinkActive="active" (click)="redirToProj(pageCategory.pageName,pageCategory.pageCategoryId)"><a class="primary">{{pageCategory.pageName}}</a></li>
+        </ul>
+
+<div *ngIf="hideDiv">
+<p>{{pageMasterArray.categoryName}}</p>
+<p>{{pageMasterArray.features}}</p>
+<p>{{pageMasterArray.about}}</p>
+</div>
+
         <div class="col-sm-6">
             <div id="ProductsImagescarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
