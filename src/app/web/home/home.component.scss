@@ -391,7 +391,7 @@
 }
 .FadeEffect {
     height: 0;
-    width: 312px;
+    width: 100%;
     bottom: 0px;
     left: 0px;
     background-color: var(--main-color); 
@@ -444,6 +444,31 @@
 }
 .our-services .green {
     background-color: #90AB62;
+}
+.our-products{
+    background-color:var(--main-color);
+    color: #fff;
+    padding-block: 4rem;
+}
+.our-products .product-info .carousel-item{
+    padding:6rem 12rem 6rem 6rem;
+}
+.our-products .product-imgs{
+    position:absolute;
+    right: 12rem;
+    z-index: 10;
+}
+.our-products .product-imgs .carousel-inner{
+    width: 825px;
+}
+.our-products .product-info .mining{
+    background-color: #DF9926;
+}
+.our-products .product-info .election{
+    background-color: #22A29B;
+}
+.our-products .product-info .evet{
+    background-color: #D55E7B;
 }
 #subscribeus{
     padding: 5rem;
