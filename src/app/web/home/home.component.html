@@ -452,17 +452,20 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active mining">
                             <h1>MINING<br> MONITORING<br> SYSTEM</h1>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard.</p>
                             <a class="btn btn-readmore" href="#">READ MORE</a>
                         </div>
                         <div class="carousel-item election">
                             <h1>ELECTION<br> MANAGEMENT<br> SYSTEM</h1>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard.</p>
                             <a class="btn btn-readmore" href="#">READ MORE</a>
                         </div>
                         <div class="carousel-item evet">
                             <h1>eVET<br> VETERINARY<br> SERVICES</h1>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard.</p>
                             <a class="btn btn-readmore" href="#">READ MORE</a>
                         </div>
                     </div>
@@ -471,8 +474,8 @@
             <div class="col-sm-6 product-imgs position-relative">
                 <div id="homeproductscarousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#homeproductscarousel" data-bs-slide-to="0"
-                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#homeproductscarousel" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#homeproductscarousel" data-bs-slide-to="1"
                             aria-label="Slide 2"></button>
                         <button type="button" data-bs-target="#homeproductscarousel" data-bs-slide-to="2"
@@ -508,20 +511,46 @@
                     </div>
                     <p class="text-dark mb-5">Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry.
                         Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry.</p>
-                    <div class="row">
-                        <div class="col-sm">
-                            <input type="text" class="form-control" placeholder="First Name">
+                    <form [formGroup]="applayUserForm">
+                        <div class="row">
+                            <div class="col-sm">
+                                <input type="text" class="form-control" placeholder="First Name"
+                                    formControlName="firstName"
+                                    [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+                                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                    <div class="text-danger" *ngIf="f.firstName.errors?.required">First Name is
+                                        required.</div>
+                                    <div class="text-danger" *ngIf="f.firstName.errors?.pattern">Please enter
+                                        Valid First Name.</div>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <input type="text" class="form-control" placeholder="Last Name"
+                                    formControlName="lastName"
+                                    [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+                                <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                    <div class="text-danger" *ngIf="f.lastName.errors?.required">Last Name is
+                                        required.</div>
+                                    <div class="text-danger" *ngIf="f.lastName.errors?.pattern">Please enter
+                                        Valid Last Name.</div>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <input type="email" class="form-control" placeholder="Email ID"
+                                    formControlName="emailId"
+                                    [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }">
+                                <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
+                                    <div class="text-danger" *ngIf="f.emailId.errors?.required">Email ID is
+                                        required.</div>
+                                    <div class="text-danger" *ngIf="f.emailId.errors?.pattern">Please enter
+                                        Valid Email ID.</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-auto">
+                                <button class="btn" type="submit" (click)="submitForm()">Submit</button>
+                            </div>
                         </div>
-                        <div class="col-sm">
-                            <input type="text" class="form-control" placeholder="Last Name">
-                        </div>
-                        <div class="col-sm">
-                            <input type="text" class="form-control" placeholder="Email ID">
-                        </div>
-                        <div class="col-sm-auto">
-                            <button class="btn" type="submit">Submit</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
