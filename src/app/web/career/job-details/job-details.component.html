@@ -43,7 +43,7 @@
                 <div class="card-header">Educational Qualification</div>
                 <div class="card-body">
                     <ul *ngFor="let qualifi of jobPostGetByIdArray?.qualifications">
-                        <li> {{qualifi?.qualificationId}}</li>
+                        <li> {{qualifi?.qualificationName}}</li>
                     </ul>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                 <div class="card-header">Required Skill Set</div>
                 <div class="card-body">
                     <ul *ngFor="let qualifi of jobPostGetByIdArray?.skillModels">
-                        <li> {{qualifi?.skillId}}</li>
+                        <li> {{qualifi?.skillName}}</li>
                     </ul>
                 </div>
             </div>
@@ -118,7 +118,7 @@
             <form [formGroup]="applayJobForm">
             <div class="modal-header bg-main">
                 <p class="modal-title mb-0" id="exampleModalLabel">Apply Now</p>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="clearForm()"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #jobDetailModel (click)="clearForm()"></button>
             </div>
             <div class="modal-body">
                 <div class="row mb-3">
@@ -177,7 +177,10 @@
                     </div> -->
                     <div class="col-sm-6 mt-4">
                         <label class="form-label">Upload Your Resume</label>
-                        <input type="file" class="form-control" #fileInput>
+                        <input type="file" (change)="resumeUpload($event)" class="form-control" #fileInput>
+                        <div *ngIf="resumeSubmit && !resumePath">
+                            <div class="text-danger">Contact No is required.</div>
+                        </div>
                     </div>
                 </div>
             </div>

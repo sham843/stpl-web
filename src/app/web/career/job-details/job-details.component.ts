@@ -7,6 +7,7 @@ import { ErrorsService } from 'src/app/core/services/errors.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { LocalstorageService } from 'src/app/core/services/localstorage.service';
 import { ActivatedRoute } from '@angular/router';
+import { FileUploadService } from 'src/app/core/services/file-upload.service';
 
 @Component({
   selector: 'app-job-details',
@@ -22,6 +23,9 @@ export class JobDetailsComponent implements OnInit {
 
   applayJobForm!:FormGroup | any;
   @ViewChild('fileInput') fileInput!: ElementRef;
+  resumePath:any;
+  resumeSubmit:any;
+  @ViewChild('jobDetailModel') jobDetailModel: any;  
 
   constructor(
     private commonService: CommonService,
@@ -30,6 +34,7 @@ export class JobDetailsComponent implements OnInit {
     private errorSerivce: ErrorsService,
     private fb: FormBuilder,
     private localStorage:LocalstorageService,
+    private fileUploadService:FileUploadService,
     private route: ActivatedRoute,
     ) { this.JobPostId = this.route.snapshot.params['id'];}
 
@@ -63,14 +68,16 @@ export class JobDetailsComponent implements OnInit {
       lastName: ['', [Validators.required, Validators.pattern('^[^\\s0-9\\[\\[`&._@#%*!+,|"\-\'\/\\]\\]{}][a-zA-Z]+$')]],
       contactNo: ['',[Validators.required, Validators.pattern('[6-9]\\d{9}')]],
       emailId: ['',[Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]],
-      profilePath: ['']
     })
   }
 
   submitApplayJobForm() {
     let formData = this.applayJobForm.value;
     this.submitted = true;
+    this.resumeSubmit = true;
     if (this.applayJobForm.invalid) {
+      return;
+    }else if (this.commonService.checkDataType(this.resumePath) == false) {
       return;
     } else {
       let fullName = formData.firstName.trim().concat(" ", formData.lastName.trim());
@@ -82,7 +89,6 @@ export class JobDetailsComponent implements OnInit {
         "modifiedDate": new Date(),
         "isDeleted": true,
         "id": 0,
-        "jobPostId": 0,
         "jobTitle": this.jobPostGetByIdArray?.jobTitle,
         "firstName": formData.firstName,
         "lastName": formData.lastName,
@@ -90,7 +96,7 @@ export class JobDetailsComponent implements OnInit {
         "emailId": formData.emailId,
         "contactNo": formData.contactNo,
         "gender": 0,
-        "resumePath": "string",
+        "resumePath": this.resumePath,
         "isApproved": 0
       }
 
@@ -100,6 +106,8 @@ export class JobDetailsComponent implements OnInit {
           this.toastrService.success(res.statusMessage);
           this.defaultApplayJobForm();
           this.submitted = false;
+          this.resumeSubmit = false;
+          this.jobDetailModel.nativeElement.click();
         } else {
           this.toastrService.error(res.statusMessage);
         }
@@ -113,7 +121,26 @@ export class JobDetailsComponent implements OnInit {
     this.submitted = false;
     this.defaultApplayJobForm();
     this.fileInput.nativeElement.value = '';
+    this.resumeSubmit = false;
   }
 
+  //................................... Resume Upload code Start Here...............................//
+
+  resumeUpload(event: any) { //Single Image Upload
+    let documentUrl: any = this.fileUploadService.uploadDocuments(event, "Resume", "png,jpg,jpeg,pdf", 5, 5000);
+    documentUrl.subscribe({
+      next: (ele: any) => {
+        this.resumePath = ele.responseData;
+        // this.pageMasterForm.value.homeImagePath = this.homePageImgPath;
+      },
+    })
+  }
+
+  deleteResume(){
+    this.resumePath = '';
+    this.fileInput.nativeElement.value = '';
+  }
+
+    //................................... Resume Upload code End Here...............................//
 
 }
