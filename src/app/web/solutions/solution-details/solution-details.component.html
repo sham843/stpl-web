@@ -25,7 +25,7 @@
 
 <div class="container py-2">
     <div class="row" id="main-content">
-        <div class="col-sm-12" >
+        <div class="col-sm-6" >
             <div class="location">
                 <div id="ProductsImagescarousel" class="carousel slide mb-4" data-bs-ride="carousel">
                     <div class="carousel-inner">
@@ -46,10 +46,14 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-            </div>
-
+            </div>     
+        </div>
+        <div class="col-sm-6">
             <h6 class="fw-bold mb-3">About</h6>
             <p [innerHtml]="pageMasterArray?.about"></p>
+        </div>
+
+        <div class="col-sm-12">
             <div class="card card-body border-0 rounded-0 p-4 mb-4">
                 <h6 class="fw-bold mb-3">What We Offer!</h6>
                 <ul class="list mb-0">

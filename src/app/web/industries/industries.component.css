@@ -6,3 +6,24 @@
     height: 400px;
     object-fit: cover;
 }
+.list-group .list-group-item{
+    padding: 15px;
+    border: none;
+    border-left: solid 5px #ddd;
+    margin-bottom: 5px;
+    border-radius: 0;
+    color: var(--blue-color);
+    background-color: transparent;
+    background: linear-gradient(to left, transparent 50%, var(--blue-color) 50%);
+    background-size: 201% 100%;
+    background-position: right bottom;
+    transition: all 1s ease;
+    border-radius: 0;
+}
+.list-group .list-group-item.active,
+.list-group .list-group-item:hover {
+    background-position: left bottom;
+    background-color: var(--blue-color);
+    color: #fff;
+    border-left: solid 5px var(--main-color);
+}

@@ -22,9 +22,9 @@
     </div>
 </div>
 
-<div class="container py-2" *ngFor="let pageCategory of pageCategoryArray">
+<div class="container py-2" >
     <div class="row" id="main-content">
-        <div class="card mb-3 p-3">
+        <div class="card mb-3 p-3" *ngFor="let pageCategory of pageCategoryArray">
             <div class="row g-0">
                 <div class="col-md-5">
                     <div id="ProductsImagescarousel" class="carousel slide" data-bs-ride="carousel">
