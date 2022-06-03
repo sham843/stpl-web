@@ -131,6 +131,7 @@ export class PageMastersComponent implements OnInit {
   onClickPagintion(pageNo: any) {
     this.pageNumber = pageNo;
     this.getPageMasterGetAll();
+    this.clearForm();
   }
 
   onSubmit() {
