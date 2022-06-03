@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/core/services/api.service';
 import { CommonService } from 'src/app/core/services/common.service';
 import { ErrorsService } from 'src/app/core/services/errors.service';
+import { titleCase } from "title-case";
 
 @Component({
   selector: 'app-industries',
@@ -16,6 +17,7 @@ export class IndustriesComponent implements OnInit {
   pageCategoryArray: any;
   hideDiv: boolean = false;
   activeClassHighLight:any;
+  PageName:any;
 
   constructor(
     private router:Router,
@@ -36,6 +38,10 @@ export class IndustriesComponent implements OnInit {
       next: (res: any) => {
         if (res.statusCode === "200") {
           this.pageCategoryArray = res.responseData;
+          this.pageCategoryArray.map((ele:any)=>{
+            let splitData = ele.pageName.split('-').join(' ');
+            ele.pageName = titleCase(splitData);
+          })
           let firstPageId = this.pageCategoryArray[0]?.id;
           let pageName = this.pageCategoryArray[0]?.pageName;
           this.commonService.checkDataType(firstPageId) == true ? this.getPageMaster(firstPageId) : '' ;
@@ -66,6 +72,7 @@ export class IndustriesComponent implements OnInit {
   }
 
   redirToProj(flag:any,id:any){
+    this.PageName = flag;
     this.activeClassHighLight = id; 
     let url = this.router.url.split('/');
     if(url.length == 3){
