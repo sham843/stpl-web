@@ -12,24 +12,9 @@ import { ErrorsService } from 'src/app/core/services/errors.service';
 })
 export class ProjectsComponent implements OnInit {
 
-myArray = [ {
-  "id": 1,
-  "categoryName": "Industries"
-},
-{
-  "id": 2,
-  "categoryName": "Services"
-},
-{
-  "id": 3,
-  "categoryName": "Projects"
-},]
-pageMasterArray:any;
-pageCategoryArray:any;
-hideDiv:boolean = false;
+  pageCategoryArray:any;
 
   constructor(
-    private router:Router,
      private route:ActivatedRoute,
      private commonService: CommonService,
      public apiService: ApiService,
@@ -42,7 +27,7 @@ hideDiv:boolean = false;
   }
 
   getPageCategoryId() {
-    this.apiService.setHttp('get', "dashboard/GetByPageCategoryId?PageCategoryId=" + 1, false, false, false, 'stplUrl');
+    this.apiService.setHttp('get', "dashboard/GetByPageCategoryId?PageCategoryId=" + 3, false, false, false, 'stplUrl');
     this.apiService.getHttp().subscribe({
       next: (res: any) => {
         if (res.statusCode === "200") {
@@ -56,30 +41,8 @@ hideDiv:boolean = false;
     });
   }
 
-  getPageMaster(id:any) {
-    this.apiService.setHttp('get', "PageMaster/GetById?Id=" + id, false, false, false, 'stplUrl');
-    this.apiService.getHttp().subscribe({
-      next: (res: any) => {
-        if (res.statusCode === "200") {
-          this.pageMasterArray = res.responseData;
-          this.hideDiv = true;
-        } else {
-          this.pageMasterArray = [];
-          this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
-        }
-      },
-      error: ((error: any) => { this.errorSerivce.handelError(error.status) })
-    });
-  }
-
-  redirToProj(flag:any,id:any){
-    let url = this.router.url.split('/');
-    if(url.length == 3){
-      this.router.navigate(['../'+flag], {relativeTo:this.route});
-    }else{
-      this.router.navigate([flag], {relativeTo:this.route});
-    }
-    this.getPageMaster(13);
-  }
+  navigatePage(id:any){
+    this.commonService.routerLinkRedirect('../project-details/' + id);
+ }
 
 }

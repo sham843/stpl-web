@@ -11,14 +11,54 @@
                     <div class="col-sm-12">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a routerLink="../home">Home</a></li>
-                                <li class="breadcrumb-item"><a routerLink="../solutions">Solutions</a></li>
-                                <li class="breadcrumb-item">Mining Monitoring System</li>
+                                <li class="breadcrumb-item"><a routerLink="../../home">Home</a></li>
+                                <li class="breadcrumb-item"><a routerLink="../../solutions">Solutions</a></li>
+                                <li class="breadcrumb-item">Solution Details</li>
                             </ol>
                         </nav>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-2">
+    <div class="row" id="main-content">
+        <div class="col-sm-12" >
+            <div class="location">
+                <div id="ProductsImagescarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <ng-container *ngFor="let pagemaster of pageMasterArray?.pageMasters; let i = index">
+                            <div class="carousel-item" [class.active]="i == 0">
+                                <img [src]="pagemaster?.imagePath" class="d-block w-100" alt="...">
+                            </div>
+                        </ng-container>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#ProductsImagescarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#ProductsImagescarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
+            <h6 class="fw-bold mb-3">About</h6>
+            <p [innerHtml]="pageMasterArray?.about"></p>
+            <div class="card card-body border-0 rounded-0 p-4 mb-4">
+                <h6 class="fw-bold mb-3">What We Offer!</h6>
+                <ul class="list mb-0">
+                    <li [innerHtml]="pageMasterArray?.features"></li>
+                </ul>
+            </div>
+            <a class="btn btn-main rounded-0 py-3 px-5" routerLink="../../home">
+                Reach Us
+            </a>
         </div>
     </div>
 </div>

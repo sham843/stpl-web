@@ -22,97 +22,18 @@
     </div>
 </div>
 
-<div class="container py-2">
-    <div class="row" id="main-content">
-        <!-- <div class="col-sm-12">
-            <h3 class="mb-4">Rail Suraksha App</h3>
-        </div>
-
-        <ul class="breadcrumb" *ngFor="let pageCategory of pageCategoryArray">
-            <li routerLinkActive="active" (click)="redirToProj(pageCategory.pageName,pageCategory.pageCategoryId)"><a
-                    class="primary">{{pageCategory.pageName}}</a></li>
-        </ul>
-
-        <div *ngIf="hideDiv">
-            <p>{{pageMasterArray.categoryName}}</p>
-            <p>{{pageMasterArray.features}}</p>
-            <p>{{pageMasterArray.about}}</p>
-        </div>
-
-        <div class="col-sm-6">
-            <div id="ProductsImagescarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#ProductsImagescarousel" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#ProductsImagescarousel" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#ProductsImagescarousel" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="https://img.freepik.com/free-photo/male-worker-with-bulldozer-sand-quarry_1303-28092.jpg?w=996&t=st=1652249233~exp=1652249833~hmac=b16bf534cf0d2e842f149857aa9378cf463f0fc13cb9a02e8a45aef944edb700"
-                            class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://img.freepik.com/free-photo/high-angle-shot-two-excavators-building-site_181624-7771.jpg?w=1060&t=st=1652249260~exp=1652249860~hmac=9a29cb50e8cf5f47651d7f69dba462de54bb229e836f64af96c52414c58f7d11"
-                            class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://img.freepik.com/free-photo/close-up-construction-site-excavator_1112-1223.jpg?t=st=1652234027~exp=1652234627~hmac=bdc8e1b88181c2fc02dbdb0c4b9c83be5e7cd3ad54ea3224ac847a2da3f415c3&w=1060"
-                            class="d-block w-100" alt="...">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <h6 class="fw-bold mb-3">Introduction</h6>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.
-            </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam hendrerit enim in suscipit sodales.
-                Maecenas tristique ex vitae nisl faucibus, ac hendrerit dui molestie. Nulla a tempus dui. Sed commodo,
-                augue vel dignissim dictum, odio est convallis nisi, sed facilisis nunc est eu neque.</p>
-            <p>Pellentesque posuere nulla eget nibh dapibus viverra. Cras maximus vehicula pulvinar. Praesent pretium
-                malesuada ante, quis commodo dolor scelerisque at. Sed ut nulla et justo volutpat tincidunt. Phasellus
-                nec eros eget mauris tincidunt tempor eu mattis turpis. Proin ac mauris diam.</p>
-        </div>
-
-        <div class="col-sm-12">
-            <div class="card card-body border-0 rounded-0 p-4 mb-4">
-                <h6 class="fw-bold mb-3">Features</h6>
-                <ul class="list mb-0">
-                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                    <li>Aliquam hendrerit enim in suscipit sodales. Maecenas tristique ex vitae nisl faucibus, ac
-                        hendrerit dui molestie.</li>
-                    <li>Nulla a tempus dui. Sed commodo, augue vel dignissim dictum, odio est convallis nisi, sed
-                        facilisis nunc est eu neque. </li>
-                    <li>Pellentesque posuere nulla eget nibh dapibus viverra. Cras maximus vehicula pulvinar. Praesent
-                        pretium malesuada ante, quis commodo dolor scelerisque at. </li>
-                    <li>Sed ut nulla et justo volutpat tincidunt. Phasellus nec eros eget mauris tincidunt tempor eu
-                        mattis turpis. Proin ac mauris diam.</li>
-                    <li>Cras ac turpis ac nunc molestie facilisis. Ut ac leo nunc. Curabitur at dui mollis, pellentesque
-                        nibh ac, malesuada ante. Etiam non odio in nibh imperdiet convallis.</li>
-                    <li>Nullam risus mi, sodales nec elit non, aliquet vulputate massa. Pellentesque orci libero, auctor
-                        eu vestibulum vitae, bibendum in nisl. Integer euismod tellus eu tincidunt lacinia. Fusce id
-                        ipsum ut erat rhoncus dapibus.</li>
-                </ul>
-            </div>
-        </div> -->
-
+<div class="container py-2" *ngFor="let pageCategory of pageCategoryArray">
+    <div class="row" id="main-content" (click)="navigatePage(pageCategory?.id)">
         <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
             <div class="card text-white card-has-bg click-col"
                 style="background-image:url('https://source.unsplash.com/600x900/?tech,street');">
                 <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street"
                     alt="Projects Name">
+                      <!-- <img [src]="pageCategory?.homeImagePath" class="d-block w-100" alt="..."> -->
                 <div class="card-img-overlay d-flex flex-column">
                     <div class="card-body">
-                        <h4 class="card-title mt-0 "><a class="text-white" routerLink="../project-details">
-                            Projects Name
+                        <h4 class="card-title mt-0 "><a class="text-white">
+                            {{pageCategory?.pageName}}
                         </a></h4>
                     </div>
                 </div>
