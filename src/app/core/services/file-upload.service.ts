@@ -55,7 +55,7 @@ export class FileUploadService {
       }
       else {
         obj.error("Only " + allowedDocTypes + " file format allowed.");
-        this.toastrService.error('Only Supported file Types... pdf, jpg, png, jpeg');
+        this.toastrService.error('Please Select Valid Document');
       }
     })
   }

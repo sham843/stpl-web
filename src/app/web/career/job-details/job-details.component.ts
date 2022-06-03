@@ -127,7 +127,7 @@ export class JobDetailsComponent implements OnInit {
   //................................... Resume Upload code Start Here...............................//
 
   resumeUpload(event: any) { //Single Image Upload
-    let documentUrl: any = this.fileUploadService.uploadDocuments(event, "Resume", "png,jpg,jpeg,pdf", 5, 5000);
+    let documentUrl: any = this.fileUploadService.uploadDocuments(event, "Resume", "xlsx,pdf", 5, 5000);
     documentUrl.subscribe({
       next: (ele: any) => {
         this.resumePath = ele.responseData;

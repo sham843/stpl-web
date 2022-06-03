@@ -229,7 +229,7 @@ export class PageMastersComponent implements OnInit {
 
   imageUpload(event: any) { //multiple Image Upload
     let documentUrlUploaed:any;
-    let documentUrl: any = this.fileUploadService.uploadDocuments(event, "MasterImages", "png,jpg,jpeg,pdf", 5, 5000);
+    let documentUrl: any = this.fileUploadService.uploadDocuments(event, "MasterImages", "png,jpg,jpeg", 5, 5000);
     documentUrl.subscribe({
       next: (ele: any) => {
         documentUrlUploaed = ele.responseData;
@@ -272,7 +272,7 @@ export class PageMastersComponent implements OnInit {
   }
 
   homePageImgUpload(event: any) { //Single Image Upload
-    let documentUrl: any = this.fileUploadService.uploadDocuments(event, "MasterImages", "png,jpg,jpeg,pdf", 5, 5000);
+    let documentUrl: any = this.fileUploadService.uploadDocuments(event, "MasterImages", "png,jpg,jpeg", 5, 5000);
     documentUrl.subscribe({
       next: (ele: any) => {
         this.homePageImgPath = ele.responseData;

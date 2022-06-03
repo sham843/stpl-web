@@ -228,6 +228,7 @@ export class UserProfileComponent implements OnInit {
     }
     else {
       this.toastrService.error("Profile image allowed only jpg or png format");
+      this.file = '';
     }
   }
 
@@ -236,7 +237,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   fileUploaded() {
-    let documentUrl: any = this.fileUploadService.uploadDocuments(this.file, "Profile", "png,jpg,jpeg,pdf", 5, 5000);
+    let documentUrl: any = this.fileUploadService.uploadDocuments(this.file, "Profile", "png,jpg,jpeg", 5, 5000);
     documentUrl.subscribe((ele: any) => {
       if (ele.statusCode == '200') {
         this.userProfileForm.controls['profilePath'].setValue(ele.responseData);
