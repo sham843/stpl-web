@@ -27,40 +27,23 @@
     <div class="row" id="main-content">
         <div class="col-sm-4">
             <div class="list-group" *ngFor="let pageCategory of pageCategoryArray">
-                <button type="button" class="list-group-item list-group-item-action" [class.active]="pageCategory.id == activeClassHighLight" aria-current="true"
-                (click)="redirToProj(pageCategory.pageName,pageCategory.id)">
-                {{pageCategory.pageName}}
+                <button type="button" class="list-group-item list-group-item-action"
+                    [class.active]="pageCategory.id == activeClassHighLight" aria-current="true"
+                    (click)="redirToProj(pageCategory.pageName,pageCategory.id)">
+                    {{pageCategory.pageName}}
                 </button>
-             </div>
+            </div>
         </div>
 
-        <!-- <div class="col-sm-8" *ngIf="hideDiv">
-            <div id="ProductsImagescarousel" class="carousel slide mb-4" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#ProductsImagescarousel" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#ProductsImagescarousel" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#ProductsImagescarousel" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active" *ngFor="let pagemaster of pageMasterArray?.pageMasters">
-                        <img [src]="pagemaster?.imagePath" class="d-block w-100" alt="...">
-                    </div>
-                </ng-container>
-                </div>
-            </div> -->
-
-            <div class="col-sm-8" *ngIf="hideDiv">
-                <div class="location">
+        <div class="col-sm-8" *ngIf="hideDiv">
+            <div class="location">
                 <div id="ProductsImagescarousel" class="carousel slide mb-4" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <ng-container *ngFor="let pagemaster of pageMasterArray?.pageMasters; let i = index">
-                        <div class="carousel-item" [class.active]="i == 0">
-                            <img [src]="pagemaster?.imagePath" class="d-block w-100" alt="...">
-                        </div>
-                    </ng-container>
+                            <div class="carousel-item" [class.active]="i == 0">
+                                <img [src]="pagemaster?.imagePath" class="d-block w-100" alt="...">
+                            </div>
+                        </ng-container>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#ProductsImagescarousel"
                         data-bs-slide="prev">
@@ -74,7 +57,6 @@
                     </button>
                 </div>
             </div>
-
 
             <h6 class="fw-bold mb-3">About</h6>
             <p [innerHtml]="pageMasterArray?.about"></p>
