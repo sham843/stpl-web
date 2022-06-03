@@ -134,6 +134,7 @@ export class PageMastersComponent implements OnInit {
 
       let id: any;
       formData.Id ? id = formData.Id : id = 0;
+      let pageName = formData.pageName.split(' ').join('-').toLowerCase();
 
       let obj = {
         "createdBy": this.localStorage.userId(),
@@ -142,7 +143,7 @@ export class PageMastersComponent implements OnInit {
         "modifiedDate": new Date(),
         "isDeleted": true,
         "id": id,
-        "pageName": formData.pageName,
+        "pageName": pageName,
         "pageCategoryId": formData.pageCategoryId,
         "about": formData.about,
         "features": formData.features,

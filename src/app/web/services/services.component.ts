@@ -35,6 +35,10 @@ export class ServicesComponent implements OnInit {
       next: (res: any) => {
         if (res.statusCode === "200") {
           this.pageCategoryArray = res.responseData;
+          let firstPageId = this.pageCategoryArray[0]?.id;
+          let pageName = this.pageCategoryArray[0]?.pageName;
+          this.commonService.checkDataType(firstPageId) == true ? this.getPageMaster(firstPageId) : '' ;
+          this.commonService.checkDataType(firstPageId) == true ? this.redirToProj(pageName,firstPageId) : '';
         } else {
           this.pageCategoryArray = [];
           this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
