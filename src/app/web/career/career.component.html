@@ -25,7 +25,8 @@
 <div class="container py-5">
     <div class="row" id="job-listing">
         <div class="col-sm-12">
-            <div class="card card-body mb-3" *ngFor="let activePost of activeJobPostArray">
+            <div class="card card-body mb-3" *ngFor="let activePost of activeJobPostArray  | paginate: {itemsPerPage: pagesize, 
+                currentPage: pageNumber, totalItems:totalRows}">
                 <div class="d-flex align-items-center">
                     <div class="job-icon">
                         <i class="fa-solid fa-eye-dropper"></i>
@@ -61,7 +62,7 @@
                 </div>
             </div>
             <ng-container *ngIf="totalRows>10">
-            <pagination-controls *ngIf="activeJobPostArray?.length == 0" previousLabel="" nextLabel=""
+            <pagination-controls  previousLabel="" nextLabel=""
                 (pageChange)="onClickPagintion($event)">
             </pagination-controls>
         </ng-container>

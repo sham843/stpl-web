@@ -38,7 +38,7 @@ export class CareerComponent implements OnInit {
   getAllActiveJobPost() {
     this.spinner.show();
     let obj = 'pageno=' + this.pageNumber +'&pagesize=' + this.pagesize;
-    this.apiService.setHttp('get', "JobPost/GetAllActiveJobPost?" + 'Id=' + obj, false, false, false, 'stplUrl');
+    this.apiService.setHttp('get', "JobPost/GetAllActiveJobPost?"+ obj, false, false, false, 'stplUrl');
     this.apiService.getHttp().subscribe({
       next: (res: any) => {
         if (res.statusCode === "200") {
