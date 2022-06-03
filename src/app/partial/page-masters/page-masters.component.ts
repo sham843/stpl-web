@@ -58,7 +58,7 @@ export class PageMastersComponent implements OnInit {
   defaultForm() {
     this.pageMasterForm = this.fb.group({
       Id: [0],
-      pageName: ['', [Validators.required, Validators.maxLength(100), Validators.pattern('^[^\\s0-9\\[\\[`&._@#%*!+"\'\/\\]\\]{}][a-zA-Z-(),.0-9\\s]+$')]],
+      pageName: ['', [Validators.required, Validators.maxLength(100), Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$')]],
       pageCategoryId: ['', Validators.required],
       about: ['', Validators.required],
       features: ['', Validators.required],
@@ -135,7 +135,6 @@ export class PageMastersComponent implements OnInit {
   }
 
   onSubmit() {
-    this.spinner.show();
     let formData = this.pageMasterForm.value;
     this.submitted = true;
     this.homeValueSubmitted = true;
@@ -151,8 +150,7 @@ export class PageMastersComponent implements OnInit {
 
       let id: any;
       formData.Id ? id = formData.Id : id = 0;
-      let pageName = formData.pageName.split(' ').join('-').toLowerCase();
-
+      
       let obj = {
         "createdBy": this.localStorage.userId(),
         "modifiedBy": this.localStorage.userId(),
@@ -160,7 +158,7 @@ export class PageMastersComponent implements OnInit {
         "modifiedDate": new Date(),
         "isDeleted": true,
         "id": id,
-        "pageName": pageName,
+        "pageName": formData.pageName,
         "pageCategoryId": formData.pageCategoryId,
         "about": formData.about,
         "features": formData.features,
@@ -168,6 +166,7 @@ export class PageMastersComponent implements OnInit {
         "color": formData.colorValue,
         "homeImagePath": this.homePageImgPath,
       }
+      this.spinner.show();
       let urlType;
       id == 0 ? urlType = 'POST' : urlType = 'PUT'
       this.apiService.setHttp(urlType, 'PageMaster', false, JSON.stringify(obj), false, 'stplUrl');

@@ -39,7 +39,7 @@ export class IndustriesComponent implements OnInit {
         if (res.statusCode === "200") {
           this.pageCategoryArray = res.responseData;
           this.pageCategoryArray.map((ele:any)=>{
-            let splitData = ele.pageName.split('-').join(' ');
+            let splitData = ele.pageName.toLowerCase();
             ele.pageName = titleCase(splitData);
           })
           let firstPageId = this.pageCategoryArray[0]?.id;
@@ -73,12 +73,14 @@ export class IndustriesComponent implements OnInit {
 
   redirToProj(flag:any,id:any){
     this.PageName = flag;
+    let urlName = flag.toLowerCase().split(' ').join('-');
+
     this.activeClassHighLight = id; 
     let url = this.router.url.split('/');
     if(url.length == 3){
-      this.router.navigate(['../'+flag], {relativeTo:this.route});
+      this.router.navigate(['../'+urlName], {relativeTo:this.route});
     }else{
-      this.router.navigate([flag], {relativeTo:this.route});
+      this.router.navigate([urlName], {relativeTo:this.route});
     }
     this.getPageMaster(id);
   }

@@ -243,7 +243,6 @@ export class PostJobComponent implements OnInit {
   }
 
   onSubmit() {
-    this.spinner.show();
     let formData = this.PostJobForm.value;
     this.submitted = true;
     if (this.PostJobForm.invalid) {
@@ -275,7 +274,7 @@ export class PostJobComponent implements OnInit {
         "skillModels": this.skillModelArray,
         "qualifications": this.qualiModelArray,
       }
-
+      this.spinner.show();
       let urlType;
       id == 0 ? urlType = 'POST' : urlType = 'PUT'
       this.apiService.setHttp(urlType, 'JobPost', false, JSON.stringify(obj), false, 'stplUrl');

@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/core/services/api.service';
 import { CommonService } from 'src/app/core/services/common.service';
 import { ErrorsService } from 'src/app/core/services/errors.service';
+import { titleCase } from "title-case";
 
 @Component({
   selector: 'app-projects',
@@ -32,6 +33,10 @@ export class ProjectsComponent implements OnInit {
       next: (res: any) => {
         if (res.statusCode === "200") {
           this.pageCategoryArray = res.responseData;
+          this.pageCategoryArray.map((ele:any)=>{
+            let splitData = ele.pageName.toLowerCase();
+            ele.pageName = titleCase(splitData);
+          })
         } else {
           this.pageCategoryArray = [];
           this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
