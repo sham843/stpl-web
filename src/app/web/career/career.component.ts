@@ -32,7 +32,7 @@ export class CareerComponent implements OnInit {
   }
 
   navigatePage(jobPost:any){
-     this.commonService.routerLinkRedirect('../job-details/' + jobPost);
+     this.commonService.routerLinkRedirect('career/job-details/' + jobPost);
   }
 
   getAllActiveJobPost() {
