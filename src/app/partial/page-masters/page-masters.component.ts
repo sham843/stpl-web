@@ -135,6 +135,7 @@ export class PageMastersComponent implements OnInit {
   }
 
   onSubmit() {
+    this.spinner.show();
     let formData = this.pageMasterForm.value;
     this.submitted = true;
     this.homeValueSubmitted = true;
@@ -172,14 +173,15 @@ export class PageMastersComponent implements OnInit {
       this.apiService.setHttp(urlType, 'PageMaster', false, JSON.stringify(obj), false, 'stplUrl');
       this.apiService.getHttp().subscribe((res: any) => {
         if (res.statusCode == "200") {
+          this.spinner.hide();
           this.toastrService.success(res.statusMessage);
           this.clearForm();
           this.getPageMasterGetAll();
         } else {
-          this.toastrService.error(res.statusMessage);
+          this.toastrService.error(res.statusMessage); this.spinner.hide();
         }
       }, (error: any) => {
-        this.errorSerivce.handelError(error.status);
+        this.errorSerivce.handelError(error.status); this.spinner.hide();
       });
       this.clearForm();
     }

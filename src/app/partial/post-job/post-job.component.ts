@@ -243,7 +243,7 @@ export class PostJobComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.skillModelArray)
+    this.spinner.show();
     let formData = this.PostJobForm.value;
     this.submitted = true;
     if (this.PostJobForm.invalid) {
@@ -281,15 +281,17 @@ export class PostJobComponent implements OnInit {
       this.apiService.setHttp(urlType, 'JobPost', false, JSON.stringify(obj), false, 'stplUrl');
       this.apiService.getHttp().subscribe((res: any) => {
         if (res.statusCode == "200") {
+          this.spinner.hide();
           this.toastrService.success(res.statusMessage);
           // this.clearForm();
           this.addNewJobModel.nativeElement.click();
           this.getJobPost();
         } else {
           this.toastrService.error(res.statusMessage);
+          this.spinner.hide();
         }
       }, (error: any) => {
-        this.errorSerivce.handelError(error.status);
+        this.errorSerivce.handelError(error.status); this.spinner.hide();
       });
     }
   }
