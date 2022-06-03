@@ -33,6 +33,7 @@ export class PageMastersComponent implements OnInit {
   homePageImgPath:any
   @ViewChild('homeImgFileInput') homeImgFileInput!: ElementRef;
   homeValueSubmitted = false;
+  hideColorDiv:boolean = false;
 
   constructor(
     private commonService: CommonService,
@@ -63,9 +64,22 @@ export class PageMastersComponent implements OnInit {
       features: ['', Validators.required],
       imagePath: [''],
       colorCode: [''],
-      colorValue: ['',Validators.required],
+      colorValue: [''],
       homeImagePath:[''],
     })
+  }
+
+  addValidation(flag:any){
+    this.hideColorDiv = false;
+    if (flag == 2) {
+      this.hideColorDiv = true;
+      this.pageMasterForm.controls["colorValue"].setValidators(Validators.required);
+      this.pageMasterForm.controls["colorValue"].updateValueAndValidity();
+    }else{
+      this.hideColorDiv = false;
+      this.pageMasterForm.controls['colorValue'].clearValidators();
+      this.pageMasterForm.controls["colorValue"].updateValueAndValidity();
+    }
   }
 
   clearForm() {
@@ -76,6 +90,7 @@ export class PageMastersComponent implements OnInit {
     this.HighlightRow = 0;
     this.homePageImgPath = '';
     this.homeValueSubmitted = false;
+    this.hideColorDiv = false;
   }
 
   getPageCategory() {
@@ -171,9 +186,10 @@ export class PageMastersComponent implements OnInit {
 
   updatePageMaster(obj:any){
     this.pageMasterImagArray = obj?.pageMasters;
-    this.homePageImgPath = obj.homeImagePath;
-    this.HighlightRow = obj.id;
+    this.homePageImgPath = obj?.homeImagePath;
+    this.HighlightRow = obj?.id;
     this.btnText = 'Update';
+    this.addValidation(obj?.pageCategoryId)
     this.pageMasterForm.patchValue({
       Id: obj.id,
       pageName: obj.pageName,

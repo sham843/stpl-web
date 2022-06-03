@@ -21,7 +21,7 @@
                         </div>
                         <div class="col-sm-6">
                             <label class="form-label">Page Category</label>
-                            <ngx-select [allowClear]="true" [items]="pageCategoryArray"
+                            <ngx-select [allowClear]="true" [items]="pageCategoryArray" (select)="addValidation(pageMasterForm.value.pageCategoryId)"
                             formControlName="pageCategoryId" placeholder="Select Category"
                             optionValueField="id" optionTextField="categoryName"
                             [ngClass]="{ 'is-invalid': submitted && f.pageCategoryId.errors }">
@@ -50,7 +50,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-6" *ngIf="hideColorDiv">
                             <label class="form-label">Home Box BG Color</label>
                             <div class="input-group">
                                 <input type="text" readonly formControlName="colorValue" class="form-control"
