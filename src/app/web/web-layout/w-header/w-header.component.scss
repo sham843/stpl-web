@@ -1,6 +1,14 @@
 .navbar .navbar-brand img{
     width: 150px;
 }
+.navbar{
+  padding-block: 10px;
+}
+.navbar-scroll{
+  background-color:var(--main-color);
+  padding-block: 5px;
+  transition-duration: 0.6s;
+}
 .nav-main {
   align-items: center;
   display: flex;
