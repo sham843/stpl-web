@@ -182,13 +182,17 @@
                             <div class="text-danger">Contact No is required.</div>
                         </div>
 
-
-                        <span>
-                            <i class="fa fa-file-alt text-primary"></i>
-                            <i class="fa fa-remove" style="font-size:48px;color:red"></i>
+                        <span *ngIf="resumePath">
+                            <button type="button" class="btn btn-sm bg-primary bg-opacity-10 text-primary">
+                                <a target="_blank" [href]="resumePath">
+                                    <i class="fa fa-file-alt text-primary" style="font-size:23px" title="view Document"></i>
+                                 </a>
+                            </button>
+                            <button type="button" class="btn btn-sm bg-primary bg-opacity-10 text-primary">
+                                <i class="fa fa-remove text-danger ms-2" style="font-size:27px" title="Remove Document"
+                                (click)="removeDocument()"></i>
+                            </button>
                         </span>
-
-
                     </div>
                 </div>
             </div>

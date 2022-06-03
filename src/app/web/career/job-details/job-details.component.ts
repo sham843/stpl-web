@@ -136,7 +136,7 @@ export class JobDetailsComponent implements OnInit {
     })
   }
 
-  deleteResume(){
+  removeDocument(){
     this.resumePath = '';
     this.fileInput.nativeElement.value = '';
   }
