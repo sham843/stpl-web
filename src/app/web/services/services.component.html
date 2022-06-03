@@ -54,7 +54,7 @@
 
             <div class="col-sm-8" *ngIf="hideDiv">
                 <div class="location">
-                <div id="carouselExampleControls" class="carousel slide mb-4" data-bs-ride="carousel">
+                <div id="ProductsImagescarousel" class="carousel slide mb-4" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <ng-container *ngFor="let pagemaster of pageMasterArray?.pageMasters; let i = index">
                         <div class="carousel-item" [class.active]="i == 0">
@@ -62,12 +62,12 @@
                         </div>
                     </ng-container>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    <button class="carousel-control-prev" type="button" data-bs-target="#ProductsImagescarousel"
                         data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    <button class="carousel-control-next" type="button" data-bs-target="#ProductsImagescarousel"
                         data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
