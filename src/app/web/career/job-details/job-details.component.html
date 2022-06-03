@@ -26,11 +26,11 @@
 <div class="container py-5">
     <div class="row g-2" id="job-details">
         <div class="col-sm-8">
-            <h4>Graphics Designer</h4>
+            <h4>{{jobPostGetByIdArray?.jobTitle}}</h4>
             <div class="card">
-                <div class="card-header">Job Title</div>
+                <div class="card-header">Job Category</div>
                 <div class="card-body">
-                    <p>{{jobPostGetByIdArray?.jobTitle}}</p>
+                    <p>{{jobPostGetByIdArray?.jobCategory}}</p>
                 </div>
             </div>
             <div class="card">
@@ -177,22 +177,24 @@
                     </div> -->
                     <div class="col-sm-6 mt-4">
                         <label class="form-label">Upload Your Resume</label>
-                        <input type="file" (change)="resumeUpload($event)" class="form-control" #fileInput>
-                        <div *ngIf="resumeSubmit && !resumePath">
-                            <div class="text-danger">Contact No is required.</div>
+                        
+                        <div class="input-group">                            
+                            <input type="file" (change)="resumeUpload($event)" class="form-control" #fileInput>
+                            <span *ngIf="resumePath">
+                                <button type="button" class="btn btn-sm bg-transparent text-primary">
+                                    <a target="_blank" [href]="resumePath">
+                                        <i class="fa fa-file-alt text-primary" title="view Document"></i>
+                                     </a>
+                                </button>
+                                <button type="button" class="btn btn-sm bg-transparent text-primary">
+                                    <i class="fa fa-remove text-danger" title="Remove Document"
+                                    (click)="removeDocument()"></i>
+                                </button>
+                            </span>
                         </div>
-
-                        <span *ngIf="resumePath">
-                            <button type="button" class="btn btn-sm bg-primary bg-opacity-10 text-primary">
-                                <a target="_blank" [href]="resumePath">
-                                    <i class="fa fa-file-alt text-primary" style="font-size:23px" title="view Document"></i>
-                                 </a>
-                            </button>
-                            <button type="button" class="btn btn-sm bg-primary bg-opacity-10 text-primary">
-                                <i class="fa fa-remove text-danger ms-2" style="font-size:27px" title="Remove Document"
-                                (click)="removeDocument()"></i>
-                            </button>
-                        </span>
+                        <div *ngIf="resumeSubmit && !resumePath">
+                            <div class="text-danger">Please upload document</div>
+                        </div>
                     </div>
                 </div>
             </div>
