@@ -13,6 +13,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgxSelectModule } from 'ngx-select-ex';
 // import { TooltipModule } from './partial/directive/tooltip.module';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { NgxSelectModule } from 'ngx-select-ex';
     NgxSpinnerModule,
     NgxSelectModule,
   ],
-  providers: [TitleCasePipe],
+  providers: [DatePipe,TitleCasePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
