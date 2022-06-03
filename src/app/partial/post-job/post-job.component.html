@@ -33,7 +33,7 @@
                     <td>{{jobPost?.experience.split('-')[0]}}-{{jobPost?.experience.split('-')[1]}}</td>
                     <td>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" (change)="updateActiveApplication(jobPost,$event)"
+                            <input class="form-check-input" type="checkbox" (change)="compareTwoDate(jobPost,$event,jobPost?.jobPostEndDate)"
                                 [checked]="jobPost?.isActive" id="flexSwitchCheckDefault">
                         </div>
                     </td>

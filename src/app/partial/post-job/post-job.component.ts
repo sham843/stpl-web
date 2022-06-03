@@ -7,6 +7,7 @@ import { ErrorsService } from 'src/app/core/services/errors.service';
 import { DateTimeAdapter } from 'ng-pick-datetime';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { LocalstorageService } from 'src/app/core/services/localstorage.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-post-job',
@@ -55,6 +56,7 @@ export class PostJobComponent implements OnInit {
     private fb: FormBuilder,
     private spinner: NgxSpinnerService,
     private localStorage: LocalstorageService,
+    private datePipe: DatePipe,
     public dateTimeAdapter: DateTimeAdapter<any>) {
     { dateTimeAdapter.setLocale('en-IN'); }
   }
@@ -435,5 +437,11 @@ export class PostJobComponent implements OnInit {
   }
 
    //..................................Change Status Code End Here ......................................//
+
+   compareTwoDate(jobPost:any,event:any,endDate:any){
+    const x = new Date();
+    const y = new Date(endDate);
+    (x > y) ? (this.toastrService.error('Please Check Job Post End Date'),this.getJobPost()) : this.updateActiveApplication(jobPost,event);
+   }
 
 }
