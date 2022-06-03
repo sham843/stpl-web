@@ -16,6 +16,7 @@ const routes: Routes = [
     component: PartialLayoutComponent,
     loadChildren: () => import('./partial/partial-layout/partial-layout.module').then(m => m.PartialLayoutModule)
   },
+  { path: 'project-details', loadChildren: () => import('./web/projects/project-details/project-details.module').then(m => m.ProjectDetailsModule) },
   
   { path: '**', component: PageNotFoundComponent},
 ];

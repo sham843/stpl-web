@@ -6,13 +6,14 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-sm-12">
-                        <h3>Our Latest Projects</h3>
+                        <h3>Project Name</h3>
                     </div>
                     <div class="col-sm-12">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a routerLink="../home">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Projects</li>
+                                <li class="breadcrumb-item"><a routerLink="../projects">Projects</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Project Name</li>
                             </ol>
                         </nav>
                     </div>
@@ -24,20 +25,10 @@
 
 <div class="container py-2">
     <div class="row" id="main-content">
-        <!-- <div class="col-sm-12">
+        <div class="col-sm-12">
             <h3 class="mb-4">Rail Suraksha App</h3>
         </div>
 
-        <ul class="breadcrumb" *ngFor="let pageCategory of pageCategoryArray">
-            <li routerLinkActive="active" (click)="redirToProj(pageCategory.pageName,pageCategory.pageCategoryId)"><a
-                    class="primary">{{pageCategory.pageName}}</a></li>
-        </ul>
-
-        <div *ngIf="hideDiv">
-            <p>{{pageMasterArray.categoryName}}</p>
-            <p>{{pageMasterArray.features}}</p>
-            <p>{{pageMasterArray.about}}</p>
-        </div>
 
         <div class="col-sm-6">
             <div id="ProductsImagescarousel" class="carousel slide" data-bs-ride="carousel">
@@ -101,21 +92,6 @@
                         eu vestibulum vitae, bibendum in nisl. Integer euismod tellus eu tincidunt lacinia. Fusce id
                         ipsum ut erat rhoncus dapibus.</li>
                 </ul>
-            </div>
-        </div> -->
-
-        <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-            <div class="card text-white card-has-bg click-col"
-                style="background-image:url('https://source.unsplash.com/600x900/?tech,street');">
-                <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street"
-                    alt="Projects Name">
-                <div class="card-img-overlay d-flex flex-column">
-                    <div class="card-body">
-                        <h4 class="card-title mt-0 "><a class="text-white" routerLink="../project-details">
-                            Projects Name
-                        </a></h4>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
