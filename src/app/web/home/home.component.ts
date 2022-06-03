@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
 
   applayUserForm!:FormGroup | any;
   submitted = false;
+  servicesArray:any;
 
   constructor(
     private commonService: CommonService,
@@ -28,6 +29,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.defaultForm();
+    this.getPageMaster();
   }
 
   get f() { return this.applayUserForm.controls }
@@ -71,6 +73,21 @@ export class HomeComponent implements OnInit {
         this.errorSerivce.handelError(error.status);
       });
     }
+  } 
+
+  getPageMaster() {
+    this.apiService.setHttp('get', "dashboard/GetServices", false, false, false, 'stplUrl');
+    this.apiService.getHttp().subscribe({
+      next: (res: any) => {
+        if (res.statusCode === "200") {
+          this.servicesArray = res.responseData;
+        } else {
+          this.servicesArray = [];
+          this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
+        }
+      },
+      error: ((error: any) => { this.errorSerivce.handelError(error.status) })
+    });
   }
 
 }
