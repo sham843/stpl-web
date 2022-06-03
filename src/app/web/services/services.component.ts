@@ -15,6 +15,7 @@ export class ServicesComponent implements OnInit {
   pageMasterArray: any;
   pageCategoryArray: any;
   hideDiv: boolean = false;
+  activeClassHighLight:any;
 
   constructor(
     private router:Router,
@@ -65,6 +66,7 @@ export class ServicesComponent implements OnInit {
   }
 
   redirToProj(flag:any,id:any){
+    this.activeClassHighLight = id; 
     let url = this.router.url.split('/');
     if(url.length == 3){
       this.router.navigate(['../'+flag], {relativeTo:this.route});

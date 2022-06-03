@@ -27,15 +27,11 @@
     <div class="row" id="main-content">
         <div class="col-sm-4">
             <div class="list-group" *ngFor="let pageCategory of pageCategoryArray">
-                <button type="button" class="list-group-item list-group-item-action active" aria-current="true"
+                <button type="button" class="list-group-item list-group-item-action" [class.active]="pageCategory.id == activeClassHighLight" aria-current="true"
                 (click)="redirToProj(pageCategory.pageName,pageCategory.id)">
                 {{pageCategory.pageName}}
                 </button>
-                <!-- <button type="button" class="list-group-item list-group-item-action">A second item</button>
-                <button type="button" class="list-group-item list-group-item-action">A third button item</button>
-                <button type="button" class="list-group-item list-group-item-action">A fourth button item</button>
-                <button type="button" class="list-group-item list-group-item-action">A disabled button item</button> -->
-            </div>
+             </div>
         </div>
 
         <!-- <div class="col-sm-8" *ngIf="hideDiv">
@@ -86,22 +82,9 @@
                 <h6 class="fw-bold mb-3">What We Offer!</h6>
                 <ul class="list mb-0">
                     <li [innerHtml]="pageMasterArray?.features"></li>
-                    <!-- <li>Aliquam hendrerit enim in suscipit sodales. Maecenas tristique ex vitae nisl faucibus, ac
-                        hendrerit dui molestie.</li>
-                    <li>Nulla a tempus dui. Sed commodo, augue vel dignissim dictum, odio est convallis nisi, sed
-                        facilisis nunc est eu neque. </li>
-                    <li>Pellentesque posuere nulla eget nibh dapibus viverra. Cras maximus vehicula pulvinar. Praesent
-                        pretium malesuada ante, quis commodo dolor scelerisque at. </li>
-                    <li>Sed ut nulla et justo volutpat tincidunt. Phasellus nec eros eget mauris tincidunt tempor eu
-                        mattis turpis. Proin ac mauris diam.</li>
-                    <li>Cras ac turpis ac nunc molestie facilisis. Ut ac leo nunc. Curabitur at dui mollis, pellentesque
-                        nibh ac, malesuada ante. Etiam non odio in nibh imperdiet convallis.</li>
-                    <li>Nullam risus mi, sodales nec elit non, aliquet vulputate massa. Pellentesque orci libero, auctor
-                        eu vestibulum vitae, bibendum in nisl. Integer euismod tellus eu tincidunt lacinia. Fusce id
-                        ipsum ut erat rhoncus dapibus.</li> -->
                 </ul>
             </div>
-            <a class="btn btn-main rounded-0 py-3 px-5" routerLink="#l">
+            <a class="btn btn-main rounded-0 py-3 px-5" routerLink="../../home">
                 Reach Us
             </a>
         </div>
