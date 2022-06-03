@@ -42,7 +42,7 @@ export class ProjectsComponent implements OnInit {
   }
 
   navigatePage(id:any){
-    this.commonService.routerLinkRedirect('../project-details/' + id);
+    this.commonService.routerLinkRedirect('projects/project-details/' + id);
  }
 
 }

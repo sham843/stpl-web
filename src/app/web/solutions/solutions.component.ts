@@ -44,7 +44,7 @@ export class SolutionsComponent implements OnInit {
   }
 
   navigatePage(id:any){
-    this.commonService.routerLinkRedirect('../solution-details/' + id);
+    this.commonService.routerLinkRedirect('solutions/solution-details/' + id);
  }
 
 }
