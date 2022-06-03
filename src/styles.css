@@ -69,7 +69,7 @@ body {
     flex-direction: column;
 }
 .page-heading img{
-    height: 50vmin;
+    height: 100vmin;
     object-fit: cover;
 }
 .page-heading h3{
