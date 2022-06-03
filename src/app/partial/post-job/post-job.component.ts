@@ -429,7 +429,7 @@ export class PostJobComponent implements OnInit {
           this.toastrService.success(res.statusMessage);
           this.getJobPost();
         } else {
-          this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
+          this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage),this.getJobPost();
         }
       },
       error: ((error: any) => { this.errorSerivce.handelError(error.status) })
@@ -438,10 +438,12 @@ export class PostJobComponent implements OnInit {
 
    //..................................Change Status Code End Here ......................................//
 
-   compareTwoDate(jobPost:any,event:any,endDate:any){
-    const x = new Date();
-    const y = new Date(endDate);
-    (x > y) ? (this.toastrService.error('Please Check Job Post End Date'),this.getJobPost()) : this.updateActiveApplication(jobPost,event);
-   }
+//    compareTwoDate(jobPost:any,event:any,endDate:any){
+//      this.updateActiveApplication(jobPost,event)
+//   //   const x = new Date();
+//   //   const y = new Date(endDate);
+//   //   (x > y) ? (this.toastrService.error('Please Check Job Post End Date'),this.getJobPost()) : this.updateActiveApplication(jobPost,event);
+//   // 
+//  }
 
 }
