@@ -17,7 +17,7 @@
                         <div class="input-group">
                             <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
                             <input type="text" class="form-control" formControlName="UserName" placeholder="UserName"
-                                autocomplete="off" [ngClass]="{ 'is-invalid': submitted && f.UserName.errors }">                            
+                                autocomplete="off" [ngClass]="{ 'is-invalid': submitted && f.UserName.errors }">
                         </div>
                         <div *ngIf="submitted && f.UserName.errors" class="invalid-feedback">
                             <div class="text-danger" *ngIf="f.UserName.errors?.required">User Name is required.

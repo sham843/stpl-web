@@ -13,7 +13,6 @@ const routes: Routes = [
   { path: 'projects/project-details/:id', loadChildren: () => import('../../web/projects/project-details/project-details.module').then(m => m.ProjectDetailsModule) },
   { path: 'solutions/solution-details/:id', loadChildren: () => import('../../web/solutions/solution-details/solution-details.module').then(m => m.SolutionDetailsModule) },
   { path: 'projects', loadChildren: () => import('../../web/projects/projects.module').then(m => m.ProjectsModule) },
-  // { path: 'projects/:id', loadChildren: () => import('../../web/projects/projects.module').then(m => m.ProjectsModule) },
   { path: 'services', loadChildren: () => import('../../web/services/services.module').then(m => m.ServicesModule) },
   { path: 'services/:id', loadChildren: () => import('../../web/services/services.module').then(m => m.ServicesModule) },
   { path: 'industries', loadChildren: () => import('../../web/industries/industries.module').then(m => m.IndustriesModule) },

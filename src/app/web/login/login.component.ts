@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
             this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
           }
         },
-        error: ((error: any) => { this.errorSerivce.handelError(error.status), this.spinner.hide();})
+        error: ((error: any) => { this.errorSerivce.handelError(error.status), this.spinner.hide(); })
       })
     }
   }

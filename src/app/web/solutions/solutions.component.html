@@ -22,7 +22,7 @@
     </div>
 </div>
 
-<div class="container py-2" >
+<div class="container py-2">
     <div class="row" id="main-content">
         <div class="card mb-3 p-3" *ngFor="let pageCategory of pageCategoryArray">
             <div class="row g-0">
@@ -32,7 +32,7 @@
                             <div class="carousel-item active">
                                 <!-- <img src="https://img.freepik.com/free-photo/male-worker-with-bulldozer-sand-quarry_1303-28092.jpg?w=996&t=st=1652249233~exp=1652249833~hmac=b16bf534cf0d2e842f149857aa9378cf463f0fc13cb9a02e8a45aef944edb700"
                                     class="d-block w-100" alt="..."> -->
-                                    <img [src]="pageCategory?.homeImagePath" class="d-block w-100" alt="...">
+                                <img [src]="pageCategory?.homeImagePath" class="d-block w-100" alt="...">
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,8 @@
                         <h5 class="card-title">{{pageCategory?.pageName}}</h5>
                         <p [innerHtml]="pageCategory?.about"> </p>
                         <div class="text-end">
-                            <a class="btn btn-outline-blue rounded-0" (click)="navigatePage(pageCategory?.id)">Read More</a>
+                            <a class="btn btn-outline-blue rounded-0" (click)="navigatePage(pageCategory?.id)">Read
+                                More</a>
                         </div>
 
                     </div>

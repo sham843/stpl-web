@@ -12,16 +12,16 @@ import { ErrorsService } from 'src/app/core/services/errors.service';
 })
 export class ProjectDetailsComponent implements OnInit {
 
-  projectId:any;
-  pageMasterArray:any;
+  projectId: any;
+  pageMasterArray: any;
 
   constructor(
-     private route:ActivatedRoute,
-     private commonService: CommonService,
-     public apiService: ApiService,
-     private toastrService: ToastrService,
-     private errorSerivce: ErrorsService,
-     ) { this.projectId = this.route.snapshot.params['id'];}
+    private route: ActivatedRoute,
+    private commonService: CommonService,
+    public apiService: ApiService,
+    private toastrService: ToastrService,
+    private errorSerivce: ErrorsService,
+  ) { this.projectId = this.route.snapshot.params['id']; }
 
   ngOnInit(): void {
     this.getPageMaster();

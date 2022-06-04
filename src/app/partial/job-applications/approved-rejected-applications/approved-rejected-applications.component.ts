@@ -17,14 +17,14 @@ import { FormControl } from '@angular/forms';
 export class ApprovedRejectedApplicationsComponent implements OnInit {
 
 
-  AppliedMemberArray:any;
+  AppliedMemberArray: any;
   totalRows: any;
   pageNumber: number = 1;
   pagesize: number = 10;
   subject: Subject<any> = new Subject();
   searchText = new FormControl('');
   isApproved = new FormControl('');
-  statusArray = [{id:3,name:'All'},{id:1,name:'Approved'},{id:2,name:'Rejected'}]
+  statusArray = [{ id: 3, name: 'All' }, { id: 1, name: 'Approved' }, { id: 2, name: 'Rejected' }]
 
   constructor(
     private commonService: CommonService,
@@ -32,7 +32,7 @@ export class ApprovedRejectedApplicationsComponent implements OnInit {
     private toastrService: ToastrService,
     private errorSerivce: ErrorsService,
     private spinner: NgxSpinnerService,
-    private localStorage:LocalstorageService,) { }
+    private localStorage: LocalstorageService,) { }
 
   ngOnInit(): void {
     this.getAppliedMember();
@@ -42,8 +42,8 @@ export class ApprovedRejectedApplicationsComponent implements OnInit {
   getAppliedMember() {
     this.spinner.show();
     let isApprove;
-    this.commonService.checkDataType(this.isApproved.value) == true ? isApprove = this.isApproved.value : isApprove = 3 ;
-    let obj = 'pageno=' + this.pageNumber +'&pagesize=' + this.pagesize + '&IsApproved=' + isApprove +'&textSearch=' + this.searchText.value ;
+    this.commonService.checkDataType(this.isApproved.value) == true ? isApprove = this.isApproved.value : isApprove = 3;
+    let obj = 'pageno=' + this.pageNumber + '&pagesize=' + this.pagesize + '&IsApproved=' + isApprove + '&textSearch=' + this.searchText.value;
     this.apiService.setHttp('get', "AppliedMember/GetAll?" + obj, false, false, false, 'stplUrl');
     this.apiService.getHttp().subscribe({
       next: (res: any) => {
@@ -58,7 +58,7 @@ export class ApprovedRejectedApplicationsComponent implements OnInit {
           // this.toastrService.error(res.statusMessage)
         }
       },
-      error: ((error: any) => { this.errorSerivce.handelError(error.status),this.spinner.hide(); })
+      error: ((error: any) => { this.errorSerivce.handelError(error.status), this.spinner.hide(); })
     });
   }
 
@@ -70,7 +70,7 @@ export class ApprovedRejectedApplicationsComponent implements OnInit {
   onKeyUpFilter() {
     this.subject.next();
   }
-  
+
   searchFilters(flag: any) {
     this.subject
       .pipe(debounceTime(700))
@@ -81,20 +81,19 @@ export class ApprovedRejectedApplicationsComponent implements OnInit {
       });
   }
 
-  clearFilter(flag:any) {
-    if(flag == 'search'){
+  clearFilter(flag: any) {
+    if (flag == 'search') {
       this.searchText.setValue('');
-    }else{
+    } else {
       this.isApproved.setValue('');
     }
     this.pageNumber = 1;
     this.getAppliedMember();
-    }
+  }
 
-     //..................................Action Status Code Stare Here ......................................//
+  //..................................Action Status Code Stare Here ......................................//
 
-
-  updateActiveApplication(ObjData:any,event:any) {
+  updateActiveApplication(ObjData: any, event: any) {
     let isApproved;
     event.target.checked == true ? isApproved = 1 : isApproved = 2;
     let obj = {
@@ -115,6 +114,6 @@ export class ApprovedRejectedApplicationsComponent implements OnInit {
     });
   }
 
-   //..................................Action Status Code End Here ......................................//
+  //..................................Action Status Code End Here ......................................//
 
 }

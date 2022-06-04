@@ -14,7 +14,7 @@ import { LocalstorageService } from 'src/app/core/services/localstorage.service'
 })
 export class ContactUsComponent implements OnInit {
 
-  contactUsForm!:FormGroup | any;
+  contactUsForm!: FormGroup | any;
   submitted = false;
 
   constructor(
@@ -24,7 +24,7 @@ export class ContactUsComponent implements OnInit {
     private toastrService: ToastrService,
     private errorSerivce: ErrorsService,
     private fb: FormBuilder,
-    private spinner:NgxSpinnerService,
+    private spinner: NgxSpinnerService,
   ) { }
 
   ngOnInit(): void {
@@ -35,10 +35,10 @@ export class ContactUsComponent implements OnInit {
 
   myContactUsForm() {
     this.contactUsForm = this.fb.group({
-      fullName: ['',[Validators.required,Validators.pattern('^[^\\s0-9\\[\\[`&._@#%*!+"\'\/\\]\\]{}][a-zA-Z.\\s]+$')]],
-      emailId: ['',[Validators.required,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-      contactNo: ['',[Validators.required, Validators.pattern('[6-9]\\d{9}')]],
-      subject: ['',[Validators.required, Validators.pattern('^[^\\s0-9\\[\\[`&._@#%*!+"\'\/\\]\\]{}][a-zA-Z.\\s]+$')]],
+      fullName: ['', [Validators.required, Validators.pattern('^[^\\s0-9\\[\\[`&._@#%*!+"\'\/\\]\\]{}][a-zA-Z.\\s]+$')]],
+      emailId: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      contactNo: ['', [Validators.required, Validators.pattern('[6-9]\\d{9}')]],
+      subject: ['', [Validators.required, Validators.pattern('^[^\\s0-9\\[\\[`&._@#%*!+"\'\/\\]\\]{}][a-zA-Z.\\s]+$')]],
       message: [''],
     })
   }
@@ -49,7 +49,7 @@ export class ContactUsComponent implements OnInit {
     if (this.contactUsForm.invalid) {
       return;
     } else {
-      let obj =  {
+      let obj = {
         "createdBy": this.localStorage.userId(),
         "modifiedBy": this.localStorage.userId(),
         "createdDate": new Date(),

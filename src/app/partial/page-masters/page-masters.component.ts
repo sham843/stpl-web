@@ -24,16 +24,16 @@ export class PageMastersComponent implements OnInit {
   totalRows: any;
   submitted = false;
   btnText = 'Submit';
-  pageMasterGetAllArray:any;
+  pageMasterGetAllArray: any;
   HighlightRow!: number;
-  deleteMasterId:any;
-  pageMasterImagArray:any[] = [];
+  deleteMasterId: any;
+  pageMasterImagArray: any[] = [];
   checkedDataflag: boolean = true;
   @ViewChild('fileInput') fileInput!: ElementRef;
-  homePageImgPath:any
+  homePageImgPath: any
   @ViewChild('homeImgFileInput') homeImgFileInput!: ElementRef;
   homeValueSubmitted = false;
-  hideColorDiv:boolean = false;
+  hideColorDiv: boolean = false;
 
   constructor(
     private commonService: CommonService,
@@ -42,9 +42,9 @@ export class PageMastersComponent implements OnInit {
     private errorSerivce: ErrorsService,
     private fb: FormBuilder,
     private spinner: NgxSpinnerService,
-    private localStorage:LocalstorageService,
-    private fileUploadService:FileUploadService,
-    ) {
+    private localStorage: LocalstorageService,
+    private fileUploadService: FileUploadService,
+  ) {
   }
 
   ngOnInit() {
@@ -65,17 +65,17 @@ export class PageMastersComponent implements OnInit {
       imagePath: [''],
       colorCode: [''],
       colorValue: [''],
-      homeImagePath:[''],
+      homeImagePath: [''],
     })
   }
 
-  addValidation(flag:any){
+  addValidation(flag: any) {
     this.hideColorDiv = false;
     if (flag == 2) {
       this.hideColorDiv = true;
       this.pageMasterForm.controls["colorValue"].setValidators(Validators.required);
       this.pageMasterForm.controls["colorValue"].updateValueAndValidity();
-    }else{
+    } else {
       this.hideColorDiv = false;
       this.pageMasterForm.controls['colorValue'].clearValidators();
       this.pageMasterForm.controls["colorValue"].updateValueAndValidity();
@@ -141,16 +141,16 @@ export class PageMastersComponent implements OnInit {
     if (this.commonService.checkDataType(this.homePageImgPath) == false) {
       // this.homeValueSubmitted = true;
       return
-    } 
+    }
     if (this.pageMasterForm.invalid) {
       return;
-    }else if (this.commonService.checkDataType(this.pageMasterImagArray) == false) {
+    } else if (this.commonService.checkDataType(this.pageMasterImagArray) == false) {
       this.toastrService.error('Please Select Upload Image Field');
-    } else { 
+    } else {
 
       let id: any;
       formData.Id ? id = formData.Id : id = 0;
-      
+
       let obj = {
         "createdBy": this.localStorage.userId(),
         "modifiedBy": this.localStorage.userId(),
@@ -186,7 +186,7 @@ export class PageMastersComponent implements OnInit {
     }
   }
 
-  updatePageMaster(obj:any){
+  updatePageMaster(obj: any) {
     this.pageMasterImagArray = obj?.pageMasters;
     this.homePageImgPath = obj?.homeImagePath;
     this.HighlightRow = obj?.id;
@@ -195,10 +195,10 @@ export class PageMastersComponent implements OnInit {
     this.pageMasterForm.patchValue({
       Id: obj.id,
       pageName: obj.pageName,
-      pageCategoryId: obj.pageCategoryId ,
-      about: obj.about ,
-      features: obj.features ,
-      colorValue:obj.color,
+      pageCategoryId: obj.pageCategoryId,
+      about: obj.about,
+      features: obj.features,
+      colorValue: obj.color,
     })
   }
 
@@ -229,25 +229,25 @@ export class PageMastersComponent implements OnInit {
   }
 
   imageUpload(event: any) { //multiple Image Upload
-    let documentUrlUploaed:any;
+    let documentUrlUploaed: any;
     let documentUrl: any = this.fileUploadService.uploadDocuments(event, "MasterImages", "png,jpg,jpeg", 5, 5000);
     documentUrl.subscribe({
       next: (ele: any) => {
         documentUrlUploaed = ele.responseData;
         if (documentUrlUploaed != null) {
-        let obj = {
-          "pageId": 0,
-          "imagePath": documentUrlUploaed,
-          "isDeleted": true
+          let obj = {
+            "pageId": 0,
+            "imagePath": documentUrlUploaed,
+            "isDeleted": true
+          }
+          this.checkUniqueData(obj, documentUrlUploaed);
         }
-        this.checkUniqueData(obj,documentUrlUploaed);
-      }
       },
     })
     this.pageMasterForm.controls['imagePath'].setValue('');
   }
 
-  checkUniqueData(obj: any,urlPath:any) { //Check Unique Data then Insert or Update
+  checkUniqueData(obj: any, urlPath: any) { //Check Unique Data then Insert or Update
     this.checkedDataflag = true;
     if (this.pageMasterImagArray.length <= 0) {
       this.pageMasterImagArray.push(obj);
@@ -263,12 +263,12 @@ export class PageMastersComponent implements OnInit {
     this.checkedDataflag && this.pageMasterImagArray.length >= 1 ? this.pageMasterImagArray.push(obj) : '';
   }
 
-  deleteImage(index:any){
+  deleteImage(index: any) {
     this.pageMasterImagArray.splice(index, 1);
     this.fileInput.nativeElement.value = '';
   }
 
-  selectColor(){
+  selectColor() {
     this.pageMasterForm.controls['colorValue'].setValue(this.pageMasterForm.value.colorCode);
   }
 
@@ -283,7 +283,7 @@ export class PageMastersComponent implements OnInit {
     this.pageMasterForm.controls['homeImagePath'].setValue('');
   }
 
-  deleteHomePageImg(){
+  deleteHomePageImg() {
     this.homePageImgPath = '';
     // this.pageMasterForm.controls['homeImagePath'].setValue('');
     this.homeImgFileInput.nativeElement.value = '';

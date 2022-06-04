@@ -13,15 +13,15 @@ import { titleCase } from "title-case";
 })
 export class ProjectsComponent implements OnInit {
 
-  pageCategoryArray:any;
+  pageCategoryArray: any;
 
   constructor(
-     private route:ActivatedRoute,
-     private commonService: CommonService,
-     public apiService: ApiService,
-     private toastrService: ToastrService,
-     private errorSerivce: ErrorsService,
-     ) { }
+    private route: ActivatedRoute,
+    private commonService: CommonService,
+    public apiService: ApiService,
+    private toastrService: ToastrService,
+    private errorSerivce: ErrorsService,
+  ) { }
 
   ngOnInit(): void {
     this.getPageCategoryId();
@@ -33,7 +33,7 @@ export class ProjectsComponent implements OnInit {
       next: (res: any) => {
         if (res.statusCode === "200") {
           this.pageCategoryArray = res.responseData;
-          this.pageCategoryArray.map((ele:any)=>{
+          this.pageCategoryArray.map((ele: any) => {
             let splitData = ele.pageName.toLowerCase();
             ele.pageName = titleCase(splitData);
           })
@@ -46,8 +46,8 @@ export class ProjectsComponent implements OnInit {
     });
   }
 
-  navigatePage(id:any){
+  navigatePage(id: any) {
     this.commonService.routerLinkRedirect('projects/project-details/' + id);
- }
+  }
 
 }

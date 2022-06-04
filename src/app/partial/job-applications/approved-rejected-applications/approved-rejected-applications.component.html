@@ -6,14 +6,14 @@
                 <div class="row gx-2 justify-content-end align-items-center">
                     <div class="col-sm input-group">
                         <input type="text" class="form-control" placeholder="Seach" [formControl]="searchText"
-                        (keyup)="onKeyUpFilter()">
+                            (keyup)="onKeyUpFilter()">
                         <button type="button" *ngIf="searchText.value" class="btn btn-light border btn-sm"
-                        (click)="clearFilter('search')">
-                        <i class="fas fa-times"></i>
-                      </button>
-                      <button type="button" *ngIf="!searchText.value" class="btn btn-sm border btn-light">
-                        <i class="fas fa-search"></i>
-                      </button>
+                            (click)="clearFilter('search')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <button type="button" *ngIf="!searchText.value" class="btn btn-sm border btn-light">
+                            <i class="fas fa-search"></i>
+                        </button>
                     </div>
                     <!-- <div class="col-sm-auto">
                         <div class="form-check form-check-inline">
@@ -27,9 +27,9 @@
                     </div> -->
                     <div class="col-sm-5">
                         <ngx-select [allowClear]="true" [items]="statusArray" (remove)="clearFilter('status')"
-                       (select)="pageNumber = 1;getAppliedMember()" [formControl]="isApproved" placeholder="Select Status"
-                        optionValueField="id" optionTextField="name">
-                    </ngx-select>
+                            (select)="pageNumber = 1;getAppliedMember()" [formControl]="isApproved"
+                            placeholder="Select Status" optionValueField="id" optionTextField="name">
+                        </ngx-select>
                     </div>
                 </div>
             </div>
@@ -62,15 +62,17 @@
                     <td>
                         <button type="button" class="btn btn-sm bg-primary bg-opacity-10 text-primary">
                             <a target="_blank" [href]="appliedMember?.resumePath">
-                                <i class="fa-solid fa-download"></i> 
-                             </a>
+                                <i class="fa-solid fa-download"></i>
+                            </a>
                         </button>
                     </td>
                     <td>
                         <h6 class="mb-0">
-                            <span mat-raised-button class="badge" [ngClass]="{'bg-success': appliedMember?.isApproved == 1,
+                            <span mat-raised-button class="badge"
+                                [ngClass]="{'bg-success': appliedMember?.isApproved == 1,
                                                     'bg-danger': appliedMember?.isApproved == 2,'bg-warning': appliedMember?.isApproved == 0}">
-                                {{appliedMember?.isApproved == 1 ? 'Approved' : appliedMember?.isApproved == 2 ? 'Rejected' : 'Pending'}}
+                                {{appliedMember?.isApproved == 1 ? 'Approved' : appliedMember?.isApproved == 2 ?
+                                'Rejected' : 'Pending'}}
                             </span>
                         </h6>
                     </td>
@@ -79,7 +81,8 @@
                             <i class="fa-solid fa-ban"></i>
                         </button> -->
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" (change)="updateActiveApplication(appliedMember,$event)"
+                            <input class="form-check-input" type="checkbox"
+                                (change)="updateActiveApplication(appliedMember,$event)"
                                 [checked]="appliedMember?.isApproved == 1" id="flexSwitchCheckDefault">
                         </div>
                     </td>

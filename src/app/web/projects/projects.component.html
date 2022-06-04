@@ -26,14 +26,14 @@
     <div class="row" id="main-content">
         <div class="col-sm-12 col-md-6 col-lg-4 mb-4" *ngFor="let pageCategory of pageCategoryArray">
             <div class="card text-white card-has-bg click-col"
-                style="background-image:url('{{pageCategory?.homeImagePath}}');" (click)="navigatePage(pageCategory?.id)">
-                <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street"
-                    alt="Projects Name">
+                style="background-image:url('{{pageCategory?.homeImagePath}}');"
+                (click)="navigatePage(pageCategory?.id)">
+                <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Projects Name">
                 <div class="card-img-overlay d-flex flex-column">
                     <div class="card-body">
                         <h4 class="card-title mt-0 "><a class="text-white">
-                            {{pageCategory?.pageName}}
-                        </a></h4>
+                                {{pageCategory?.pageName}}
+                            </a></h4>
                     </div>
                 </div>
             </div>

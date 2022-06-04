@@ -105,7 +105,7 @@ export class PostJobComponent implements OnInit {
     this.getAllJobLocation();
     this.getAllDuration();
     this.getAllEmployement();
-    if(this.btnText != 'Update New Job'){
+    if (this.btnText != 'Update New Job') {
       this.getAllSkillSet();
       this.getAllQualification();
     }
@@ -177,11 +177,11 @@ export class PostJobComponent implements OnInit {
       next: (res: any) => {
         if (res.statusCode === "200") {
           this.skillSetArray = res.responseData;
-          if(this.btnText == 'Update New Job'){
-             let getSkillSetId:any =  this.skillModelArray.map((ele:any)=>{ return ele.skillId;})
-              getSkillSetId.map((ele:any)=>{
-                this.skillSetArray.map((ele1:any)=>{
-                  ele1.id == ele ? ele1['checked'] = true : '';
+          if (this.btnText == 'Update New Job') {
+            let getSkillSetId: any = this.skillModelArray.map((ele: any) => { return ele.skillId; })
+            getSkillSetId.map((ele: any) => {
+              this.skillSetArray.map((ele1: any) => {
+                ele1.id == ele ? ele1['checked'] = true : '';
               })
             })
           }
@@ -200,14 +200,14 @@ export class PostJobComponent implements OnInit {
       next: (res: any) => {
         if (res.statusCode === "200") {
           this.qualificationArray = res.responseData;
-          if(this.btnText == 'Update New Job'){
-            let getOrganizationId:any =  this.qualiModelArray.map((ele:any)=>{ return ele.qualificationId;})
-            getOrganizationId.map((ele:any)=>{
-               this.qualificationArray.map((ele1:any)=>{
-                 ele1.id == ele ? ele1['checked'] = true : '';
-             })
-           })
-         }
+          if (this.btnText == 'Update New Job') {
+            let getOrganizationId: any = this.qualiModelArray.map((ele: any) => { return ele.qualificationId; })
+            getOrganizationId.map((ele: any) => {
+              this.qualificationArray.map((ele1: any) => {
+                ele1.id == ele ? ele1['checked'] = true : '';
+              })
+            })
+          }
         } else {
           this.qualificationArray = [];
           this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
@@ -302,7 +302,7 @@ export class PostJobComponent implements OnInit {
     let expToYr = obj?.experience.split('-')[1];
     this.addNewData();
     this.HighlightRow = obj.id;
-    
+
     this.PostJobForm.patchValue({
       Id: obj.id,
       jobTitle: obj.jobTitle,
@@ -418,7 +418,7 @@ export class PostJobComponent implements OnInit {
 
   //..................................Change Status Code Stare Here ......................................//
 
-  updateActiveApplication(ObjData:any,event:any) {
+  updateActiveApplication(ObjData: any, event: any) {
     let obj = {
       "id": ObjData.id,
       "isActive": event.target.checked
@@ -430,21 +430,21 @@ export class PostJobComponent implements OnInit {
           this.toastrService.success(res.statusMessage);
           this.getJobPost();
         } else {
-          this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage),this.getJobPost();
+          this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage), this.getJobPost();
         }
       },
       error: ((error: any) => { this.errorSerivce.handelError(error.status) })
     });
   }
 
-   //..................................Change Status Code End Here ......................................//
+  //..................................Change Status Code End Here ......................................//
 
-//    compareTwoDate(jobPost:any,event:any,endDate:any){
-//      this.updateActiveApplication(jobPost,event)
-//   //   const x = new Date();
-//   //   const y = new Date(endDate);
-//   //   (x > y) ? (this.toastrService.error('Please Check Job Post End Date'),this.getJobPost()) : this.updateActiveApplication(jobPost,event);
-//   // 
-//  }
+  //    compareTwoDate(jobPost:any,event:any,endDate:any){
+  //      this.updateActiveApplication(jobPost,event)
+  //   //   const x = new Date();
+  //   //   const y = new Date(endDate);
+  //   //   (x > y) ? (this.toastrService.error('Please Check Job Post End Date'),this.getJobPost()) : this.updateActiveApplication(jobPost,event);
+  //   // 
+  //  }
 
 }

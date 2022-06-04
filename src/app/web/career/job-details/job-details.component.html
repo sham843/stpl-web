@@ -116,93 +116,98 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <form [formGroup]="applayJobForm">
-            <div class="modal-header bg-main">
-                <p class="modal-title mb-0" id="exampleModalLabel">Apply Now</p>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #jobDetailModel (click)="clearForm()"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row mb-3">
-                    <div class="col-sm-12">
-                        <input type="text" readonly class="form-control" placeholder="{{jobPostGetByIdArray?.jobTitle}}">
-                    </div>
+                <div class="modal-header bg-main">
+                    <p class="modal-title mb-0" id="exampleModalLabel">Apply Now</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #jobDetailModel
+                        (click)="clearForm()"></button>
                 </div>
-                <div class="row mb-3">
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="First Name" formControlName="firstName"
-                        [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
-                        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                            <div class="text-danger" *ngIf="f.firstName.errors?.required">First Name is
-                                required.</div>
-                            <div class="text-danger" *ngIf="f.firstName.errors?.pattern">Please enter
-                                Valid First Name.</div>
+                <div class="modal-body">
+                    <div class="row mb-3">
+                        <div class="col-sm-12">
+                            <input type="text" readonly class="form-control"
+                                placeholder="{{jobPostGetByIdArray?.jobTitle}}">
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName"
-                        [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
-                        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-                            <div class="text-danger" *ngIf="f.lastName.errors?.required">Last Name is
-                                required.</div>
-                            <div class="text-danger" *ngIf="f.lastName.errors?.pattern">Please enter
-                                Valid Last Name.</div>
+                    <div class="row mb-3">
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" placeholder="First Name" formControlName="firstName"
+                                [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+                            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                <div class="text-danger" *ngIf="f.firstName.errors?.required">First Name is
+                                    required.</div>
+                                <div class="text-danger" *ngIf="f.firstName.errors?.pattern">Please enter
+                                    Valid First Name.</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName"
+                                [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+                            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                <div class="text-danger" *ngIf="f.lastName.errors?.required">Last Name is
+                                    required.</div>
+                                <div class="text-danger" *ngIf="f.lastName.errors?.pattern">Please enter
+                                    Valid Last Name.</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <input type="email" class="form-control" placeholder="Email ID" formControlName="emailId"
-                        [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }">
-                        <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
-                            <div class="text-danger" *ngIf="f.emailId.errors?.required">Email ID is
-                                required.</div>
-                            <div class="text-danger" *ngIf="f.emailId.errors?.pattern">Please enter
-                                Valid Email ID.</div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input type="email" class="form-control" placeholder="Email ID" formControlName="emailId"
+                                [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }">
+                            <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
+                                <div class="text-danger" *ngIf="f.emailId.errors?.required">Email ID is
+                                    required.</div>
+                                <div class="text-danger" *ngIf="f.emailId.errors?.pattern">Please enter
+                                    Valid Email ID.</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="tel" class="form-control" placeholder="Contact No" formControlName="contactNo"
+                                maxlength="10" [ngClass]="{ 'is-invalid': submitted && f.contactNo.errors }">
+                            <div *ngIf="submitted && f.contactNo.errors" class="invalid-feedback">
+                                <div class="text-danger" *ngIf="f.contactNo.errors?.required">Contact No is
+                                    required.</div>
+                                <div class="text-danger" *ngIf="f.contactNo.errors?.pattern">Please enter
+                                    Valid Contact No.</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <input type="tel" class="form-control" placeholder="Contact No" formControlName="contactNo"
-                       maxlength="10" [ngClass]="{ 'is-invalid': submitted && f.contactNo.errors }">
-                        <div *ngIf="submitted && f.contactNo.errors" class="invalid-feedback">
-                            <div class="text-danger" *ngIf="f.contactNo.errors?.required">Contact No is
-                                required.</div>
-                            <div class="text-danger" *ngIf="f.contactNo.errors?.pattern">Please enter
-                                Valid Contact No.</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <!-- <div class="col-sm-12 mt-4">
+                    <div class="row">
+                        <!-- <div class="col-sm-12 mt-4">
                         <label class="form-label">Upload Your Resume :</label>
                         <input type="file" class="file-input">
                     </div> -->
-                    <div class="col-sm-6 mt-4">
-                        <label class="form-label">Upload Your Resume</label>
-                        
-                        <div class="input-group">                            
-                            <input type="file" (change)="resumeUpload($event)" formControlName="resume_Path" class="form-control" #fileInput>
-                            <span *ngIf="resumePath">
-                                <button type="button" class="btn btn-sm bg-transparent text-primary">
-                                    <a target="_blank" [href]="resumePath">
-                                        <i class="fa fa-file-alt text-primary" title="view Document"></i>
-                                     </a>
-                                </button>
-                                <button type="button" class="btn btn-sm bg-transparent text-primary">
-                                    <i class="fa fa-remove text-danger" title="Remove Document"
-                                    (click)="removeDocument()"></i>
-                                </button>
-                            </span>
-                        </div>
-                        <div *ngIf="resumeSubmit && !resumePath">
-                            <div class="text-danger">Please upload document</div>
+                        <div class="col-sm-6 mt-4">
+                            <label class="form-label">Upload Your Resume</label>
+
+                            <div class="input-group">
+                                <input type="file" (change)="resumeUpload($event)" formControlName="resume_Path"
+                                    class="form-control" #fileInput>
+                                <span *ngIf="resumePath">
+                                    <button type="button" class="btn btn-sm bg-transparent text-primary">
+                                        <a target="_blank" [href]="resumePath">
+                                            <i class="fa fa-file-alt text-primary" title="view Document"></i>
+                                        </a>
+                                    </button>
+                                    <button type="button" class="btn btn-sm bg-transparent text-primary">
+                                        <i class="fa fa-remove text-danger" title="Remove Document"
+                                            (click)="removeDocument()"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <div *ngIf="resumeSubmit && !resumePath">
+                                <div class="text-danger">Please upload document</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer d-flex justify-content-between">
-                <button type="button" class="btn bg-secondary bg-opacity-25 btn-sm rounded-0 px-3 py-2" (click)="clearForm()">Clear</button>
-                <button type="submit" class="btn btn-main btn-sm rounded-0 px-3 py-2" (click)="submitApplayJobForm()">Submit</button>
-            </div>
-        </form>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn bg-secondary bg-opacity-25 btn-sm rounded-0 px-3 py-2"
+                        (click)="clearForm()">Clear</button>
+                    <button type="submit" class="btn btn-main btn-sm rounded-0 px-3 py-2"
+                        (click)="submitApplayJobForm()">Submit</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

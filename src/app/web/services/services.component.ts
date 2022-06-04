@@ -16,17 +16,17 @@ export class ServicesComponent implements OnInit {
   pageMasterArray: any;
   pageCategoryArray: any;
   hideDiv: boolean = false;
-  activeClassHighLight:any;
-  PageName:any;
+  activeClassHighLight: any;
+  PageName: any;
 
   constructor(
-    private router:Router,
-     private route:ActivatedRoute,
-     private commonService: CommonService,
-     public apiService: ApiService,
-     private toastrService: ToastrService,
-     private errorSerivce: ErrorsService,
-     ) { }
+    private router: Router,
+    private route: ActivatedRoute,
+    private commonService: CommonService,
+    public apiService: ApiService,
+    private toastrService: ToastrService,
+    private errorSerivce: ErrorsService,
+  ) { }
 
   ngOnInit(): void {
     this.getPageCategoryId();
@@ -38,14 +38,14 @@ export class ServicesComponent implements OnInit {
       next: (res: any) => {
         if (res.statusCode === "200") {
           this.pageCategoryArray = res.responseData;
-          this.pageCategoryArray.map((ele:any)=>{
+          this.pageCategoryArray.map((ele: any) => {
             let splitData = ele.pageName.toLowerCase();
             ele.pageName = titleCase(splitData);
           })
           let firstPageId = this.pageCategoryArray[0]?.id;
           let pageName = this.pageCategoryArray[0]?.pageName;
-          this.commonService.checkDataType(firstPageId) == true ? this.getPageMaster(firstPageId) : '' ;
-          this.commonService.checkDataType(firstPageId) == true ? this.redirToProj(pageName,firstPageId) : '';
+          this.commonService.checkDataType(firstPageId) == true ? this.getPageMaster(firstPageId) : '';
+          this.commonService.checkDataType(firstPageId) == true ? this.redirToProj(pageName, firstPageId) : '';
         } else {
           this.pageCategoryArray = [];
           this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
@@ -55,7 +55,7 @@ export class ServicesComponent implements OnInit {
     });
   }
 
-  getPageMaster(id:any) {
+  getPageMaster(id: any) {
     this.apiService.setHttp('get', "PageMaster/GetById?Id=" + id, false, false, false, 'stplUrl');
     this.apiService.getHttp().subscribe({
       next: (res: any) => {
@@ -71,16 +71,16 @@ export class ServicesComponent implements OnInit {
     });
   }
 
-  redirToProj(flag:any,id:any){
+  redirToProj(flag: any, id: any) {
     this.PageName = flag;
     let urlName = flag.toLowerCase().split(' ').join('-');
 
-    this.activeClassHighLight = id; 
+    this.activeClassHighLight = id;
     let url = this.router.url.split('/');
-    if(url.length == 3){
-      this.router.navigate(['../'+urlName], {relativeTo:this.route});
-    }else{
-      this.router.navigate([urlName], {relativeTo:this.route});
+    if (url.length == 3) {
+      this.router.navigate(['../' + urlName], { relativeTo: this.route });
+    } else {
+      this.router.navigate([urlName], { relativeTo: this.route });
     }
     this.getPageMaster(id);
   }

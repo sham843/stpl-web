@@ -11,17 +11,17 @@ import { ErrorsService } from 'src/app/core/services/errors.service';
   styleUrls: ['./solution-details.component.css']
 })
 export class SolutionDetailsComponent implements OnInit {
-  
-  solutionId:any;
-  pageMasterArray:any;
+
+  solutionId: any;
+  pageMasterArray: any;
 
   constructor(
-     private route:ActivatedRoute,
-     private commonService: CommonService,
-     public apiService: ApiService,
-     private toastrService: ToastrService,
-     private errorSerivce: ErrorsService,
-     ) { this.solutionId = this.route.snapshot.params['id'];}
+    private route: ActivatedRoute,
+    private commonService: CommonService,
+    public apiService: ApiService,
+    private toastrService: ToastrService,
+    private errorSerivce: ErrorsService,
+  ) { this.solutionId = this.route.snapshot.params['id']; }
 
   ngOnInit(): void {
     this.getPageMaster();

@@ -15,16 +15,16 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./view-applications.component.css']
 })
 export class ViewApplicationsComponent implements OnInit {
-  
-  viewApplicationArray:any;
+
+  viewApplicationArray: any;
   totalRows: any;
   pageNumber: number = 1;
   pagesize: number = 10;
   subject: Subject<any> = new Subject();
   searchText = new FormControl('');
   jobTitleDrop = new FormControl('');
-  items:any;
-  allJobTitleArray:any;
+  items: any;
+  allJobTitleArray: any;
 
   constructor(
     private commonService: CommonService,
@@ -56,8 +56,8 @@ export class ViewApplicationsComponent implements OnInit {
 
   getViewApplication() {
     this.spinner.show();
-    let obj = 'pageno=' + this.pageNumber +'&pagesize=' + this.pagesize +'&textSearch=' + this.searchText.value
-    +'&JobTitle=' + this.jobTitleDrop.value ;
+    let obj = 'pageno=' + this.pageNumber + '&pagesize=' + this.pagesize + '&textSearch=' + this.searchText.value
+      + '&JobTitle=' + this.jobTitleDrop.value;
     this.apiService.setHttp('get', "AppliedMember/ViewApplication?" + obj, false, false, false, 'stplUrl');
     this.apiService.getHttp().subscribe({
       next: (res: any) => {
@@ -72,7 +72,7 @@ export class ViewApplicationsComponent implements OnInit {
           // this.toastrService.error(res.statusMessage)
         }
       },
-      error: ((error: any) => { this.errorSerivce.handelError(error.status),this.spinner.hide(); })
+      error: ((error: any) => { this.errorSerivce.handelError(error.status), this.spinner.hide(); })
     });
   }
 
@@ -84,7 +84,7 @@ export class ViewApplicationsComponent implements OnInit {
   onKeyUpFilter() {
     this.subject.next();
   }
-  
+
   searchFilters(flag: any) {
     this.subject
       .pipe(debounceTime(700))
@@ -95,33 +95,33 @@ export class ViewApplicationsComponent implements OnInit {
       });
   }
 
-  clearFilter(flag:any) {
-    if(flag == 'search'){
+  clearFilter(flag: any) {
+    if (flag == 'search') {
       this.searchText.setValue('');
-    }else{
+    } else {
       this.jobTitleDrop.setValue('');
     }
     this.pageNumber = 1;
     this.getViewApplication();
-    }
+  }
 
-    updateActiveApplication(ObjData:any,flag:any) {
-      let obj = {
-        "id": ObjData.id,
-        "isApproved": flag
-      }
-      this.apiService.setHttp('PUT', "AppliedMember/UpdateApprovedStatus", false, JSON.stringify(obj), false, 'stplUrl');
-      this.apiService.getHttp().subscribe({
-        next: (res: any) => {
-          if (res.statusCode === "200") {
-            this.toastrService.success(res.statusMessage);
-            this.getViewApplication();
-          } else {
-            this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
-          }
-        },
-        error: ((error: any) => { this.errorSerivce.handelError(error.status) })
-      });
+  updateActiveApplication(ObjData: any, flag: any) {
+    let obj = {
+      "id": ObjData.id,
+      "isApproved": flag
     }
+    this.apiService.setHttp('PUT', "AppliedMember/UpdateApprovedStatus", false, JSON.stringify(obj), false, 'stplUrl');
+    this.apiService.getHttp().subscribe({
+      next: (res: any) => {
+        if (res.statusCode === "200") {
+          this.toastrService.success(res.statusMessage);
+          this.getViewApplication();
+        } else {
+          this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
+        }
+      },
+      error: ((error: any) => { this.errorSerivce.handelError(error.status) })
+    });
+  }
 
 }

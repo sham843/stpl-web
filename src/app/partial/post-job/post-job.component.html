@@ -24,7 +24,8 @@
             </thead>
             <tbody>
                 <tr *ngFor="let jobPost of jobPostArray | paginate: {itemsPerPage: pagesize, 
-                currentPage: pageNumber, totalItems:totalRows}; let i = index " [class.active]="jobPost.id == HighlightRow">
+                currentPage: pageNumber, totalItems:totalRows}; let i = index "
+                    [class.active]="jobPost.id == HighlightRow">
                     <td>{{((pageNumber + 1) * 10 + i + 1)-20}}</td>
                     <td>{{jobPost.jobPostDate | date: 'dd/MM/yyyy'}}</td>
                     <td>{{jobPost.jobTitle}}</td>
@@ -33,13 +34,14 @@
                     <td>{{jobPost?.experience.split('-')[0]}}-{{jobPost?.experience.split('-')[1]}}</td>
                     <td>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" (change)="updateActiveApplication(jobPost,$event)"
-                                [checked]="jobPost?.isActive" id="flexSwitchCheckDefault">
+                            <input class="form-check-input" type="checkbox"
+                                (change)="updateActiveApplication(jobPost,$event)" [checked]="jobPost?.isActive"
+                                id="flexSwitchCheckDefault">
                         </div>
                     </td>
                     <td>
                         <button type="button" class="btn bg-info bg-opacity-10 text-info me-2" data-bs-toggle="modal"
-                           (click)="updateJobPost(jobPost)" data-bs-target="#AddNewJobModal">
+                            (click)="updateJobPost(jobPost)" data-bs-target="#AddNewJobModal">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </button>
                         <button type="button" class="btn bg-danger bg-opacity-10 text-danger" data-bs-toggle="modal"
@@ -62,7 +64,8 @@
 
 
 <!-- Modal for post new job -->
-<div class="modal fade" id="AddNewJobModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="AddNewJobModalLabel" aria-hidden="true">
+<div class="modal fade" id="AddNewJobModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="AddNewJobModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content border-0">
             <div class="modal-header bg-main text-white">
@@ -154,46 +157,56 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-6">
-                                        <label for="txtSearchAssembly" class="form-label required-field">Select Qualification</label>
+                                        <label for="txtSearchAssembly" class="form-label required-field">Select
+                                            Qualification</label>
                                         <div class="card border shadow-none">
                                             <div class="card-header border-bottom p-0 py-1">
-                                                <input type="text" formControlName="qualificationId" [(ngModel)]="searchQualificationData"
-                                                    placeholder="Search Qualification" class="form-control form-control-sm border-0">
+                                                <input type="text" formControlName="qualificationId"
+                                                    [(ngModel)]="searchQualificationData"
+                                                    placeholder="Search Qualification"
+                                                    class="form-control form-control-sm border-0">
                                             </div>
                                             <div class="card-body py-2 form-height ChekBox"
                                                 *ngIf="( qualificationArray | filter:searchQualificationData ) as qualificationResult">
-                                                <div class="form-check" *ngFor="let qualificationObj of qualificationResult">
-                                                    <input class="form-check-input" type="checkbox" [checked]="qualificationObj.checked" 
-                                                    (change)="onCheckChangeQualification($event, qualificationObj.id)">
+                                                <div class="form-check"
+                                                    *ngFor="let qualificationObj of qualificationResult">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        [checked]="qualificationObj.checked"
+                                                        (change)="onCheckChangeQualification($event, qualificationObj.id)">
                                                     <label class="form-check-label" for="flexCheckDefault">
                                                         {{qualificationObj.qualificationName}}
                                                     </label>
                                                 </div>
                                                 <div *ngIf="qualificationResult.length === 0">
-                                                    <div class="alert alert-danger text-center py-2">No Data Found..!</div>
+                                                    <div class="alert alert-danger text-center py-2">No Data Found..!
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="col-sm-6">
-                                        <label for="txtSearchAssembly" class="form-label required-field">Select SkillSet</label>
+                                        <label for="txtSearchAssembly" class="form-label required-field">Select
+                                            SkillSet</label>
                                         <div class="card border shadow-none">
                                             <div class="card-header border-bottom p-0 py-1">
-                                                <input type="text" formControlName="skillId" [(ngModel)]="searchSkillSetData"
-                                                    placeholder="Search SkillSet" class="form-control form-control-sm border-0">
+                                                <input type="text" formControlName="skillId"
+                                                    [(ngModel)]="searchSkillSetData" placeholder="Search SkillSet"
+                                                    class="form-control form-control-sm border-0">
                                             </div>
                                             <div class="card-body py-2 form-height ChekBox"
                                                 *ngIf="( skillSetArray | filter:searchSkillSetData ) as skillSetResult">
                                                 <div class="form-check" *ngFor="let skillSetObj of skillSetResult">
-                                                    <input class="form-check-input" type="checkbox" [checked]="skillSetObj.checked" 
-                                                    (change)="onCheckChangeSkillSet($event, skillSetObj.id)">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        [checked]="skillSetObj.checked"
+                                                        (change)="onCheckChangeSkillSet($event, skillSetObj.id)">
                                                     <label class="form-check-label" for="flexCheckDefault">
                                                         {{skillSetObj.skillName}}
                                                     </label>
                                                 </div>
                                                 <div *ngIf="skillSetResult.length === 0">
-                                                    <div class="alert alert-danger text-center py-2">No Data Found..!</div>
+                                                    <div class="alert alert-danger text-center py-2">No Data Found..!
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

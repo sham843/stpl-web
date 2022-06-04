@@ -60,55 +60,57 @@
         </div>
         <div class="col-sm-6">
             <form [formGroup]="contactUsForm">
-            <div class="card card-body rounded-0 p-4">
-                <div class="mb-3">
-                    <input type="text" class="form-control" formControlName="fullName" placeholder="Full Name"
-                    [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }">
+                <div class="card card-body rounded-0 p-4">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" formControlName="fullName" placeholder="Full Name"
+                            [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }">
                         <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
                             <div class="text-danger" *ngIf="f.fullName.errors?.required">Full Name is
                                 required.</div>
                             <div class="text-danger" *ngIf="f.fullName.errors?.pattern">Please enter
                                 Valid Full Name.</div>
                         </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-sm-6">
-                        <input type="email" class="form-control" formControlName="emailId" placeholder="Email ID"
-                        [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }">
-                        <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
-                            <div class="text-danger" *ngIf="f.emailId.errors?.required">Email ID is
-                                required.</div>
-                            <div class="text-danger" *ngIf="f.emailId.errors?.pattern">Please enter
-                                Valid Email ID.</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-6">
+                            <input type="email" class="form-control" formControlName="emailId" placeholder="Email ID"
+                                [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }">
+                            <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
+                                <div class="text-danger" *ngIf="f.emailId.errors?.required">Email ID is
+                                    required.</div>
+                                <div class="text-danger" *ngIf="f.emailId.errors?.pattern">Please enter
+                                    Valid Email ID.</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="tel" class="form-control" formControlName="contactNo" maxlength="10"
+                                placeholder="Contact No" [ngClass]="{ 'is-invalid': submitted && f.contactNo.errors }">
+                            <div *ngIf="submitted && f.contactNo.errors" class="invalid-feedback">
+                                <div class="text-danger" *ngIf="f.contactNo.errors?.required">Contact No. is
+                                    required.</div>
+                                <div class="text-danger" *ngIf="f.contactNo.errors?.pattern">Please enter
+                                    Valid Contact No..</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <input type="tel" class="form-control" formControlName="contactNo" maxlength="10" placeholder="Contact No"
-                        [ngClass]="{ 'is-invalid': submitted && f.contactNo.errors }">
-                        <div *ngIf="submitted && f.contactNo.errors" class="invalid-feedback">
-                            <div class="text-danger" *ngIf="f.contactNo.errors?.required">Contact No. is
+                    <div class="mb-3">
+                        <input type="text" class="form-control" formControlName="subject" placeholder="Subject"
+                            [ngClass]="{ 'is-invalid': submitted && f.subject.errors }">
+                        <div *ngIf="submitted && f.subject.errors" class="invalid-feedback">
+                            <div class="text-danger" *ngIf="f.subject.errors?.required">Subject is
                                 required.</div>
-                            <div class="text-danger" *ngIf="f.contactNo.errors?.pattern">Please enter
-                                Valid Contact No..</div>
+                            <div class="text-danger" *ngIf="f.subject.errors?.pattern">Please enter
+                                Valid Subject.</div>
                         </div>
                     </div>
-                </div>
-                <div class="mb-3">
-                    <input type="text" class="form-control" formControlName="subject" placeholder="Subject"
-                    [ngClass]="{ 'is-invalid': submitted && f.subject.errors }">
-                    <div *ngIf="submitted && f.subject.errors" class="invalid-feedback">
-                        <div class="text-danger" *ngIf="f.subject.errors?.required">Subject is
-                            required.</div>
-                        <div class="text-danger" *ngIf="f.subject.errors?.pattern">Please enter
-                            Valid Subject.</div>
+                    <div class="mb-3">
+                        <textarea class="form-control" rows="4" formControlName="message"
+                            placeholder="Message"></textarea>
                     </div>
+                    <button class="btn btn-main py-3 rounded-0" type="button"
+                        (click)="submitContactUsForm()">SEND</button>
                 </div>
-                <div class="mb-3">
-                    <textarea class="form-control" rows="4" formControlName="message" placeholder="Message"></textarea>
-                </div>
-                <button class="btn btn-main py-3 rounded-0" type="button" (click)="submitContactUsForm()">SEND</button>
-            </div>
-        </form>
+            </form>
         </div>
     </div>
 </div>

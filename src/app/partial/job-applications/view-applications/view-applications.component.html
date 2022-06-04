@@ -6,20 +6,20 @@
                 <div class="row gx-2 justify-content-end align-items-center">
                     <div class="col-sm input-group">
                         <input type="text" class="form-control" placeholder="Seach" [formControl]="searchText"
-                        (keyup)="onKeyUpFilter()">
+                            (keyup)="onKeyUpFilter()">
                         <button type="button" *ngIf="searchText.value" class="btn btn-light border btn-sm"
-                        (click)="clearFilter('search')">
-                        <i class="fas fa-times"></i>
-                      </button>
-                      <button type="button" *ngIf="!searchText.value" class="btn btn-sm border btn-light">
-                        <i class="fas fa-search"></i>
-                      </button>
+                            (click)="clearFilter('search')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <button type="button" *ngIf="!searchText.value" class="btn btn-sm border btn-light">
+                            <i class="fas fa-search"></i>
+                        </button>
                     </div>
                     <div class="col-sm-5">
                         <ngx-select [allowClear]="true" [items]="allJobTitleArray" (remove)="clearFilter('jobTitle')"
-                       (select)="pageNumber = 1;getViewApplication()" [formControl]="jobTitleDrop" placeholder="Select Job Title"
-                        optionValueField="jobTitle" optionTextField="jobTitle">
-                    </ngx-select>
+                            (select)="pageNumber = 1;getViewApplication()" [formControl]="jobTitleDrop"
+                            placeholder="Select Job Title" optionValueField="jobTitle" optionTextField="jobTitle">
+                        </ngx-select>
                     </div>
                 </div>
             </div>
@@ -52,16 +52,16 @@
                         <button type="button" class="btn btn-sm bg-primary bg-opacity-10 text-primary">
                             <a target="_blank" [href]="viewAppli?.resumePath">
                                 <i class="fa-solid fa-download"></i>
-                             </a>
+                            </a>
                         </button>
                     </td>
                     <td>
-                        <button type="button" class="btn bg-success bg-opacity-10 text-success me-2" title="Accept Application"
-                        (click)="updateActiveApplication(viewAppli,1)" >
+                        <button type="button" class="btn bg-success bg-opacity-10 text-success me-2"
+                            title="Accept Application" (click)="updateActiveApplication(viewAppli,1)">
                             <i class="fa-solid fa-check"></i>
                         </button>
                         <button type="button" class="btn bg-danger bg-opacity-10 text-danger"
-                        (click)="updateActiveApplication(viewAppli,2)" title="Reject Application">
+                            (click)="updateActiveApplication(viewAppli,2)" title="Reject Application">
                             <i class="fa-solid fa-ban"></i>
                         </button>
                     </td>

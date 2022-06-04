@@ -16,16 +16,14 @@ import { FileUploadService } from 'src/app/core/services/file-upload.service';
 })
 export class JobDetailsComponent implements OnInit {
 
-
-  JobPostId:any;
+  JobPostId: any;
   jobPostGetByIdArray: any;
   submitted = false;
-
-  applayJobForm!:FormGroup | any;
+  applayJobForm!: FormGroup | any;
   @ViewChild('fileInput') fileInput!: ElementRef;
-  resumePath:any;
-  resumeSubmit:any;
-  @ViewChild('jobDetailModel') jobDetailModel: any;  
+  resumePath: any;
+  resumeSubmit: any;
+  @ViewChild('jobDetailModel') jobDetailModel: any;
 
   constructor(
     private commonService: CommonService,
@@ -33,10 +31,10 @@ export class JobDetailsComponent implements OnInit {
     private toastrService: ToastrService,
     private errorSerivce: ErrorsService,
     private fb: FormBuilder,
-    private localStorage:LocalstorageService,
-    private fileUploadService:FileUploadService,
+    private localStorage: LocalstorageService,
+    private fileUploadService: FileUploadService,
     private route: ActivatedRoute,
-    ) { this.JobPostId = this.route.snapshot.params['id'];}
+  ) { this.JobPostId = this.route.snapshot.params['id']; }
 
   ngOnInit(): void {
     this.defaultApplayJobForm();
@@ -66,8 +64,8 @@ export class JobDetailsComponent implements OnInit {
     this.applayJobForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[^\\s0-9\\[\\[`&._@#%*!+,|"\-\'\/\\]\\]{}][a-zA-Z]+$')]],
       lastName: ['', [Validators.required, Validators.pattern('^[^\\s0-9\\[\\[`&._@#%*!+,|"\-\'\/\\]\\]{}][a-zA-Z]+$')]],
-      contactNo: ['',[Validators.required, Validators.pattern('[6-9]\\d{9}')]],
-      emailId: ['',[Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]],
+      contactNo: ['', [Validators.required, Validators.pattern('[6-9]\\d{9}')]],
+      emailId: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]],
       resume_Path: ['']
     })
   }
@@ -78,12 +76,12 @@ export class JobDetailsComponent implements OnInit {
     this.resumeSubmit = true;
     if (this.applayJobForm.invalid) {
       return;
-    }else if (this.commonService.checkDataType(this.resumePath) == false) {
+    } else if (this.commonService.checkDataType(this.resumePath) == false) {
       return;
     } else {
       let fullName = formData.firstName.trim().concat(" ", formData.lastName.trim());
-  
-      let obj =  {
+
+      let obj = {
         "createdBy": this.localStorage.userId(),
         "modifiedBy": this.localStorage.userId(),
         "createdDate": new Date(),
@@ -138,11 +136,11 @@ export class JobDetailsComponent implements OnInit {
     this.applayJobForm.controls['resume_Path'].setValue('');
   }
 
-  removeDocument(){
+  removeDocument() {
     this.resumePath = '';
     this.fileInput.nativeElement.value = '';
   }
 
-    //................................... Resume Upload code End Here...............................//
+  //................................... Resume Upload code End Here...............................//
 
 }

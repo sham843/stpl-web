@@ -34,7 +34,7 @@ export class SolutionsComponent implements OnInit {
       next: (res: any) => {
         if (res.statusCode === "200") {
           this.pageCategoryArray = res.responseData;
-          this.pageCategoryArray.map((ele:any)=>{
+          this.pageCategoryArray.map((ele: any) => {
             let splitData = ele.pageName.toLowerCase();
             ele.pageName = titleCase(splitData);
           })
@@ -47,8 +47,8 @@ export class SolutionsComponent implements OnInit {
     });
   }
 
-  navigatePage(id:any){
+  navigatePage(id: any) {
     this.commonService.routerLinkRedirect('solutions/solution-details/' + id);
- }
+  }
 
 }

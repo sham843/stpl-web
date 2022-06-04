@@ -16,12 +16,12 @@ import { LocalstorageService } from 'src/app/core/services/localstorage.service'
 export class UserProfileComponent implements OnInit {
 
   userDetailsArray: any;
-  userProfileForm!:FormGroup | any;
-  roleArray = [ {'id': 0 , 'name': 'Admin'},{'id': 1 , 'name': 'HR'}];
+  userProfileForm!: FormGroup | any;
+  roleArray = [{ 'id': 0, 'name': 'Admin' }, { 'id': 1, 'name': 'HR' }];
   submitted = false;
   disableDiv: boolean = true;
 
-  changePassForm!:FormGroup | any;
+  changePassForm!: FormGroup | any;
   submittedCp = false;
   oldPassword: boolean = true;
   newPassword: boolean = true;
@@ -41,8 +41,8 @@ export class UserProfileComponent implements OnInit {
     private toastrService: ToastrService,
     private errorSerivce: ErrorsService,
     private fb: FormBuilder,
-    private spinner:NgxSpinnerService,
-    private fileUploadService:FileUploadService,
+    private spinner: NgxSpinnerService,
+    private fileUploadService: FileUploadService,
   ) { }
 
   ngOnInit(): void {
@@ -56,12 +56,12 @@ export class UserProfileComponent implements OnInit {
   myProfileForm() {
     this.userProfileForm = this.fb.group({
       UserId: [this.localStorage.userId()],
-      firstName: ['',[Validators.required ,Validators.pattern(/^\S*$/)]],
-      lastName: ['', [Validators.required ,Validators.pattern(/^\S*$/)]],
-      email: ['',[Validators.required,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-      mobileNo: ['',[Validators.required, Validators.pattern('[6-9]\\d{9}')]],
-      userName: ['',[Validators.required,Validators.pattern('^[a-zA-Z0-9](_(?!(\.|_))|\.(?!(_|\.))|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$')]],
-      designation: ['',Validators.required],
+      firstName: ['', [Validators.required, Validators.pattern(/^\S*$/)]],
+      lastName: ['', [Validators.required, Validators.pattern(/^\S*$/)]],
+      email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      mobileNo: ['', [Validators.required, Validators.pattern('[6-9]\\d{9}')]],
+      userName: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9](_(?!(\.|_))|\.(?!(_|\.))|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$')]],
+      designation: ['', Validators.required],
       profilePath: ['']
     })
   }
@@ -73,7 +73,7 @@ export class UserProfileComponent implements OnInit {
         if (res.statusCode === "200") {
           this.userDetailsArray = res.responseData;
           let imagePath = res.responseData?.profilePath;
-          imagePath ? (this.ImgUrl = imagePath) : (this.ImgUrl ='assets/images/user.png');
+          imagePath ? (this.ImgUrl = imagePath) : (this.ImgUrl = 'assets/images/user.png');
           this.patchProfileData(this.userDetailsArray);
         } else {
           this.userDetailsArray = [];
@@ -84,7 +84,7 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  patchProfileData(resData:any){
+  patchProfileData(resData: any) {
     // for img upload start
     let loginObj: any = localStorage.getItem('user');
     loginObj = JSON.parse(loginObj);
@@ -105,11 +105,11 @@ export class UserProfileComponent implements OnInit {
     })
   }
 
-  clearProfileForm(){
-  //  this.patchProfileData(this.userDetailsArray);
-  //  let imagePath = this.userDetailsArray?.profilePath;
-  //  imagePath ? (this.ImgUrl = imagePath) : (this.ImgUrl ='assets/images/user.png');
-  this.getUserDetails();
+  clearProfileForm() {
+    //  this.patchProfileData(this.userDetailsArray);
+    //  let imagePath = this.userDetailsArray?.profilePath;
+    //  imagePath ? (this.ImgUrl = imagePath) : (this.ImgUrl ='assets/images/user.png');
+    this.getUserDetails();
   }
 
   updateProfileData() {
@@ -139,14 +139,13 @@ export class UserProfileComponent implements OnInit {
       this.apiService.setHttp('PUT', 'userdetails', false, JSON.stringify(obj), false, 'stplUrl');
       this.apiService.getHttp().subscribe((res: any) => {
         if (res.statusCode == "200") {
-           //set username in session storage Start
-           debugger
-           this.localStorage.sendFullName(fullName);
-           let loginObj: any = localStorage.getItem('user');
-           loginObj = JSON.parse(loginObj);
-           loginObj.fullName = fullName;
-           localStorage.setItem('user', JSON.stringify(loginObj));
-           //set username in session storage End
+          //set username in session storage Start
+          this.localStorage.sendFullName(fullName);
+          let loginObj: any = localStorage.getItem('user');
+          loginObj = JSON.parse(loginObj);
+          loginObj.fullName = fullName;
+          localStorage.setItem('user', JSON.stringify(loginObj));
+          //set username in session storage End
           this.toastrService.success(res.statusMessage);
           this.getUserDetails();
           this.submitted = false;
@@ -176,17 +175,17 @@ export class UserProfileComponent implements OnInit {
 
   changePassword() {
     this.submittedCp = true;
-    let formData = this.changePassForm.value;  
+    let formData = this.changePassForm.value;
     if (formData.newPassword != formData.ConfirmPassword) {
       this.cp.ConfirmPassword.setErrors({ 'notMatched': true });
       return
-    }else if ((formData.oldPassword== formData.newPassword) && (formData.oldPassword! =''|| formData.newPassword!='' )) {    
+    } else if ((formData.oldPassword == formData.newPassword) && (formData.oldPassword! = '' || formData.newPassword != '')) {
       this.cp.ConfirmPassword.setErrors({ 'Matched': true });
       return;
     }
     if (this.changePassForm.status == "VALID") {
       this.spinner.show();
-      let obj = 'UserName=' + this.localStorage.loggedInUserName() + '&Password=' + formData.newPassword + '&MobileNo=' + this.localStorage.userMobileNo() ;
+      let obj = 'UserName=' + this.localStorage.loggedInUserName() + '&Password=' + formData.newPassword + '&MobileNo=' + this.localStorage.userMobileNo();
       this.apiService.setHttp('put', "userdetails/UpdatePassward?" + obj, false, false, false, 'stplUrl');
       this.apiService.getHttp().subscribe((res: any) => {
         if (res.statusCode == "200") {
@@ -206,8 +205,8 @@ export class UserProfileComponent implements OnInit {
   }
 
   clearChangePassForm() {
-   this.changePasswordForm();
-   this.submittedCp = false;
+    this.changePasswordForm();
+    this.submittedCp = false;
   }
 
   documentUpload(event: any) {

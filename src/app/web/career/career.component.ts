@@ -13,7 +13,7 @@ import { FileUploadService } from 'src/app/core/services/file-upload.service';
 })
 export class CareerComponent implements OnInit {
 
-  activeJobPostArray:any;
+  activeJobPostArray: any;
   totalRows: any;
   pageNumber: number = 1;
   pagesize: number = 10;
@@ -23,22 +23,22 @@ export class CareerComponent implements OnInit {
     public apiService: ApiService,
     private toastrService: ToastrService,
     private errorSerivce: ErrorsService,
-    private spinner:NgxSpinnerService,
-    private fileUploadService:FileUploadService,
+    private spinner: NgxSpinnerService,
+    private fileUploadService: FileUploadService,
   ) { }
 
   ngOnInit(): void {
     this.getAllActiveJobPost();
   }
 
-  navigatePage(jobPost:any){
-     this.commonService.routerLinkRedirect('career/job-details/' + jobPost);
+  navigatePage(jobPost: any) {
+    this.commonService.routerLinkRedirect('career/job-details/' + jobPost);
   }
 
   getAllActiveJobPost() {
     this.spinner.show();
-    let obj = 'pageno=' + this.pageNumber +'&pagesize=' + this.pagesize;
-    this.apiService.setHttp('get', "JobPost/GetAllActiveJobPost?"+ obj, false, false, false, 'stplUrl');
+    let obj = 'pageno=' + this.pageNumber + '&pagesize=' + this.pagesize;
+    this.apiService.setHttp('get', "JobPost/GetAllActiveJobPost?" + obj, false, false, false, 'stplUrl');
     this.apiService.getHttp().subscribe({
       next: (res: any) => {
         if (res.statusCode === "200") {
@@ -51,7 +51,7 @@ export class CareerComponent implements OnInit {
           this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
         }
       },
-      error: ((error: any) => { this.errorSerivce.handelError(error.status),this.spinner.hide(); })
+      error: ((error: any) => { this.errorSerivce.handelError(error.status), this.spinner.hide(); })
     });
   }
 
