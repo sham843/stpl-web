@@ -241,10 +241,10 @@ export class PageMastersComponent implements OnInit {
           "isDeleted": true
         }
         this.checkUniqueData(obj,documentUrlUploaed);
-        console.log(this.pageMasterImagArray)
       }
       },
     })
+    this.pageMasterForm.controls['imagePath'].setValue('');
   }
 
   checkUniqueData(obj: any,urlPath:any) { //Check Unique Data then Insert or Update
@@ -280,6 +280,7 @@ export class PageMastersComponent implements OnInit {
         // this.pageMasterForm.value.homeImagePath = this.homePageImgPath;
       },
     })
+    this.pageMasterForm.controls['homeImagePath'].setValue('');
   }
 
   deleteHomePageImg(){
