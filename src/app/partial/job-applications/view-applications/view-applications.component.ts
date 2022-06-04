@@ -101,7 +101,8 @@ export class ViewApplicationsComponent implements OnInit {
     }else{
       this.jobTitleDrop.setValue('');
     }
-      this.getViewApplication();
+    this.pageNumber = 1;
+    this.getViewApplication();
     }
 
     updateActiveApplication(ObjData:any,flag:any) {

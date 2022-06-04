@@ -87,7 +87,8 @@ export class ApprovedRejectedApplicationsComponent implements OnInit {
     }else{
       this.isApproved.setValue('');
     }
-      this.getAppliedMember();
+    this.pageNumber = 1;
+    this.getAppliedMember();
     }
 
      //..................................Action Status Code Stare Here ......................................//

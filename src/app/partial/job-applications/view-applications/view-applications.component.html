@@ -17,7 +17,7 @@
                     </div>
                     <div class="col-sm-5">
                         <ngx-select [allowClear]="true" [items]="allJobTitleArray" (remove)="clearFilter('jobTitle')"
-                       (select)="getViewApplication()" [formControl]="jobTitleDrop" placeholder="Select Job Title"
+                       (select)="pageNumber = 1;getViewApplication()" [formControl]="jobTitleDrop" placeholder="Select Job Title"
                         optionValueField="jobTitle" optionTextField="jobTitle">
                     </ngx-select>
                     </div>

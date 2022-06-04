@@ -27,7 +27,7 @@
                     </div> -->
                     <div class="col-sm-5">
                         <ngx-select [allowClear]="true" [items]="statusArray" (remove)="clearFilter('status')"
-                       (select)="getAppliedMember()" [formControl]="isApproved" placeholder="Select Status"
+                       (select)="pageNumber = 1;getAppliedMember()" [formControl]="isApproved" placeholder="Select Status"
                         optionValueField="id" optionTextField="name">
                     </ngx-select>
                     </div>
