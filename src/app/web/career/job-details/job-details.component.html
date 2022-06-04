@@ -179,7 +179,7 @@
                         <label class="form-label">Upload Your Resume</label>
                         
                         <div class="input-group">                            
-                            <input type="file" (change)="resumeUpload($event)" class="form-control" #fileInput>
+                            <input type="file" (change)="resumeUpload($event)" formControlName="resume_Path" class="form-control" #fileInput>
                             <span *ngIf="resumePath">
                                 <button type="button" class="btn btn-sm bg-transparent text-primary">
                                     <a target="_blank" [href]="resumePath">

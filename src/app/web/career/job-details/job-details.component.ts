@@ -68,6 +68,7 @@ export class JobDetailsComponent implements OnInit {
       lastName: ['', [Validators.required, Validators.pattern('^[^\\s0-9\\[\\[`&._@#%*!+,|"\-\'\/\\]\\]{}][a-zA-Z]+$')]],
       contactNo: ['',[Validators.required, Validators.pattern('[6-9]\\d{9}')]],
       emailId: ['',[Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]],
+      resume_Path: ['']
     })
   }
 
@@ -134,6 +135,7 @@ export class JobDetailsComponent implements OnInit {
         // this.pageMasterForm.value.homeImagePath = this.homePageImgPath;
       },
     })
+    this.applayJobForm.controls['resume_Path'].setValue('');
   }
 
   removeDocument(){
