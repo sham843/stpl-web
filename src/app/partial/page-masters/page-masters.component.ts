@@ -35,6 +35,8 @@ export class PageMastersComponent implements OnInit {
   homeValueSubmitted = false;
   hideColorDiv: boolean = false;
 
+  pageMasterImagArray1: any[] = [];
+
   constructor(
     private commonService: CommonService,
     public apiService: ApiService,
@@ -187,7 +189,7 @@ export class PageMastersComponent implements OnInit {
   }
 
   updatePageMaster(obj: any) {
-    this.pageMasterImagArray = obj?.pageMasters;
+    this.pageMasterImagArray = [...obj?.pageMasters];
     this.homePageImgPath = obj?.homeImagePath;
     this.HighlightRow = obj?.id;
     this.btnText = 'Update';
