@@ -157,3 +157,38 @@
     </div>
   </div>
 </nav>
+
+<button data-bs-toggle="modal" class="requestdemo" data-bs-target="#RequestDemoModal">Request a Demo</button>
+
+<!-- Modal for request a demo -->
+<div class="modal fade" id="RequestDemoModal" tabindex="-1" aria-labelledby="RequestDemoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0">
+      <div class="modal-header bg-main">
+        <p class="modal-title mb-0" id="RequestDemoModalLabel">Request a Demo</p>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Full Name *" required>
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Email ID *" required>
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Company Name *" required>
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Phone Number *" required>
+        </div>
+        <div class="mb-0">
+          <textarea class="form-control" rows="7" placeholder="Send your request here *" required></textarea>
+        </div>
+      </div>
+      <div class="modal-footer d-flex justify-content-between">
+        <button type="button" class="btn bg-secondary bg-opacity-25 btn-sm rounded-0 px-3 py-2">Clear</button>
+        <button type="submit" class="btn btn-main btn-sm rounded-0 px-3 py-2">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
