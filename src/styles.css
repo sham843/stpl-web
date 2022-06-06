@@ -243,3 +243,6 @@ tr.active {
 .invalid-feedback{
     font-size: 0.65rem;
 }
+.toast-container{
+    font-size: 0.85rem;
+}
