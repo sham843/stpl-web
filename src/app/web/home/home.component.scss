@@ -330,6 +330,25 @@
     background-position: left bottom;
     color: var(--main-color)
 }
+.btn-readmore2 {
+    color: var(--main-color);
+    border: solid 1px var(--main-color);
+    background-color: transparent;
+    background: linear-gradient(to left, transparent 50%, var(--main-color) 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all 1s ease;
+    padding: 15px 35px;
+    border-radius: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px
+}
+
+.btn-readmore2:hover {
+    background-position: left bottom;
+    color: #fff;
+}
 
 .floating {
     animation-name: floating;
@@ -352,7 +371,10 @@
         transform: translate(0, -0px);
     }
 }
-
+.clients,
+.aboutus,
+#testimonials,
+.whyus,
 .our-services {
     padding-block: 4rem;
 }
@@ -473,6 +495,133 @@
 .our-products .product-info .evet{
     background-color: #D55E7B;
 }
+.aboutus h4,
+.whyus h4{
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 900;
+}
+.aboutus p{
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    line-height: 1.8rem;
+}
+.whyus h4{
+    margin-bottom: 4rem;
+}
+.whyus h5{
+    font-weight: 600;
+    margin-block: 1.5rem;
+    font-size: 1.2rem;
+}
+.whyus p{
+    font-size: 0.9rem;
+    color: #ddd;
+    line-height: 1.6rem;
+    margin-bottom: 0;
+}
+.whyus .card{
+    background:transparent;
+    border: solid 1px #fff;
+    text-align: center;
+    position: relative;
+}
+.whyus i{
+    position: absolute;
+    top: -30px;
+    left:43%;
+    font-size: 1.5rem;
+    width:60px;
+    height:60px;
+    line-height:60px;
+    text-align:center;
+    border-radius:50%;
+    background-color: #fff;
+    color: var(--main-color);
+}
+.whyus .card-body{
+    padding: 2rem;
+}
+#testimonial{
+    background: linear-gradient(112deg, #ffffff 50%, #eee 50%);
+    max-width: 100%;
+    margin: auto;
+}
+#testimonials h3{
+    font-family: 'Fira Sans', sans-serif;
+    margin-bottom: 2rem;
+}
+#testimonial .carousel-caption {
+    position: initial;
+    z-index: 10;
+    padding: 5rem 8rem;
+    color: #333;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+@media(max-width:767px){
+    #testimonial .carousel-caption {
+        position: initial;
+        z-index: 10;
+        padding: 3rem 2rem;
+        color: #333;
+        text-align: center;
+        font-size: 0.7rem;
+        font-style: italic;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+}
+#testimonial .carousel-caption img{
+    width: 6rem;
+    border-radius: 5rem;
+    margin-top: 2rem;
+}
+@media(max-width:767px){
+    #testimonial .carousel-caption img{
+        width: 4rem;
+        border-radius: 4rem;
+        margin-top: 1rem;
+    }
+}
+#testimonial #image-caption{
+    font-style: normal;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
+@media(max-width:767px){
+    #testimonial #image-caption{
+        font-style: normal;
+        font-size: 0.6rem;
+        margin-top: 0.5rem;
+    }
+}
+#testimonial i{
+    background-color: var(--blue-light-color);
+    padding: 1.4rem;
+    color: var(--blue-color);
+    text-decoration: none;
+}
+@media(max-width:767px){
+    #testimonial i{
+        padding: 0.8rem;
+    }
+}
+#testimonial .carousel-control-prev{
+    justify-content: flex-start;
+}
+
+#testimonial .carousel-control-next {
+    justify-content: flex-end;
+}
+#testimonial .carousel-control-prev,.carousel-control-next{
+    transition: none;
+    opacity: unset;
+    text-decoration: none;
+}
 #subscribeus{
     padding: 5rem;
     background-color: #33ABD9;
@@ -519,4 +668,32 @@
     height: 60px;
     width: 60px;
     background-color:rgba(255,255, 255, 0.25);
+}
+.aboutus .accordion-button{
+    box-shadow: none;
+}
+.aboutus .accordion-item{
+    margin-bottom: 10px;
+    border-radius: 0;
+}
+.aboutus .accordion-button:not(.collapsed){
+    box-shadow: none;
+    background-color: var(--main-color);
+    color: #fff;
+    border-radius: 0;
+}
+.clients h3{
+    font-family: 'Fira Sans', sans-serif;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.clients .card{
+    background-color: transparent;
+    border:solid 1px #444;
+}
+.clients .card-body{
+    padding: 2rem;
+}
+.clients .card img{
+   height: 50px;
 }
