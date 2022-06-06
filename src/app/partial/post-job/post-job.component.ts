@@ -49,7 +49,7 @@ export class PostJobComponent implements OnInit {
   checkedQualiflag: boolean = true;
 
   constructor(
-    private commonService: CommonService,
+    public commonService: CommonService,
     public apiService: ApiService,
     private toastrService: ToastrService,
     private errorSerivce: ErrorsService,
@@ -75,7 +75,7 @@ export class PostJobComponent implements OnInit {
       jobDescription: ['', Validators.required],
       jobCategory: ['', Validators.required],
       jobLocation: ['', Validators.required],
-      jobPostEndDate: ['', Validators.required],
+      jobPostEndDate: ['', Validators.required],  
       experienceFromYr: ['', Validators.required],
       experienceToYr: ['', Validators.required],
       role_Responsbility: ['', Validators.required],
@@ -245,9 +245,11 @@ export class PostJobComponent implements OnInit {
   onSubmit() {
     let formData = this.PostJobForm.value;
     this.submitted = true;
-    if (this.PostJobForm.invalid) {
+    if (this.PostJobForm.invalid) {     
       return;
-    } else if (this.skillModelArray.length == 0 || this.qualiModelArray.length == 0) {
+    } else if (formData.experienceFromYr > formData.experienceToYr) {
+      this.toastrService.error('Valid Experience is Required');
+    }  else if (this.skillModelArray.length == 0 || this.qualiModelArray.length == 0) {
       this.toastrService.error('Qualification & SkillSet Both Field Is Required');
     } else {
       let id: any;
