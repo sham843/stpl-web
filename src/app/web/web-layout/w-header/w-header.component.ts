@@ -7,7 +7,7 @@ import { Component, OnInit, HostListener  } from '@angular/core';
 })
 export class WHeaderComponent implements OnInit {
   @HostListener('window:scroll', ['$event'])
-
+ 
   onWindowScroll() {
       let element = document.querySelector('.navbar') as HTMLElement;
       if (window.pageYOffset > element.clientHeight) {
