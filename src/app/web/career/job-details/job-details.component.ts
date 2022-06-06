@@ -26,7 +26,7 @@ export class JobDetailsComponent implements OnInit {
   @ViewChild('jobDetailModel') jobDetailModel: any;
 
   constructor(
-    private commonService: CommonService,
+    public commonService: CommonService,
     public apiService: ApiService,
     private toastrService: ToastrService,
     private errorSerivce: ErrorsService,

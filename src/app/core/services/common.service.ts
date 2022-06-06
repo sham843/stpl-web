@@ -51,4 +51,12 @@ export class CommonService {
     this.router.navigate([path], { relativeTo: this.route })
   }
 
+  onlyDigitsExcludeZeroAtStart(event: any) {
+    const maskSeperator = new RegExp('^[1-9][0-9]*$', 'g');
+    if(event.currentTarget.value != "" && event.currentTarget.value.length > 0 && event.key == '0') {
+        return true
+    }
+    return maskSeperator.test(event.key);
+}
+
 }

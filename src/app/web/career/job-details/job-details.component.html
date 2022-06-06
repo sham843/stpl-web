@@ -163,7 +163,8 @@
                         </div>
                         <div class="col-sm-6">
                             <input type="tel" class="form-control" placeholder="Contact No" formControlName="contactNo"
-                                maxlength="10" [ngClass]="{ 'is-invalid': submitted && f.contactNo.errors }">
+                            maxlength="10" (keypress)="this.commonService.onlyDigitsExcludeZeroAtStart($event)"    
+                            [ngClass]="{ 'is-invalid': submitted && f.contactNo.errors }">
                             <div *ngIf="submitted && f.contactNo.errors" class="invalid-feedback">
                                 <div class="text-danger" *ngIf="f.contactNo.errors?.required">Contact No is
                                     required.</div>

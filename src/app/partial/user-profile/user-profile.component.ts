@@ -36,7 +36,7 @@ export class UserProfileComponent implements OnInit {
 
   constructor(
     private localStorage: LocalstorageService,
-    private commonService: CommonService,
+    public commonService: CommonService,
     public apiService: ApiService,
     private toastrService: ToastrService,
     private errorSerivce: ErrorsService,

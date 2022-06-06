@@ -44,7 +44,8 @@
                             (click)="updateJobPost(jobPost)" data-bs-target="#AddNewJobModal">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </button>
-                        <button type="button" class="btn bg-danger bg-opacity-10 text-danger" data-bs-toggle="modal"
+                        <button type="button" [disabled]="jobPost?.isActive == true" 
+                        class="btn bg-danger bg-opacity-10 text-danger" data-bs-toggle="modal"
                             (click)="deleteConformation(jobPost.id)" data-bs-target="#deleteModel">
                             <i class="fa-solid fa-trash-can"></i>
                         </button>
@@ -140,17 +141,16 @@
                                     <div class="col-sm-6">
                                         <label class="form-label">Experience</label>
                                         <div class="input-group">
-                                            <input type="number" class="form-control" formControlName="experienceFromYr"
-                                                placeholder="From"
+                                            <input type="text"  class="form-control" formControlName="experienceFromYr"  placeholder="From" 
+                                            maxlength="2" (keypress)="this.commonService.onlyDigitsExcludeZeroAtStart($event)"
                                                 [ngClass]="{ 'is-invalid': submitted && f.experienceFromYr.errors }">
-                                            <input type="number" class="form-control" formControlName="experienceToYr"
-                                                placeholder="To"
+                                            <input type="text" class="form-control" formControlName="experienceToYr" placeholder="To" 
+                                            maxlength="2" (keypress)="this.commonService.onlyDigitsExcludeZeroAtStart($event)"
                                                 [ngClass]="{ 'is-invalid': submitted && f.experienceToYr.errors }">
                                             <div *ngIf="submitted && f.jobPostEndDate.errors" class="invalid-feedback">
                                                 <span class="text-danger"
-                                                    *ngIf="(f.experienceFromYr.errors || f.experienceToYr.errors)?.required">Experience
-                                                    is
-                                                    required.</span>
+                                                    *ngIf="(f.experienceFromYr.errors || f.experienceToYr.errors)?.required">
+                                                    Experience is required.</span>
                                             </div>
                                         </div>
                                     </div>
