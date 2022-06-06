@@ -239,16 +239,16 @@
 //     font-size: 0.9rem;
 // }
 .cd-section {
-    height: 100vh;
+    height: 100vh;    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .banner1 {
     background: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.15)), url('../../../assets/images/home-banner.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
     color: #fff;
 }
 
@@ -258,7 +258,6 @@
     background-position: right;
     color: #fff;
     background-size: contain;
-    padding-block: 10rem;
 }
 
 .banner3 {
@@ -275,7 +274,6 @@
     background-position: right;
     color: #fff;
     background-size: contain;
-    padding-block: 10rem;
 }
 
 .banner4 h6,
@@ -293,7 +291,7 @@
 .banner3 h1,
 .banner2 h1,
 .banner1 h1 {
-    font-size: 3.5rem;
+    font-size: 8vmin;
     font-weight: 900;
     margin-bottom: 1.2rem;
     text-transform: uppercase;
@@ -303,7 +301,7 @@
 .banner3 p,
 .banner2 p,
 .banner1 p {
-    font-size: 1rem;
+    font-size: 2.5vmin;
     margin-bottom: 1.2rem;
 }
 
@@ -330,6 +328,7 @@
     background-position: left bottom;
     color: var(--main-color)
 }
+
 .btn-readmore2 {
     color: var(--main-color);
     border: solid 1px var(--main-color);
@@ -371,6 +370,7 @@
         transform: translate(0, -0px);
     }
 }
+
 .clients,
 .aboutus,
 #testimonials,
@@ -411,20 +411,24 @@
     transition: all 0.4s ease;
     opacity: 0;
 }
+
 .our-services .card:hover .overlay {
-    opacity: 1;   
+    opacity: 1;
 }
+
 .FadeEffect {
     height: 0;
     width: 100%;
     bottom: 0px;
     left: 0px;
-    background-color: var(--main-color); 
+    background-color: var(--main-color);
 }
+
 .our-services .card:hover .FadeEffect {
     height: 306px;
     border-top-right-radius: 100px;
 }
+
 .our-services .card h5 {
     font-weight: 500;
     margin-bottom: 1rem;
@@ -449,109 +453,134 @@
 .our-services .purple {
     background-color: #9C69C2;
 }
+
 .our-services .blue {
     background-color: #447CC1;
 }
+
 .our-services .orange {
     background-color: #F16D52;
 }
+
 .our-services .pink {
     background-color: #DB609D;
 }
+
 .our-services .skyblue {
     background-color: #0193B2;
 }
+
 .our-services .gold {
     background-color: #DF9926;
 }
+
 .our-services .cyan {
     background-color: #01B28F;
 }
+
 .our-services .green {
     background-color: #90AB62;
 }
-.our-products{
-    background-color:var(--main-color);
+
+.our-products {
+    background-color: var(--main-color);
     color: #fff;
     padding-block: 4rem;
 }
-.our-products .product-info .carousel-item{
-    padding:6rem 12rem 6rem 6rem;
+
+.our-products .product-info .carousel-item {
+    padding: 6rem 12rem 6rem 6rem;
 }
-.our-products .product-imgs{
-    position:absolute;
+
+.our-products .product-imgs {
+    position: absolute;
     right: 12rem;
     z-index: 10;
 }
-.our-products .product-imgs .carousel-inner{
+
+.our-products .product-imgs .carousel-inner {
     width: 825px;
 }
-.our-products .product-info .mining{
+
+.our-products .product-info .mining {
     background-color: #DF9926;
 }
-.our-products .product-info .election{
+
+.our-products .product-info .election {
     background-color: #22A29B;
 }
-.our-products .product-info .evet{
+
+.our-products .product-info .evet {
     background-color: #D55E7B;
 }
+
 .aboutus h4,
-.whyus h4{
+.whyus h4 {
     font-family: 'Fira Sans', sans-serif;
     font-size: 2rem;
     margin-bottom: 1rem;
     font-weight: 900;
 }
-.aboutus p{
+
+.aboutus p {
     font-size: 0.95rem;
     margin-bottom: 1rem;
     line-height: 1.8rem;
 }
-.whyus h4{
+
+.whyus h4 {
     margin-bottom: 4rem;
 }
-.whyus h5{
+
+.whyus h5 {
     font-weight: 600;
     margin-block: 1.5rem;
     font-size: 1.2rem;
 }
-.whyus p{
+
+.whyus p {
     font-size: 0.9rem;
     color: #ddd;
     line-height: 1.6rem;
     margin-bottom: 0;
 }
-.whyus .card{
-    background:transparent;
+
+.whyus .card {
+    background: transparent;
     border: solid 1px #fff;
     text-align: center;
     position: relative;
 }
-.whyus i{
+
+.whyus i {
     position: absolute;
     top: -30px;
-    left:43%;
+    left: 43%;
     font-size: 1.5rem;
-    width:60px;
-    height:60px;
-    line-height:60px;
-    text-align:center;
-    border-radius:50%;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    border-radius: 50%;
     background-color: #fff;
     color: var(--main-color);
 }
-.whyus .card-body{
+
+.whyus .card-body {
     padding: 2rem;
 }
-#testimonial{
+
+#testimonial {
     background: linear-gradient(112deg, #ffffff 50%, #eee 50%);
     max-width: 100%;
     margin: auto;
 }
-#testimonials h3{
+
+#testimonials h3 {
     font-family: 'Fira Sans', sans-serif;
     margin-bottom: 2rem;
 }
+
 #testimonial .carousel-caption {
     position: initial;
     z-index: 10;
@@ -561,7 +590,8 @@
     font-size: 1rem;
     line-height: 2rem;
 }
-@media(max-width:767px){
+
+@media(max-width:767px) {
     #testimonial .carousel-caption {
         position: initial;
         z-index: 10;
@@ -574,126 +604,173 @@
         line-height: 1.5rem;
     }
 }
-#testimonial .carousel-caption img{
+
+#testimonial .carousel-caption img {
     width: 6rem;
     border-radius: 5rem;
     margin-top: 2rem;
 }
-@media(max-width:767px){
-    #testimonial .carousel-caption img{
+
+@media(max-width:767px) {
+    #testimonial .carousel-caption img {
         width: 4rem;
         border-radius: 4rem;
         margin-top: 1rem;
     }
 }
-#testimonial #image-caption{
+
+#testimonial #image-caption {
     font-style: normal;
     font-size: 1rem;
     margin-top: 0.5rem;
     font-weight: 600;
 }
-@media(max-width:767px){
-    #testimonial #image-caption{
+
+@media(max-width:767px) {
+    #testimonial #image-caption {
         font-style: normal;
         font-size: 0.6rem;
         margin-top: 0.5rem;
     }
 }
-#testimonial i{
+
+#testimonial i {
     background-color: var(--blue-light-color);
     padding: 1.4rem;
     color: var(--blue-color);
     text-decoration: none;
 }
-@media(max-width:767px){
-    #testimonial i{
+
+@media(max-width:767px) {
+    #testimonial i {
         padding: 0.8rem;
     }
 }
-#testimonial .carousel-control-prev{
+
+#testimonial .carousel-control-prev {
     justify-content: flex-start;
 }
 
 #testimonial .carousel-control-next {
     justify-content: flex-end;
 }
-#testimonial .carousel-control-prev,.carousel-control-next{
+
+#testimonial .carousel-control-prev,
+.carousel-control-next {
     transition: none;
     opacity: unset;
     text-decoration: none;
 }
-#subscribeus{
+
+#subscribeus {
     padding: 5rem;
     background-color: #33ABD9;
     color: #fff;
 }
-#subscribeus .subscribe-head h1{
+
+#subscribeus .subscribe-head h1 {
     border-bottom: solid 2px #fff;
     padding-bottom: 15px;
     font-weight: 600;
     font-size: 2rem;
     margin-bottom: 1rem;
 }
-#subscribeus .subscribe-head img{
+
+#subscribeus .subscribe-head img {
     position: absolute;
     width: 220px;
     top: -160px;
     right: 0;
 }
-#subscribeus .form-control::placeholder{
+
+#subscribeus .form-control::placeholder {
     color: #fff;
 }
+
 #subscribeus .btn,
-#subscribeus .form-control{
+#subscribeus .form-control {
     font-size: 0.85rem;
     border: solid 1px #fff;
-    box-shadow:none;
+    box-shadow: none;
     background-color: transparent;
     border-radius: 0;
-    padding:10px 15px;
+    padding: 10px 15px;
     color: #fff;
 }
-#subscribeus .btn{
+
+#subscribeus .btn {
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 2px;
 }
-#subscribeus .btn:hover{
+
+#subscribeus .btn:hover {
     background-color: #fff;
     color: #33ABD9;
 }
-#HomeBannerCarousel .carousel-control-next, 
-#HomeBannerCarousel .carousel-control-prev{
+
+#HomeBannerCarousel .carousel-control-next,
+#HomeBannerCarousel .carousel-control-prev {
     top: 40%;
-    height: 60px;
-    width: 60px;
-    background-color:rgba(255,255, 255, 0.25);
+    height: 40px;
+    width: 40px;
 }
-.aboutus .accordion-button{
+
+.aboutus .accordion-button {
     box-shadow: none;
 }
-.aboutus .accordion-item{
+
+.aboutus .accordion-item {
     margin-bottom: 10px;
     border-radius: 0;
 }
-.aboutus .accordion-button:not(.collapsed){
+
+.aboutus .accordion-button:not(.collapsed) {
     box-shadow: none;
     background-color: var(--main-color);
     color: #fff;
     border-radius: 0;
 }
-.clients h3{
+
+.clients h3 {
     font-family: 'Fira Sans', sans-serif;
     text-align: center;
     margin-bottom: 2rem;
 }
-.clients .card{
+
+.clients .card {
     background-color: transparent;
-    border:solid 1px #444;
+    border: solid 1px #444;
 }
-.clients .card-body{
+
+.clients .card-body {
     padding: 2rem;
 }
-.clients .card img{
-   height: 50px;
+
+.clients .card img {
+    height: 50px;
+}
+
+
+
+@media(max-width:480px) {
+    .banner4,
+    .banner3,
+    .banner2,
+    .banner1 {
+        padding: 2rem;
+    }
+    .banner4 p,
+    .banner3 p,
+    .banner2 p,
+    .banner1 p {
+        font-size: 3.5vmin;
+        margin-bottom: 1.2rem;
+    }
+    .banner3 .left-content{
+        padding: 0rem;
+    }
+    .our-products .product-info .carousel-item{
+        padding: 2rem;
+    }
 }
