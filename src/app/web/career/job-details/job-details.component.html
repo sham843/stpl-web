@@ -76,7 +76,7 @@
                             <i class="fa-solid fa-briefcase"></i> {{jobPostGetByIdArray?.experience}}
                         </li>
                         <li class="list-group-item">
-                            <i class="fa-regular fa-clock"></i> {{jobPostGetByIdArray?.jobPostEndDate}}
+                            <i class="fa-regular fa-clock"></i> {{jobPostGetByIdArray?.jobPostEndDate | date: 'dd/MM/yyyy'}}
                         </li>
                         <li class="list-group-item">
                             <i class="fa-solid fa-business-time"></i> {{jobPostGetByIdArray?.joiningPeriod}}
