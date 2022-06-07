@@ -1,254 +1,14 @@
-// #banner,
-// #whychoose,
-// #testimonials,
-// #subscribeus,
-// #services{
-//     padding-block: 3rem;
-// }
-// #banner .small-heading{
-//     background-color:var(--main-light-color);
-//     color: var(--main-color);
-//     width: fit-content;
-//     font-size: 0.85rem;
-//     padding:6px 15px;
-//     border-radius: 5px;
-// }
-// #banner h1{
-//     font-size: 3.4rem;
-//     font-weight: 600;
-//     line-height: 4.55rem;
-//     font-family: 'Fira Sans', sans-serif;
-// }
-// #banner .small-text{
-//     color: #aaa;
-//     margin-block:1rem;
-// }
-// #banner .play-button{
-//     width: 60px;
-//     height: 60px;
-//     line-height: 47px;
-//     font-size: 1.5rem;
-//     border-radius: 50%;
-// }
-// #Bannercarousel,
-// #Bannercarousel .carousel-inner,
-// #Bannercarousel .carousel-item,
-// #Bannercarousel img{
-//     width: 370px !important;
-//     height: 420px;
-//     position: relative;
-// }
-// #Bannercarousel .carousel-control-next,
-// #Bannercarousel .carousel-control-prev{
-//     position:absolute;
-//     width: 60px;
-//     height: 60px;
-//     background-color: var(--blue-color);
-//     opacity: 1;
-//     border: solid 13px #f3f4f6;
-//     padding: 8px;
-// }
-// #Bannercarousel .carousel-control-prev{
-//     bottom: 0 !important;
-//     top:unset !important;
-//     left:-26px;
-// }
-// #Bannercarousel .carousel-control-next{
-//     right:-26px;
-// }
-// .section-heading .section-small-head{
-//     color: var(--blue-color);
-//     margin-bottom: 0.5rem;
-//     font-weight: 600;
-// }
-// .section-heading h3{
-//     font-family: 'Fira Sans', sans-serif;
-//     font-weight: 600;
-//     margin-bottom: 1rem;
-//     line-height: 2.5rem;
-// }
-// #services .card{
-//     border: none;
-//     border-radius: 0;
-//     transition:all 0.6s ease-in-out;
-// }
-// #services .card-body{
-//     padding: 30px;
-// }
-// #services i{
-//     width: 80px;
-//     height: 80px;
-//     margin-bottom: 20px;
-//     text-align: center;
-//     line-height: 80px;
-//     font-size: 1.7rem;
-// }
-// #services h4{
-//     font-size: 1.15rem;
-//     font-family: 'Fira Sans', sans-serif;
-//     font-weight: 600;
-// }
-// #services p{
-//     font-size: 0.85rem;
-//     color: #999;
-//     line-height: 1.4rem;
-//     margin-bottom: 0;
-// }
-// #services .card:hover{
-//     background-color: var(--blue-color);
-//     color: #fff;
-//     transition:all 0.6s ease-in-out;
-// }
-// #services .card:hover i{
-//     background-color: #fff !important;
-//     color: var(--blue-color) !important;
-//     transition:all 0.6s ease-in-out;
-// }
-// #services .card:hover p{
-//     color: #eee;
-//     transition:all 0.6s ease-in-out;
-// }
-// #whychoose .card{
-//     border: none;
-//     border-radius: 0;
-// }
-// #whychoose .card i{
-//     width: 60px;
-//     height: 60px;
-//     text-align: center;
-//     line-height: 60px;
-//     font-size: 1.3rem;
-// }
-// #whychoose .card h5{
-//     font-size: 1.05rem;
-//     font-weight: 500;
-// }
-// #whychoose .card .sub-text{
-//     font-size: 0.85rem;
-//     font-weight: 500;
-//     color: #888;
-// }
-// #whychoose .small-image img{
-//     width: 250px;
-//     position: absolute;
-//     bottom: 7px;
-//     border-top: solid 20px #fff;
-//     border-right: solid 20px #fff;
-// }
-
-// #testimonial{
-//     background: linear-gradient(112deg, #ffffff 50%, #eee 50%);
-//     max-width: 100%;
-//     margin: auto;
-// }
-// #testimonial .carousel-caption {
-//     position: initial;
-//     z-index: 10;
-//     padding: 5rem 8rem;
-//     color: #333;
-//     text-align: center;
-//     font-size: 1rem;
-//     line-height: 2rem;
-// }
-// @media(max-width:767px){
-//     #testimonial .carousel-caption {
-//         position: initial;
-//         z-index: 10;
-//         padding: 3rem 2rem;
-//         color: #333;
-//         text-align: center;
-//         font-size: 0.7rem;
-//         font-style: italic;
-//         font-weight: bold;
-//         line-height: 1.5rem;
-//     }
-// }
-// #testimonial .carousel-caption img{
-//     width: 6rem;
-//     border-radius: 5rem;
-//     margin-top: 2rem;
-// }
-// @media(max-width:767px){
-//     #testimonial .carousel-caption img{
-//         width: 4rem;
-//         border-radius: 4rem;
-//         margin-top: 1rem;
-//     }
-// }
-// #testimonial #image-caption{
-//     font-style: normal;
-//     font-size: 1rem;
-//     margin-top: 0.5rem;
-//     font-weight: 600;
-// }
-// @media(max-width:767px){
-//     #testimonial #image-caption{
-//         font-style: normal;
-//         font-size: 0.6rem;
-//         margin-top: 0.5rem;
-//     }
-// }
-// #testimonial i{
-//     background-color: var(--blue-light-color);
-//     padding: 1.4rem;
-//     color: var(--blue-color);
-//     text-decoration: none;
-// }
-// @media(max-width:767px){
-//     #testimonial i{
-//         padding: 0.8rem;
-//     }
-// }
-// #testimonial .carousel-control-prev{
-//     justify-content: flex-start;
-// }
-
-// #testimonial .carousel-control-next {
-//     justify-content: flex-end;
-// }
-// #testimonial .carousel-control-prev,.carousel-control-next{
-//     transition: none;
-//     opacity: unset;
-//     text-decoration: none;
-// }
-// #subscribeus .card{
-//     background-color: rgba(255,255,255,0.6);
-//     border-radius: 0;
-// }
-// #subscribeus{
-//     background-image:url('../../../assets/images/subscribeus.jpg');
-//     height: 400px;
-//     background-size: cover;
-//     object-fit: cover;
-// }
-// #subscribeus .input-group{
-//     padding: 10px;
-//     border: solid 1px rgba(0,0,0,0.125);
-//     background-color: #fff;
-// }
-// #subscribeus .input-group .form-control{
-//     border: none;
-//     box-shadow: none !important;
-//     padding: 10px;
-//     font-size: 0.9rem;
-// }
-// #subscribeus .input-group .btn{
-//     border: none;
-//     box-shadow: none !important;
-//     border-radius: 0;
-//     font-size: 0.9rem;
-// }
 .cd-section {
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .banner1 {
     background: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.15)), url('../../../assets/images/home-banner.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
     color: #fff;
 }
 
@@ -258,7 +18,6 @@
     background-position: right;
     color: #fff;
     background-size: contain;
-    padding-block: 10rem;
 }
 
 .banner3 {
@@ -275,7 +34,6 @@
     background-position: right;
     color: #fff;
     background-size: contain;
-    padding-block: 10rem;
 }
 
 .banner4 h6,
@@ -293,7 +51,7 @@
 .banner3 h1,
 .banner2 h1,
 .banner1 h1 {
-    font-size: 3.5rem;
+    font-size: 8vmin;
     font-weight: 900;
     margin-bottom: 1.2rem;
     text-transform: uppercase;
@@ -303,7 +61,7 @@
 .banner3 p,
 .banner2 p,
 .banner1 p {
-    font-size: 1rem;
+    font-size: 2.5vmin;
     margin-bottom: 1.2rem;
 }
 
@@ -330,6 +88,7 @@
     background-position: left bottom;
     color: var(--main-color)
 }
+
 .btn-readmore2 {
     color: var(--main-color);
     border: solid 1px var(--main-color);
@@ -371,6 +130,7 @@
         transform: translate(0, -0px);
     }
 }
+
 .clients,
 .aboutus,
 #testimonials,
@@ -411,20 +171,24 @@
     transition: all 0.4s ease;
     opacity: 0;
 }
+
 .our-services .card:hover .overlay {
-    opacity: 1;   
+    opacity: 1;
 }
+
 .FadeEffect {
     height: 0;
     width: 100%;
     bottom: 0px;
     left: 0px;
-    background-color: var(--main-color); 
+    background-color: var(--main-color);
 }
+
 .our-services .card:hover .FadeEffect {
     height: 306px;
     border-top-right-radius: 100px;
 }
+
 .our-services .card h5 {
     font-weight: 500;
     margin-bottom: 1rem;
@@ -449,109 +213,138 @@
 .our-services .purple {
     background-color: #9C69C2;
 }
+
 .our-services .blue {
     background-color: #447CC1;
 }
+
 .our-services .orange {
     background-color: #F16D52;
 }
+
 .our-services .pink {
     background-color: #DB609D;
 }
+
 .our-services .skyblue {
     background-color: #0193B2;
 }
+
 .our-services .gold {
     background-color: #DF9926;
 }
+
 .our-services .cyan {
     background-color: #01B28F;
 }
+
 .our-services .green {
     background-color: #90AB62;
 }
-.our-products{
-    background-color:var(--main-color);
+
+.our-products {
+    background-color: var(--main-color);
     color: #fff;
     padding-block: 4rem;
 }
-.our-products .product-info .carousel-item{
-    padding:6rem 12rem 6rem 6rem;
+
+.our-products .product-info {
+    padding: 6rem 12rem 6rem 6rem;
 }
-.our-products .product-imgs{
-    position:absolute;
-    right: 12rem;
+
+.our-products .product-info h1 {
+    font-weight: 900;
+}
+
+.our-products .product-imgs {
     z-index: 10;
+    right: 10rem;
+    position: relative;
 }
-.our-products .product-imgs .carousel-inner{
-    width: 825px;
+
+.our-products .product-imgs img {
+    width: 132%;
 }
-.our-products .product-info .mining{
+
+.our-products .mining {
     background-color: #DF9926;
 }
-.our-products .product-info .election{
+
+.our-products .election {
     background-color: #22A29B;
 }
-.our-products .product-info .evet{
+
+.our-products .evet {
     background-color: #D55E7B;
 }
+
 .aboutus h4,
-.whyus h4{
+.whyus h4 {
     font-family: 'Fira Sans', sans-serif;
     font-size: 2rem;
     margin-bottom: 1rem;
     font-weight: 900;
 }
-.aboutus p{
+
+.aboutus p {
     font-size: 0.95rem;
     margin-bottom: 1rem;
     line-height: 1.8rem;
 }
-.whyus h4{
+
+.whyus h4 {
     margin-bottom: 4rem;
 }
-.whyus h5{
+
+.whyus h5 {
     font-weight: 600;
     margin-block: 1.5rem;
     font-size: 1.2rem;
 }
-.whyus p{
+
+.whyus p {
     font-size: 0.9rem;
     color: #ddd;
     line-height: 1.6rem;
     margin-bottom: 0;
 }
-.whyus .card{
-    background:transparent;
+
+.whyus .card {
+    background: transparent;
     border: solid 1px #fff;
     text-align: center;
     position: relative;
 }
-.whyus i{
+
+.whyus i {
     position: absolute;
     top: -30px;
-    left:43%;
+    left: 43%;
     font-size: 1.5rem;
-    width:60px;
-    height:60px;
-    line-height:60px;
-    text-align:center;
-    border-radius:50%;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    border-radius: 50%;
     background-color: #fff;
     color: var(--main-color);
 }
-.whyus .card-body{
+
+.whyus .card-body {
     padding: 2rem;
 }
-#testimonial{
+
+#testimonial {
     background: linear-gradient(112deg, #ffffff 50%, #eee 50%);
     max-width: 100%;
     margin: auto;
 }
-#testimonials h3{
+
+#testimonials h3 {
     font-family: 'Fira Sans', sans-serif;
     margin-bottom: 2rem;
 }
+
 #testimonial .carousel-caption {
     position: initial;
     z-index: 10;
@@ -561,7 +354,8 @@
     font-size: 1rem;
     line-height: 2rem;
 }
-@media(max-width:767px){
+
+@media(max-width:767px) {
     #testimonial .carousel-caption {
         position: initial;
         z-index: 10;
@@ -574,126 +368,201 @@
         line-height: 1.5rem;
     }
 }
-#testimonial .carousel-caption img{
+
+#testimonial .carousel-caption img {
     width: 6rem;
     border-radius: 5rem;
     margin-top: 2rem;
 }
-@media(max-width:767px){
-    #testimonial .carousel-caption img{
+
+@media(max-width:767px) {
+    #testimonial .carousel-caption img {
         width: 4rem;
         border-radius: 4rem;
         margin-top: 1rem;
     }
 }
-#testimonial #image-caption{
+
+#testimonial #image-caption {
     font-style: normal;
     font-size: 1rem;
     margin-top: 0.5rem;
     font-weight: 600;
 }
-@media(max-width:767px){
-    #testimonial #image-caption{
+
+@media(max-width:767px) {
+    #testimonial #image-caption {
         font-style: normal;
         font-size: 0.6rem;
         margin-top: 0.5rem;
     }
 }
-#testimonial i{
+
+#testimonial i {
     background-color: var(--blue-light-color);
     padding: 1.4rem;
     color: var(--blue-color);
     text-decoration: none;
 }
-@media(max-width:767px){
-    #testimonial i{
+
+@media(max-width:767px) {
+    #testimonial i {
         padding: 0.8rem;
     }
 }
-#testimonial .carousel-control-prev{
+
+#testimonial .carousel-control-prev {
     justify-content: flex-start;
 }
 
 #testimonial .carousel-control-next {
     justify-content: flex-end;
 }
-#testimonial .carousel-control-prev,.carousel-control-next{
+
+#testimonial .carousel-control-prev,
+.carousel-control-next {
     transition: none;
     opacity: unset;
     text-decoration: none;
 }
-#subscribeus{
+
+#subscribeus {
     padding: 5rem;
     background-color: #33ABD9;
     color: #fff;
 }
-#subscribeus .subscribe-head h1{
+
+#subscribeus .subscribe-head h1 {
     border-bottom: solid 2px #fff;
     padding-bottom: 15px;
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 6vmin;
     margin-bottom: 1rem;
 }
-#subscribeus .subscribe-head img{
+
+#subscribeus .subscribe-head img {
     position: absolute;
     width: 220px;
     top: -160px;
     right: 0;
 }
-#subscribeus .form-control::placeholder{
+
+#subscribeus .form-control::placeholder {
     color: #fff;
 }
+
 #subscribeus .btn,
-#subscribeus .form-control{
+#subscribeus .form-control {
     font-size: 0.85rem;
     border: solid 1px #fff;
-    box-shadow:none;
+    box-shadow: none;
     background-color: transparent;
     border-radius: 0;
-    padding:10px 15px;
+    padding: 10px 15px;
     color: #fff;
 }
-#subscribeus .btn{
+
+#subscribeus .btn {
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 2px;
 }
-#subscribeus .btn:hover{
+
+#subscribeus .btn:hover {
     background-color: #fff;
     color: #33ABD9;
 }
-#HomeBannerCarousel .carousel-control-next, 
-#HomeBannerCarousel .carousel-control-prev{
+
+#HomeBannerCarousel .carousel-control-next,
+#HomeBannerCarousel .carousel-control-prev {
     top: 40%;
-    height: 60px;
-    width: 60px;
-    background-color:rgba(255,255, 255, 0.25);
+    height: 40px;
+    width: 40px;
 }
-.aboutus .accordion-button{
+
+.aboutus .accordion-button {
     box-shadow: none;
 }
-.aboutus .accordion-item{
+
+.aboutus .accordion-item {
     margin-bottom: 10px;
     border-radius: 0;
 }
-.aboutus .accordion-button:not(.collapsed){
+
+.aboutus .accordion-button:not(.collapsed) {
     box-shadow: none;
     background-color: var(--main-color);
     color: #fff;
     border-radius: 0;
 }
-.clients h3{
+
+.clients h3 {
     font-family: 'Fira Sans', sans-serif;
     text-align: center;
     margin-bottom: 2rem;
 }
-.clients .card{
+
+.clients .card {
     background-color: transparent;
-    border:solid 1px #444;
+    border: solid 1px #444;
 }
-.clients .card-body{
+
+.clients .card-body {
     padding: 2rem;
 }
-.clients .card img{
-   height: 50px;
+
+.clients .card img {
+    height: 50px;
+}
+
+
+
+@media(max-width:480px) {
+
+    .banner4,
+    .banner3,
+    .banner2,
+    .banner1 {
+        padding: 2rem;
+    }
+
+    .banner4 p,
+    .banner3 p,
+    .banner2 p,
+    .banner1 p {
+        font-size: 3.5vmin;
+        margin-bottom: 1.2rem;
+    }
+
+    .banner3 .left-content {
+        padding: 0rem;
+    }
+
+    .our-products .product-info {
+        padding: 5rem 2rem;
+        width: 100%;
+    }
+
+    .our-products .product-imgs {
+        width: 100%;
+        z-index: 10;
+        position: relative;
+        bottom: -3rem;
+        right: 0;
+    }
+
+    .our-products .product-imgs img {
+        width: 100%;
+    }
+
+    #subscribeus {
+        padding: 2rem;
+    }
+
+    #subscribeus .subscribe-head img {
+        position: absolute;
+        width: 150px;
+        top: -114px;
+        right: -36px;
+    }
 }

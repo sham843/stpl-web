@@ -25,41 +25,46 @@
 <div class="container py-5">
     <div class="row" id="job-listing">
         <div class="col-sm-12">
-            <div class="card card-body mb-3" *ngFor="let activePost of activeJobPostArray  | paginate: {itemsPerPage: pagesize, 
+            <div class="card card-body mb-3 text-center text-sm-start" *ngFor="let activePost of activeJobPostArray  | paginate: {itemsPerPage: pagesize, 
                 currentPage: pageNumber, totalItems:totalRows}">
-                <div class="d-flex align-items-center">
-                    <div class="job-icon">
-                        <i class="fa-solid fa-briefcase"></i>
+                <div class="row align-items-center">
+                    <div class="col-sm-auto">
+                        <div class="job-icon mb-2 mb-lg-0">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
                     </div>
-                    <div class="flex-grow-1">
-                        <h5 class="job-title">
-                            <a routerLink="../job-details" (click)="navigatePage(activePost?.id)">
-                                {{activePost?.jobTitle}}
-                            </a>
-                        </h5>
-                        <div class="d-flex details">
-                            <div>
+                    <div class="col-sm">
+                        <div class="row mb-2">
+                            <div class="col-sm-12">
+                                <h5 class="job-title">
+                                    <a routerLink="../job-details" (click)="navigatePage(activePost?.id)">
+                                        {{activePost?.jobTitle}}
+                                    </a>
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="row details mb-3 mb-lg-0">
+                            <div class="col-sm-2 col-6">
                                 <i class="fa-solid fa-briefcase"></i> {{activePost?.experience}}
                             </div>
-                            <div class="mx-5">
+                            <div class="col-sm-2 col-6">
                                 <i class="fa-solid fa-location-dot"></i> {{activePost?.jobLocation}}
                             </div>
-                            <div class="me-5">
+                            <div class="col-sm-2 col-6">
                                 <i class="fa-regular fa-clock"></i> {{activePost?.jobPostEndDate | date : 'dd/mm/yyyy'}}
                             </div>
-                            <div>
+                            <div class="col-sm-2 col-6">
                                 <i class="fa-solid fa-business-time"></i> {{activePost?.employmentType}}
                             </div>
                         </div>
                     </div>
-                    <div class="p-2">
+                    <div class="col-sm-auto">
                         <a class="btn btn-main" (click)="navigatePage(activePost?.id)">Apply Now</a>
                     </div>
                 </div>
             </div>
             <div class="mt-2 text-end" *ngIf="activeJobPostArray?.length == 0">
-                <div class="alert alert-danger text-center py-2">No Data Found..!
-                </div>
+                No Vacancies till now.
             </div>
             <ng-container *ngIf="totalRows>10">
                 <pagination-controls previousLabel="" nextLabel="" (pageChange)="onClickPagintion($event)">
