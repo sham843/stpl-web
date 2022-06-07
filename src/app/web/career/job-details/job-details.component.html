@@ -13,7 +13,7 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a routerLink="../../../home">Home</a></li>
                                 <li class="breadcrumb-item"><a routerLink="../../../career">Career</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Job Description</li>
+                                <li class="breadcrumb-item active" aria-current="page">{{jobPostGetByIdArray?.jobTitle}}</li>
                             </ol>
                         </nav>
                     </div>
@@ -25,7 +25,7 @@
 
 <div class="container py-5">
     <div class="row g-2" id="job-details">
-        <div class="col-sm-8">
+        <div class="col-sm-8 order-1 order-lg-0">
             <h4>{{jobPostGetByIdArray?.jobTitle}}</h4>
             <div class="card">
                 <div class="card-header">Job Category</div>
@@ -62,7 +62,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4 order-0 order-lg-1">
             <a class="btn btn-main w-100 mb-2 py-2 rounded-0" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">APPLY NOW</a>
             <div class="card">
