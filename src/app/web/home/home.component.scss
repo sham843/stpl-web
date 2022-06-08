@@ -524,6 +524,7 @@
     .banner2,
     .banner1 {
         padding: 2rem;
+        text-align: center;
     }
 
     .banner4 p,
@@ -532,6 +533,13 @@
     .banner1 p {
         font-size: 3.5vmin;
         margin-bottom: 1.2rem;
+    }
+    .banner4 img,
+    .banner3 img,
+    .banner2 img,
+    .banner1 img {
+        width: 100% !important;
+        margin-bottom: 2rem;
     }
 
     .banner3 .left-content {
@@ -564,5 +572,18 @@
         width: 150px;
         top: -114px;
         right: -36px;
+    }
+    @keyframes floating {
+        0% {
+            transform: translate(0, 0px);
+        }
+    
+        50% {
+            transform: translate(0, 5px);
+        }
+    
+        100% {
+            transform: translate(0, -0px);
+        }
     }
 }
