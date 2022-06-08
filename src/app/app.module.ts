@@ -14,6 +14,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgxSelectModule } from 'ngx-select-ex';
 // import { TooltipModule } from './partial/directive/tooltip.module';
 import { DatePipe } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,8 @@ import { DatePipe } from '@angular/common';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       closeButton: true,

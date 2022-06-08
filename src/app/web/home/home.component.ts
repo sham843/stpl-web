@@ -14,7 +14,7 @@ import { LocalstorageService } from 'src/app/core/services/localstorage.service'
 })
 export class HomeComponent implements OnInit {
 
-  applayUserForm!:FormGroup | any;
+  applaySubscribeForm!:FormGroup | any;
   submitted = false;
   servicesArray:any;
 
@@ -28,24 +28,40 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.defaultForm();
+    this.subScribeForm();
     this.getPageMaster();
   }
 
-  get f() { return this.applayUserForm.controls }
+  getPageMaster() {
+    this.apiService.setHttp('get', "dashboard/GetServices", false, false, false, 'stplUrl');
+    this.apiService.getHttp().subscribe({
+      next: (res: any) => {
+        if (res.statusCode === "200") {
+          this.servicesArray = res.responseData;
+        } else {
+          this.servicesArray = [];
+          this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
+        }
+      },
+      error: ((error: any) => { this.errorSerivce.handelError(error.status) })
+    });
+  }
 
-  defaultForm() {
-    this.applayUserForm = this.fb.group({
+  //..........................................  subScribeForm code Start Here ..........................//
+  get f() { return this.applaySubscribeForm.controls }
+
+  subScribeForm() { 
+    this.applaySubscribeForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[^\\s0-9\\[\\[`&._@#%*!+,|"\-\'\/\\]\\]{}][a-zA-Z]+$')]],
       lastName: ['', [Validators.required, Validators.pattern('^[^\\s0-9\\[\\[`&._@#%*!+,|"\-\'\/\\]\\]{}][a-zA-Z]+$')]],
       emailId: ['',[Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]],
     })
   }
 
-  submitForm() {
-    let formData = this.applayUserForm.value;
+  subScribeSubmitForm() {
+    let formData = this.applaySubscribeForm.value;
     this.submitted = true;
-    if (this.applayUserForm.invalid) {
+    if (this.applaySubscribeForm.invalid) {
       return;
     }else {
       let obj =  {
@@ -64,7 +80,7 @@ export class HomeComponent implements OnInit {
       this.apiService.getHttp().subscribe((res: any) => {
         if (res.statusCode == "200") {
           this.toastrService.success(res.statusMessage);
-          this.defaultForm();
+          this.subScribeForm();
           this.submitted = false;
         } else {
           this.toastrService.error(res.statusMessage);
@@ -75,19 +91,6 @@ export class HomeComponent implements OnInit {
     }
   } 
 
-  getPageMaster() {
-    this.apiService.setHttp('get', "dashboard/GetServices", false, false, false, 'stplUrl');
-    this.apiService.getHttp().subscribe({
-      next: (res: any) => {
-        if (res.statusCode === "200") {
-          this.servicesArray = res.responseData;
-        } else {
-          this.servicesArray = [];
-          this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
-        }
-      },
-      error: ((error: any) => { this.errorSerivce.handelError(error.status) })
-    });
-  }
+    //..........................................  subScribeForm code End Here ..........................//
 
 }
