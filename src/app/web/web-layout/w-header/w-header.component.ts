@@ -17,6 +17,8 @@ export class WHeaderComponent implements OnInit {
   requestDemoForm!:FormGroup | any;
   submitted = false;
   @ViewChild('requestDemoModel') requestDemoModel: any;
+
+  @ViewChild('AutoPopupModal') AutoPopupModal: any;
  
     constructor(
       public commonService:CommonService,
@@ -28,6 +30,7 @@ export class WHeaderComponent implements OnInit {
   
   ngOnInit(): void {
     this.requestForm();
+    this.autoPopModal();
   }
 
     //..........................................  RequestDemo Form code End Here ..........................//
@@ -93,6 +96,12 @@ export class WHeaderComponent implements OnInit {
       } else {
         element.classList.remove('navbar-scroll');
       }  
+    }
+
+    autoPopModal(){
+      setTimeout(() => {
+        this.AutoPopupModal.nativeElement.click();
+      }, 2000);
     }
 
 }
