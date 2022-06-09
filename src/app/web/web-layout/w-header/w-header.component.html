@@ -90,7 +90,7 @@
     </div>
   </nav>  -->
   
-<nav class="navbar navbar-light navbar-light fixed-top" (scroll)="onWindowScroll();">
+<nav class="navbar navbar-light navbar-light fixed-top" (scroll)="onWindowScroll()">
   <div class="container">
     <a class="navbar-brand" href="home">
       <img src="assets/images/STPL_Logo_White.svg" alt="STPL Logo">
@@ -233,6 +233,7 @@
 </div>
 
 <!-- Auto Modal pop-up for lead generation-->
+<button data-bs-toggle="modal" class="requestdemo" #AutoPopupModal data-bs-target="#AutoPopModal"></button>
 <div class="modal fade" id="AutoPopModal" tabindex="-1" aria-labelledby="AutoPopModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content border-0">
