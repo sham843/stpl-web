@@ -29,7 +29,22 @@ const routes: Routes = [
     path: 'page-masters', loadChildren: () => import('../../partial/page-masters/page-masters.module').then(m => m.PageMastersModule),
     data: { breadcrumb: [{ title: 'Page Master', active: true}]}
   },
-  
+  { 
+    path: 'contact-us-leads', loadChildren: () => import('../../partial/lead-generation/contact-us-leads/contact-us-leads.module').then(m => m.ContactUsLeadsModule),
+    data: { breadcrumb: [{ title: 'Contact Us Leads', active: true}]} 
+  },
+  { 
+    path: 'request-demo-leads', loadChildren: () => import('../../partial/lead-generation/request-demo-leads/request-demo-leads.module').then(m => m.RequestDemoLeadsModule),
+    data: { breadcrumb: [{ title: 'Request Demo Leads', active: true}]}
+  },
+  { 
+    path: 'auto-popup-leads', loadChildren: () => import('../../partial/lead-generation/auto-popup-leads/auto-popup-leads.module').then(m => m.AutoPopupLeadsModule),
+    data: { breadcrumb: [{ title: 'Auto Popup Leads', active: true}]}
+  },
+  { 
+    path: 'subscribe-us-leads', loadChildren: () => import('../../partial/lead-generation/subscribe-us-leads/subscribe-us-leads.module').then(m => m.SubscribeUsLeadsModule),
+    data: { breadcrumb: [{ title: 'Subscribe Us Leads', active: true}]}
+  },
   { path: 'access-denied', component: AccessDeniedComponent, data: { title: 'Access Denied' } },
 
 ];
