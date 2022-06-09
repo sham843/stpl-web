@@ -40,17 +40,17 @@
                         </ng-container>
                     </div>
                     <ng-container *ngIf="pageMasterArray?.pageMasters.length > 1">
-                    <button class="carousel-control-prev" type="button" data-bs-target="#ProductsImagescarousel"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#ProductsImagescarousel"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </ng-container>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#ProductsImagescarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#ProductsImagescarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </ng-container>
                 </div>
             </div>
         </div>
@@ -62,9 +62,7 @@
         <div class="col-sm-12">
             <div class="card card-body border-0 rounded-0 p-4 mb-4">
                 <h6 class="fw-bold mb-3">Features</h6>
-                <ul class="list mb-0">
-                    <li [innerHtml]="pageMasterArray?.features"></li>
-                </ul>
+                <div [innerHtml]="pageMasterArray?.features"></div>
             </div>
         </div>
     </div>

@@ -95,6 +95,8 @@ body {
     padding-block: 2rem;
 }
 #main-content .list,
+#main-content ul,
+#main-content ol,
 #main-content p{
     font-size: 0.9rem;
     color: #555;
