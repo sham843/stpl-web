@@ -38,10 +38,6 @@ const routes: Routes = [
     data: { breadcrumb: [{ title: 'Request Demo Leads', active: true}]}
   },
   { 
-    path: 'auto-popup-leads', loadChildren: () => import('../../partial/lead-generation/auto-popup-leads/auto-popup-leads.module').then(m => m.AutoPopupLeadsModule),
-    data: { breadcrumb: [{ title: 'Auto Popup Leads', active: true}]}
-  },
-  { 
     path: 'subscribe-us-leads', loadChildren: () => import('../../partial/lead-generation/subscribe-us-leads/subscribe-us-leads.module').then(m => m.SubscribeUsLeadsModule),
     data: { breadcrumb: [{ title: 'Subscribe Us Leads', active: true}]}
   },
