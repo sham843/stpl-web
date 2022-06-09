@@ -101,7 +101,7 @@ export class WHeaderComponent implements OnInit {
     autoPopModal(){
       setTimeout(() => {
         this.AutoPopupModal.nativeElement.click();
-      }, 2000);
+      }, 50000);
     }
 
 }
