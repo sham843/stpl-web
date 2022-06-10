@@ -13,7 +13,8 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a routerLink="../../../home">Home</a></li>
                                 <li class="breadcrumb-item"><a routerLink="../../../career">Career</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">{{jobPostGetByIdArray?.jobTitle}}</li>
+                                <li class="breadcrumb-item active" aria-current="page">{{jobPostGetByIdArray?.jobTitle}}
+                                </li>
                             </ol>
                         </nav>
                     </div>
@@ -76,7 +77,8 @@
                             <i class="fa-solid fa-briefcase"></i> {{jobPostGetByIdArray?.experience}}
                         </li>
                         <li class="list-group-item">
-                            <i class="fa-regular fa-clock"></i> {{jobPostGetByIdArray?.jobPostEndDate | date: 'dd/MM/yyyy'}}
+                            <i class="fa-regular fa-clock"></i> {{jobPostGetByIdArray?.jobPostEndDate | date:
+                            'dd/MM/yyyy'}}
                         </li>
                         <li class="list-group-item">
                             <i class="fa-solid fa-business-time"></i> {{jobPostGetByIdArray?.joiningPeriod}}
@@ -104,6 +106,9 @@
                             <i class="fa-brands fa-instagram"></i>
                         </button>
                     </div>
+                    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#MessageModal">
+                        Launch demo modal
+                    </button> -->
                 </div>
             </div>
         </div>
@@ -163,8 +168,8 @@
                         </div>
                         <div class="col-sm-6">
                             <input type="tel" class="form-control" placeholder="Contact No" formControlName="contactNo"
-                            maxlength="10" (keypress)="this.commonService.onlyDigitsExcludeZeroAtStart($event)"    
-                            [ngClass]="{ 'is-invalid': submitted && f.contactNo.errors }">
+                                maxlength="10" (keypress)="this.commonService.onlyDigitsExcludeZeroAtStart($event)"
+                                [ngClass]="{ 'is-invalid': submitted && f.contactNo.errors }">
                             <div *ngIf="submitted && f.contactNo.errors" class="invalid-feedback">
                                 <div class="text-danger" *ngIf="f.contactNo.errors?.required">Contact No is
                                     required.</div>
@@ -209,6 +214,39 @@
                         (click)="submitApplayJobForm()">Submit</button>
                 </div>
             </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal to show message -->
+<div class="modal fade" id="MessageModal" tabindex="-1" aria-labelledby="MessageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0">
+            <div class="modal-header bg-success text-white">
+                <p class="modal-title mb-0" id="MessageModalLabel">Success</p>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="swal2-icon swal2-success swal2-animate-success-icon" style="display: flex;">
+                    <div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);"></div>
+                    <span class="swal2-success-line-tip"></span>
+                    <span class="swal2-success-line-long"></span>
+                    <div class="swal2-success-ring"></div>
+                    <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div>
+                    <div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);"></div>
+                </div>
+
+
+                <!-- <div class="swal2-icon swal2-error swal2-animate-error-icon" style="display: flex;"><span
+                        class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span
+                            class="swal2-x-mark-line-right"></span></span></div> -->
+                
+                <div class="text-center">
+                    <h5 class="text-success mb-3">Success</h5>
+                    <button type="button" class="btn btn-main px-5" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
