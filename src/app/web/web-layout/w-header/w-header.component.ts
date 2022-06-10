@@ -11,8 +11,7 @@ import { FormBuilder, Validators } from '@angular/forms';
   templateUrl: './w-header.component.html',
   styleUrls: ['./w-header.component.scss']
 })
-export class WHeaderComponent implements OnInit {
-  @HostListener('window:scroll', ['$event'])
+export class WHeaderComponent implements OnInit {  
 
   requestDemoForm!:FormGroup | any;
   submitted = false;
@@ -88,7 +87,7 @@ export class WHeaderComponent implements OnInit {
     }
 
      //..........................................  RequestDemo Form code End Here ..........................//
-
+     @HostListener('window:scroll', ['$event'])
      onWindowScroll() {
       let element = document.querySelector('.navbar') as HTMLElement;
       if (window.pageYOffset > element.clientHeight) {
