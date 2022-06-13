@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { SubscribeUsLeadsRoutingModule } from './subscribe-us-leads-routing.module';
 import { SubscribeUsLeadsComponent } from './subscribe-us-leads.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { SubscribeUsLeadsComponent } from './subscribe-us-leads.component';
   ],
   imports: [
     CommonModule,
-    SubscribeUsLeadsRoutingModule
+    SubscribeUsLeadsRoutingModule,
+    NgxPaginationModule,
   ]
 })
 export class SubscribeUsLeadsModule { }

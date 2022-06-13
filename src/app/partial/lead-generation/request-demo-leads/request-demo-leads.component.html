@@ -2,7 +2,7 @@
     <div class="card-header">
         <div class="row justify-content-between align-items-center">
             <div class="col-sm-6">Request Demo</div>
-            <div class="col-sm-6 form-container text-end">
+            <!-- <div class="col-sm-6 form-container text-end">
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="All">
                     <label class="form-check-label" for="inlineRadio1">All</label>
@@ -15,6 +15,12 @@
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Connect With Us Leads">
                     <label class="form-check-label" for="inlineRadio2">Connect With Us Leads</label>
                   </div>
+            </div> -->
+            <div class="col-sm-3">
+                <ngx-select [allowClear]="true" [items]="leadTypeArray" (remove)="clearFilter()"
+                    (select)="pageNumber = 1;getAllRequestDemo()" [formControl]="leadType"
+                    placeholder="Select LeadType" optionValueField="id" optionTextField="name">
+                </ngx-select>
             </div>
         </div>
     </div>
@@ -33,31 +39,28 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>12-02-2021</td>
-                    <td>Anil Kumbale</td>
-                    <td>anil.kumbale@gmail.com</td>
-                    <td>ABC Pvt. Ltd.</td>
-                    <td>9876543210</td>
+                <tr *ngFor="let requestDemo of requestDemoArray | paginate: {itemsPerPage: pagesize, 
+                    currentPage: pageNumber, totalItems:totalRows}; let i = index ">
+                    <td>{{((pageNumber + 1) * 10 + i + 1)-20}}</td>
+                    <td>{{requestDemo?.createdDateFormatdate | date: 'dd/MM/yyyy h:mm a'}}</td>
+                    <td>{{requestDemo?.fullName}}</td>
+                    <td>{{requestDemo?.emailId}}</td>
+                    <td>{{requestDemo?.companyName}}</td>
+                    <td>{{requestDemo?.phoneNo}}</td>
                     <td>
-                        <span class="badge py-2 px-3 rounded-pill text-success bg-success bg-opacity-10">Request a Demo</span>
+                        <span *ngIf="requestDemo?.isRequest == 1" class="badge py-2 px-3 rounded-pill text-success bg-success bg-opacity-10">Request a Demo</span>
+                        <span *ngIf="requestDemo?.isRequest == 2" class="badge py-2 px-3 rounded-pill text-primary bg-primary bg-opacity-10">Connect With Us</span>
                     </td>
-                    <td>Please send me quotation for dairy product ASAP.</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>12-02-2021</td>
-                    <td>Anil Kumbale</td>
-                    <td>anil.kumbale@gmail.com</td>
-                    <td>ABC Pvt. Ltd.</td>
-                    <td>9876543210</td>
-                    <td>
-                        <span class="badge py-2 px-3 rounded-pill text-primary bg-primary bg-opacity-10">Connect With Us</span>
-                    </td>
-                    <td>Please send me quotation for dairy product ASAP.</td>
+                    <td class="text-ellipsis-250px" [appTooltip] title="{{requestDemo?.requestDetails}}">{{requestDemo?.requestDetails}}</td>
                 </tr>
             </tbody>
         </table>
+        <div class="mt-2 text-end" *ngIf="requestDemoArray?.length == 0">
+            <div class="alert alert-danger text-center py-2">No Data Found..!
+            </div>
+        </div>
+        <pagination-controls *ngIf="requestDemoArray?.length != 0" previousLabel="" nextLabel=""
+            (pageChange)="onClickPagintion($event)">
+        </pagination-controls>
     </div>
 </div>

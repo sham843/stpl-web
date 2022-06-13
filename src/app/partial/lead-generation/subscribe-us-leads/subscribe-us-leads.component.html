@@ -13,27 +13,35 @@
                 <tr>
                     <th>Sr. No.</th>
                     <th>Subscribed On</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
+                    <th>Full Name</th>
+                    <!-- <th>Last Name</th> -->
                     <th>Email ID</th>
                     <th>Unsubscribe</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>12-02-2021</td>
-                    <td>Anil</td>
-                    <td>Kumbale</td>
-                    <td>anil.kumbale@gmail.com</td>
+                <tr *ngFor="let subscriber of subscriberArray | paginate: {itemsPerPage: pagesize, 
+                    currentPage: pageNumber, totalItems:totalRows}; let i = index ">
+                    <td>{{((pageNumber + 1) * 10 + i + 1)-20}}</td>
+                    <td>{{subscriber?.createdDateFormatdate | date: 'dd/MM/yyyy h:mm a' }}</td>
+                    <td>{{subscriber?.firstName}} {{subscriber?.lastName}}</td>
+                    <td>{{subscriber?.emailId}}</td>
                     <td>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
-                                checked>
+                            <input class="form-check-input" type="checkbox"
+                                (change)="updateActiveSubScription(subscriber,$event)"
+                                [checked]="subscriber?.isSubscribe == 1" id="flexSwitchCheckDefault">
                         </div>
                     </td>
                 </tr>
             </tbody>
         </table>
+        <div class="mt-2 text-end" *ngIf="subscriberArray?.length == 0">
+            <div class="alert alert-danger text-center py-2">No Data Found..!
+            </div>
+        </div>
+        <pagination-controls *ngIf="subscriberArray?.length != 0" previousLabel="" nextLabel=""
+            (pageChange)="onClickPagintion($event)">
+        </pagination-controls>
     </div>
 </div>

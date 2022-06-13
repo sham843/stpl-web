@@ -32,7 +32,7 @@ export class WHeaderComponent implements OnInit {
     this.autoPopModal();
   }
 
-    //..........................................  RequestDemo Form code End Here ..........................//
+    //..........................................  RequestDemo Form code Start Here ..........................//
 
     get f() { return this.requestDemoForm.controls }
 
@@ -46,7 +46,7 @@ export class WHeaderComponent implements OnInit {
       })
     }
   
-    requestSubmitForm() {
+    requestSubmitForm(flag:any) {
       let formData = this.requestDemoForm.value;
       this.submitted = true;
       if (this.requestDemoForm.invalid) {
@@ -64,13 +64,18 @@ export class WHeaderComponent implements OnInit {
           "companyName": formData.companyName,
           "phoneNo": formData.phoneNo,
           "requestDetails": formData.requestDetails,
+          "isRequest": flag
         }
   
         this.apiService.setHttp('POST', 'RequestDemo', false, JSON.stringify(obj), false, 'stplUrl');
         this.apiService.getHttp().subscribe((res: any) => {
           if (res.statusCode == "200") {
             this.toastrService.success(res.statusMessage);
-            this.requestDemoModel.nativeElement.click();
+            if(flag == 1){
+              this.requestDemoModel.nativeElement.click();
+            }else{
+              this.AutoPopupModal.nativeElement.click();
+            }
            this.clearForm();
           } else {
             this.toastrService.error(res.statusMessage);
@@ -87,6 +92,7 @@ export class WHeaderComponent implements OnInit {
     }
 
      //..........................................  RequestDemo Form code End Here ..........................//
+
      @HostListener('window:scroll', ['$event'])
      onWindowScroll() {
       let element = document.querySelector('.navbar') as HTMLElement;

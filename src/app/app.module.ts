@@ -12,9 +12,9 @@ import { TitleCasePipe } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgxSelectModule } from 'ngx-select-ex';
-// import { TooltipModule } from './partial/directive/tooltip.module';
 import { DatePipe } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TooltipModule } from './core/directive/tooltip.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +30,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    TooltipModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       closeButton: true,

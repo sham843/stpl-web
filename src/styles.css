@@ -251,3 +251,11 @@ tr.active {
 angular-editor{
     font-size: 0.8rem;
 }
+
+.text-ellipsis-250px {
+    white-space: nowrap;
+    width: 250px !important;
+    display: block;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
