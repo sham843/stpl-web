@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NoAuthGuardService } from 'src/app/core/auth/no-auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -17,7 +18,7 @@ const routes: Routes = [
   { path: 'services/:id', loadChildren: () => import('../../web/services/services.module').then(m => m.ServicesModule) },
   { path: 'industries', loadChildren: () => import('../../web/industries/industries.module').then(m => m.IndustriesModule) },
   { path: 'industries/:id', loadChildren: () => import('../../web/industries/industries.module').then(m => m.IndustriesModule) },
-  { path: 'login', loadChildren: () => import('../../web/login/login.module').then(m => m.LoginModule) },
+  { path: 'login', loadChildren: () => import('../../web/login/login.module').then(m => m.LoginModule) , canActivate: [NoAuthGuardService]},
 ];
 
 @NgModule({
