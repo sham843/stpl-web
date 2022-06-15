@@ -259,3 +259,10 @@ angular-editor{
     overflow: hidden !important;
     text-overflow: ellipsis;
 }
+
+.modal-body svg {
+    width: 50px !important;
+    display: block !important;
+    margin: 0px auto !important;
+}
+
