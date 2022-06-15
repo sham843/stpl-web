@@ -16,7 +16,7 @@
                     <label class="form-check-label" for="inlineRadio2">Connect With Us Leads</label>
                   </div>
             </div> -->
-            <div class="col-sm-3">
+            <div class="col-sm-3 form-container">
                 <ngx-select [allowClear]="true" [items]="leadTypeArray" (remove)="clearFilter()"
                     (select)="pageNumber = 1;getAllRequestDemo()" [formControl]="leadType"
                     placeholder="Select LeadType" optionValueField="id" optionTextField="name">
@@ -31,9 +31,8 @@
                     <th>Sr. No.</th>
                     <th>Contacted On</th>
                     <th>Full Name</th>
-                    <th>Email ID</th>
+                    <th>Contact Details</th>
                     <th>Company Name</th>
-                    <th>Contact No.</th>
                     <th>Lead Type</th>
                     <th>Message</th>
                 </tr>
@@ -44,14 +43,16 @@
                     <td>{{((pageNumber + 1) * 10 + i + 1)-20}}</td>
                     <td>{{requestDemo?.createdDateFormatdate | date: 'dd/MM/yyyy h:mm a'}}</td>
                     <td>{{requestDemo?.fullName}}</td>
-                    <td>{{requestDemo?.emailId}}</td>
-                    <td>{{requestDemo?.companyName}}</td>
-                    <td>{{requestDemo?.phoneNo}}</td>
                     <td>
-                        <span *ngIf="requestDemo?.isRequest == 1" class="badge py-2 px-3 rounded-pill text-success bg-success bg-opacity-10">Request a Demo</span>
-                        <span *ngIf="requestDemo?.isRequest == 2" class="badge py-2 px-3 rounded-pill text-primary bg-primary bg-opacity-10">Connect With Us</span>
+                        <p class="mb-1"><i class="fa-regular fa-envelope me-2"></i>{{requestDemo?.emailId}}</p>
+                        <p class="mb-1"><i class="fa-solid fa-phone me-2"></i>{{requestDemo?.phoneNo}}</p>
                     </td>
-                    <td class="text-ellipsis-250px" [appTooltip] title="{{requestDemo?.requestDetails}}">{{requestDemo?.requestDetails}}</td>
+                    <td>{{requestDemo?.companyName}}</td>
+                    <td>
+                        <p *ngIf="requestDemo?.isRequest == 1" class="p-1 text-center rounded-pill text-success bg-success bg-opacity-10 mb-0">Request a Demo</p>
+                        <p *ngIf="requestDemo?.isRequest == 2" class="p-1 text-center rounded-pill text-primary bg-primary bg-opacity-10 mb-0">Connect With Us</p>
+                    </td>
+                    <td [appTooltip] title="{{requestDemo?.requestDetails}}"><span class="text-ellipsis-250px">{{requestDemo?.requestDetails}}</span></td>
                 </tr>
             </tbody>
         </table>
