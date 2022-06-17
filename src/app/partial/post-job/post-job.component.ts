@@ -72,13 +72,13 @@ export class PostJobComponent implements OnInit {
     this.PostJobForm = this.fb.group({
       Id: [0],
       jobTitle: ['', [Validators.required, Validators.maxLength(100), Validators.pattern('^[^\\s0-9\\[\\[`&._@#%*!+"\'\/\\]\\]{}][a-zA-Z-(),.0-9\\s]+$')]],
-      jobDescription: ['', Validators.required],
+      jobDescription: ['', [Validators.required, Validators.pattern('^[^[ ]+|[ ][gm]+$')]],
       jobCategory: ['', Validators.required],
       jobLocation: ['', Validators.required],
       jobPostEndDate: ['', Validators.required],  
       experienceFromYr: ['', Validators.required],
       experienceToYr: ['', Validators.required],
-      role_Responsbility: ['', Validators.required],
+      role_Responsbility: ['', [Validators.required ,Validators.pattern('^[^[ ]+|[ ][gm]+$')]],
       joiningPeriod: ['', Validators.required],
       employmentType: ['', Validators.required],
       qualificationId: [''],
@@ -245,9 +245,12 @@ export class PostJobComponent implements OnInit {
   onSubmit() {
     let formData = this.PostJobForm.value;
     this.submitted = true;
+    if(this.btnText == 'Update New Job' && !this.PostJobForm.controls['jobPostEndDate'].valid){
+      this.toastrService.error('Select Post End Date greater than Today Date');
+    }
     if (this.PostJobForm.invalid) {     
       return;
-    } else if (formData.experienceFromYr > formData.experienceToYr) {
+    } else if (parseInt(formData.experienceFromYr) > parseInt(formData.experienceToYr)) {
       this.toastrService.error('Valid Experience is Required');
     }  else if (this.skillModelArray.length == 0 || this.qualiModelArray.length == 0) {
       this.toastrService.error('Qualification & SkillSet Both Field Is Required');
@@ -286,6 +289,7 @@ export class PostJobComponent implements OnInit {
           this.toastrService.success(res.statusMessage);
           // this.clearForm();
           this.addNewJobModel.nativeElement.click();
+          this.btnText == 'Add New Job' ? this.pageNumber = 1 : '';
           this.getJobPost();
         } else {
           this.toastrService.error(res.statusMessage);
@@ -320,8 +324,8 @@ export class PostJobComponent implements OnInit {
     })
     this.getAllSkillSet();
     this.getAllQualification();
-    this.skillModelArray = obj.skillModels;
-    this.qualiModelArray = obj.qualifications;
+    this.skillModelArray = [...obj.skillModels];
+    this.qualiModelArray = [...obj.qualifications];
   }
 
   deleteConformation(id: any) {

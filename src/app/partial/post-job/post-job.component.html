@@ -252,8 +252,9 @@
                                     </angular-editor>
                                     <div *ngIf="submitted && f.jobDescription.errors" class="invalid-feedback">
                                         <span class="text-danger" *ngIf="f.jobDescription.errors?.required">Job
-                                            Description is
-                                            required.</span>
+                                            Description is required.</span>
+                                        <span class="text-danger" *ngIf="f.jobDescription.errors?.pattern">
+                                            Please Enter Valid Description.</span>
                                     </div>
                                 </div>
                                 <div class="mb-0">
@@ -264,8 +265,9 @@
                                     </angular-editor>
                                     <div *ngIf="submitted && f.role_Responsbility.errors" class="invalid-feedback">
                                         <span class="text-danger" *ngIf="f.role_Responsbility.errors?.required">Roles &
-                                            Responsibilities is
-                                            required.</span>
+                                            Responsibilities is required.</span>
+                                        <span class="text-danger" *ngIf="f.role_Responsbility.errors?.pattern">
+                                            Please Enter Valid Roles & Responsibilities.</span>
                                     </div>
                                 </div>
                             </div>
