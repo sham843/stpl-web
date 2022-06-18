@@ -250,8 +250,10 @@ export class PostJobComponent implements OnInit {
     }
     if (this.PostJobForm.invalid) {     
       return;
-    } else if (parseInt(formData.experienceFromYr) > parseInt(formData.experienceToYr)) {
-      this.toastrService.error('Valid Experience is Required');
+    } else if (parseInt(formData.experienceFromYr) > 50 || parseInt(formData.experienceToYr) > 50) {
+      this.toastrService.error('Select Experience is Less than 50 Years');
+    }else if (parseInt(formData.experienceFromYr) > parseInt(formData.experienceToYr)) {
+      this.toastrService.error('Select From Experience Less than To Experience');
     }  else if (this.skillModelArray.length == 0 || this.qualiModelArray.length == 0) {
       this.toastrService.error('Qualification & SkillSet Both Field Is Required');
     } else {
