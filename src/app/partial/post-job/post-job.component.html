@@ -148,7 +148,7 @@
                                             <input type="text" class="form-control" formControlName="experienceToYr" placeholder="To" 
                                             maxlength="2" (keypress)="this.commonService.onlyDigitsExcludeZeroAtStart($event)"
                                                 [ngClass]="{ 'is-invalid': submitted && f.experienceToYr.errors }">
-                                            <div *ngIf="submitted && f.jobPostEndDate.errors" class="invalid-feedback">
+                                            <div *ngIf="submitted && (f.experienceFromYr.errors || f.experienceToYr.errors)" class="invalid-feedback">
                                                 <span class="text-danger"
                                                     *ngIf="(f.experienceFromYr.errors || f.experienceToYr.errors)?.required">
                                                     Experience is required.</span>
