@@ -82,7 +82,7 @@
                             <label class="form-label">Upload Images</label>
                             <input type="file" multiple="multiple" formControlName="imagePath"
                                 (change)="imageUpload($event)" class="form-control" #fileInput>
-                            <div class="d-flex">
+                            <div class="d-flex flex-wrap">
                                 <div class="uploaded-images"
                                     *ngFor="let pageMasterImg of pageMasterImagArray;let i=index">
                                     <img [src]="pageMasterImg?.imagePath">
