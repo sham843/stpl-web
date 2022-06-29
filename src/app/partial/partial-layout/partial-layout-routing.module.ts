@@ -15,11 +15,11 @@ const routes: Routes = [
 
   {
     path: 'view-applications', loadChildren: () => import('../../partial/job-applications/view-applications/view-applications.module').then(m => m.ViewApplicationsModule),
-    data: { breadcrumb: [{ title: 'Job Application', active: true }, { title: 'View Application', active: true }] }
+    data: { breadcrumb: [{ title: 'View Job Application', active: true }, { title: 'View Application', active: true }] }
   },
   {
     path: 'approved-rejected-applications', loadChildren: () => import('../../partial/job-applications/approved-rejected-applications/approved-rejected-applications.module').then(m => m.ApprovedRejectedApplicationsModule),
-    data: { breadcrumb: [{ title: 'Job Application', active: true }, { title: 'Approved-Rejected', active: true }] }
+    data: { breadcrumb: [{ title: 'Approved/Rejected Applications', active: true }, { title: 'Approved-Rejected', active: true }] }
   },
   {
     path: 'user-profile', loadChildren: () => import('../../partial/user-profile/user-profile.module').then(m => m.UserProfileModule),
@@ -41,6 +41,9 @@ const routes: Routes = [
     path: 'subscribe-us-leads', loadChildren: () => import('../../partial/lead-generation/subscribe-us-leads/subscribe-us-leads.module').then(m => m.SubscribeUsLeadsModule),
     data: { breadcrumb: [{ title: 'Subscribe Us Leads', active: true}]}
   },
+  { path: 'gallery-master', loadChildren: () => import('../../partial/gallery-master/gallery-master.module').then(m => m.GalleryMasterModule),
+  data: { breadcrumb: [{ title: 'Gallery Master', active: true}]}
+},
   { path: 'access-denied', component: AccessDeniedComponent, data: { title: 'Access Denied' } },
 
 ];

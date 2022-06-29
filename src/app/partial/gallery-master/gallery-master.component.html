@@ -1,0 +1,101 @@
+<div class="row g-2">
+    <div class="col-sm-6">
+        <div class="card plain-card">
+            <div class="card-header">
+                Add Gallery Image
+            </div>
+            <div class="card-body">
+                <div class="form-container">
+                    <div class="row mb-3 gx-2">
+                        <div class="col-sm-8">
+                            <label class="form-label">Event Name</label>
+                            <input type="text" class="form-control" placeholder="Event Name" />
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="form-label">Event Date</label>
+                            <input type="date" class="form-control" placeholder="Event Date" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Event Description</label>
+                        <textarea rows="4" class="form-control" placeholder="Event Name"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Upload Images</label>
+                        <input type="file" multiple="multiple" class="form-control">
+                        <div class="d-flex flex-wrap">
+                            <div class="uploaded-images">
+                                <img src="assets/images/user.png">
+                                <button class="btn bg-danger bg-opacity-10 text-danger">
+                                    <i class="fa-regular fa-trash-can"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-light text-main">Cancel</button>
+                        </div>
+                        <div class="col-sm-6 text-end">
+                            <button type="submit" class="btn btn-main">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card plain-card">
+            <div class="card-header">
+                View Gallery Images
+            </div>
+            <div class="card-body">
+                <table class="table dashboard-table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Event Name</th>
+                            <th>Images</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <p class="mb-0 fw-bold">Get Together</p>
+                                <small class="text-muted">12-02-2022</small>
+                            </td>
+                            <td>
+                                <div id="GallerySlideShow" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="assets/images/user.png" class="d-block" alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="assets/images/user.png" class="d-block" alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="assets/images/user.png" class="d-block" alt="...">
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="btn bg-primary bg-opacity-10 text-primary me-2"
+                                    title="Edit Page">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                </button>
+                                <button type="button" class="btn bg-danger bg-opacity-10 text-danger"
+                                    title="Delete Page" data-bs-toggle="modal" data-bs-target="#deleteModel">
+                                    <i class="fa-regular fa-trash-can"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
