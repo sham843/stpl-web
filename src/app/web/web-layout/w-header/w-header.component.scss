@@ -174,7 +174,7 @@
 }
 
 .submenu {
-  left: 0;
+  left: -60%;
   opacity: 0;
   position: absolute;
   transform: translateY(-10%);
@@ -186,7 +186,7 @@
 
 .submenu .menu__item {
   font-family: var(--font-family-primary);
-  font-size: 3vmin;
+  font-size: 4vmin;
   width: 100%;
 }
 

@@ -89,7 +89,7 @@
       </div>
     </div>
   </nav>  -->
-  
+
 <nav class="navbar navbar-light navbar-light fixed-top" (scroll)="onWindowScroll()">
   <div class="container">
     <a class="navbar-brand" href="home">
@@ -115,17 +115,17 @@
           </li>
           <li class="menu__item">
             <a class="menu__link" href="services">Services</a>
-            <!-- <ul class="submenu">
-                    <li class="menu__item">
-                      <a class="menu__link" href="#0">Burger King</a>
-                    </li>
-                    <li class="menu__item">
-                      <a class="menu__link" href="#0">Southwest Airlines</a>
-                    </li>
-                    <li class="menu__item">
-                      <a class="menu__link" href="#0">Levi Strauss</a>
-                    </li>
-                  </ul> -->
+            <ul class="submenu">
+              <li class="menu__item">
+                <a class="menu__link" href="#0">Burger King</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#0">Southwest Airlines</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#0">Levi Strauss</a>
+              </li>
+            </ul>
           </li>
           <li class="menu__item">
             <a class="menu__link" href="projects">Projects</a>
@@ -150,6 +150,12 @@
           <li class="menu__item">
             <a class="menu__link" href="career">Career</a>
           </li>
+          <!-- <li class="menu__item">
+            <a class="menu__link" href="achievements">Achievements</a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" href="csr">CSR</a>
+          </li> -->
           <li class="menu__item">
             <a class="menu__link" href="contact-us">Contact</a>
           </li>
@@ -159,147 +165,155 @@
   </div>
 </nav>
 
-<button data-bs-toggle="modal" class="requestdemo" (click)="clearForm()" data-bs-target="#RequestDemoModal">Request a Demo</button>
+<button data-bs-toggle="modal" class="requestdemo" (click)="clearForm()" data-bs-target="#RequestDemoModal">Request a
+  Demo</button>
 
 <!-- Modal for request a demo -->
 <div class="modal fade" id="RequestDemoModal" tabindex="-1" aria-labelledby="RequestDemoModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content border-0">
       <form [formGroup]="requestDemoForm" (submit)="requestSubmitForm(1)">
-      <div class="modal-header bg-main">
-        <p class="modal-title mb-0" id="RequestDemoModalLabel">Request a Demo</p>
-        <button type="button" class="btn-close" (click)="clearForm()" #requestDemoModel data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="mb-3">
-          <input type="text" class="form-control" placeholder="Full Name *" 
-          formControlName="fullName" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }">
-          <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
-            <div class="text-danger" *ngIf="f.fullName.errors?.required">Full Name is
-              required.</div>
-            <div class="text-danger" *ngIf="f.fullName.errors?.pattern">Please enter
-              Valid Full Name.</div>
-          </div>
+        <div class="modal-header bg-main">
+          <p class="modal-title mb-0" id="RequestDemoModalLabel">Request a Demo</p>
+          <button type="button" class="btn-close" (click)="clearForm()" #requestDemoModel data-bs-dismiss="modal"
+            aria-label="Close"></button>
         </div>
-        <div class="mb-3">
-          <input type="text" class="form-control" placeholder="Email ID *" 
-          formControlName="emailId" [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }">
-          <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
-            <div class="text-danger" *ngIf="f.emailId.errors?.required">Email ID is
-              required.</div>
-            <div class="text-danger" *ngIf="f.emailId.errors?.pattern">Please enter
-              Valid Email ID.</div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Full Name *" formControlName="fullName"
+              [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }">
+            <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+              <div class="text-danger" *ngIf="f.fullName.errors?.required">Full Name is
+                required.</div>
+              <div class="text-danger" *ngIf="f.fullName.errors?.pattern">Please enter
+                Valid Full Name.</div>
+            </div>
           </div>
-        </div>
-        <div class="mb-3">
-          <input type="text" class="form-control" placeholder="Company Name *"
-          formControlName="companyName" [ngClass]="{ 'is-invalid': submitted && f.companyName.errors }">
-          <div *ngIf="submitted && f.companyName.errors" class="invalid-feedback">
-            <div class="text-danger" *ngIf="f.companyName.errors?.required">Company Name is
-              required.</div>
-            <div class="text-danger" *ngIf="f.companyName.errors?.pattern">Please enter
-              Valid Company Name.</div>
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Email ID *" formControlName="emailId"
+              [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }">
+            <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
+              <div class="text-danger" *ngIf="f.emailId.errors?.required">Email ID is
+                required.</div>
+              <div class="text-danger" *ngIf="f.emailId.errors?.pattern">Please enter
+                Valid Email ID.</div>
+            </div>
           </div>
-        </div>
-        <div class="mb-3">
-          <input type="text" class="form-control" placeholder="Phone Number *" maxlength="10" (keypress)="this.commonService.onlyDigitsExcludeZeroAtStart($event)"    
-          formControlName="phoneNo" [ngClass]="{ 'is-invalid': submitted && f.phoneNo.errors }">
-          <div *ngIf="submitted && f.phoneNo.errors" class="invalid-feedback">
-            <div class="text-danger" *ngIf="f.phoneNo.errors?.required">Phone Number is
-              required.</div>
-            <div class="text-danger" *ngIf="f.phoneNo.errors?.pattern">Please enter
-              Valid Phone Number.</div>
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Company Name *" formControlName="companyName"
+              [ngClass]="{ 'is-invalid': submitted && f.companyName.errors }">
+            <div *ngIf="submitted && f.companyName.errors" class="invalid-feedback">
+              <div class="text-danger" *ngIf="f.companyName.errors?.required">Company Name is
+                required.</div>
+              <div class="text-danger" *ngIf="f.companyName.errors?.pattern">Please enter
+                Valid Company Name.</div>
+            </div>
           </div>
-        </div>
-        <div class="mb-0">
-          <textarea class="form-control" rows="7" placeholder="Send your request here *"
-          formControlName="requestDetails" [ngClass]="{ 'is-invalid': submitted && f.requestDetails.errors }">
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Phone Number *" maxlength="10"
+              (keypress)="this.commonService.onlyDigitsExcludeZeroAtStart($event)" formControlName="phoneNo"
+              [ngClass]="{ 'is-invalid': submitted && f.phoneNo.errors }">
+            <div *ngIf="submitted && f.phoneNo.errors" class="invalid-feedback">
+              <div class="text-danger" *ngIf="f.phoneNo.errors?.required">Phone Number is
+                required.</div>
+              <div class="text-danger" *ngIf="f.phoneNo.errors?.pattern">Please enter
+                Valid Phone Number.</div>
+            </div>
+          </div>
+          <div class="mb-0">
+            <textarea class="form-control" rows="7" placeholder="Send your request here *"
+              formControlName="requestDetails" [ngClass]="{ 'is-invalid': submitted && f.requestDetails.errors }">
         </textarea>
-          <div *ngIf="submitted && f.requestDetails.errors" class="invalid-feedback">
-            <div class="text-danger" *ngIf="f.requestDetails.errors?.required">Request Field is
-              required.</div>
-            <div class="text-danger" *ngIf="f.requestDetails.errors?.pattern">Please enter
-              Valid Request Field.</div>
+            <div *ngIf="submitted && f.requestDetails.errors" class="invalid-feedback">
+              <div class="text-danger" *ngIf="f.requestDetails.errors?.required">Request Field is
+                required.</div>
+              <div class="text-danger" *ngIf="f.requestDetails.errors?.pattern">Please enter
+                Valid Request Field.</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="modal-footer d-flex justify-content-between">
-        <button type="button" class="btn bg-secondary bg-opacity-25 btn-sm rounded-0 px-3 py-2" (click)="clearForm()">Clear</button>
-        <button type="submit" class="btn btn-main btn-sm rounded-0 px-3 py-2">Submit</button>
-      </div>
-    </form>
+        <div class="modal-footer d-flex justify-content-between">
+          <button type="button" class="btn bg-secondary bg-opacity-25 btn-sm rounded-0 px-3 py-2"
+            (click)="clearForm()">Clear</button>
+          <button type="submit" class="btn btn-main btn-sm rounded-0 px-3 py-2">Submit</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
 
 <!-- Auto Modal pop-up for lead generation-->
-<button data-bs-toggle="modal" class="requestdemo" #AutoPopupModal (click)="clearForm()" data-bs-target="#AutoPopModal"></button>
+<button data-bs-toggle="modal" class="requestdemo" #AutoPopupModal (click)="clearForm()"
+  data-bs-target="#AutoPopModal"></button>
 <div class="modal fade" id="AutoPopModal" tabindex="-1" aria-labelledby="AutoPopModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content border-0">
       <form [formGroup]="requestDemoForm" (submit)="requestSubmitForm(2)">
-      <div class="modal-header bg-main">
-        <p class="modal-title mb-0" id="AutoPopModalLabel">Connect With Us</p>
-        <button type="button" class="btn-close" (click)="clearForm()" #AutoPopupModal data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="mb-3">
-          <input type="text" class="form-control" placeholder="Full Name *" 
-          formControlName="fullName" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }">
-          <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
-            <div class="text-danger" *ngIf="f.fullName.errors?.required">Full Name is
-              required.</div>
-            <div class="text-danger" *ngIf="f.fullName.errors?.pattern">Please enter
-              Valid Full Name.</div>
-          </div>
+        <div class="modal-header bg-main">
+          <p class="modal-title mb-0" id="AutoPopModalLabel">Connect With Us</p>
+          <button type="button" class="btn-close" (click)="clearForm()" #AutoPopupModal data-bs-dismiss="modal"
+            aria-label="Close"></button>
         </div>
-        <div class="mb-3">
-          <input type="text" class="form-control" placeholder="Email ID *" 
-          formControlName="emailId" [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }">
-          <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
-            <div class="text-danger" *ngIf="f.emailId.errors?.required">Email ID is
-              required.</div>
-            <div class="text-danger" *ngIf="f.emailId.errors?.pattern">Please enter
-              Valid Email ID.</div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Full Name *" formControlName="fullName"
+              [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }">
+            <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+              <div class="text-danger" *ngIf="f.fullName.errors?.required">Full Name is
+                required.</div>
+              <div class="text-danger" *ngIf="f.fullName.errors?.pattern">Please enter
+                Valid Full Name.</div>
+            </div>
           </div>
-        </div>
-        <div class="mb-3">
-          <input type="text" class="form-control" placeholder="Company Name *"
-          formControlName="companyName" [ngClass]="{ 'is-invalid': submitted && f.companyName.errors }">
-          <div *ngIf="submitted && f.companyName.errors" class="invalid-feedback">
-            <div class="text-danger" *ngIf="f.companyName.errors?.required">Company Name is
-              required.</div>
-            <div class="text-danger" *ngIf="f.companyName.errors?.pattern">Please enter
-              Valid Company Name.</div>
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Email ID *" formControlName="emailId"
+              [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }">
+            <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
+              <div class="text-danger" *ngIf="f.emailId.errors?.required">Email ID is
+                required.</div>
+              <div class="text-danger" *ngIf="f.emailId.errors?.pattern">Please enter
+                Valid Email ID.</div>
+            </div>
           </div>
-        </div>
-        <div class="mb-3">
-          <input type="text" class="form-control" placeholder="Phone Number *" maxlength="10" (keypress)="this.commonService.onlyDigitsExcludeZeroAtStart($event)"    
-          formControlName="phoneNo" [ngClass]="{ 'is-invalid': submitted && f.phoneNo.errors }">
-          <div *ngIf="submitted && f.phoneNo.errors" class="invalid-feedback">
-            <div class="text-danger" *ngIf="f.phoneNo.errors?.required">Phone Number is
-              required.</div>
-            <div class="text-danger" *ngIf="f.phoneNo.errors?.pattern">Please enter
-              Valid Phone Number.</div>
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Company Name *" formControlName="companyName"
+              [ngClass]="{ 'is-invalid': submitted && f.companyName.errors }">
+            <div *ngIf="submitted && f.companyName.errors" class="invalid-feedback">
+              <div class="text-danger" *ngIf="f.companyName.errors?.required">Company Name is
+                required.</div>
+              <div class="text-danger" *ngIf="f.companyName.errors?.pattern">Please enter
+                Valid Company Name.</div>
+            </div>
           </div>
-        </div>
-        <div class="mb-0">
-          <textarea class="form-control" rows="7" placeholder="What do you want to see?"
-          formControlName="requestDetails" [ngClass]="{ 'is-invalid': submitted && f.requestDetails.errors }">
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Phone Number *" maxlength="10"
+              (keypress)="this.commonService.onlyDigitsExcludeZeroAtStart($event)" formControlName="phoneNo"
+              [ngClass]="{ 'is-invalid': submitted && f.phoneNo.errors }">
+            <div *ngIf="submitted && f.phoneNo.errors" class="invalid-feedback">
+              <div class="text-danger" *ngIf="f.phoneNo.errors?.required">Phone Number is
+                required.</div>
+              <div class="text-danger" *ngIf="f.phoneNo.errors?.pattern">Please enter
+                Valid Phone Number.</div>
+            </div>
+          </div>
+          <div class="mb-0">
+            <textarea class="form-control" rows="7" placeholder="What do you want to see?"
+              formControlName="requestDetails" [ngClass]="{ 'is-invalid': submitted && f.requestDetails.errors }">
         </textarea>
-          <div *ngIf="submitted && f.requestDetails.errors" class="invalid-feedback">
-            <div class="text-danger" *ngIf="f.requestDetails.errors?.required">Field is
-              required.</div>
-            <div class="text-danger" *ngIf="f.requestDetails.errors?.pattern">Please enter
-              Valid Field.</div>
+            <div *ngIf="submitted && f.requestDetails.errors" class="invalid-feedback">
+              <div class="text-danger" *ngIf="f.requestDetails.errors?.required">Field is
+                required.</div>
+              <div class="text-danger" *ngIf="f.requestDetails.errors?.pattern">Please enter
+                Valid Field.</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="modal-footer d-flex justify-content-between">
-        <button type="button" class="btn bg-secondary bg-opacity-25 btn-sm rounded-0 px-3 py-2" (click)="clearForm()">Clear</button>
-        <button type="submit" class="btn btn-main btn-sm rounded-0 px-3 py-2">Submit</button>
-      </div>
-    </form>
+        <div class="modal-footer d-flex justify-content-between">
+          <button type="button" class="btn bg-secondary bg-opacity-25 btn-sm rounded-0 px-3 py-2"
+            (click)="clearForm()">Clear</button>
+          <button type="submit" class="btn btn-main btn-sm rounded-0 px-3 py-2">Submit</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
