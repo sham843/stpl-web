@@ -17,6 +17,9 @@ const routes: Routes = [
   { path: 'services', loadChildren: () => import('../../web/services/services.module').then(m => m.ServicesModule) },
   { path: 'services/:id', loadChildren: () => import('../../web/services/services.module').then(m => m.ServicesModule) },
   { path: 'industries', loadChildren: () => import('../../web/industries/industries.module').then(m => m.IndustriesModule) },
+  { path: 'industry-details', loadChildren: () => import('../../web/industries/industry-details/industry-details.module').then(m => m.IndustryDetailsModule) },
+  { path: 'service-details', loadChildren: () => import('../../web/services/service-details/service-details.module').then(m => m.ServiceDetailsModule) },
+  
   { path: 'industries/:id', loadChildren: () => import('../../web/industries/industries.module').then(m => m.IndustriesModule) },
   { path: 'login', loadChildren: () => import('../../web/login/login.module').then(m => m.LoginModule) , canActivate: [NoAuthGuardService]},
 ];
