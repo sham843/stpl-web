@@ -41,8 +41,8 @@ export class GalleryMasterComponent implements OnInit {
     private localStorage: LocalstorageService,
     private fileUploadService: FileUploadService,
     public dateTimeAdapter: DateTimeAdapter<any>) {
-      { dateTimeAdapter.setLocale('en-IN'); }
-    }
+    { dateTimeAdapter.setLocale('en-IN'); }
+  }
 
   ngOnInit() {
     this.defaultForm();
@@ -54,7 +54,7 @@ export class GalleryMasterComponent implements OnInit {
   defaultForm() {
     this.galleryMasterForm = this.fb.group({
       Id: [0],
-      eventName: ['', [Validators.required, Validators.maxLength(100),Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]],
+      eventName: ['', [Validators.required, Validators.maxLength(100), Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]],
       eventDate: ['', Validators.required],
       eventDescription: ['', Validators.required],
       imagePath: [''],
@@ -69,7 +69,7 @@ export class GalleryMasterComponent implements OnInit {
     this.HighlightRow = 0;
   }
 
-  getGalleryMaster() { 
+  getGalleryMaster() {
     this.spinner.show();
     let obj = "pageno=" + this.pageNumber + "&pagesize=" + this.pagesize;
     this.apiService.setHttp('get', "GallaryMaster/GetAll?" + obj, false, false, false, 'stplUrl');
@@ -185,7 +185,7 @@ export class GalleryMasterComponent implements OnInit {
       next: (ele: any) => {
         documentUrlUploaed = ele.responseData;
         if (documentUrlUploaed != null) {
-          let obj = 
+          let obj =
           {
             "eventId": 0,
             "imagePath": documentUrlUploaed,
