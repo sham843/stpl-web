@@ -27,3 +27,7 @@
     color: #fff;
     border-left: solid 5px var(--main-color);
 }
+.shortInfo p:hover {
+    color: var(--main-color)!important;
+    transition: .3s;
+}
