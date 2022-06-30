@@ -5,6 +5,7 @@ import { ApiService } from 'src/app/core/services/api.service';
 import { CommonService } from 'src/app/core/services/common.service';
 import { ErrorsService } from 'src/app/core/services/errors.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-w-header',
@@ -25,6 +26,7 @@ export class WHeaderComponent implements OnInit {
       private toastrService: ToastrService,
       private errorSerivce: ErrorsService,
       private fb: FormBuilder,
+      private router: Router
     ) { }
   
   ngOnInit(): void {
@@ -105,7 +107,7 @@ export class WHeaderComponent implements OnInit {
 
     autoPopModal(){
       setTimeout(() => {
-        this.AutoPopupModal.nativeElement.click();
+        this.router.url == '/home' ? this.AutoPopupModal.nativeElement.click() : '';
       }, 50000);
     }
 
