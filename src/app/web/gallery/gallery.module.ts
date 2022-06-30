@@ -3,15 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { GalleryRoutingModule } from './gallery-routing.module';
 import { GalleryComponent } from './gallery.component';
-
-
+import { LightgalleryModule } from 'lightgallery/angular';
+import lgThumbnail from 'lightgallery/plugins/thumbnail'
+import lgZoom from 'lightgallery/plugins/zoom'
 @NgModule({
   declarations: [
     GalleryComponent
   ],
   imports: [
     CommonModule,
-    GalleryRoutingModule
+    GalleryRoutingModule,
+    LightgalleryModule
   ]
 })
 export class GalleryModule { }

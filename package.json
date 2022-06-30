@@ -19,6 +19,7 @@
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
     "@kolkov/angular-editor": "^2.0.0",
+    "lightgallery": "^2.5.0",
     "ng-pick-datetime": "^5.2.6",
     "ng2-search-filter": "^0.5.1",
     "ngx-file-drag-drop": "^5.1.3",
