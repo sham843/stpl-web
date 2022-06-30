@@ -30,6 +30,8 @@ const routes: Routes = [
   { path: 'gallery', loadChildren: () => import('../../web/gallery/gallery.module').then(m => m.GalleryModule) },
   // { path: 'industries/:id', loadChildren: () => import('../../web/industries/industries.module').then(m => m.IndustriesModule) },
   { path: 'login', loadChildren: () => import('../../web/login/login.module').then(m => m.LoginModule) , canActivate: [NoAuthGuardService]},
+  { path: 'sitemap', loadChildren: () => import('../../web/sitemap/sitemap.module').then(m => m.SitemapModule) },
+  { path: 'privacy-policy', loadChildren: () => import('../../web/privacy-policy/privacy-policy.module').then(m => m.PrivacyPolicyModule) },
 ];
 
 @NgModule({
