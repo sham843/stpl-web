@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./w-header.component.scss']
 })
 export class WHeaderComponent implements OnInit {  
-
+  openoverlay:any;
   requestDemoForm!:FormGroup | any;
   submitted = false;
   @ViewChild('requestDemoModel') requestDemoModel: any;
@@ -33,7 +33,12 @@ export class WHeaderComponent implements OnInit {
     this.requestForm();
     this.autoPopModal();
   }
-
+  openNav() {
+    this.openoverlay = "100%"
+  }
+  closeNav() {
+    this.openoverlay = "0%"
+  }
     //..........................................  RequestDemo Form code Start Here ..........................//
 
     get f() { return this.requestDemoForm.controls }

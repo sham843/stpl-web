@@ -1,95 +1,3 @@
-<!-- <nav class="navbar navbar-expand-lg navbar-dark fixed-top" (scroll)="onWindowScroll();">
-    <div class="container">
-      <a class="navbar-brand border-end pe-3 border-2 border-dark" routerLink="home">
-          <img src="assets/images/STPL_Logo_White.svg" alt="STPL Logo">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <span class="navbar-text small text-white">
-        ISO 9001 Certified Company
-      </span>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="IndustriesnavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Industries
-            </a>
-            <ul class="dropdown-menu animate__animated animate__pulse shadow" aria-labelledby="IndustriesnavbarDropdown">
-              <li><a class="dropdown-item" routerLink="industries">Defence</a></li>
-              <li><a class="dropdown-item" routerLink="industries">Mining</a></li>
-              <li><a class="dropdown-item" routerLink="industries">Farm & Dairy</a></li>
-              <li><a class="dropdown-item" routerLink="industries">Agriculture</a></li>
-              <li><a class="dropdown-item" routerLink="industries">Healthcare</a></li>
-              <li><a class="dropdown-item" routerLink="industries">Education</a></li>
-              <li><a class="dropdown-item" routerLink="industries">Election & Voting</a></li>
-              <li><a class="dropdown-item" routerLink="industries">Logistics & Transport</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="ServicesnavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Services
-            </a>
-            <ul class="dropdown-menu animate__animated animate__pulse shadow" aria-labelledby="ServicesnavbarDropdown">
-              <li><a class="dropdown-item" routerLink="services">IOT</a></li>
-              <li><a class="dropdown-item" routerLink="services">Automation & AI</a></li>
-              <li><a class="dropdown-item" routerLink="services">IT Consulting</a></li>
-              <li><a class="dropdown-item" routerLink="services">Product Testing</a></li>
-              <li><a class="dropdown-item" routerLink="services">Software Development</a></li>
-              <li><a class="dropdown-item" routerLink="services">Mobile App Development</a></li>
-              <li><a class="dropdown-item" routerLink="services">Cloud Infrastructure</a></li>
-              <li><a class="dropdown-item" routerLink="services">Quality Engineering</a></li>
-            </ul>
-          </li>
-          
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="ProjectsnavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Projects
-            </a>
-            <ul class="dropdown-menu animate__animated animate__pulse shadow" aria-labelledby="ProjectsnavbarDropdown">
-              <li><a class="dropdown-item" routerLink="projects">Rail Suraksha App</a></li>
-              <li><a class="dropdown-item" routerLink="projects">MEA - A World Of Opportunities</a></li>
-              <li><a class="dropdown-item" routerLink="projects">Chara Chavani Software</a></li>
-              <li><a class="dropdown-item" routerLink="projects">Front Page News Application</a></li>
-              <li><a class="dropdown-item" routerLink="projects">Mahatrack Software</a></li>
-            </ul>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="ProductsnavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Solutions
-            </a>
-            <ul class="dropdown-menu animate__animated animate__pulse shadow" aria-labelledby="ProductsnavbarDropdown">
-              <li><a class="dropdown-item" routerLink="solutions">Mining Monitoring System</a></li>
-              <li><a class="dropdown-item" routerLink="solutions">KIMS (Kote Inventory Management System)</a></li>
-              <li><a class="dropdown-item" routerLink="solutions">Dairy Management ERP System</a></li>
-              <li><a class="dropdown-item" routerLink="solutions">eVet Veterinary Services</a></li>
-              <li><a class="dropdown-item" routerLink="solutions">Election Management System</a></li>
-              <li><a class="dropdown-item" routerLink="solutions">School Management System</a></li>
-              <li><a class="dropdown-item" routerLink="solutions">Learning Management System</a></li>
-              <li><a class="dropdown-item" routerLink="solutions">Video Conference Platform</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="DiscovernavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Discover Shaurya
-            </a>
-            <ul class="dropdown-menu animate__animated animate__pulse shadow" aria-labelledby="DiscovernavbarDropdown">
-              <li><a class="dropdown-item" routerLink="discover-us">About Us</a></li>
-              <li><a class="dropdown-item" routerLink="#">Blogs</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="career">Career</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="contact-us">Contact Us</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>  -->
-
 <nav class="navbar navbar-light navbar-light fixed-top" (scroll)="onWindowScroll()">
   <div class="container">
     <a class="navbar-brand" href="home">
@@ -101,111 +9,74 @@
         <option value="mr">Marathi</option>
         <option value="hn">Hindi</option>
       </select>
-      <input type="checkbox" id="main-navigation-toggle" class="btn btn--close" title="Toggle main navigation" />
-      <label for="main-navigation-toggle">
-        <span></span>
-      </label>
-      <nav id="main-navigation" class="nav-main">
-        <ul class="menu">
-          <li class="menu__item">
-            <a class="menu__link" href="home">Home</a>
-          </li>
-          <li class="menu__item">
-            <a class="menu__link" href="industries">Industries</a>
-            <ul class="submenu">
-              <li class="menu__item">
-                <a class="menu__link" href="industries/defence">Defence</a>
-              </li>
-              <li class="menu__item">
-                <a class="menu__link" href="industries/dairy">Dairy</a>
-              </li>
-              <li class="menu__item">
-                <a class="menu__link" href="industries/election">Election</a>
-              </li>
-              <li class="menu__item">
-                <a class="menu__link" href="industries/mining">Mining</a>
-              </li>
-              <li class="menu__item">
-                <a class="menu__link" href="industries/vehicle-tracking">Vehicle Tracking</a>
-              </li>
-              <li class="menu__item">
-                <a class="menu__link" href="industries/livestock">Livestock</a>
-              </li>
-            </ul>
-          </li>
-          <!-- <li class="menu__item">
-            <a class="menu__link" href="services">Services</a>
-            <ul class="submenu">
-              <li class="menu__item">
-                <a class="menu__link" href="#0">Burger King</a>
-              </li>
-              <li class="menu__item">
-                <a class="menu__link" href="#0">Southwest Airlines</a>
-              </li>
-              <li class="menu__item">
-                <a class="menu__link" href="#0">Levi Strauss</a>
-              </li>
-            </ul>
-          </li> -->
-          <li class="menu__item">
-            <a class="menu__link" href="projects">Projects</a>
-            <!-- <ul class="submenu">
-                    <li class="menu__item">
-                      <a class="menu__link" href="#0">Print Design</a>
-                    </li>
-                    <li class="menu__item">
-                      <a class="menu__link" href="#0">Web Design</a>
-                    </li>
-                    <li class="menu__item">
-                      <a class="menu__link" href="#0">Mobile App Development</a>
-                    </li>
-                  </ul> -->
-          </li>
-          <li class="menu__item">
-            <a class="menu__link" href="solutions">Solutions</a>
-            
-            <ul class="submenu">
-              <li class="menu__item">
-                <a class="menu__link" href="solutions/amcu">Automatic Milk Collection Unit</a>
-              </li>
-              <li class="menu__item">
-                <a class="menu__link" href="solutions/kims">Kote Inventory Management System</a>
-              </li>
-              <li class="menu__item">
-                <a class="menu__link" href="solutions/election-mgmt-system">Election Management Software</a>
-              </li>
-              <li class="menu__item">
-                <a class="menu__link" href="solutions/mahamining-system">Mahamining Software</a>
-              </li>
-              <li class="menu__item">
-                <a class="menu__link" href="solutions/dairy-vet-software">DairyVet Software</a>
-              </li>
-            </ul>
-          </li>
-          <li class="menu__item">
-            <a class="menu__link" href="discover-us">Discover Us</a>
-          </li>
-          <li class="menu__item">
-            <a class="menu__link" href="gallery">Gallery</a>
-          </li>
-          <li class="menu__item">
-            <a class="menu__link" href="career">Career</a>
-          </li>
-          <!-- <li class="menu__item">
-            <a class="menu__link" href="achievements">Achievements</a>
-          </li>
-          <li class="menu__item">
-            <a class="menu__link" href="csr">CSR</a>
-          </li> -->
-          <li class="menu__item">
-            <a class="menu__link" href="contact-us">Contact</a>
-          </li>
-        </ul>
-      </nav>
+      
+      <button (click)="openNav()" class="btn btn-light">
+        <i class="fa-solid fa-bars"></i>
+      </button>
     </div>
   </div>
 </nav>
-
+<div id="myNav" class="overlay" [ngStyle]="{'width': openoverlay}">
+  <button class="closebtn" (click)="closeNav()">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+  <div class="overlay-content">
+    <a href="#">Home</a>
+    <a data-bs-toggle="collapse" href="#Industries" role="button" aria-expanded="false" aria-controls="collapseExample">
+      Industries
+    </a>
+    <div class="collapse" id="Industries">
+      <div class="submenu">
+        <div class="row">
+          <div class="col-sm">
+            <a href="#">Defence</a>
+          </div>
+          <div class="col-sm">
+            <a href="#">Dairy</a>
+          </div>
+          <div class="col-sm">
+            <a href="#">Election</a>
+          </div>
+          <div class="col-sm">
+            <a href="#">Vehicle Tracking</a>
+          </div>
+          <div class="col-sm">
+            <a href="#">Livestock</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="#">Projects</a>
+    <a data-bs-toggle="collapse" href="#solutions" role="button" aria-expanded="false" aria-controls="collapseExample">
+      Solutions
+    </a>
+    <div class="collapse" id="solutions">
+      <div class="submenu">
+        <div class="row">
+          <div class="col-sm">
+            <a href="solutions/mahamining-system">Mahamining System</a>
+          </div>
+          <div class="col-sm">
+            <a href="solutions/election-management-system">Election Management System</a>
+          </div>
+          <div class="col-sm">
+            <a href="solutions/election-management-system">Kote Inventory System</a>
+          </div>
+          <div class="col-sm">
+            <a href="solutions/automatic-milk-collection-unit">Automatic Milk Collection Unit</a>
+          </div>
+          <div class="col-sm">
+            <a href="solutions/dairy-vet-software">Dairy Vet System</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="#">Discover Us</a>
+    <a href="#">Gallery</a>
+    <a href="#">Career</a>
+    <a href="#">Contact Us</a>
+  </div>
+</div>
 <button data-bs-toggle="modal" class="requestdemo" (click)="clearForm()" data-bs-target="#RequestDemoModal">Request a
   Demo</button>
 
