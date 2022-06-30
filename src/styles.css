@@ -288,3 +288,28 @@ angular-editor{
     height: 28px;
     line-height: 28px;
 }
+
+.btn-readmore:hover {
+    background-position: left bottom;
+    color: var(--main-color)
+}
+
+.btn-readmore2 {
+    color: var(--main-color);
+    border: solid 1px var(--main-color);
+    background-color: transparent;
+    background: linear-gradient(to left, transparent 50%, var(--main-color) 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all 1s ease;
+    padding: 15px 35px;
+    border-radius: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px
+}
+
+.btn-readmore2:hover {
+    background-position: left bottom;
+    color: #fff;
+}
