@@ -42,7 +42,8 @@ export class WHeaderComponent implements OnInit {
       this.requestDemoForm = this.fb.group({
         fullName: ['', [Validators.required,Validators.pattern('^[^\\s0-9\\[\\[`&._@#%*!+"\'\/\\]\\]{}][a-zA-Z.\\s]+$')]],
         emailId: ['',[Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]],
-        companyName: ['', [Validators.required,Validators.pattern('^[^\\s0-9\\[\\[`&._@#%*!+"\'\/\\]\\]{}][a-zA-Z.\\s]+$')]],
+        // companyName: ['', [Validators.required,Validators.pattern('^[^\\s0-9\\[\\[`&._@#%*!+"\'\/\\]\\]{}][a-zA-Z.\\s]+$')]],
+        companyName: [''],
         phoneNo: ['', [Validators.required, Validators.pattern('[6-9]\\d{9}')]],
         requestDetails: ['',[Validators.required,Validators.pattern('^[^[ ]+|[ ][gm]+$')]],
       })
