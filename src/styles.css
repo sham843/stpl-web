@@ -1,5 +1,8 @@
 @import '~ngx-toastr/toastr';
 @import "~ng-pick-datetime/assets/style/picker.min.css";
+/* @import '~lightgallery/scss/lightgallery'; */
+@import '~lightgallery/css/lightgallery';
+/* @import '~lightgallery.js/dist/css/lightgallery.min.css'; */
 
 body {
     font-family: 'Inter', sans-serif;
