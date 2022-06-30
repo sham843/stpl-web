@@ -299,14 +299,13 @@
             </div>
           </div>
           <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Company Name *" formControlName="companyName"
-              [ngClass]="{ 'is-invalid': submitted && f.companyName.errors }">
-            <div *ngIf="submitted && f.companyName.errors" class="invalid-feedback">
+            <input type="text" class="form-control" placeholder="Company Name" formControlName="companyName">
+            <!-- <div *ngIf="submitted && f.companyName.errors" class="invalid-feedback">
               <div class="text-danger" *ngIf="f.companyName.errors?.required">Company Name is
                 required.</div>
               <div class="text-danger" *ngIf="f.companyName.errors?.pattern">Please enter
                 Valid Company Name.</div>
-            </div>
+            </div> -->
           </div>
           <div class="mb-3">
             <input type="text" class="form-control" placeholder="Phone Number *" maxlength="10"
