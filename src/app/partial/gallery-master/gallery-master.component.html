@@ -7,72 +7,76 @@
             <div class="card-body">
                 <div class="form-container">
                     <form [formGroup]="galleryMasterForm">
-                    <div class="row mb-3 gx-2">
-                        <div class="col-sm-8">
-                            <label class="form-label">Event Name</label>
-                            <input type="text" class="form-control" placeholder="Event Name" 
-                            formControlName="eventName" [ngClass]="{ 'is-invalid': submitted && f.eventName.errors }">
-                        <div *ngIf="submitted && f.eventName.errors" class="invalid-feedback">
-                            <div class="text-danger" *ngIf="f.eventName.errors?.required">Event Name is
-                                required.</div>
-                            <div class="text-danger" *ngIf="f.eventName.errors?.pattern">Please enter
-                                Valid Event Name.</div>
-                        </div>
-                        </div>
-
-                        <div class="col-sm-4">
-                            <label class="form-label">Event Date</label>
-                            <div class="input-group">
-                                <input class="form-control form-control-sm" [owlDateTimeTrigger]="dt1" placeholder="Event Date"
-                                    [owlDateTime]="dt1" formControlName="eventDate" [max]="Min"
-                                    [ngClass]="{ 'is-invalid': submitted && f.eventDate.errors }">
-                                <owl-date-time #dt1 [pickerType]="'calendar'"></owl-date-time>
-                                <span class="input-group-text" [owlDateTimeTrigger]="dt1"><i class="fas fa-calendar-alt"></i></span>
-                        
-                                <div *ngIf="submitted && f.eventDate.errors" class="invalid-feedback">
-                                    <div class="text-danger" *ngIf="f.eventDate.errors?.required">Event Date is
+                        <div class="row mb-3 gx-2">
+                            <div class="col-sm-8">
+                                <label class="form-label">Event Name</label>
+                                <input type="text" class="form-control" placeholder="Event Name"
+                                    formControlName="eventName"
+                                    [ngClass]="{ 'is-invalid': submitted && f.eventName.errors }">
+                                <div *ngIf="submitted && f.eventName.errors" class="invalid-feedback">
+                                    <div class="text-danger" *ngIf="f.eventName.errors?.required">Event Name is
                                         required.</div>
+                                    <div class="text-danger" *ngIf="f.eventName.errors?.pattern">Please enter
+                                        Valid Event Name.</div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label class="form-label">Event Date</label>
+                                <div class="input-group">
+                                    <input class="form-control form-control-sm" [owlDateTimeTrigger]="dt1"
+                                        placeholder="Event Date" [owlDateTime]="dt1" formControlName="eventDate"
+                                        [max]="Min" [ngClass]="{ 'is-invalid': submitted && f.eventDate.errors }">
+                                    <owl-date-time #dt1 [pickerType]="'calendar'"></owl-date-time>
+                                    <span class="input-group-text" [owlDateTimeTrigger]="dt1"><i
+                                            class="fas fa-calendar-alt"></i></span>
+
+                                    <div *ngIf="submitted && f.eventDate.errors" class="invalid-feedback">
+                                        <div class="text-danger" *ngIf="f.eventDate.errors?.required">Event Date is
+                                            required.</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Event Description</label>
-                        <textarea rows="4" class="form-control" placeholder="Event Name"
-                        formControlName="eventDescription" [ngClass]="{ 'is-invalid': submitted && f.eventDescription.errors }">
+                        <div class="mb-3">
+                            <label class="form-label">Event Description</label>
+                            <textarea rows="4" class="form-control" placeholder="Event Name"
+                                formControlName="eventDescription"
+                                [ngClass]="{ 'is-invalid': submitted && f.eventDescription.errors }">
                     </textarea>
-                    <div *ngIf="submitted && f.eventDescription.errors" class="invalid-feedback">
-                        <div class="text-danger" *ngIf="f.eventDescription.errors?.required">Event Description is
-                            required.</div>
-                        <div class="text-danger" *ngIf="f.eventDescription.errors?.pattern">Please enter
-                            Valid Event Description.</div>
-                    </div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Upload Images</label>
-                        <input type="file" multiple="multiple" formControlName="imagePath"
-                            (change)="imageUpload($event)" class="form-control" #fileInput>
-                        <div class="d-flex flex-wrap">
-                            <div class="uploaded-images"
-                                *ngFor="let galleryImag of galleryImagArray;let i=index">
-                                <img [src]="galleryImag?.imagePath">
-                                <button class="btn bg-danger bg-opacity-10 text-danger" (click)="deleteImage(i)">
-                                    <i class="fa-regular fa-trash-can"></i>
-                                </button>
+                            <div *ngIf="submitted && f.eventDescription.errors" class="invalid-feedback">
+                                <div class="text-danger" *ngIf="f.eventDescription.errors?.required">Event Description
+                                    is
+                                    required.</div>
+                                <div class="text-danger" *ngIf="f.eventDescription.errors?.pattern">Please enter
+                                    Valid Event Description.</div>
                             </div>
                         </div>
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label">Upload Images</label>
+                            <input type="file" multiple="multiple" formControlName="imagePath"
+                                (change)="imageUpload($event)" class="form-control" #fileInput>
+                            <div class="d-flex flex-wrap">
+                                <div class="uploaded-images" *ngFor="let galleryImag of galleryImagArray;let i=index">
+                                    <img [src]="galleryImag?.imagePath">
+                                    <button class="btn bg-danger bg-opacity-10 text-danger" (click)="deleteImage(i)">
+                                        <i class="fa-regular fa-trash-can"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
 
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <button type="button" class="btn btn-light text-main" (click)="clearForm()">Cancel</button>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-light text-main"
+                                    (click)="clearForm()">Cancel</button>
+                            </div>
+                            <div class="col-sm-6 text-end">
+                                <button type="submit" class="btn btn-main" (click)="onSubmit()">{{btnText}}</button>
+                            </div>
                         </div>
-                        <div class="col-sm-6 text-end">
-                            <button type="submit" class="btn btn-main" (click)="onSubmit()">{{btnText}}</button>
-                        </div>
-                    </div>
-                </form>
+                    </form>
                 </div>
             </div>
         </div>
@@ -102,31 +106,31 @@
                                 <small class="text-muted">{{galleryMaster?.eventDate | date: 'dd/MM/yyyy'}}</small>
                             </td>
                             <td>
-                                <div id="galleryImagescarousel" class="carousel slide" data-bs-ride="carousel">
+                                <div id="galleryImagescarousel{{i}}" class="carousel slide galleryImagescarousel"
+                                    data-bs-ride="carousel">
                                     <div class="carousel-inner">
-                                        <ng-container *ngFor="let galleryMas of galleryMaster?.gallaryMasters; let i = index">
-                                            <div class="carousel-item active" [class.active]="i == 0">
+                                        <ng-container
+                                            *ngFor="let galleryMas of galleryMaster?.gallaryMasters; let j = index">
+                                            <div class="carousel-item" [class.active]="j == 0">
                                                 <img src="{{galleryMas?.imagePath}}" class="d-block" alt="...">
-                                           
+                                            </div>
                                             <ng-container *ngIf="galleryMaster?.gallaryMasters.length > 1">
-                                                <button class="carousel-control-prev" type="button" data-bs-target="#galleryImagescarousel"
+                                                <button class="carousel-control-prev" type="button"
+                                                    [attr.data-bs-target]="'#galleryImagescarousel'+i"
                                                     data-bs-slide="prev">
                                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                                     <span class="visually-hidden">Previous</span>
                                                 </button>
-                                                <button class="carousel-control-next" type="button" data-bs-target="#galleryImagescarousel"
+                                                <button class="carousel-control-next" type="button"
+                                                    [attr.data-bs-target]="'#galleryImagescarousel'+i"
                                                     data-bs-slide="next">
                                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                     <span class="visually-hidden">Next</span>
                                                 </button>
                                             </ng-container>
-                                        </div>
                                         </ng-container>
-                                       
-                                    </div> 
+                                    </div>
                                 </div>
-
-
                             </td>
                             <td>
                                 <button type="button" class="btn bg-primary bg-opacity-10 text-primary me-2"
