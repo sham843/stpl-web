@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'service-details', loadChildren: () => import('../../web/services/service-details/service-details.module').then(m => m.ServiceDetailsModule) },
   { path: 'achievements', loadChildren: () => import('../../web/achievements/achievements.module').then(m => m.AchievementsModule) },
   { path: 'csr', loadChildren: () => import('../../web/csr/csr.module').then(m => m.CsrModule) },
+  { path: 'gallery', loadChildren: () => import('../../web/gallery/gallery.module').then(m => m.GalleryModule) },
   { path: 'industries/:id', loadChildren: () => import('../../web/industries/industries.module').then(m => m.IndustriesModule) },
   { path: 'login', loadChildren: () => import('../../web/login/login.module').then(m => m.LoginModule) , canActivate: [NoAuthGuardService]},
 ];
