@@ -84,6 +84,9 @@
     letter-spacing: 1px
 }
 
+#HomeBannerCarousel .carousel-indicators {
+    display: none;
+}
 
 .floating {
     animation-name: floating;
@@ -321,6 +324,23 @@
     text-align: center;
     font-size: 1rem;
     line-height: 2rem;
+}
+.counterCard {
+    padding: 2rem;
+    background: #c4daff;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.count-text {
+    margin-bottom: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.count-title {
+    font-size: 3rem;
+    color: #003082;
+    font-weight: 600;
 }
 
 @media(max-width:767px) {
