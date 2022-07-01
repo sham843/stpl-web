@@ -65,7 +65,7 @@
 .overlay a {
   padding: 8px;
   text-decoration: none;
-  font-size: 36px;
+  font-size: 27px;
   color: #818181;
   display: block; 
   transition: 0.3s; 
@@ -82,6 +82,17 @@
   color: #fff;
   border:none;
 }
+.submenuBtn:hover + .collapse1:not(.show) {
+  display: block;
+}
+.collapse1:hover {
+  display: block;
+}
+.collapse1 {
+  display: none;
+  transition: .3s;
+}
+
 @media screen and (max-height: 450px) {
   .overlay a {font-size: 20px}
   .overlay .closebtn {

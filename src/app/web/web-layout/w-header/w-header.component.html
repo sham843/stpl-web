@@ -4,11 +4,11 @@
       <img src="assets/images/STPL_Logo_White.svg" alt="STPL Logo">
     </a>
     <div class="d-flex">
-      <select class="form-select">
+      <!-- <select class="form-select">
         <option value="en">English</option>
         <option value="mr">Marathi</option>
         <option value="hn">Hindi</option>
-      </select>
+      </select> -->
       
       <button (click)="openNav()" class="btn btn-light">
         <i class="fa-solid fa-bars"></i>
@@ -21,36 +21,56 @@
     <i class="fa-solid fa-xmark"></i>
   </button>
   <div class="overlay-content">
-    <a href="#">Home</a>
-    <a data-bs-toggle="collapse" href="#Industries" role="button" aria-expanded="false" aria-controls="collapseExample">
-      Industries
-    </a>
-    <div class="collapse" id="Industries">
+    <a href="home">Home</a>
+    <!-- <a data-bs-toggle="collapse" href="industries" role="button" aria-expanded="false" aria-controls="collapseExample"> Industries </a> -->
+    <!-- <div class="collapse" id="Industries">
       <div class="submenu">
         <div class="row">
           <div class="col-sm">
-            <a href="#">Defence</a>
+            <a href="industries/defence">Defence</a>
           </div>
           <div class="col-sm">
-            <a href="#">Dairy</a>
+            <a href="industries/dairy">Dairy</a>
           </div>
           <div class="col-sm">
-            <a href="#">Election</a>
+            <a href="industries/election">Election</a>
           </div>
           <div class="col-sm">
             <a href="#">Vehicle Tracking</a>
           </div>
           <div class="col-sm">
-            <a href="#">Livestock</a>
+            <a href="industries/livestock">Livestock</a>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <a href="industries" role="button" class="submenuBtn"> Industries </a>
+    <div class="collapse1">
+      <div class="submenu">
+        <div class="row">
+          <div class="col-sm">
+            <a href="industries/defence">Defence</a>
+          </div>
+          <div class="col-sm">
+            <a href="industries/dairy">Dairy</a>
+          </div>
+          <div class="col-sm">
+            <a href="industries/election">Election</a>
+          </div>
+          <div class="col-sm">
+            <a href="#">Vehicle Tracking</a>
+          </div>
+          <div class="col-sm">
+            <a href="industries/livestock">Livestock</a>
           </div>
         </div>
       </div>
     </div>
-    <a href="#">Projects</a>
-    <a data-bs-toggle="collapse" href="#solutions" role="button" aria-expanded="false" aria-controls="collapseExample">
-      Solutions
-    </a>
-    <div class="collapse" id="solutions">
+
+    <a href="projects">Projects</a>
+    <a href="solutions" role="button" class="submenuBtn">   Solutions   </a>
+    <div class="collapse1">
       <div class="submenu">
         <div class="row">
           <div class="col-sm">
@@ -60,7 +80,7 @@
             <a href="solutions/election-management-system">Election Management System</a>
           </div>
           <div class="col-sm">
-            <a href="solutions/election-management-system">Kote Inventory System</a>
+            <a href="solutions/kote-inventory-management-system">Kote Inventory System</a>
           </div>
           <div class="col-sm">
             <a href="solutions/automatic-milk-collection-unit">Automatic Milk Collection Unit</a>
@@ -71,10 +91,10 @@
         </div>
       </div>
     </div>
-    <a href="#">Discover Us</a>
+    <a href="discover-us">Discover Us</a>
     <a href="#">Gallery</a>
-    <a href="#">Career</a>
-    <a href="#">Contact Us</a>
+    <a href="career">Career</a>
+    <a href="contact-us">Contact Us</a>
   </div>
 </div>
 <button data-bs-toggle="modal" class="requestdemo" (click)="clearForm()" data-bs-target="#RequestDemoModal">Request a
@@ -133,7 +153,7 @@
             </div>
           </div>
           <div class="mb-0">
-            <textarea class="form-control" rows="7" placeholder="Send your request here *"
+            <textarea class="form-control" rows="4" placeholder="Send your request here *"
               formControlName="requestDetails" [ngClass]="{ 'is-invalid': submitted && f.requestDetails.errors }">
         </textarea>
             <div *ngIf="submitted && f.requestDetails.errors" class="invalid-feedback">
@@ -208,7 +228,7 @@
             </div>
           </div>
           <div class="mb-0">
-            <textarea class="form-control" rows="7" placeholder="What do you want to see?"
+            <textarea class="form-control" rows="4" placeholder="What do you want to see?"
               formControlName="requestDetails" [ngClass]="{ 'is-invalid': submitted && f.requestDetails.errors }">
         </textarea>
             <div *ngIf="submitted && f.requestDetails.errors" class="invalid-feedback">
