@@ -118,15 +118,13 @@ export class WHeaderComponent implements OnInit {
     //   }, 50000);
     // }
 
-    autoPopModal(){  
-  let sessionFlag = sessionStorage.getItem('requestDemo') ? sessionStorage.getItem('requestDemo') : 'true';
-  console.log(sessionFlag)
-
-     sessionFlag == 'true' ? 
+  autoPopModal() {
+    let sessionFlag = sessionStorage.getItem('requestDemo') ? sessionStorage.getItem('requestDemo') : 'true';
+    sessionFlag == 'true' ?
       (setTimeout(() => {
         this.router.url == '/home' ? (this.AutoPopupModal.nativeElement.click(),
-        sessionStorage.setItem('requestDemo', 'true')) : '';
+          sessionStorage.setItem('requestDemo', 'true')) : '';
       }, 50000)) : ''
-    }
+  }
     
 }
