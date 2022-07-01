@@ -56,7 +56,9 @@ footer .footer-links li a:hover{
 #bottom{
     background-color: #e5e7eb;
     font-size: 0.8rem !important;
-    text-align: center;
     padding-block: 20px;
     border-top: solid 1px #dcdddf;
+}
+#bottom a{
+    color: #333 !important;text-decoration: none;
 }

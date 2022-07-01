@@ -1,7 +1,6 @@
 <div class="page-heading">
     <div class="card bg-dark text-white">
-        <img src="../../../assets/images/page-banners/solutions.jpg"
-            class="card-img" alt="...">
+        <img src="../../../assets/images/page-banners/solutions.jpg" class="card-img" alt="...">
         <div class="card-img-overlay">
             <div class="container">
                 <div class="row align-items-center">
@@ -22,28 +21,121 @@
     </div>
 </div>
 
-<div class="container py-2">
+<div class="container px-5 py-2 overflow-hidden">
     <div class="row" id="main-content">
-        <div class="card mb-3 p-3" *ngFor="let pageCategory of pageCategoryArray">
-            <a (click)="navigatePage(pageCategory?.id)" routerLink="#" class="solution-list">
-                <div class="row g-0">
-                    <div class="col-md-2">
-                        <div id="ProductsImagescarousel" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img [src]="pageCategory?.homeImagePath" class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-10">
-                        <div class="card-body pb-0">
-                            <h5 class="card-title">{{pageCategory?.pageName}}</h5>
-                            <p [innerHtml]="pageCategory?.about" class="clip-text"> </p>
-                        </div>
-                    </div>
+        <div class="row mb-5 align-items-center">
+            <div class="col-sm-7" data-aos="fade-right" data-aos-delay="50">
+                <h3 class="mb-4 text-main">Mahamining</h3>
+                <p>
+                    The Revenue Department of the Government of Maharashtra had been endeavouring to set up a monitoring
+                    system in the State for various revenue sources of the Department. It was pertinent not only for
+                    revenue growth but also for improving the service delivery and attaining the development goals of
+                    the Department. This initiative aids the Department in making a reasonable advancement in terms of
+                    maintaining a database related to minerals, registered agencies, lease period, renewals, tracking
+                    and monitoring the movement of minerals, payment processes, recovery procedures, and so on.
+                </p>
+                <div class="view_detials">
+                    <a class="text-decoration-none btn-readmore2" routerLink="solutions/mahamining-system">View Details </a>
                 </div>
-            </a>
+            </div>
+            <div class="col-sm-5">
+                <img src="../../../assets/images/products/Mining Industries.jpg" class="img-fluid"
+                    data-aos="fade-left" data-aos-delay="50">
+            </div>
+
+        </div>
+        <div class="row mt-5 align-items-center">
+            <div class="col-sm-5">
+                <img src="../../../assets/images/products/Dairy industry2.jpg" class="img-fluid"
+                    data-aos="fade-right" data-aos-delay="50">
+            </div>
+            <div class="col-sm-7" data-aos="fade-left" data-aos-delay="50">
+                <h3 class="mb-4 text-main">Automatic Milk Collection Unit (AMCU)</h3>
+                <p>
+                        <strong> 'AadiVanmitra' online Portal </strong> has been developed with the objective of effective implementation of
+                        the Scheduled Tribes and Other Traditional Forest Dwellers (Recognition of Forest Rights) Act
+                        2006 and Rules 2008 and Amendment Rules 2012. This portal has been developed keeping in mind the
+                        objective of allowing the individuals / groups and villages / padas from the Scheduled Tribes
+                        and Other Traditional Forest Dwellers to file claims about Individual Forest Rights or Community
+                        Forest Rights related to forest land in a smooth fashion, to check the current status of the
+                        claims filed and to be able to get the forest rights title (certificate) without any hassles.
+                        </p>
+                        <div class="view_detials">
+                            <a class="text-decoration-none btn-readmore2" routerLink="solutions/automatic-milk-collection-unit">View Details </a>
+                        </div>
+            </div>
+        </div>
+        <div class="row mt-5 align-items-center">
+
+            <div class="col-sm-7" data-aos="fade-right" data-aos-delay="50">
+                <h3 class="mb-4 text-main">Election Management System</h3>
+                <p>
+                        <strong> 'AadiVanmitra' online Portal </strong> has been developed with the objective of effective implementation of
+                        the Scheduled Tribes and Other Traditional Forest Dwellers (Recognition of Forest Rights) Act
+                        2006 and Rules 2008 and Amendment Rules 2012. This portal has been developed keeping in mind the
+                        objective of allowing the individuals / groups and villages / padas from the Scheduled Tribes
+                        and Other Traditional Forest Dwellers to file claims about Individual Forest Rights or Community
+                        Forest Rights related to forest land in a smooth fashion, to check the current status of the
+                        claims filed and to be able to get the forest rights title (certificate) without any hassles.
+                        </p>
+                        <div class="view_detials">
+                            <a class="text-decoration-none btn-readmore2" routerLink="solutions/election-management-system">View Details </a>
+                        </div>
+            </div>
+            <div class="col-sm-5">
+                <img src="../../../assets/images/products/Election Industries.jpg" class="img-fluid"
+                    data-aos="fade-left" data-aos-delay="50">
+            </div>
+
+
+        </div>
+        <div class="row mt-5 align-items-center">
+            <div class="col-sm-5">
+                <img src="../../../assets/images/products/Defence Industries.jpg" class="img-fluid"
+                    data-aos="fade-right" data-aos-delay="50">
+            </div>
+            <div class="col-sm-7" data-aos="fade-left" data-aos-delay="50">
+                <h3 class="mb-4 text-main">Kote Inventory Management System (KIMS)</h3>
+                <p>
+                        <strong> 'AadiVanmitra' online Portal </strong> has been developed with the objective of effective implementation of
+                        the Scheduled Tribes and Other Traditional Forest Dwellers (Recognition of Forest Rights) Act
+                        2006 and Rules 2008 and Amendment Rules 2012. This portal has been developed keeping in mind the
+                        objective of allowing the individuals / groups and villages / padas from the Scheduled Tribes
+                        and Other Traditional Forest Dwellers to file claims about Individual Forest Rights or Community
+                        Forest Rights related to forest land in a smooth fashion, to check the current status of the
+                        claims filed and to be able to get the forest rights title (certificate) without any hassles.
+                        </p>
+                        <div class="view_detials">
+                            <a class="text-decoration-none btn-readmore2" routerLink="solutions/kote-inventory-management-system">View Details </a>
+                        </div>
+            </div>
+          
+
+
+        </div>
+        <div class="row mt-5 align-items-center">
+            
+            <div class="col-sm-7" data-aos="fade-right" data-aos-delay="50">
+                <h3 class="mb-4 text-main">Dairy Vet Software </h3>
+                <p>
+                        <strong> 'AadiVanmitra' online Portal </strong> has been developed with the objective of effective implementation of
+                        the Scheduled Tribes and Other Traditional Forest Dwellers (Recognition of Forest Rights) Act
+                        2006 and Rules 2008 and Amendment Rules 2012. This portal has been developed keeping in mind the
+                        objective of allowing the individuals / groups and villages / padas from the Scheduled Tribes
+                        and Other Traditional Forest Dwellers to file claims about Individual Forest Rights or Community
+                        Forest Rights related to forest land in a smooth fashion, to check the current status of the
+                        claims filed and to be able to get the forest rights title (certificate) without any hassles.
+                        </p>
+                        <div class="view_detials">
+                            <a class="text-decoration-none btn-readmore2" routerLink="solutions/dairy-vet-software">View Details </a>
+                        </div>
+            </div>
+            <div class="col-sm-5">
+                <img src="../../../assets/images/products/Dairy industry.jpg" class="img-fluid"
+                    data-aos="fade-left" data-aos-delay="50">
+            </div>
+
+
         </div>
     </div>
 </div>
