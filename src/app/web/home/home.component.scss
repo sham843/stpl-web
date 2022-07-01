@@ -84,6 +84,9 @@
     letter-spacing: 1px
 }
 
+#HomeBannerCarousel .carousel-indicators {
+    display: none;
+}
 
 .floating {
     animation-name: floating;
