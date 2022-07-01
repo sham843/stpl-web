@@ -101,7 +101,7 @@ export class GalleryMasterComponent implements OnInit {
     if (this.galleryMasterForm.invalid) {
       return;
     } else if (this.commonService.checkDataType(this.galleryImagArray) == false) {
-      this.toastrService.error('Please Select Upload Image Field');
+      this.toastrService.error('Please Upload Image');
     } else {
 
       let id: any;
