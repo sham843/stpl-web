@@ -111,16 +111,16 @@ export class WHeaderComponent implements OnInit {
       }  
     }
 
-    // autoPopModal(){
-    //   setTimeout(() => {
-    //     this.router.url == '/home' ? this.AutoPopupModal.nativeElement.click() : '';
-    //   }, 50000);
-    // }
-
     autoPopModal(){
       setTimeout(() => {
         this.router.url == '/home' ? this.AutoPopupModal.nativeElement.click() : '';
-      }, 3000);
+      }, 50000);
     }
+
+    // autoPopModal(){
+    //   setTimeout(() => {
+    //     this.router.url == '/home' ? this.AutoPopupModal.nativeElement.click() : '';
+    //   }, 3000);
+    // }
 
 }
