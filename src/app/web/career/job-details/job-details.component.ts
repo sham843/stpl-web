@@ -31,7 +31,6 @@ export class JobDetailsComponent implements OnInit {
     private toastrService: ToastrService,
     private errorSerivce: ErrorsService,
     private fb: FormBuilder,
-    private localStorage: LocalstorageService,
     private fileUploadService: FileUploadService,
     private route: ActivatedRoute,
   ) { this.JobPostId = this.route.snapshot.params['id']; }
@@ -82,8 +81,8 @@ export class JobDetailsComponent implements OnInit {
       let fullName = formData.firstName.trim().concat(" ", formData.lastName.trim());
 
       let obj = {
-        "createdBy": this.localStorage.userId(),
-        "modifiedBy": this.localStorage.userId(),
+        "createdBy": 1,
+        "modifiedBy": 1,
         "createdDate": new Date(),
         "modifiedDate": new Date(),
         "isDeleted": true,

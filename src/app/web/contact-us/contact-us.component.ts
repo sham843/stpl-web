@@ -5,7 +5,6 @@ import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/core/services/api.service';
 import { CommonService } from 'src/app/core/services/common.service';
 import { ErrorsService } from 'src/app/core/services/errors.service';
-import { LocalstorageService } from 'src/app/core/services/localstorage.service';
 
 @Component({
   selector: 'app-contact-us',
@@ -18,7 +17,6 @@ export class ContactUsComponent implements OnInit {
   submitted = false;
 
   constructor(
-    private localStorage: LocalstorageService,
     public commonService: CommonService,
     public apiService: ApiService,
     private toastrService: ToastrService,
@@ -50,8 +48,8 @@ export class ContactUsComponent implements OnInit {
       return;
     } else {
       let obj = {
-        "createdBy": this.localStorage.userId(),
-        "modifiedBy": this.localStorage.userId(),
+        "createdBy": 1,
+        "modifiedBy": 1,
         "createdDate": new Date(),
         "modifiedDate": new Date(),
         "isDeleted": true,

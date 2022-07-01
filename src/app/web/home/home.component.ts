@@ -5,7 +5,6 @@ import { ApiService } from 'src/app/core/services/api.service';
 import { CommonService } from 'src/app/core/services/common.service';
 import { ErrorsService } from 'src/app/core/services/errors.service';
 import { FormBuilder, Validators } from '@angular/forms';
-import { LocalstorageService } from 'src/app/core/services/localstorage.service';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +23,6 @@ export class HomeComponent implements OnInit {
     private toastrService: ToastrService,
     private errorSerivce: ErrorsService,
     private fb: FormBuilder,
-    private localStorage:LocalstorageService
   ) { }
 
   ngOnInit(): void {
@@ -65,8 +63,8 @@ export class HomeComponent implements OnInit {
       return;
     }else {
       let obj =  {
-        "createdBy": this.localStorage.userId(),
-        "modifiedBy": this.localStorage.userId(),
+        "createdBy": 1,
+        "modifiedBy": 1,
         "createdDate": new Date(),
         "modifiedDate": new Date(),
         "isDeleted": true,
