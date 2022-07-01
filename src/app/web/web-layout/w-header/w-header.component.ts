@@ -97,6 +97,7 @@ export class WHeaderComponent implements OnInit {
     clearForm() {
       this.submitted = false;
       this.requestForm();
+      sessionStorage.setItem('requestDemo', 'false');  //for use connect withUs Model only one time open
     }
 
      //..........................................  RequestDemo Form code End Here ..........................//
@@ -111,16 +112,21 @@ export class WHeaderComponent implements OnInit {
       }  
     }
 
-    autoPopModal(){
-      setTimeout(() => {
-        this.router.url == '/home' ? this.AutoPopupModal.nativeElement.click() : '';
-      }, 50000);
-    }
-
     // autoPopModal(){
     //   setTimeout(() => {
     //     this.router.url == '/home' ? this.AutoPopupModal.nativeElement.click() : '';
-    //   }, 3000);
+    //   }, 50000);
     // }
 
+    autoPopModal(){  
+  let sessionFlag = sessionStorage.getItem('requestDemo') ? sessionStorage.getItem('requestDemo') : 'true';
+  console.log(sessionFlag)
+
+     sessionFlag == 'true' ? 
+      (setTimeout(() => {
+        this.router.url == '/home' ? (this.AutoPopupModal.nativeElement.click(),
+        sessionStorage.setItem('requestDemo', 'true')) : '';
+      }, 50000)) : ''
+    }
+    
 }
