@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { DateTimeAdapter } from 'ng-pick-datetime';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/core/services/api.service';
@@ -25,7 +26,9 @@ export class CareerComponent implements OnInit {
     private errorSerivce: ErrorsService,
     private spinner: NgxSpinnerService,
     private fileUploadService: FileUploadService,
-  ) { }
+    public dateTimeAdapter: DateTimeAdapter<any>) {
+      { dateTimeAdapter.setLocale('en-IN'); }
+    }
 
   ngOnInit(): void {
     this.getAllActiveJobPost();
