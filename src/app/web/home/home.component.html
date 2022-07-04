@@ -265,13 +265,10 @@
                                 <p>
                                     Today all cooperative dairy’s are facing competition from private dairy’s budding in
                                     there areas. This competition has underlined the need of better services to farmers
-<<<<<<< HEAD
-                                    to r maintain good relations with farmers. These services can be used effectively
-                                    using Dairyvet
-                                    software system overcoming the shortcomings in existing system.
-=======
-                                    to r maintain good relations with farmers.
->>>>>>> 3c597f1fa77af0c44960221dde4d85acaccd6b54
+                                    <<<<<<< HEAD to r maintain good relations with farmers. These services can be used
+                                        effectively using Dairyvet software system overcoming the shortcomings in
+                                        existing system.=======to r maintain good relations with farmers.>>>>>>>
+                                        3c597f1fa77af0c44960221dde4d85acaccd6b54
                                 </p>
                                 <a class="btn btn-readmore" href="solutions/dairy-vet-software">READ MORE</a>
                             </div>
@@ -420,8 +417,8 @@
 </section>
 
 <div class="container-fluid">
-    <angular-image-slider class="" [autoRotate]="true" [autoRotateAfter]="2000" [autoRotateRight]="false" 
-    [images]="imagesUrl"></angular-image-slider>
+    <angular-image-slider class="" [autoRotate]="true" [autoRotateAfter]="2000" [autoRotateRight]="false"
+        [images]="imagesUrl"></angular-image-slider>
 </div>
 
 
@@ -504,7 +501,7 @@
                                 <p> <span class="text-blue">Railway Police Force</span></p>
                             </div>
                         </div>
-                         <div class="carousel-item">
+                        <div class="carousel-item">
                             <div class="carousel-caption">
                                 <p>If Shai Reznik's TDD videos don't convince you to add automated testing your code,
                                     I don't know what will.This was the very best explanation of frameworks for
@@ -514,7 +511,7 @@
                                 <div id="image-caption">Harry Mon</div>
                                 <p>CEO, <span class="text-blue">linkedin.com</span></p>
                             </div>
-                        </div> 
+                        </div>
                     </div>
                     <a class="carousel-control-prev" type="button" data-bs-target="#testimonial" data-bs-slide="prev">
                         <i class='fas fa-arrow-left'></i>
@@ -528,125 +525,147 @@
     </div>
 </section>
 
-<section class="bg-main clients">
+<section class=" clients">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h3>Our Clientale</h3>
-            </div>
-            <div class="col-sm-12">
-                <div id="ClientCarousel" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <div class="card card-body mb-3 mb-lg-0 h-100">
-                                        <img src="assets/images/clientele/consult-buddy.png">
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="card card-body mb-3 mb-lg-0 h-100">
-                                        <img src="assets/images/clientele/Govind-Logo.png">
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="card card-body mb-3 mb-lg-0 h-100">
-                                        <img src="assets/images/clientele/India_Army.png">
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="card card-body mb-3 mb-lg-0 h-100">
-                                        <img src="assets/images/clientele/indian-railway-logo.png">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <div class="card card-body mb-3 mb-lg-0 h-100">
-                                        <img src="assets/images/clientele/Railtel_Logo.png">
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="card card-body mb-3 mb-lg-0 h-100">
-                                        <img src="assets/images/clientele/Railway_Protection_Force_Logo.png">
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="card card-body mb-3 mb-lg-0 h-100">
-                                        <img src="assets/images/clientele/Seal_of_Maharashtra.png">
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="card card-body mb-3 mb-lg-0 h-100">
-                                        <img src="assets/images/clientele/trti-logo.png">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h3 class="mb-0 pb-0">Our Clientale</h3>
             </div>
 
+            <div class="container-fluid">
+                <angular-image-slider class="" [autoRotate]="true" [autoRotateAfter]="2000" [autoRotateRight]="false"
+                    [images]="logoUrl"></angular-image-slider>
+            </div>
         </div>
     </div>
 </section>
 
-<section class="py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div id="subscribeus">
-                    <div class="subscribe-head">
-                        <h1 class="position-relative">SUBSCRIBE TO OUR<br> NEWSLETTER
-                            <img src="../../../assets/images/subscribe-bird.png"
-                                class="animate__animated animate__fadeInTopRight">
-                        </h1>
-                    </div>
-                    <p class="text-dark mb-5">Be updated with product launch, news events and industry insights.</p>
-                    <form [formGroup]="applaySubscribeForm">
-                        <div class="row">
-                            <div class="col-sm mb-3 mb-lg-0">
-                                <input type="text" class="form-control" placeholder="First Name"
-                                    formControlName="firstName"
-                                    [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
-                                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                                    <div class="text-danger" *ngIf="f.firstName.errors?.required">First Name is
-                                        required.</div>
-                                    <div class="text-danger" *ngIf="f.firstName.errors?.pattern">Please enter
-                                        Valid First Name.</div>
+
+            <!-- <section class="bg-main clients">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3>Our Clientale</h3>
+                        </div>
+                        <div class="col-sm-12">
+                            <div id="ClientCarousel" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <div class="card card-body mb-3 mb-lg-0 h-100">
+                                                    <img src="assets/images/clientele/consult-buddy.png">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="card card-body mb-3 mb-lg-0 h-100">
+                                                    <img src="assets/images/clientele/Govind-Logo.png">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="card card-body mb-3 mb-lg-0 h-100">
+                                                    <img src="assets/images/clientele/India_Army.png">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="card card-body mb-3 mb-lg-0 h-100">
+                                                    <img src="assets/images/clientele/indian-railway-logo.png">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <div class="card card-body mb-3 mb-lg-0 h-100">
+                                                    <img src="assets/images/clientele/Railtel_Logo.png">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="card card-body mb-3 mb-lg-0 h-100">
+                                                    <img
+                                                        src="assets/images/clientele/Railway_Protection_Force_Logo.png">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="card card-body mb-3 mb-lg-0 h-100">
+                                                    <img src="assets/images/clientele/Seal_of_Maharashtra.png">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="card card-body mb-3 mb-lg-0 h-100">
+                                                    <img src="assets/images/clientele/trti-logo.png">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-sm mb-3 mb-lg-0">
-                                <input type="text" class="form-control" placeholder="Last Name"
-                                    formControlName="lastName"
-                                    [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
-                                <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-                                    <div class="text-danger" *ngIf="f.lastName.errors?.required">Last Name is
-                                        required.</div>
-                                    <div class="text-danger" *ngIf="f.lastName.errors?.pattern">Please enter
-                                        Valid Last Name.</div>
-                                </div>
-                            </div>
-                            <div class="col-sm mb-3 mb-lg-0">
-                                <input type="email" class="form-control" placeholder="Email ID"
-                                    formControlName="emailId"
-                                    [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }">
-                                <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
-                                    <div class="text-danger" *ngIf="f.emailId.errors?.required">Email ID is
-                                        required.</div>
-                                    <div class="text-danger" *ngIf="f.emailId.errors?.pattern">Please enter
-                                        Valid Email ID.</div>
-                                </div>
-                            </div>
-                            <div class="col-sm-auto">
-                                <button class="btn" type="submit" (click)="subScribeSubmitForm()">Submit</button>
                             </div>
                         </div>
-                    </form>
+
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
+            </section> -->
+
+            <section class="py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div id="subscribeus">
+                                <div class="subscribe-head">
+                                    <h1 class="position-relative">SUBSCRIBE TO OUR<br> NEWSLETTER
+                                        <img src="../../../assets/images/subscribe-bird.png"
+                                            class="animate__animated animate__fadeInTopRight">
+                                    </h1>
+                                </div>
+                                <p class="text-dark mb-5">Be updated with product launch, news events and industry
+                                    insights.</p>
+                                <form [formGroup]="applaySubscribeForm">
+                                    <div class="row">
+                                        <div class="col-sm mb-3 mb-lg-0">
+                                            <input type="text" class="form-control" placeholder="First Name"
+                                                formControlName="firstName"
+                                                [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+                                            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                                <div class="text-danger" *ngIf="f.firstName.errors?.required">First Name
+                                                    is
+                                                    required.</div>
+                                                <div class="text-danger" *ngIf="f.firstName.errors?.pattern">Please
+                                                    enter
+                                                    Valid First Name.</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm mb-3 mb-lg-0">
+                                            <input type="text" class="form-control" placeholder="Last Name"
+                                                formControlName="lastName"
+                                                [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+                                            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                                <div class="text-danger" *ngIf="f.lastName.errors?.required">Last Name
+                                                    is
+                                                    required.</div>
+                                                <div class="text-danger" *ngIf="f.lastName.errors?.pattern">Please enter
+                                                    Valid Last Name.</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm mb-3 mb-lg-0">
+                                            <input type="email" class="form-control" placeholder="Email ID"
+                                                formControlName="emailId"
+                                                [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }">
+                                            <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
+                                                <div class="text-danger" *ngIf="f.emailId.errors?.required">Email ID is
+                                                    required.</div>
+                                                <div class="text-danger" *ngIf="f.emailId.errors?.pattern">Please enter
+                                                    Valid Email ID.</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-auto">
+                                            <button class="btn" type="submit"
+                                                (click)="subScribeSubmitForm()">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
