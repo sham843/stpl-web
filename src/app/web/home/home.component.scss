@@ -109,7 +109,6 @@
         transform: translate(0, -0px);
     }
 }
-
 .clients,
 .aboutus,
 #testimonials,
@@ -363,19 +362,19 @@
 }
 .counterCard {
     padding: 2rem;
-    background: #c4daff;
     border-radius: 15px;
     text-align: center;
     margin-bottom: 15px;
 }
 .count-text {
+    color: #fff;
     margin-bottom: 0;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 600;
 }
 .count-title {
     font-size: 3rem;
-    color: #003082;
+    color: #fff;
     font-weight: 600;
 }
 
@@ -638,4 +637,9 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
             transform: translate(0, -0px);
         }
     }
+}
+.counterOuter
+{
+    padding-block: 4rem;
+    background-image: url('../../../assets/images/bg-counter.png');
 }
