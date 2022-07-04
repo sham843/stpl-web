@@ -113,11 +113,12 @@
 .clients,
 .aboutus,
 #testimonials,
-.whyus,
 .our-services {
     padding-block: 4rem;
 }
-
+.whyus{
+    padding-bottom: 9rem;
+}
 .our-services .sub-heading {
     color: var(--blue-color);
     font-weight: 900;
@@ -505,7 +506,7 @@
     margin-right: 10px;
     transition: transform .2s ease-in-out;
     transform: rotate(90deg);
-    color: var(--main-color);
+    color: var(--blue-color);
 }
 .aboutus .accordion-item {
     margin-bottom: 10px;
@@ -620,4 +621,10 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
             transform: translate(0, -0px);
         }
     }
+}
+.whyus{
+    position: absolute;
+    width:100%;
+    height: 200px;
+    background-color: var(--main-color);
 }
