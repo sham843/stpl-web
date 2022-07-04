@@ -250,13 +250,33 @@
 }
 
 .our-products .election {
-    background-color: #22A29B;
+    background-color: #463afd;
 }
 
 .our-products .evet {
-    background-color: #D55E7B;
+    background-color: #4F63D6;
 }
-
+.our-products .carousel-control-prev,
+.our-products .carousel-control-next{
+    height:40px;
+    width: 40px;
+    line-height: 40px;
+    top: unset;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.5);
+    background-size: 70% !important;
+}
+.our-products #carouselExampleControls .carousel-control-prev{
+    left: auto;
+    right: 60px !important;
+}
+.our-products #carouselExampleControls .carousel-control-next{
+    right: 15px !important;
+}
+.our-products #carouselExampleControls .carousel-control-prev-icon,
+.our-products #carouselExampleControls .carousel-control-next-icon{
+    background-size: 70% !important;
+}
 .aboutus h4,
 .whyus h4 {
     font-family: 'Fira Sans', sans-serif;
@@ -536,7 +556,12 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
     .banner3 .left-content {
         padding: 0rem;
     }
-
+    .our-services .card img {
+        height: 35vw;
+    }
+    .our-services .card:hover img {
+        height: 40vw;
+    }
     .our-products .product-info {
         padding: 5rem 2rem;
         width: 100%;
