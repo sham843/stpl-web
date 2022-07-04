@@ -61,7 +61,7 @@
 }
 .navbar-nav .nav-link:hover{
   background-color: var(--main-color);
-  color: #fff;
+  color: #fff !important;
 }
 .navbar-nav .dropdown-menu{
   font-size: 0.85rem;
