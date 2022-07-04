@@ -13,10 +13,11 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
 
-  applaySubscribeForm!:FormGroup | any;
+  applaySubscribeForm!: FormGroup | any;
   submitted = false;
-  servicesArray:any;
+  servicesArray: any;
 
+  public imagesUrl: any;
   constructor(
     private commonService: CommonService,
     public apiService: ApiService,
@@ -28,6 +29,18 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.subScribeForm();
     this.getPageMaster();
+
+    this.imagesUrl = ['assets/images/tech/Flutter.png',
+      'assets/images/tech/android.png',
+      'assets/images/tech/ios.png',
+      'assets/images/tech/mongoDB.png',
+      'assets/images/tech/javascript.png',
+      'assets/images/tech/azure.png',
+      'assets/images/tech/typescript.png',
+      'assets/images/tech/css3.png',
+      'assets/images/tech/Net.png',
+    ];
+
   }
 
   getPageMaster() {
@@ -48,11 +61,11 @@ export class HomeComponent implements OnInit {
   //..........................................  subScribeForm code Start Here ..........................//
   get f() { return this.applaySubscribeForm.controls }
 
-  subScribeForm() { 
+  subScribeForm() {
     this.applaySubscribeForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[^\\s0-9\\[\\[`&._@#%*!+,|"\-\'\/\\]\\]{}][a-zA-Z]+$')]],
       lastName: ['', [Validators.required, Validators.pattern('^[^\\s0-9\\[\\[`&._@#%*!+,|"\-\'\/\\]\\]{}][a-zA-Z]+$')]],
-      emailId: ['',[Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]],
+      emailId: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]],
     })
   }
 
@@ -61,8 +74,8 @@ export class HomeComponent implements OnInit {
     this.submitted = true;
     if (this.applaySubscribeForm.invalid) {
       return;
-    }else {
-      let obj =  {
+    } else {
+      let obj = {
         "createdBy": 1,
         "modifiedBy": 1,
         "createdDate": new Date(),
@@ -87,8 +100,8 @@ export class HomeComponent implements OnInit {
         this.errorSerivce.handelError(error.status);
       });
     }
-  } 
+  }
 
-    //..........................................  subScribeForm code End Here ..........................//
+  //..........................................  subScribeForm code End Here ..........................//
 
 }

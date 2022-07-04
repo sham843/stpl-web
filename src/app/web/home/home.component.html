@@ -88,6 +88,12 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+
+<!-- <div class="container-fluid">
+    <angular-image-slider [autoRotate]="true" [autoRotateAfter]="1000" [autoRotateRight]="false" [images]="imagesUrl">
+    </angular-image-slider>
+</div> -->
+
 <section class="counterOuter our-services pb-0">
     <div class="container">
         <!-- <h5 class="sub-heading text-center">Our Counts</h5> -->
@@ -259,7 +265,8 @@
                                 <p>
                                     Today all cooperative dairy’s are facing competition from private dairy’s budding in
                                     there areas. This competition has underlined the need of better services to farmers
-                                    to r maintain good relations with farmers. These services can be used effectively using Dairyvet
+                                    to r maintain good relations with farmers. These services can be used effectively
+                                    using Dairyvet
                                     software system overcoming the shortcomings in existing system.
                                 </p>
                                 <a class="btn btn-readmore" href="solutions/dairy-vet-software">READ MORE</a>
@@ -445,7 +452,13 @@
     </div>
 </section>
 
-<section class="aboutus bg-white">
+<div class="container-fluid">
+    <angular-image-slider class="" [autoRotate]="true" [autoRotateAfter]="2000" [autoRotateRight]="false" 
+    [images]="imagesUrl"></angular-image-slider>
+</div>
+
+
+<!-- <section class="aboutus bg-white">
     <div class="container">
         <div class="row">
             <div class="col-md d-flex align-items-center">
@@ -466,6 +479,7 @@
             <div class="col-md d-flex align-items-center">
                 <img class="img-fluid img-thumbnail mb-3" alt="img" src="../../../assets/images/tech/typescript.png">
             </div>
+           
         </div>
         <div class="row">
             <div class="col-md d-flex align-items-center">
@@ -490,7 +504,7 @@
 
         </div>
     </div>
-</section>
+</section> -->
 <section>
     <div class="container">
         <div class="row" id="testimonials">
