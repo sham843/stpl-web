@@ -489,11 +489,31 @@
 
 .aboutus .accordion-button {
     box-shadow: none;
+    background-color: transparent;
 }
-
+.aboutus .accordion-button:not(.collapsed)::before{
+    transition: transform .2s ease-in-out;
+    transform: rotate(0deg);
+    color: #fff;
+}
+.aboutus .accordion-button::after{
+    margin-left: 0;
+    content: unset;
+}
+.aboutus .accordion-button::before{
+    content: '\f0a9';
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 10px;
+    transition: transform .2s ease-in-out;
+    transform: rotate(90deg);
+    color: var(--main-color);
+}
 .aboutus .accordion-item {
     margin-bottom: 10px;
     border-radius: 0;
+    background-color: transparent;
+    border-bottom: 0;
 }
 
 .aboutus .accordion-button:not(.collapsed) {
