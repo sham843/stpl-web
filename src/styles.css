@@ -317,6 +317,7 @@ angular-editor{
     color: #fff;
 }
 
+
 #container {
     position: static !important;
     overflow-y: hidden !important;
@@ -327,7 +328,13 @@ angular-editor{
     margin: 0 auto;
 }
 #grid {
-  
     grid-template-columns: repeat(5,1fr) !important;
-  
+}
+.clients .image-cropper img{
+    max-width: 170px !important;
+    display: block;
+    margin: 0 auto;
+}
+.clients #grid {
+    grid-template-columns: repeat(6,1fr) !important;
 }

@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
   servicesArray: any;
 
   public imagesUrl: any;
+  public logoUrl: any;
+
   constructor(
     private commonService: CommonService,
     public apiService: ApiService,
@@ -40,6 +42,17 @@ export class HomeComponent implements OnInit {
       'assets/images/tech/css3.png',
       'assets/images/tech/Net.png',
     ];
+
+    this.logoUrl = [
+      'assets/images/clientele/consult-buddy.png',
+      'assets/images/clientele/Govind-Logo.png',
+      'assets/images/clientele/India_Army.png',
+      'assets/images/clientele/indian-railway-logo.png',
+      'assets/images/clientele/Railtel_Logo.png',
+      'assets/images/clientele/Railway_Protection_Force_Logo.png',
+      'assets/images/clientele/Seal_of_Maharashtra.png',
+      'assets/images/clientele/trti-logo.png',
+    ]
 
   }
 
