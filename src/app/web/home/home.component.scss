@@ -321,21 +321,26 @@
     background: #fff;
     text-align: center;
     position: relative;
+    border-radius: 15px;
+    border:none;
+    transition: all 1s ease;
 }
 .whyus .card:hover {
     background: var(--blue-color);
     color: #fff;
+    transition: all 1s ease;
 }
 .whyus .card:hover h5{
     color: #fff;
 }
 .whyus img {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     text-align: center;
-    filter: grayscale(1);
 }
-
+.whyus .card:hover img{
+    filter:invert(1);
+}
 .whyus .card-body {
     padding: 2rem;
 }
@@ -501,43 +506,6 @@
     height: 40px;
     width: 40px;
 }
-
-.aboutus .accordion-button {
-    box-shadow: none;
-    background-color: transparent;
-}
-.aboutus .accordion-button:not(.collapsed)::before{
-    transition: transform .2s ease-in-out;
-    transform: rotate(0deg);
-    color: #fff;
-}
-.aboutus .accordion-button::after{
-    margin-left: 0;
-    content: unset;
-}
-.aboutus .accordion-button::before{
-    content: '\f0a9';
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    margin-right: 10px;
-    transition: transform .2s ease-in-out;
-    transform: rotate(90deg);
-    color: var(--blue-color);
-}
-.aboutus .accordion-item {
-    margin-bottom: 10px;
-    border-radius: 0;
-    background-color: transparent;
-    border-bottom: 0;
-}
-
-.aboutus .accordion-button:not(.collapsed) {
-    box-shadow: none;
-    background-color: var(--main-color);
-    color: #fff;
-    border-radius: 0;
-}
-
 .clients h3 {
     font-family: 'Fira Sans', sans-serif;
     text-align: center;

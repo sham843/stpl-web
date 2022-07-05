@@ -257,69 +257,37 @@
 
 <section class="aboutus">
     <div class="container">
-        <div class="row g-5">
+        <div class="row g-5 align-items-center">
             <div class="col-sm-6">
                 <img src="assets/images/about-us.png" class="img-fluid">
             </div>
             <div class="col-sm-6 mb-4 mb-lg-0">
                 <h4>About Us</h4>
-                <p>Shaurya Technosoft Pvt. Ltd. is a Pune (India) based company.</p>
-                <p>We have successfully delivered a number of products which include Desktop Applications, Android
+                <p>Shaurya Technosoft Pvt. Ltd. is a Pune (India) based company. We have successfully delivered a number of products which include Desktop Applications, Android
                     Applications and Web Based Solutions. The end product is the convergence of a lot of research and
-                    development to cater to the needs of our clients which makes them achieve their full potential. We
-                    strive to achieve perfection and client satisfaction is prime important to us. We develop
-                    best-in-class software solutions to suit each client's requirement, keeping in mind the best
-                    practices in the industry.</p>
+                    development to cater to the needs of our clients which makes them achieve their full potential. </p>
                 <a class="btn btn-readmore2 mb-4" routerLink="/discover-us">Read More</a>
-                <div class="accordion accordion-flush" id="accordionFlushExample">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="flush-headingOne">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                aria-controls="flush-collapseOne">
-                                Mission
-                            </button>
-                        </h2>
-                        <div id="flush-collapseOne" class="accordion-collapse collapse"
-                            aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">
-                                Providing differentiated enterprise solutions and services our customer to help them
-                                achieve
-                                their aspirations.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="flush-headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                                aria-controls="flush-collapseTwo">
-                                Vision
-                            </button>
-                        </h2>
-                        <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                            aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">
-                                To create and distribute enterprise centric software solutions and services, locally and
-                                globally.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="flush-headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseThree" aria-expanded="false"
-                                aria-controls="flush-collapseThree">
-                                Quality of Statement
-                            </button>
-                        </h2>
-                        <div id="flush-collapseThree" class="accordion-collapse collapse"
-                            aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">We aren’t perfect, our commitment towards improvement is.</div>
-                        </div>
+                <div class="card mb-3">
+                    <div class="card-header fw-bold bg-transparent border-bottom-0 pb-0">Mission</div>
+                    <div class="card-body">
+                        <p class="mb-0">Providing differentiated enterprise solutions and services our customer to help them
+                        achieve
+                        their aspirations.</p>
                     </div>
                 </div>
-
+                <div class="card mb-3">
+                    <div class="card-header fw-bold bg-transparent border-bottom-0 pb-0">Vision</div>
+                    <div class="card-body">
+                       <p class="mb-0">To create and distribute enterprise centric software solutions and services, locally and
+                                globally.</p>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <div class="card-header fw-bold bg-transparent border-bottom-0 pb-0"> Quality of Statement</div>
+                    <div class="card-body">
+                        <p class="mb-0">We aren't perfect, our commitment towards improvement is.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -386,9 +354,11 @@
 </section>
 
 <!-- Tech Symbol Slider -->
-<section class="aboutus">
-    <ng-image-slider [images]="imageObject" [infinite]="true" [animationSpeed]="1" [autoSlide]="1" [showArrow]="false"
+<section class="technologies">
+    <div class="container">
+        <ng-image-slider [images]="imageObject" [infinite]="true" [animationSpeed]="1" [autoSlide]="1" [showArrow]="false" [imagePopup]="false"
         [imageSize]="{width: 250, height: 100, border: 0 }" #nav></ng-image-slider>
+    </div>
 </section>
 
 <!-- <section class="aboutus">
@@ -492,14 +462,16 @@
     </div>
 </section>
 
-<section class="bg-main clients overflow-hidden">
+<section class="clients overflow-hidden">
     <div class="row">
         <div class="col-sm-12">
             <h3>Our Clientale</h3>
         </div>
         <div class="col-sm-12">
-            <ng-image-slider [images]="imageObject2" [infinite]="true" [animationSpeed]="1" [autoSlide]="1"
-                [showArrow]="false" [imageSize]="{width: 230, height: 250, border: 0 }" #nav></ng-image-slider>
+            <div class="container">
+                <ng-image-slider [images]="imageObject2" [infinite]="true" [animationSpeed]="1" [autoSlide]="1"
+                [showArrow]="false" [imageSize]="{width: 180, height: 90, border: 0 }" #nav></ng-image-slider>
+            </div>
         </div>
     </div>
 </section>
