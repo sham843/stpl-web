@@ -386,9 +386,11 @@
 </section>
 
 <!-- Tech Symbol Slider -->
-<section class="aboutus">
-    <ng-image-slider [images]="imageObject" [infinite]="true" [animationSpeed]="1" [autoSlide]="1" [showArrow]="false" [imagePopup]="false"
+<section class="technologies">
+    <div class="container">
+        <ng-image-slider [images]="imageObject" [infinite]="true" [animationSpeed]="1" [autoSlide]="1" [showArrow]="false" [imagePopup]="false"
         [imageSize]="{width: 250, height: 100, border: 0 }" #nav></ng-image-slider>
+    </div>
 </section>
 
 <!-- <section class="aboutus">
@@ -492,14 +494,16 @@
     </div>
 </section>
 
-<section class="bg-main clients overflow-hidden">
+<section class="clients overflow-hidden">
     <div class="row">
         <div class="col-sm-12">
             <h3>Our Clientale</h3>
         </div>
         <div class="col-sm-12">
-            <ng-image-slider [images]="imageObject2" [infinite]="true" [animationSpeed]="1" [autoSlide]="1"
-                [showArrow]="false" [imageSize]="{width: 230, height: 250, border: 0 }" #nav></ng-image-slider>
+            <div class="container">
+                <ng-image-slider [images]="imageObject2" [infinite]="true" [animationSpeed]="1" [autoSlide]="1"
+                [showArrow]="false" [imageSize]="{width: 180, height: 150, border: 0 }" #nav></ng-image-slider>
+            </div>
         </div>
     </div>
 </section>

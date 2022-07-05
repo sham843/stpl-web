@@ -329,12 +329,17 @@ angular-editor{
 /* card unset for slider property */
 .ng-image-slider .ng-image-slider-container .main .main-inner .img-div 
 { 
-   
     box-shadow: unset !important;
-   
 }
 /* symbol size */
-.aboutus .ng-image-slider .ng-image-slider-container .main .main-inner
+.technologies .ng-image-slider .ng-image-slider-container .main .main-inner
  {
-    height: 92px !important;
+    height: 100px !important;
+}
+.technologies .ng-image-slider {
+    display: flex !important;
+    position: relative !important;
+    width: 100% !important;
+    align-items: center !important;
+    height: 120px !important;
 }
