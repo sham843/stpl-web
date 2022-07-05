@@ -321,6 +321,15 @@ angular-editor{
     position:unset !important;
     overflow-y:hidden !important; 
 } */
-#grid{
+/* #grid{
     grid-template-columns: repeat(6,1fr) !important;
+} */
+
+
+/* card unset for slider property */
+.ng-image-slider .ng-image-slider-container .main .main-inner .img-div 
+{ 
+   
+    box-shadow: unset !important;
+   
 }

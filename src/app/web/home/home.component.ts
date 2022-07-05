@@ -31,30 +31,114 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.subScribeForm();
     this.getPageMaster();
-
-    this.imagesUrl = ['assets/images/tech/Flutter.png',
-      'assets/images/tech/android.png',
-      'assets/images/tech/ios.png',
-      'assets/images/tech/mongoDB.png',
-      'assets/images/tech/javascript.png',
-      'assets/images/tech/azure.png',
-      'assets/images/tech/typescript.png',
-      'assets/images/tech/css3.png',
-      'assets/images/tech/Net.png',
-    ];
-
-    this.logoUrl = [
-      'assets/images/clientele/consult-buddy.png',
-      'assets/images/clientele/Govind-Logo.png',
-      'assets/images/clientele/India_Army.png',
-      'assets/images/clientele/indian-railway-logo.png',
-      'assets/images/clientele/Railtel_Logo.png',
-      'assets/images/clientele/Railway_Protection_Force_Logo.png',
-      'assets/images/clientele/Seal_of_Maharashtra.png',
-      'assets/images/clientele/trti-logo.png',
-    ]
-
   }
+
+
+  // Tech logo Slider........
+
+  imageObject: Array<object> = [
+    {
+      image: 'assets/images/tech/Flutter.png',
+      thumbImage: 'assets/images/tech/Flutter.png',
+      // title: 'APP DEVELOPMENT'
+    },
+    {
+      image: 'assets/images/tech/android.png',
+      thumbImage: 'assets/images/tech/android.png',
+      // title: 'APP DEVELOPMENT'
+    },
+    {
+      image: 'assets/images/tech/ios.png',
+      thumbImage: 'assets/images/tech/ios.png',
+      // title: 'APP DEVELOPMENT' 
+    },
+    {
+      image: 'assets/images/tech/mongoDB.png',
+      thumbImage: 'assets/images/tech/mongoDB.png',
+      // title: 'BACKEND DEVELOPMENT' 
+    },
+    {
+      image: 'assets/images/tech/javascript.png',
+      thumbImage: 'assets/images/tech/javascript.png',
+      // title: 'JS & FRAMEWORKS' 
+    },
+    {
+      image: 'assets/images/tech/azure.png',
+      thumbImage: 'assets/images/tech/azure.png',
+      // title: 'CLOUD PLATFORM' 
+    },
+    {
+      image: 'assets/images/tech/AWS.png',
+      thumbImage: 'assets/images/tech/AWS.png',
+      // title: 'CLOUD PLATFORM' 
+    },
+    {
+      image: 'assets/images/tech/typescript.png',
+      thumbImage: 'assets/images/tech/typescript.png',
+      // title: 'TS(ANGULAR)'
+    },
+    {
+      image: 'assets/images/tech/css3.png',
+      thumbImage: 'assets/images/tech/css3.png',
+      // title: 'DESIGNING' 
+    },
+    {
+      image: 'assets/images/tech/5-HTML.png',
+      thumbImage: 'assets/images/tech/5-HTML.png',
+      // title: 'DESIGNING' 
+    },
+    {
+      image: 'assets/images/tech/angular-material.png',
+      thumbImage: 'assets/images/tech/angular-material.png',
+      // title: 'FRONTEND DEVELOPMENT' 
+    },
+    {
+      image: 'assets/images/tech/Net.png',
+      thumbImage: 'assets/images/tech/Net.png',
+      // title: 'BACKEND DEVELOPMENT' 
+    }
+  ];
+  // tech logo slider ends..........
+
+  // Client tale Slider     
+  imageObject2: Array<object> = [
+    {
+      image: 'assets/images/clientele/consult-buddy.png',
+      thumbImage: 'assets/images/clientele/consult-buddy.png'
+    },
+    {
+      image: 'assets/images/clientele/Govind-Logo.png',
+      thumbImage: 'assets/images/clientele/Govind-Logo.png',
+    },
+    {
+      image: 'assets/images/clientele/India_Army.png',
+      thumbImage: 'assets/images/clientele/India_Army.png',
+    },
+    {
+      image: 'assets/images/clientele/indian-railway-logo.png',
+      thumbImage: 'assets/images/clientele/indian-railway-logo.png',
+    },
+    {
+      image: 'assets/images/clientele/Railtel_Logo.png',
+      thumbImage: 'assets/images/clientele/Railtel_Logo.png',
+    },
+    {
+      image: 'assets/images/clientele/Railway_Protection_Force_Logo.png',
+      thumbImage: 'assets/images/clientele/Railway_Protection_Force_Logo.png',
+    },
+    {
+      image: 'assets/images/clientele/Seal_of_Maharashtra.png',
+      thumbImage: 'assets/images/clientele/Seal_of_Maharashtra.png',
+    },
+    {
+      image: 'assets/images/clientele/trti-logo.png',
+      thumbImage: 'assets/images/clientele/trti-logo.png',
+    }
+  ];
+
+
+
+
 
   getPageMaster() {
     this.apiService.setHttp('get', "dashboard/GetServices", false, false, false, 'stplUrl');

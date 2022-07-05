@@ -382,11 +382,16 @@
     </div>
     <div id="whyus">
     </div>
-        
+
 </section>
 
-
+<!-- Tech Symbol Slider -->
 <section class="aboutus">
+    <ng-image-slider [images]="imageObject" [infinite]="true" [animationSpeed]="1" [autoSlide]="1" [showArrow]="false"
+        [imageSize]="{width: 250, height: 100, border: 0 }" #nav></ng-image-slider>
+</section>
+
+<!-- <section class="aboutus">
     <div class="container">
         <div class="row">
             <div class="col-md d-flex align-items-center">
@@ -430,7 +435,7 @@
 
         </div>
     </div>
-</section>
+</section> -->
 
 <section>
     <div class="container">
@@ -487,8 +492,19 @@
     </div>
 </section>
 
+<section class="bg-main clients overflow-hidden">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Our Clientale</h3>
+        </div>
+        <div class="col-sm-12">
+            <ng-image-slider [images]="imageObject2" [infinite]="true" [animationSpeed]="1" [autoSlide]="1"
+                [showArrow]="false" [imageSize]="{width: 230, height: 250, border: 0 }" #nav></ng-image-slider>
+        </div>
+    </div>
+</section>
 
-<section class="bg-main clients">
+<!-- <section class="bg-main clients">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -533,7 +549,7 @@
                         </div>
                         <div class="carousel-item">
                             <div class="row">
-                                
+
                                 <div class="col-sm-2">
                                     <div class="card card-body mb-3 mb-lg-0 h-100">
                                         <img src="assets/images/clientele/Seal_of_Maharashtra.png">
@@ -552,7 +568,7 @@
 
         </div>
     </div>
-</section>
+</section> -->
 
 <section class="counterOuter">
     <div class="container">

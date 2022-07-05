@@ -5,7 +5,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SliderModule } from 'angular-image-slider';
-
+import { NgImageSliderModule } from 'ng-image-slider';
 
 @NgModule({
   declarations: [
@@ -16,6 +16,8 @@ import { SliderModule } from 'angular-image-slider';
     HomeRoutingModule,
     ReactiveFormsModule,
     SliderModule,
+    NgImageSliderModule
+    
 
   ]
 })
