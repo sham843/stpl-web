@@ -627,6 +627,9 @@
                                     <div class="text-danger" *ngIf="f.firstName.errors?.pattern">Please
                                         enter
                                         Valid First Name.</div>
+                                    <div class="text-danger" *ngIf="f.firstName.errors?.maxlength">Please
+                                            enter
+                                            only 50 Characters.</div>
                                 </div>
                             </div>
                             <div class="col-sm mb-3 mb-lg-0">
@@ -639,6 +642,9 @@
                                         required.</div>
                                     <div class="text-danger" *ngIf="f.lastName.errors?.pattern">Please enter
                                         Valid Last Name.</div>
+                                    <div class="text-danger" *ngIf="f.lastName.errors?.maxlength">Please
+                                            enter
+                                            only 50 Characters.</div>
                                 </div>
                             </div>
                             <div class="col-sm mb-3 mb-lg-0">
