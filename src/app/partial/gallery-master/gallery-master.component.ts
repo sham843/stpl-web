@@ -54,10 +54,10 @@ export class GalleryMasterComponent implements OnInit {
   defaultForm() {
     this.galleryMasterForm = this.fb.group({
       Id: [0],
-      eventName: ['', [Validators.required, Validators.maxLength(100), Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]],
+      eventName: ['', [Validators.required, Validators.maxLength(100), Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$')]],
       eventDate: ['', Validators.required],
       eventDescription: ['', Validators.required],
-      imagePath: [''],
+      imagePath: ['', Validators.required],
     })
   }
 
