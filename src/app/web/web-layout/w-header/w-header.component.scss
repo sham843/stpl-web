@@ -1,5 +1,10 @@
-.navbar .navbar-brand img {
-  width: 180px;
+.navbar .navbar-brand {
+  background-image: url('../../../../assets/images/STPL_Logo_White.svg');
+  width: 200px;
+    height: 62px;
+    background-repeat: no-repeat;
+    padding: 0;
+    background-size: contain;
 }
 
 .navbar {
@@ -13,6 +18,14 @@
 }
 .navbar-scroll .navbar-nav .nav-link{
   color: #000;
+}
+.navbar-scroll .navbar-brand {
+  background-image: url('../../../../assets/images/STPL_Logo.svg');
+  width: 170px;
+  height: 55px;
+  background-repeat: no-repeat;
+  padding: 0;
+  background-size: contain;
 }
 .form-select {
   font-size: 0.85rem;
