@@ -608,5 +608,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 .counterOuter
 {
     padding-block: 4rem;
-    background-image: url('../../../assets/images/bg-counter.png');
+    background-image:linear-gradient(to right, rgba(0, 48, 130, 0.8), rgba(0, 48, 130, 0.8)), url('../../../assets/images/bg-counter.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
