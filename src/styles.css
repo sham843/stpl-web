@@ -333,3 +333,8 @@ angular-editor{
     box-shadow: unset !important;
    
 }
+/* symbol size */
+.aboutus .ng-image-slider .ng-image-slider-container .main .main-inner
+ {
+    height: 92px !important;
+}
