@@ -271,7 +271,7 @@ export class PostJobComponent implements OnInit {
         "jobCategory": formData.jobCategory,
         "jobLocation": formData.jobLocation,
         "jobPostDate": new Date(),
-        "jobPostEndDate": formData.jobPostEndDate,
+        "jobPostEndDate": this.commonService.setDate(formData.jobPostEndDate),
         "experienceFromYr": formData.experienceFromYr,
         "experienceToYr": formData.experienceToYr,
         "role_Responsbility": formData.role_Responsbility,
