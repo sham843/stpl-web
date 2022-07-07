@@ -19,8 +19,8 @@ export class FileUploadService {
     return new Observable(obj => {
       const selResult = event.target.value.split('.');
       const docExt = selResult.pop();
-      docExt.toLowerCase();
-      if (allowedDocTypes.match(docExt)) {
+      const docExtLowerCase =  docExt.toLowerCase();
+      if (allowedDocTypes.match(docExtLowerCase)) {
         if (event.target.files && event.target.files[0]) {
           const file = event.target.files[0];
           if ((file.size / 1048576) > maxsize) {
@@ -31,7 +31,7 @@ export class FileUploadService {
             reader.onload = () => {
               const formData = new FormData();
               formData.append('FolderName', folderName);
-              formData.append('DocumentType', docExt);
+              formData.append('DocumentType', docExtLowerCase);
               formData.append('UploadDocPath', file);
               this.apiService.setHttp('post', 'document/UploadFile', false, formData, false, 'stplUrl');
               this.apiService.getHttp().subscribe({
