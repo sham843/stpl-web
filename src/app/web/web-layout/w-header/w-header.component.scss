@@ -54,6 +54,22 @@
   border-top-right-radius: 10px;
   font-size: 0.85rem;
 }
+
+.downloadpdf {
+  position: fixed;
+  transform: rotate(270deg) translateY(-50%);
+  right: -82px;
+  z-index: 1000;
+  top: 350px;
+  border: none;
+  background: var(--main-color);
+  padding: 10px 20px;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
 .input-group .btn,
 .form-control{
     box-shadow: none;
