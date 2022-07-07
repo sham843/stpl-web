@@ -40,6 +40,7 @@ const routes: Routes = [
 
   { path: 'discoverus/clients', loadChildren: () => import('../../web/discoverus/clients/clients.module').then(m => m.ClientsModule) },
   { path: 'discoverus/gallery', loadChildren: () => import('../../web/discoverus/gallery/gallery.module').then(m => m.GalleryModule) },
+  { path: 'discoverus/about-us', loadChildren: () => import('../../web/discoverus/about-us/about-us.module').then(m => m.AboutUsModule) },
 
 
 ];

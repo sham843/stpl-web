@@ -1,0 +1,17 @@
+#how-we-work .card{
+    border: none;
+    border-radius: 0;
+    text-align: center;
+}
+#how-we-work .card-body{
+    padding:20px 30px;
+}
+#how-we-work .card img{
+    width: 60px;
+    margin:0 auto;
+    margin-bottom: 1rem;
+}
+#how-we-work .card h5{
+    font-size: 1rem;
+    margin: 0;
+}
