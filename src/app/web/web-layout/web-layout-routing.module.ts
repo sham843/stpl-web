@@ -37,6 +37,11 @@ const routes: Routes = [
   { path: 'login', loadChildren: () => import('../../web/login/login.module').then(m => m.LoginModule) , canActivate: [NoAuthGuardService]},
   { path: 'sitemap', loadChildren: () => import('../../web/sitemap/sitemap.module').then(m => m.SitemapModule) },
   { path: 'privacy-policy', loadChildren: () => import('../../web/privacy-policy/privacy-policy.module').then(m => m.PrivacyPolicyModule) },
+
+  { path: 'discoverus/clients', loadChildren: () => import('../../web/discoverus/clients/clients.module').then(m => m.ClientsModule) },
+  { path: 'discoverus/gallery', loadChildren: () => import('../../web/discoverus/gallery/gallery.module').then(m => m.GalleryModule) },
+
+
 ];
 
 @NgModule({
