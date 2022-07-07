@@ -6,8 +6,8 @@ import { CommonService } from 'src/app/core/services/common.service';
 import { ErrorsService } from 'src/app/core/services/errors.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { LocalstorageService } from 'src/app/core/services/localstorage.service';
-import { FileUploadService } from 'src/app/core/services/file-upload.service';
 import { DateTimeAdapter } from 'ng-pick-datetime';
+import { MultipleFileUploadService } from 'src/app/core/services/multiple-file-upload.service';
 
 @Component({
   selector: 'app-gallery-master',
@@ -25,11 +25,12 @@ export class GalleryMasterComponent implements OnInit {
   galleryMasterGetArray: any;
   HighlightRow!: number;
   galleryImagArray: any[] = [];
-  galleryImagArray1: any[] = [];
   checkedDataflag: boolean = true;
   @ViewChild('fileInput') fileInput!: ElementRef;
   deleteGalleryId: any;
   Min = new Date();
+  nonWhitespaceRegExp: RegExp = new RegExp("\\S");
+  gallerySubmitted = false;
 
   constructor(
     private commonService: CommonService,
@@ -39,7 +40,7 @@ export class GalleryMasterComponent implements OnInit {
     private fb: FormBuilder,
     private spinner: NgxSpinnerService,
     private localStorage: LocalstorageService,
-    private fileUploadService: FileUploadService,
+    private fileUploadService: MultipleFileUploadService,
     public dateTimeAdapter: DateTimeAdapter<any>) {
     { dateTimeAdapter.setLocale('en-IN'); }
   }
@@ -54,10 +55,10 @@ export class GalleryMasterComponent implements OnInit {
   defaultForm() {
     this.galleryMasterForm = this.fb.group({
       Id: [0],
-      eventName: ['', [Validators.required, Validators.maxLength(100), Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$')]],
+      eventName: ['', [Validators.required, Validators.maxLength(100),Validators.pattern('^[^[ ]+|[ ][gm]+$')]],
       eventDate: ['', Validators.required],
-      eventDescription: ['', Validators.required],
-      imagePath: ['', Validators.required],
+      eventDescription: ['',[ Validators.required, Validators.pattern(this.nonWhitespaceRegExp)]],
+      imagePath: [''],
     })
   }
 
@@ -66,6 +67,7 @@ export class GalleryMasterComponent implements OnInit {
     this.defaultForm();
     this.btnText = 'Submit';
     this.galleryImagArray = [];
+    this.gallerySubmitted = false;
     this.HighlightRow = 0;
   }
 
@@ -98,6 +100,7 @@ export class GalleryMasterComponent implements OnInit {
   onSubmit() {
     let formData = this.galleryMasterForm.value;
     this.submitted = true;
+    this.gallerySubmitted = true;
     if (this.galleryMasterForm.invalid) {
       return;
     } else if (this.commonService.checkDataType(this.galleryImagArray) == false) {
@@ -179,19 +182,19 @@ export class GalleryMasterComponent implements OnInit {
   }
 
   imageUpload(event: any) { //multiple Image Upload
-    let documentUrlUploaed: any;
-    let documentUrl: any = this.fileUploadService.uploadDocuments(event, "GalleryUploads", "png,jpg,jpeg", 5, 5000);
+    let documentUrl: any = this.fileUploadService.uploadDocuments(event, "GalleryUploads", "png,jpg,jpeg");
     documentUrl.subscribe({
       next: (ele: any) => {
-        documentUrlUploaed = ele.responseData;
-        if (documentUrlUploaed != null) {
-          let obj =
-          {
-            "eventId": 0,
-            "imagePath": documentUrlUploaed,
-            "isDeleted": false
-          }
-          this.checkUniqueData(obj, documentUrlUploaed);
+        if (ele.responseData != null) {
+          ele.responseData.forEach((element:any) => {
+            let obj =
+            {
+              "eventId": 0,
+              "imagePath": element.filePath,
+              "isDeleted": false
+            }
+            this.checkUniqueData(obj, element.filePath);
+          });
         }
       },
     })
