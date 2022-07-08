@@ -51,7 +51,7 @@ export class CareerComponent implements OnInit {
         } else {
           this.spinner.hide();
           this.activeJobPostArray = [];
-          this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
+          this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : '';
         }
       },
       error: ((error: any) => { this.errorSerivce.handelError(error.status), this.spinner.hide(); })

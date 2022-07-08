@@ -172,7 +172,7 @@
             </div>
           </div>
           <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Phone Number *" maxlength="10"
+            <input type="text" class="form-control" placeholder="Phone Number *" maxlength="11" minlength="10"
               (keypress)="this.commonService.onlyDigitsExcludeZeroAtStart($event)" formControlName="phoneNo"
               [ngClass]="{ 'is-invalid': submitted && f.phoneNo.errors }">
             <div *ngIf="submitted && f.phoneNo.errors" class="invalid-feedback">
@@ -247,7 +247,7 @@
             </div> -->
           </div>
           <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Phone Number *" maxlength="10"
+            <input type="text" class="form-control" placeholder="Phone Number *" maxlength="11" minlength="10"
               (keypress)="this.commonService.onlyDigitsExcludeZeroAtStart($event)" formControlName="phoneNo"
               [ngClass]="{ 'is-invalid': submitted && f.phoneNo.errors }">
             <div *ngIf="submitted && f.phoneNo.errors" class="invalid-feedback">

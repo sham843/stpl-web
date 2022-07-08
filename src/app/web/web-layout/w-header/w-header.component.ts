@@ -49,7 +49,7 @@ export class WHeaderComponent implements OnInit {
         emailId: ['',[Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]],
         // companyName: ['', [Validators.required,Validators.pattern('^[^\\s0-9\\[\\[`&._@#%*!+"\'\/\\]\\]{}][a-zA-Z.\\s]+$')]],
         companyName: [''],
-        phoneNo: ['', [Validators.required, Validators.pattern('[6-9]\\d{9}')]],
+        phoneNo: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
         requestDetails: ['',[Validators.required,Validators.pattern('^[^[ ]+|[ ][gm]+$')]],
       })
     }

@@ -142,11 +142,11 @@
                                     <div class="col-sm-6">
                                         <label class="form-label">Experience</label>
                                         <div class="input-group">
-                                            <input type="text"  class="form-control" formControlName="experienceFromYr"  placeholder="From" 
-                                            maxlength="2" (keypress)="this.commonService.onlyDigitsExcludeZeroAtStart($event)"
+                                            <input type="text"  class="form-control" formControlName="experienceFromYr" placeholder="From" 
+                                            maxlength="2" (keypress)="this.commonService.acceptedOnlyNumbers($event)"
                                                 [ngClass]="{ 'is-invalid': submitted && f.experienceFromYr.errors }">
                                             <input type="text" class="form-control" formControlName="experienceToYr" placeholder="To" 
-                                            maxlength="2" (keypress)="this.commonService.onlyDigitsExcludeZeroAtStart($event)"
+                                            maxlength="2" (keypress)="this.commonService.acceptedOnlyNumbers($event)"
                                                 [ngClass]="{ 'is-invalid': submitted && f.experienceToYr.errors }">
                                             <div *ngIf="submitted && (f.experienceFromYr.errors || f.experienceToYr.errors)" class="invalid-feedback">
                                                 <span class="text-danger"
