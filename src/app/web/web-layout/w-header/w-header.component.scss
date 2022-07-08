@@ -60,9 +60,10 @@
   transform: rotate(270deg) translateY(-50%);
   right: -82px;
   z-index: 1000;
-  top: 350px;
+  top: 355px;
   border: none;
-  background: var(--main-color);
+  // background: var(--main-color);
+  background: var(--bs-blue);
   padding: 10px 20px;
   color: white;
   border-top-left-radius: 10px;
