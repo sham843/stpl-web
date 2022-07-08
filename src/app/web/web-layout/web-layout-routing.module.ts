@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'solutions/automatic-milk-collection-unit', loadChildren: () => import('../../web/solutions/amcu/amcu.module').then(m => m.AmcuModule) },
   { path: 'solutions/kote-inventory-management-system', loadChildren: () => import('../../web/solutions/kims/kims.module').then(m => m.KimsModule) },
   { path: 'solutions/election-management-system', loadChildren: () => import('../../web/solutions/election-mgmt-system/election-mgmt-system.module').then(m => m.ElectionMgmtSystemModule) },
-  { path: 'solutions/mahamining-system', loadChildren: () => import('../../web/solutions/mahamining-system/mahamining-system.module').then(m => m.MahaminingSystemModule) },
+  { path: 'solutions/mahakhanij-system', loadChildren: () => import('../../web/solutions/mahamining-system/mahamining-system.module').then(m => m.MahaminingSystemModule) },
   { path: 'solutions/dairy-vet-software', loadChildren: () => import('../../web/solutions/dairy-vet-software/dairy-vet-software.module').then(m => m.DairyVetSoftwareModule) },
   { path: 'projects/project-details/:id', loadChildren: () => import('../../web/projects/project-details/project-details.module').then(m => m.ProjectDetailsModule) },
   // { path: 'solutions/solution-details/:id', loadChildren: () => import('../../web/solutions/solution-details/solution-details.module').then(m => m.SolutionDetailsModule) },
