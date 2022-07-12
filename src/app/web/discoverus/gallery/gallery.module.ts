@@ -6,6 +6,8 @@ import { GalleryComponent } from './gallery.component';
 import { LightgalleryModule } from 'lightgallery/angular';
 import lgThumbnail from 'lightgallery/plugins/thumbnail'
 import lgZoom from 'lightgallery/plugins/zoom'
+import { NgImageSliderModule } from 'ng-image-slider';
+
 @NgModule({
   declarations: [
     GalleryComponent
@@ -13,7 +15,8 @@ import lgZoom from 'lightgallery/plugins/zoom'
   imports: [
     CommonModule,
     GalleryRoutingModule,
-    LightgalleryModule
+    LightgalleryModule,
+    NgImageSliderModule
   ]
 })
 export class GalleryModule { }

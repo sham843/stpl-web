@@ -47,8 +47,11 @@ constructor(private commonService: CommonService,
           res.responseData.responseData1.map((x:any)=>{
             x.gallaryMasters.map((xx:any)=>{
               xx.imagePath=xx.imagePath.concat('?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1400&q=80');
+              xx.image=xx.imagePath.concat('?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1400&q=80');
+              xx.thumbImage=xx.imagePath.concat('?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=240&q=80');
               xx.imagePathSm=xx.imagePath.concat('?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=240&q=80');
             })
+            console.log(x)
           })
           console.log(this.allImageDataArray)
         } else {
@@ -59,5 +62,4 @@ constructor(private commonService: CommonService,
       error: ((error: any) => { this.errorSerivce.handelError(error.status) })
     });
   }
-
 }

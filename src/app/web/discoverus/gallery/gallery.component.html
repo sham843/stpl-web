@@ -5,11 +5,11 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-sm-12">
-                        <h3 data-aos="fade-right"  data-aos-delay="350">Gallery</h3>
+                        <h3 data-aos="fade-right" data-aos-delay="350">Gallery</h3>
                     </div>
                     <div class="col-sm-12">
                         <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb" data-aos="fade-right"  data-aos-delay="500">
+                            <ol class="breadcrumb" data-aos="fade-right" data-aos-delay="500">
                                 <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
                                 <li class="breadcrumb-item" aria-current="page">Discover Us</li>
                                 <li class="breadcrumb-item active" aria-current="page">Gallery</li>
@@ -27,13 +27,20 @@
         <div class="col-sm-12">
             <div class="card card-body" id="animated-thumbnails">
 
-                <div *ngFor="let item of allImageDataArray; let i = index">
+                <!-- <div *ngFor="let item of allImageDataArray; let i = index">
                     <lightgallery [settings]="settings" [onInit]="onInit" class="text-nowrap">
                         <h4>{{item.eventName}}</h4>
                         <a *ngFor="let subItem of item.gallaryMasters; let j = index" [attr.href]="subItem.imagePath">
                             <img alt="{{item.eventName}}" src="{{subItem.imagePathSm}}" />
                         </a>
                     </lightgallery>
+                </div> -->
+
+
+                <div *ngFor="let item of allImageDataArray; let i = index">
+                    <h4>{{item.eventName}}</h4>
+                    <ng-image-slider #nav [images]="item.gallaryMasters" [infinite]="true" [autoSlide]="1" [animationSpeed]="1"
+                        [imageSize]="{width: '25%', height: 200}" slideImage="1"></ng-image-slider>
                 </div>
             </div>
         </div>
