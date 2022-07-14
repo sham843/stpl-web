@@ -122,6 +122,7 @@ ngx-file-drag-drop .placeholder
     font-size: 1rem;
     box-shadow: none;
 }
+.form-container .form-data,
 .form-container .form-select,
 .form-container .form-check-label,
 .form-container .form-control,
@@ -180,6 +181,7 @@ ngx-file-drag-drop .placeholder
 .dashboard-table tbody td .btn{
     font-size: 0.8rem;
     padding: 5px 8px;
+    box-shadow: none;
 }
 .modal .btn-close{
     filter: invert(1);
