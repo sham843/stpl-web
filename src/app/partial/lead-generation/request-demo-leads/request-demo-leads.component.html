@@ -47,7 +47,7 @@
                         <p class="mb-1"><i class="fa-regular fa-envelope me-2"></i>{{requestDemo?.emailId}}</p>
                         <p class="mb-1"><i class="fa-solid fa-phone me-2"></i>{{requestDemo?.phoneNo}}</p>
                     </td>
-                    <td>{{requestDemo?.companyName}}</td>
+                    <td>{{requestDemo?.companyName ? requestDemo?.companyName : '-'}}</td>
                     <td>
                         <p *ngIf="requestDemo?.isRequest == 1" class="p-1 text-center rounded-pill text-success bg-success bg-opacity-10 mb-0">Request a Demo</p>
                         <p *ngIf="requestDemo?.isRequest == 2" class="p-1 text-center rounded-pill text-primary bg-primary bg-opacity-10 mb-0">Connect With Us</p>
