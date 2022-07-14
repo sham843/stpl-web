@@ -17,6 +17,7 @@
                     <!-- <th>Last Name</th> -->
                     <th>Email ID</th>
                     <th>Unsubscribe</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,6 +33,10 @@
                                 (change)="updateActiveSubScription(subscriber,$event)"
                                 [checked]="subscriber?.isSubscribe == 1" id="flexSwitchCheckDefault">
                         </div>
+                    </td>
+                    <td>
+                        <button type="button" class="btn bg-danger bg-opacity-10 text-danger rounded"><i
+                            class="fa-solid fa-trash-can"></i></button>
                     </td>
                 </tr>
             </tbody>
