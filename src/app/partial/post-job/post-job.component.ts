@@ -317,7 +317,7 @@ export class PostJobComponent implements OnInit {
       jobDescription: obj.jobDescription,
       jobCategory: obj.jobCategory,
       jobLocation: obj.jobLocation,
-      jobPostEndDate: obj.jobPostEndDate,
+      jobPostEndDate: new Date(obj.jobPostEndDate),
       experienceFromYr: expFromYr,
       experienceToYr: expToYr,
       role_Responsbility: obj.role_Responsbility,
