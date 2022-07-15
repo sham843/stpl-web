@@ -104,6 +104,7 @@ body {
     font-size: 0.9rem;
     color: #555;
     line-height: 1.6rem;
+    text-align: justify;
 }
 ngx-file-drag-drop{
     margin-inline:0 !important ;

@@ -27,6 +27,8 @@ export class ContactUsComponent implements OnInit {
 
   ngOnInit(): void {
     this.myContactUsForm();
+    window.scroll(0, 700);
+
   }
 
   get f() { return this.contactUsForm.controls }
