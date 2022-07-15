@@ -18,8 +18,8 @@
             </div> -->
             <div class="col-sm-3 form-container">
                 <ngx-select [allowClear]="true" [items]="leadTypeArray" (remove)="clearFilter()"
-                    (select)="pageNumber = 1;getAllRequestDemo()" [formControl]="leadType"
-                    placeholder="Select LeadType" optionValueField="id" optionTextField="name">
+                    (select)="pageNumber = 1;getAllRequestDemo()" [formControl]="leadType" placeholder="Select LeadType"
+                    optionValueField="id" optionTextField="name">
                 </ngx-select>
             </div>
         </div>
@@ -34,12 +34,12 @@
                     <th>Contact Details</th>
                     <th>Company Name</th>
                     <th>Lead Type</th>
-                    <th>Message</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let requestDemo of requestDemoArray | paginate: {itemsPerPage: pagesize, 
-                    currentPage: pageNumber, totalItems:totalRows}; let i = index ">
+                    currentPage: pageNumber, totalItems:totalRows}; let i = index " [class.active]="requestDemo.id == HighlightRow">
                     <td>{{((pageNumber + 1) * 10 + i + 1)-20}}</td>
                     <td>{{requestDemo?.createdDateFormatdate | date: 'dd/MM/yyyy h:mm a'}}</td>
                     <td>{{requestDemo?.fullName}}</td>
@@ -49,10 +49,23 @@
                     </td>
                     <td>{{requestDemo?.companyName ? requestDemo?.companyName : '-'}}</td>
                     <td>
-                        <p *ngIf="requestDemo?.isRequest == 1" class="p-1 text-center rounded-pill text-success bg-success bg-opacity-10 mb-0">Request a Demo</p>
-                        <p *ngIf="requestDemo?.isRequest == 2" class="p-1 text-center rounded-pill text-primary bg-primary bg-opacity-10 mb-0">Connect With Us</p>
+                        <p *ngIf="requestDemo?.isRequest == 1"
+                            class="p-1 text-center rounded-pill text-success bg-success bg-opacity-10 mb-0">Request a
+                            Demo</p>
+                        <p *ngIf="requestDemo?.isRequest == 2"
+                            class="p-1 text-center rounded-pill text-primary bg-primary bg-opacity-10 mb-0">Connect With
+                            Us</p>
                     </td>
-                    <td [appTooltip] title="{{requestDemo?.requestDetails}}"><span class="text-ellipsis-250px">{{requestDemo?.requestDetails}}</span></td>
+                    <!-- <td [appTooltip] title="{{requestDemo?.requestDetails}}"><span class="text-ellipsis-250px">{{requestDemo?.requestDetails}}</span></td> -->
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-light text-dark me-2 rounded" data-bs-toggle="modal"
+                              (click)="showReqDemoModel(requestDemo)"  data-bs-target="#ShowModal"><i class="fa-solid fa-eye"></i></button>
+                            <button type="button" class="btn bg-danger bg-opacity-10 text-danger rounded"
+                            (click)="deleteConformation(requestDemo?.id)" data-bs-toggle="modal" data-bs-target="#deleteModel">
+                            <i class="fa-solid fa-trash-can"></i></button>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -63,5 +76,78 @@
         <pagination-controls *ngIf="requestDemoArray?.length != 0" previousLabel="" nextLabel=""
             (pageChange)="onClickPagintion($event)">
         </pagination-controls>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="ShowModal" tabindex="-1" aria-labelledby="ShowModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0">
+            <div class="modal-header bg-main text-white">
+                <p class="modal-title mb-0" id="ShowModalLabel">Contact Details</p>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-container">
+                    <div class="mb-2 row">
+                        <div class="col-sm-6">
+                            <label class="form-label">Full Name</label>
+                            <div class="form-data">{{reuDemoModelData?.fullName}}</div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-label">Contact Date</label>
+                            <div class="form-data">{{reuDemoModelData?.createdDateFormatdate | date: 'dd/MM/yyyy h:mm a'}}</div>
+                        </div>
+                    </div>
+                    <div class="mb-2 row">
+                        <div class="col-sm-6">
+                            <label class="form-label">Email ID</label>
+                            <div class="form-data">{{reuDemoModelData?.emailId}}</div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-label">Contact No.</label>
+                            <div class="form-data">{{reuDemoModelData?.phoneNo}}</div>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Comapny Name</label>
+                        <div class="form-data">{{reuDemoModelData?.companyName ? reuDemoModelData?.companyName : '-'}}</div>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Lead Type</label>
+                        <div class="form-data">{{reuDemoModelData?.isRequest == 1 ? 'Request a Demo' : 'Connect With Us'}}</div>
+                    </div>
+                    <div class="mb-0">
+                        <label class="form-label">Message</label>
+                        <div class="form-data">{{reuDemoModelData?.requestDetails}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer form-container">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete modal pop up -->
+<div class="modal fade" id="deleteModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="ProgramStatusModal1Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-transparent border-bottom-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center pb-5">
+                <h3 class="my-3">Are You Sure?</h3>
+                <p class="mb-4">Do you really want to This process can not be undone.</p>
+                <button class="btn btn-secondary me-2" data-bs-dismiss="modal" type="button" data-bs-dismiss="modal"
+                    aria-label="Close">Cancel</button>
+                <button class="btn btn-danger" type="button" data-bs-dismiss="modal" aria-label="Close" type="button"
+                    data-bs-dismiss="modal" aria-label="Close" (click)="deleteReqDemo()">I'm
+                    Sure</button>
+            </div>
+        </div>
     </div>
 </div>

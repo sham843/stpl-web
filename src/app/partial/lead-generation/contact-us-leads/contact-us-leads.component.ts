@@ -3,6 +3,8 @@ import { ApiService } from 'src/app/core/services/api.service';
 import { CommonService } from 'src/app/core/services/common.service';
 import { ErrorsService } from 'src/app/core/services/errors.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { LocalstorageService } from 'src/app/core/services/localstorage.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-contact-us-leads',
@@ -15,11 +17,16 @@ export class ContactUsLeadsComponent implements OnInit {
   totalRows: any;
   pageNumber: number = 1;
   pagesize: number = 10;
+  contactDetailModelData:any;
+  HighlightRow:any;
+  deletecontctUsId:any;
 
   constructor(
     private commonService: CommonService,
     public apiService: ApiService,
     private errorSerivce: ErrorsService,
+    private toastrService: ToastrService,
+    private localStorage: LocalstorageService,
     private spinner: NgxSpinnerService,)
    { }
 
@@ -51,6 +58,36 @@ export class ContactUsLeadsComponent implements OnInit {
   onClickPagintion(pageNo: any) {
     this.pageNumber = pageNo;
     this.getAllContactUs();
+  }
+
+  showContactDetailModel(obj: any) {
+    this.HighlightRow = obj.id;
+    this.contactDetailModelData = obj;
+  }
+
+  deleteConformation(id: any) {
+    this.HighlightRow = id;
+    this.deletecontctUsId = id;
+  }
+
+  deleteContactUs() {
+    let obj = {
+      "id": parseInt(this.deletecontctUsId),
+      "modifiedBy": this.localStorage.userId(),
+      "modifiedDate": new Date()
+    }
+    this.apiService.setHttp('DELETE', "ContactUs", false, JSON.stringify(obj), false, 'stplUrl');
+    this.apiService.getHttp().subscribe({
+      next: (res: any) => {
+        if (res.statusCode === "200") {
+          this.toastrService.success(res.statusMessage);
+          this.getAllContactUs();
+        } else {
+          this.commonService.checkDataType(res.statusMessage) == false ? this.errorSerivce.handelError(res.statusCode) : this.toastrService.error(res.statusMessage);
+        }
+      },
+      error: ((error: any) => { this.errorSerivce.handelError(error.status) })
+    });
   }
   
 }
