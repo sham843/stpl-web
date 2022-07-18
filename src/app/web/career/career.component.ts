@@ -32,6 +32,8 @@ export class CareerComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllActiveJobPost();
+    window.scroll(0, 700);
+
   }
 
   navigatePage(jobPost: any) {

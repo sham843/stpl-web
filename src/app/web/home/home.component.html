@@ -584,7 +584,7 @@
                     <form [formGroup]="applaySubscribeForm">
                         <div class="row">
                             <div class="col-sm mb-3 mb-lg-0">
-                                <input type="text" class="form-control" placeholder="First Name"
+                                <input type="text" class="form-control" placeholder="First Name" maxlength="50"
                                     formControlName="firstName"
                                     [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
                                 <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
@@ -600,7 +600,7 @@
                                 </div>
                             </div>
                             <div class="col-sm mb-3 mb-lg-0">
-                                <input type="text" class="form-control" placeholder="Last Name"
+                                <input type="text" class="form-control" placeholder="Last Name" maxlength="50"
                                     formControlName="lastName"
                                     [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
                                 <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">

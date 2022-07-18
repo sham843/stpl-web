@@ -38,6 +38,8 @@ export class JobDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.defaultApplayJobForm();
     this.jobPostGetById();
+    window.scroll(0, 700);
+
   }
 
   jobPostGetById() {
